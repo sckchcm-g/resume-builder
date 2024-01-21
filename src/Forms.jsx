@@ -1,4 +1,4 @@
-import PersonaIInfo from "../PersonaIInfo";
+import PersonaIInfo from "./PersonaIInfo";
 
 const Forms = () => {
   return (
