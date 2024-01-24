@@ -1,9 +1,13 @@
-import Forms from "./Forms";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Forms />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 }
