@@ -1,6 +1,31 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
 export default function PersonaIInfo() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const [successMsg, setSuccessMsg] = useState("");
+
+  function sumbitData(data) {
+    console.log(data);
+
+    setSuccessMsg("Data is updated.");
+
+    reset();
+  }
+
   return (
-    <div className="p-5 w-full h-[100vh] lg:w-1/2 border-2 border-purple-300 rounded-md border-t-purple-600 border-t-2   m-6 relative">
+    <div className="p-6 m-4 w-full h-[100vh] lg:w-1/2 border-2 overflow-hidden border-purple-300 rounded-md border-t-purple-600 border-t-2   relative">
+      {successMsg && (
+        <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
+          {successMsg}
+        </p>
+      )}
       <h2 className="text-2xl font-semibold leading-7 text-gray-900">
         Personal Information
       </h2>
@@ -9,7 +34,10 @@ export default function PersonaIInfo() {
         Get started with the basics: your name and contact information
       </p>
 
-      <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <form
+        className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+        onSubmit={handleSubmit(sumbitData)}
+      >
         <div className="sm:col-span-3">
           <label
             htmlFor="first-name"
@@ -20,11 +48,23 @@ export default function PersonaIInfo() {
           <div className="mt-2">
             <input
               type="text"
-              name="first-name"
+              name="firstName"
               id="first-name"
-              autoComplete="given-name"
+              {...register("firstName", {
+                required: "enter your first name please!!",
+                pattern: {
+                  value: /^[a-zA-Z]+$/,
+                  message: "name should contain only characters.",
+                },
+              })}
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
+            {errors.firstName && (
+              <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
+                {errors.firstName.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -40,9 +80,21 @@ export default function PersonaIInfo() {
               type="text"
               name="last-name"
               id="last-name"
-              autoComplete="family-name"
+              autoComplete="off"
+              {...register("last-name", {
+                required: "enter your last name please!!",
+                pattern: {
+                  value: /^[a-zA-Z]+$/,
+                  message: "name should contain only characters.",
+                },
+              })}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
+            {errors["last-name"] && (
+              <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
+                {errors["last-name"].message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -55,18 +107,30 @@ export default function PersonaIInfo() {
           </label>
           <div className="mt-2">
             <input
-              type="text"
-              name="last-name"
+              type="email"
+              name="email-address"
               id="email-address"
-              autoComplete="family-name"
+              {...register("email-address", {
+                required: "email is required",
+                pattern: {
+                  value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                  message: "enter the vaild email",
+                },
+              })}
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
+            {errors["email-address"] && (
+              <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
+                {errors["email-address"].message}
+              </p>
+            )}
           </div>
         </div>
 
         <div className="sm:col-span-3">
           <label
-            htmlFor="last-name"
+            htmlFor="address"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             Address
@@ -74,9 +138,9 @@ export default function PersonaIInfo() {
           <div className="mt-2">
             <input
               type="text"
-              name="last-name"
-              id="last-name"
-              autoComplete="family-name"
+              name="address"
+              id="address"
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -84,7 +148,7 @@ export default function PersonaIInfo() {
 
         <div className="sm:col-span-3">
           <label
-            htmlFor="last-name"
+            htmlFor="city"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             City
@@ -92,9 +156,10 @@ export default function PersonaIInfo() {
           <div className="mt-2">
             <input
               type="text"
-              name="last-name"
-              id="last-name"
-              autoComplete="family-name"
+              name="city"
+              id="city"
+              {...register("city")}
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -102,7 +167,7 @@ export default function PersonaIInfo() {
 
         <div className="sm:col-span-3">
           <label
-            htmlFor="last-name"
+            htmlFor="city-code"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             City Code
@@ -110,9 +175,10 @@ export default function PersonaIInfo() {
           <div className="mt-2">
             <input
               type="text"
-              name="last-name"
-              id="last-name"
-              autoComplete="family-name"
+              name="city-code"
+              id="city-code"
+              {...register("city-code")}
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -120,7 +186,7 @@ export default function PersonaIInfo() {
 
         <div className="sm:col-span-3">
           <label
-            htmlFor="last-name"
+            htmlFor="state"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             State
@@ -128,9 +194,10 @@ export default function PersonaIInfo() {
           <div className="mt-2">
             <input
               type="text"
-              name="last-name"
-              id="last-name"
-              autoComplete="family-name"
+              name="state"
+              id="state"
+              {...register("state")}
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -138,7 +205,7 @@ export default function PersonaIInfo() {
 
         <div className="sm:col-span-3">
           <label
-            htmlFor="last-name"
+            htmlFor="country"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             Country
@@ -146,14 +213,24 @@ export default function PersonaIInfo() {
           <div className="mt-2">
             <input
               type="text"
-              name="last-name"
-              id="last-name"
-              autoComplete="family-name"
+              name="country"
+              id="country"
+              {...register("country")}
+              autoComplete="off"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
-      </div>
+        <div className="flex px-2">
+          <button
+            type="submit"
+            className="bg-purple-500 hover:bg-purple-700 text-white font-semibold py-1 px-3   rounded"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+      <span className="block w-full h-0.5 mt-4 bg-purple-200"></span>
     </div>
   );
 }
