@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar.jsx'
 import LivePreview from './LivePreview.jsx'
 import MobileFooter from './MobileFooter.jsx'
-import Forms from './Forms.jsx'
+import Forms from '../Forms.jsx'
 function MediumView() {
   return (
     <div className='medium-view '>

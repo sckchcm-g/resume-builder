@@ -2,17 +2,15 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function PersonaIInfo() {
-  function handleChange(e){
-    e.preventDefault();
-    console.log(e.target.value)
-  }
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
   const [successMsg, setSuccessMsg] = useState("");
+
   function sumbitData(data) {
     console.log(data);
 
@@ -60,7 +58,6 @@ export default function PersonaIInfo() {
                 },
               })}
               autoComplete="off"
-              onChange={handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
             {errors.firstName && (
@@ -91,7 +88,6 @@ export default function PersonaIInfo() {
                   message: "name should contain only characters.",
                 },
               })}
-              onChange={handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
             {errors["last-name"] && (
@@ -122,7 +118,6 @@ export default function PersonaIInfo() {
                 },
               })}
               autoComplete="off"
-              onChange={handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
             {errors["email-address"] && (
@@ -146,7 +141,6 @@ export default function PersonaIInfo() {
               name="address"
               id="address"
               autoComplete="off"
-              onChange={handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -166,7 +160,6 @@ export default function PersonaIInfo() {
               id="city"
               {...register("city")}
               autoComplete="off"
-              onChange = {handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -186,7 +179,6 @@ export default function PersonaIInfo() {
               id="city-code"
               {...register("city-code")}
               autoComplete="off"
-              onChange = {handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -206,7 +198,6 @@ export default function PersonaIInfo() {
               id="state"
               {...register("state")}
               autoComplete="off"
-              onChange = {handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -226,7 +217,6 @@ export default function PersonaIInfo() {
               id="country"
               {...register("country")}
               autoComplete="off"
-              onChange = {handleChange}
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
@@ -241,6 +231,6 @@ export default function PersonaIInfo() {
         </div>
       </form>
       <span className="block w-full h-0.5 mt-4 bg-purple-200"></span>
-    </div>
-  );
+    </div>
+  );
 }

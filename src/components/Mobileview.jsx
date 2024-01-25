@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import MobileFooter from './MobileFooter'
 
-import Forms from './Forms'
+import Forms from '../Forms'
 function Mobileview() {
   return (
     <div className='w-[100%] '>

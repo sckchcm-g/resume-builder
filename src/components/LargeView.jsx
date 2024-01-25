@@ -1,5 +1,5 @@
 import React from 'react'
-import Forms from './Forms.jsx'
+import Forms from '../Forms.jsx'
 import LivePreview from './LivePreview.jsx'
 
 import Navbar from './Navbar.jsx'
