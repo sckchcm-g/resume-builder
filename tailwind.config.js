@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        'custom-orange': 'rgba(222, 133, 53, 0.5)',
+      },
+    },
   },
   plugins: [],
 };
