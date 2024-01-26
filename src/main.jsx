@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import Home from "./Components/Home/Home.jsx";
+import { Provider } from "react-redux";
+import store from "./components/reduxToolkit/Store.jsx";
 import {
   Route,
   RouterProvider,
@@ -21,7 +23,9 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
+  </Provider>
 );
