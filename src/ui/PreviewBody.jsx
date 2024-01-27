@@ -1,4 +1,9 @@
+import React from "react";
+//import { selectUserData } from "../components/reduxToolkit/FormDataSlice.jsx";
+//import { useSelector } from "react-redux";
+
 function PreviewBody() {
+
   return (
     <div>
       <h1 className=" text-serif text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">

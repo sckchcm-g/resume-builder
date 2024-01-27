@@ -1,6 +1,7 @@
 import "./App.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Home from "./pages/Home.jsx";
+import './App.css'
 import {
   Route,
   RouterProvider,
