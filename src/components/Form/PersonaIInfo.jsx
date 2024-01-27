@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../reduxToolkit/FormDataSlice.jsx";
 
 export default function PersonaIInfo() {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -12,7 +16,9 @@ export default function PersonaIInfo() {
   const [successMsg, setSuccessMsg] = useState("");
 
   function sumbitData(data) {
-    console.log(data);
+    //console.log(data);
+    // Dispatch the action to update the Redux store
+    dispatch(setUserData(data));
 
     setSuccessMsg("Data is updated.");
 
@@ -141,7 +147,8 @@ export default function PersonaIInfo() {
               name="address"
               id="address"
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              {...register("address")}
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
