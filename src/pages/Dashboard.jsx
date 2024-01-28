@@ -1,48 +1,45 @@
 import { useEffect, useState } from "react";
-import MobileView from "../components/Dashboard/Mobileview";
-import MediumView from "../components/Dashboard/MediumView";
-import LargeView from "../components/Dashboard/LargeView";
-
+import AppLayout from "../ui/AppLayout.jsx";
+import DesktopView from "../ui/DesktopView.jsx";
 function Dashboard() {
   const [viewSize, setViewSize] = useState(null);
 
   useEffect(() => {
-    console.log("Component mounted");
+    
 
     const handleResize = () => {
-      // Update the state based on the viewport width
+      
       const width = window.innerWidth;
+      console.log(width)
       if (width <= 576) {
         setViewSize("small");
       } else if (width > 576 && width <= 1024) {
         setViewSize("medium");
-      } else {
+      } else if (width > 1024 && width <= 1280) {
         setViewSize("large");
+      } else {
+        setViewSize("Xtra-large");
       }
     };
-
-    // Initial check on mount
-    handleResize();
-
+    
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
-
+    // Initial check for the window size when the component mounts
+  handleResize();
     // Cleanup the event listener on component unmount
     return () => {
-      console.log("Component will unmount");
+      
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <div>
-      {viewSize === "small" ? (
-        <MobileView />
-      ) : viewSize === "medium" ? (
-        <MediumView />
-      ) : (
-        <LargeView />
-      )}
+      {viewSize === "Xtra-large" ? (
+      <DesktopView />
+    ) : (
+      <AppLayout />
+    )}
     </div>
   );
 }

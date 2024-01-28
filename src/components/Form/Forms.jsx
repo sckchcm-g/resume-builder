@@ -3,7 +3,7 @@ import Experience from "./Experience";
 import PersonalInfo from "./PersonaIInfo";
 const Forms = () => {
   return (
-    <div className="  ">
+    <div className="md:max-h-full w-[100%]  max-h-80 overflow-auto  ">
       <PersonalInfo />
     </div>
   );

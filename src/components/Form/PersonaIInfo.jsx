@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setUserData } from "../reduxToolkit/FormDataSlice.jsx";
+import { setUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 export default function PersonaIInfo() {
   const dispatch = useDispatch();
@@ -26,17 +26,17 @@ export default function PersonaIInfo() {
   }
 
   return (
-    <div className="p-6 m-4 w-full h-[100vh] lg:w-full shadow-purple-100 shadow-lg verflow-hidden  rounded-xl   ">
+    <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[80%] xl:w-[45%] border-2 overflow-hidden border-purple-300 rounded-md border-t-purple-600 border-t-2 ">
       {successMsg && (
         <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
           {successMsg}
         </p>
       )}
-      <h2 className="text-2xl font-semibold leading-7 text-gray-900">
+      <h2 className="text-xl md:text-2xl md:w-[230px] font-semibold leading-7 text-gray-900 border-b-4 border-[#9333ea]  w-[200px] pb-[5px]">
         Personal Information
       </h2>
-      <div className="absolute border-t-4  border-purple-600 w-1/3"></div>
-      <p className="my-1.5 text-base leading-6 text-gray-500 ">
+      {/* <div className="absolute border-t-4  border-purple-600 w-1/3"></div> */}
+      <p className="my-1.5 text-base leading-6 text-gray-500">
         Get started with the basics: your name and contact information
       </p>
 
@@ -64,7 +64,7 @@ export default function PersonaIInfo() {
                 },
               })}
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
             {errors.firstName && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
@@ -94,7 +94,7 @@ export default function PersonaIInfo() {
                   message: "name should contain only characters.",
                 },
               })}
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
             {errors["last-name"] && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
@@ -124,7 +124,7 @@ export default function PersonaIInfo() {
                 },
               })}
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
             {errors["email-address"] && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
@@ -148,7 +148,7 @@ export default function PersonaIInfo() {
               id="address"
               autoComplete="off"
               {...register("address")}
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function PersonaIInfo() {
               id="city"
               {...register("city")}
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function PersonaIInfo() {
               id="city-code"
               {...register("city-code")}
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function PersonaIInfo() {
               id="state"
               {...register("state")}
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -224,7 +224,7 @@ export default function PersonaIInfo() {
               id="country"
               {...register("country")}
               autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -237,6 +237,7 @@ export default function PersonaIInfo() {
           </button>
         </div>
       </form>
+      <span className="block w-[70%] h-0.5 mt-4 bg-purple-200"></span>
     </div>
   );
 }
