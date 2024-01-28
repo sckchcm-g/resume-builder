@@ -77,7 +77,7 @@ function Home() {
                     className="text-sky-500 hover:underline"
                   >
                     Terms of Services
-                  </a>{" "}
+                  </a>
                   and&nbsp;
                   <a
                     href="https://google.com/"

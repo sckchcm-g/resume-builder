@@ -1,4 +1,5 @@
-import PersonaIInfo from "./PersonaIInfo";
+import Education from "./Education";
+import Experience from "./Experience";
 
 const Forms = () => {
   return (

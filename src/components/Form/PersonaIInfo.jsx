@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 export default function PersonaIInfo() {
-  
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -42,13 +41,13 @@ export default function PersonaIInfo() {
       </p>
 
       <form
-        className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+        className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6"
         onSubmit={handleSubmit(sumbitData)}
       >
         <div className="sm:col-span-3">
           <label
             htmlFor="first-name"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900 "
           >
             First Name
           </label>
@@ -78,7 +77,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="last-name"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             Last name
           </label>
@@ -108,7 +107,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="email-address"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             Email Address
           </label>
@@ -138,7 +137,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="address"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             Address
           </label>
@@ -157,7 +156,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="city"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             City
           </label>
@@ -176,7 +175,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="city-code"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             City Code
           </label>
@@ -195,7 +194,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="state"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             State
           </label>
@@ -214,7 +213,7 @@ export default function PersonaIInfo() {
         <div className="sm:col-span-3">
           <label
             htmlFor="country"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="block text-sm font-normal leading-6 text-gray-900"
           >
             Country
           </label>
