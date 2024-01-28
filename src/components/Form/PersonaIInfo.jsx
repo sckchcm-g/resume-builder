@@ -26,7 +26,7 @@ export default function PersonaIInfo() {
   }
 
   return (
-    <div className="p-6 m-4 w-full h-[100vh] lg:w-full shadow-purple-100 shadow-lg verflow-hidden  rounded-xl    relative">
+    <div className="p-6 m-4 w-full h-[100vh] lg:w-full shadow-purple-100 shadow-lg verflow-hidden  rounded-xl   ">
       {successMsg && (
         <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
           {successMsg}
