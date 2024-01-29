@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function Template1() {
   const userInputData = useSelector(selectUserData);
   return (
-    <div className=" template template1 hidden mt-[20px] lg:block w-[90%] xl:w-[50%] shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
+    <div className=" template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
         <header className="flex justify-between ">
@@ -31,52 +31,59 @@ function Template1() {
                   ? userInputData.firstName
                   : "Chris"}
               </div>
-              <div className="lastName text-[#de8535] font-serif text-4xl">
-                {userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Candidate"}
-              </div>
-              <div className="job-title text-md font-serif">
-                Human Resource Manager
-              </div>
-            </div>
-          </div>
-          <div className="right text-custom-orange ">
-            <div className="adress text-xs">
-              {userInputData && userInputData.address
-                ? userInputData.address
-                : "Sunnydale Lane"}
-            </div>
-            <div className="adress-city  flex  gap-[5px]">
-              <div className="city text-xs">
-                {userInputData && userInputData.city
-                  ? userInputData.city
-                  : "Plano"}
-              </div>
-              <div className="city-code text-xs">
-                {userInputData && userInputData["city-code"]
-                  ? userInputData["city-code"]
-                  : "TX 75071"}
+              <div>
+                <div className="firstName text-[#de8535] font-serif text-4xl">
+                  {userInputData && userInputData.firstName
+                    ? userInputData.firstName
+                    : "Chris"}
+                </div>
+                <div className="lastName text-[#de8535] font-serif text-4xl">
+                  {userInputData && userInputData["last-name"]
+                    ? userInputData["last-name"]
+                    : "Candidate"}
+                </div>
+                <div className="job-title text-md font-serif">
+                  Human Resource Manager
+                </div>
               </div>
             </div>
-            <div className="adress-state-country  flex   gap-[5px]">
-              <div className="state text-xs">
-                {userInputData && userInputData.state
-                  ? userInputData.state
-                  : "Texas"}
+            <div className="right text-custom-orange ">
+              <div className="adress text-xs">
+                {userInputData && userInputData.address
+                  ? userInputData.address
+                  : "Sunnydale Lane"}
               </div>
-              <div className="country text-xs">
-                {userInputData && userInputData.country
-                  ? userInputData.country
-                  : "USA"}
+              <div className="adress-city  flex  gap-[5px]">
+                <div className="city text-xs">
+                  {userInputData && userInputData.city
+                    ? userInputData.city
+                    : "Plano"}
+                </div>
+                <div className="city-code text-xs">
+                  {userInputData && userInputData["city-code"]
+                    ? userInputData["city-code"]
+                    : "TX 75071"}
+                </div>
               </div>
+              <div className="adress-state-country  flex   gap-[5px]">
+                <div className="state text-xs">
+                  {userInputData && userInputData.state
+                    ? userInputData.state
+                    : "Texas"}
+                </div>
+                <div className="country text-xs">
+                  {userInputData && userInputData.country
+                    ? userInputData.country
+                    : "USA"}
+                </div>
+              </div>
+              <div className="email text-xs">
+                {userInputData && userInputData["email-address"]
+                  ? userInputData["email-address"]
+                  : "email@youremail.com"}
+              </div>
+              {/* <div className="phone text-xs">{userInputData && userInputData.address ? userInputData.address : "(469) 385-2948"}</div> */}
             </div>
-            <div className="email text-xs">
-              {userInputData && userInputData["email-address"]
-                ? userInputData["email-address"]
-                : "email@youremail.com"}
-            </div>
-            {/* <div className="phone text-xs">{userInputData && userInputData.address ? userInputData.address : "(469) 385-2948"}</div> */}
           </div>
         </header>
         <p className="description text-[10px] text-gray-500 pt-4">

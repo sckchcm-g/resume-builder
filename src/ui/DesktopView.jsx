@@ -1,6 +1,5 @@
 import React from "react";  
 import Header from "./Header.jsx";
-import Navbar from "./Navbar.jsx";
 import tempImg from '../assets/layout.png'
 import viewImg from "../assets/view.png"
 import PersonaIInfo from "../components/Form/PersonaIInfo.jsx";
