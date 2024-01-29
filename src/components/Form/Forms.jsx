@@ -1,8 +1,9 @@
-import PersonaIInfo from "./PersonaIInfo";
+import Education from "./Education";
+import Experience from "./Experience";
 
 const Forms = () => {
   return (
-    <div className="md:max-h-screen w-[100%] md:overflow-hidden max-h-80 overflow-auto  ">
+    <div className="md:max-h-full w-[100%]  max-h-80 overflow-auto  ">
       <PersonaIInfo />
     </div>
   );

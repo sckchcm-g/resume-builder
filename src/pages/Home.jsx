@@ -1,11 +1,11 @@
-import Navbar from "../components/Navbar";
+import Header from "../ui/Header";
 import createNewResume from "../assets/create-new-resume.svg";
 import importResume from "../assets/import-your-resume.svg";
 import { Link } from "react-router-dom";
 function Home() {
   return (
     <>
-      <Navbar />
+      <Header />
 
       <div id="app" className="h-screen w-full">
         <div id="wrapper" className="p-4">
@@ -77,7 +77,7 @@ function Home() {
                     className="text-sky-500 hover:underline"
                   >
                     Terms of Services
-                  </a>{" "}
+                  </a>
                   and&nbsp;
                   <a
                     href="https://google.com/"

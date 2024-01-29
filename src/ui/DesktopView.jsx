@@ -1,14 +1,24 @@
-import React from "react";
-import tempImg from "../../assets/layout.png";
-import viewImg from "../../assets/view.png";
-function MobileFooter() {
+import React from "react";  
+import Header from "./Header.jsx";
+import Navbar from "./Navbar.jsx";
+import tempImg from '../assets/layout.png'
+import viewImg from "../assets/view.png"
+import PersonaIInfo from "../components/Form/PersonaIInfo.jsx";
+import Template1 from "./templates/Template1.jsx";
+import Footer from "./Footer.jsx";
+function DesktopView() {
   return (
-    <footer className="mobilefooter flex items-center justify-between px-2  py-3 lg:py-0 lg:pb-3 md:justify-between md:px-[30px]  md:pt-[80px] ">
+    <div>
+    <div className="desktop-view flex w-[97%] pt-[20px]   mx-[30px] ">
+      <Header />
+      <div className="left w-[45%] ">
+        {/* navbar */}
+        <div className=" bg-white  flex items-center justify-between  w-[85%]">
       <button className="flex items-center gap-2 border border-sky-500  rounded-2xl py-1 px-2 hover:bg-sky-500 hover:text-white transition duration-700 shadow-[#9333ea] shadow-md">
         <img src={tempImg} alt="" className="w-4 hover:text-white" />
         <span className="hover:text-white text-sky-500">Templates</span>
       </button>
-      <div className="right-buttons flex gap-2 w-[130px]   ">
+      <div className="right-buttons flex gap-2 w-[130px] items-center">
         <button className="flex flex-col p-1 lg:p-2 lg:shadow-[#9333ea] lg:shadow-md items-center rounded-full shadow-xl hover:bg-sky-500 hover:text-white transition duration-700 ">
           <img src={viewImg} alt="" className="w-4 " />
           <span className="text-sky-500 text-[10px] hover:text-white lg:text-md ">
@@ -17,7 +27,7 @@ function MobileFooter() {
         </button>
         <button
           type="button"
-          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center flex items-center gap-[5px]"
         >
           Next
           <svg
@@ -36,8 +46,16 @@ function MobileFooter() {
           </svg>
         </button>
       </div>
-    </footer>
+    </div>
+        <PersonaIInfo />
+      </div>
+      <div className="right  w-[50%]  ">
+        <Template1 />
+      </div>
+    </div>
+    <Footer />
+    </div>
   );
 }
 
-export default MobileFooter;
+export default DesktopView;
