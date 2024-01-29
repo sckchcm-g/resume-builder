@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function Template1() {
     const userInputData = useSelector(selectUserData)
   return (
-    <div className=" template template1 hidden mt-[20px] lg:block w-[70%] xl:w-[100%] xl:h-[85%] shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
+    <div className=" template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
         {/*Template Header */}
         <div className="header-wrapper pt-5 hidden lg:block ">
       <header className="flex justify-between ">

@@ -11,7 +11,7 @@ function Dashboard() {
       console.log(width)
       if (width <= 576) {
         setViewSize("small");
-      } else if (width > 576 && width <= 1024) {
+      } else if (width > 576 && width < 1024) {
         setViewSize("medium");
       } else  {
         setViewSize("large"); 
