@@ -20,7 +20,7 @@ function Navbar() {
           className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2 flex items-center gap-[5px]"
         >
           Next
-          {/* <svg
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -33,7 +33,7 @@ function Navbar() {
               strokeLinejoin="round"
               d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
             />
-          </svg> */}
+          </svg>
         </button>
       </div>
     </footer>
