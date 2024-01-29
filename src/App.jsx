@@ -1,6 +1,8 @@
 import "./App.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Home from "./pages/Home.jsx";
+import FormPanel from "./pages/FormPanel.jsx";
+
 import {
   Route,
   RouterProvider,
@@ -13,6 +15,7 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<Home />} />
       <Route path="dashboard" element={<Dashboard />} />
+      <Route path="form" element={<FormPanel />} />
     </Route>
   )
 );
