@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { setUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 export default function PersonaIInfo() {
@@ -26,7 +26,11 @@ export default function PersonaIInfo() {
   }
 
   return (
+<<<<<<< HEAD
     <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[95%] xl:h-[65%] xl:w-[90%]">
+=======
+    <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[90%] lg:h-[65%]  border-2 overflow-hidden border-purple-300 rounded-md border-t-purple-600 border-t-2 ">
+>>>>>>> aa58c4ce23a76d750b090f2172b3781304eec8e8
       {successMsg && (
         <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
           {successMsg}
