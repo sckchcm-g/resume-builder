@@ -1,35 +1,55 @@
-import React,{useState} from 'react';
+// import {useState} from 'react';
 import "./stepper.css";
 
-const FormStepper = ({list}) => {
-    const steps = ["Personal Details","Expereince","Education","Skills"];
-    const [currentStep,setCurrentStep] = useState(1);
-    const [complete, setComplete] = useState(false);
+const FormStepper = ({Newnum}) => {
+    const steps = ["Personal","Expereince","Education","Skills"];
+    // const [currentStep,setCurrentStep] = useState(Newnum);
+    // const [currentStep,setCurrentStep] = useState(0);
+    // console.log(Newnum);
+    // const [complete, setComplete] = useState(false);
   return (
     <>
-      <div className="flex justify-between my-10">
+
+    {/* Stepper with Completion-Green */}
+
+      {/* <div className="flex justify-between my-2 w-[270px] ">
             {steps.map?.((step,i)=>(
               <div 
                key={i} 
                className={`step-item ${currentStep === i + 1 && "active" } ${(i+1<currentStep || complete) && 'complete' } `}>
                 <div className="step"> {i+1} </div>    
-                <p className="text-gray-500"> {step} </p>
+                <p className="text-gray-500 text-[10px] "> {step} </p>
+              </div>   
+            ))}
+      </div> */}
+
+      {/* Without Completion-Not Green */}
+      <div className="flex justify-between my-2 w-[270px] ">
+            {steps.map?.((step,i)=>(
+              <div 
+               key={i} 
+               className={`step-item ${Newnum+1 >= i + 1 && "active" } `}>
+                <div className="step"> {i+1} </div>    
+                <p className="text-gray-500 text-[10px] "> {step} </p>
               </div>   
             ))}
       </div>
-      <div className="flex justify-center align-middle m-4">
-        <button className="p-2 bg-slate-400 text-cyan-200 rounded-md"
+
+      <div className="flex justify-center align-middle m-2">
+        
+      {/* <button className="p-2 mx-4 bg-purple-700 text-white rounded-md"
+        onClick={()=>{
+          currentStep !=0?setCurrentStep((prev)=> prev -1):(null)
+          ;
+        }}
+        > Prev  </button>
+        <button className="p-2 bg-purple-700 text-white rounded-md"
         onClick={()=>{
           currentStep === steps.length ? setComplete(true):
           setCurrentStep((prev)=> prev +1);
         }}
-        > Next {currentStep} </button>
-                <button className="p-2 bg-slate-400 text-cyan-200 rounded-md"
-        onClick={()=>{
-          
-          setCurrentStep((prev)=> prev -1);
-        }}
-        > Prev {currentStep} </button>
+        > Next {currentStep} </button> */}
+
       </div>
     </>
   )

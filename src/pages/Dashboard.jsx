@@ -15,7 +15,7 @@ function Dashboard() {
         setViewSize("medium");
       } else  {
         setViewSize("large"); 
-    };
+    }
   }
 
     // Add event listener for window resize
@@ -24,7 +24,6 @@ function Dashboard() {
   handleResize();
     // Cleanup the event listener on component unmount
     return () => {
-      
       window.removeEventListener("resize", handleResize);
     };
   }, []);

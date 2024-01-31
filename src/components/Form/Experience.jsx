@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import FormStepper from './FormStepper/FormStepper.jsx';
+
 const Experience = () => {
   const { register, handleSubmit, reset } = useForm();
 
@@ -13,8 +15,10 @@ const Experience = () => {
     reset();
   }
   return (
-    <div className="p-6 m-4 w-full h-[100vh] lg:w-full shadow-purple-100 shadow-lg verflow-hidden  rounded-xl    relative">
-      {successMsg && (
+    // <div className="p-6 m-4 w-full h-[100vh] lg:w-full rounded-xl relative">
+    <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[95%] xl:h-[65%] xl:w-[90%]">
+ 
+    {successMsg && (
         <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
           {successMsg}
         </p>
