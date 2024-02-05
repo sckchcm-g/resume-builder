@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function Template1() {
   const userInputData = useSelector(selectUserData);
   return (
-    <div className=" template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
+    <div className="template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
         <header className="flex justify-between ">
@@ -32,11 +32,11 @@ function Template1() {
                   : "Chris"}
               </div>
               <div>
-                <div className="firstName text-[#de8535] font-serif text-4xl">
+                {/* <div className="firstName text-[#de8535] font-serif text-4xl">
                   {userInputData && userInputData.firstName
                     ? userInputData.firstName
                     : "Chris"}
-                </div>
+                </div> */}
                 <div className="lastName text-[#de8535] font-serif text-4xl">
                   {userInputData && userInputData["last-name"]
                     ? userInputData["last-name"]
