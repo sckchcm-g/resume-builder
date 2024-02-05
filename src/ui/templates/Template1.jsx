@@ -5,13 +5,15 @@ import { useSelector } from "react-redux";
 function Template1() {
   const userInputData = useSelector(selectUserData);
   return (
-    <div className=" template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea]">
+    <div className="template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea] relative z-0">
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
-        <header className="flex justify-between ">
-          <div className="left flex  w-[280px] justify-between">
+        <header className="flex justify-between  ">
+          {/* left */}
+          <div className="left flex  w-[300px] justify-between gap-[10px] ">
+            {/* logo */}
             <div className="mt-3">
-              <button className="logo p-4  bg-[#de8535] rounded-full">
+              <button className="logo p-4  bg-[#de8535] rounded-full ">
                 <span className="text-white text-4xl  font-serif">
                   {" "}
                   {userInputData && userInputData.firstName
@@ -25,29 +27,25 @@ function Template1() {
                 </span>
               </button>
             </div>
-            <div>
+            {/* name & job */}
+            <div className="name-job ">
               <div className="firstName text-[#de8535] font-serif text-4xl">
                 {userInputData && userInputData.firstName
                   ? userInputData.firstName
                   : "Chris"}
               </div>
-              <div>
-                <div className="firstName text-[#de8535] font-serif text-4xl">
-                  {userInputData && userInputData.firstName
-                    ? userInputData.firstName
-                    : "Chris"}
-                </div>
                 <div className="lastName text-[#de8535] font-serif text-4xl">
                   {userInputData && userInputData["last-name"]
                     ? userInputData["last-name"]
                     : "Candidate"}
                 </div>
-                <div className="job-title text-md font-serif">
+                <div className="job-title w-[250px] text-md font-serif">
                   Human Resource Manager
                 </div>
-              </div>
+            
             </div>
-            <div className="right text-custom-orange ">
+            {/* right */}
+            <div className="right  text-custom-orange absolute right-[15px]">
               <div className="adress text-xs">
                 {userInputData && userInputData.address
                   ? userInputData.address
