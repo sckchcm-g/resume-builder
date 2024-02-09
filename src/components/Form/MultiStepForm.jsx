@@ -1,14 +1,15 @@
 import {useState} from 'react';
 import FormStepper from './FormStepper/FormStepper.jsx';
-import{PersonalSkills} from './MultiForms/index.js'
 import PersonaIInfo from './PersonaIInfo.jsx';
 import Education from './Education.jsx';
 import Experience from './Experience.jsx';
+import AccorComponent from './AdditionalForms.jsx';
+// import Accordian from './'
 const FormCtn =({num})=>{
   return(
   <div className="">
     {/* Used COndtional Rendering to Render Different Forms */}
-    {num===0?<PersonaIInfo/>:num===1?<Education/>:num===2?<Experience/>:<PersonalSkills/>}
+    {num===0?<PersonaIInfo/>:num===1?<Education/>:num===2?<Experience/>:<AccorComponent/>}
   </div>
   )
 }
