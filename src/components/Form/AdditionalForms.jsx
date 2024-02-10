@@ -1,8 +1,8 @@
 // import React from 'react';
 import Accordian,{AccordianItem} from "../accordianForm.jsx"
 import Experience from './Experience.jsx';
-import SkillsForm from './MultiForms/SkillsForm.jsx';
-import {LanguageForm} from './MultiForms/index.js';
+// import SkillsForm from './MultiForms/SkillsForm.jsx';
+import {LanguageForm,CustomForm,SkillsForm} from './MultiForms/index.js';
 import { LuLanguages } from "react-icons/lu";
 import ProjectsForm from "./MultiForms/ProjectsForm.jsx"
 
@@ -79,8 +79,8 @@ const AccorComponent = () => {
                 <AccordianItem value="5" trigger="Projects">
                       <ProjectsForm/>
                 </AccordianItem>
-                <AccordianItem value="6" trigger="Certifications and Licenses">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                <AccordianItem value="6" trigger="Custom Section">
+                      <CustomForm/>
                 </AccordianItem>
             </Accordian>
         </main>

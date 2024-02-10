@@ -4,25 +4,29 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import "./quill.css"
 import DOMPurify from 'dompurify';
-
+import { MdDelete } from "react-icons/md";
 
 const ProjectsTab = ({Heading,
   Link,
-  Description})=>{
+  Description,idRef,HandleDeleteItem})=>{
+
     const sanitizedHtml = DOMPurify.sanitize(Description);
 
   return(
     <>
-      <div className="border border-green-400 w-[95%] mx-3 my-2 px-4 ">
+      <div 
+      className="border border-green-400 w-[95%] mx-3 my-2 px-4 "
+      >
         <div className="flex flex-row justify-between">
           <h3 className="text-2xl">{Heading}</h3>
+          <div className="flex flex-row justify-center ">
           <h3 className="text-md text-cyan-600 cursor-pointer"> {Link}</h3>
+            <MdDelete onClick={()=>HandleDeleteItem(idRef)} className=" cursor-pointer mt-1 ml-2 w-4 text-red-700"/>
+          </div>
+
         </div>
         <div className="py-2">
         <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
-          {/* <p className="text-xs">
-            {Description}
-          </p> */}
         </div>
       </div>
     </>
@@ -31,7 +35,7 @@ const ProjectsTab = ({Heading,
 
 const ProjectsForm = () => {
 
-    // const {register,handleSubmit,reset} = useForm();
+
     const [submittedData,setSubmittedData] = useState([{
       "Heading":"Dummy",
       "Link":"www.fhasihif/com",
@@ -50,7 +54,12 @@ const ProjectsForm = () => {
         setSubmittedData(prevData);
         reset();
         setDescription('');
-        console.log(submittedData);
+        // console.log(submittedData);
+    }
+    function HandleDeleteItem(idValue){
+        let tempData = [...submittedData];
+        tempData.splice(idValue,1);
+        setSubmittedData(tempData);
     }
 
   return (
@@ -76,7 +85,7 @@ const ProjectsForm = () => {
                   <label>Project Link</label>
                 <input
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
-                type="text" name="link"
+                type="text" name  ="link"
                     {...register("Link")}
                 >
                 </input>
@@ -86,7 +95,10 @@ const ProjectsForm = () => {
                 </label>
 
                 {/* Some styles to below Quill Editor are imported from quill.css file. */}
-              <ReactQuill value={description} onChange={DesHandler} className="border my-5  bg-slate-100 border-purple-400  " 
+              <ReactQuill 
+              value={description} 
+              onChange={DesHandler} 
+              className="border my-5  bg-slate-100 border-purple-400" 
               />
 
             <button type="submit" 
@@ -100,12 +112,12 @@ const ProjectsForm = () => {
         className=" md:w-[490px] max-w-[500px] min-h-56 ">
             {submittedData.map((e,index)=>{
                 return(
-                  <ProjectsTab  key={index} Heading={e.Heading} Link={e.Link} Description={e.description} />
-                    // <div key={index}>
-                    //     Project Title:{e.Heading},
-                    //     Link:{e.Link},
-                    //     description:{e.description}
-                    // </div>
+                  <ProjectsTab  key={index}
+                    idRef={index}
+                    Heading={e.Heading}
+                    HandleDeleteItem={HandleDeleteItem}
+                    Link={e.Link} 
+                    Description={e.description} />
                 )
             })}
         </div>
