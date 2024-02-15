@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import tempImg from '../assets/layout.png'
 import viewImg from "../assets/view.png"
 import PersonaIInfo from "../components/Form/PersonaIInfo.jsx";
-import Template1 from "./templates/Template1.jsx";
+import MainTemplate from "./templates/MainTemplate.jsx";
 import Footer from "./Footer.jsx";
 import MultiStepForm from '../components/Form/MultiStepForm.jsx';
 function DesktopView() {
@@ -50,7 +50,7 @@ function DesktopView() {
         <MultiStepForm />
       </div>
       <div className="right  w-[50%]  ">
-        <Template1 />
+        <MainTemplate />
       </div>
     </div>
     <Footer />

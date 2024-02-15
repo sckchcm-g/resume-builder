@@ -30,6 +30,7 @@ export function AccordianItem({ children, value, trigger, ...props }) {
         role="button"
         onClick={() => setSelected(open ? null : value)}
         className="flex justify-between items-center p-4 font-medium"
+       
       >
         {trigger}
         
@@ -37,8 +38,9 @@ export function AccordianItem({ children, value, trigger, ...props }) {
       <div
         className="overflow-y-hidden transition-all"
         style={{ height: open ? ref.current?.offsetHeight || 0 : 0 }}
+        
       >
-        <div className="pt-2 p-4" ref={ref}>
+        <div className="pt-2 p-4" ref={ref}  >
           {children}
         </div>
       </div>

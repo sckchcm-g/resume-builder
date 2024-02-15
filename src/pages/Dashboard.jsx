@@ -9,7 +9,6 @@ function Dashboard() {
     
     const handleResize = () => {
       const width = window.innerWidth;
-      console.log(width)
       if (width <= 576) {
         setViewSize("small");
       } else if (width > 576 && width < 1024) {
