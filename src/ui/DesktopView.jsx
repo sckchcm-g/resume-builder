@@ -6,6 +6,9 @@ import PersonaIInfo from "../components/Form/PersonaIInfo.jsx";
 import MainTemplate from "./templates/MainTemplate.jsx";
 import Footer from "./Footer.jsx";
 import MultiStepForm from '../components/Form/MultiStepForm.jsx';
+
+// Template by s 
+import TemplateS1 from "./templates/TemplateS1.jsx";
 function DesktopView() {
   return (
     <div>
@@ -50,7 +53,8 @@ function DesktopView() {
         <MultiStepForm />
       </div>
       <div className="right  w-[50%]  ">
-        <MainTemplate />
+        {/* <MainTemplate /> */}
+        <TemplateS1/>
       </div>
     </div>
     <Footer />
