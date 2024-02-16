@@ -5,7 +5,7 @@ function TemplateS1() {
   const EduDetails = ["Completed 10th and 12th from ICSE School","Completed B.Tech in CSE from ABC University", "Completed M.Tech in CSE from ABC University"]
   return (
   
-        <div className="a4-sheet  bg-white w-[794px] h-[1123px] flex flex-col items-center mt-[50px] border-[2px] mt-[-150px]" style={{ transform: 'scale(0.7)' }}>
+        <div className="a4-sheet  bg-white w-[794px] h-[1123px] flex flex-col items-center mt-[50px] border-[2px] " style={{ transform: 'scale(0.9)' }}>
 
             {/* coloured box area  */}
             <div className="pfp-details  flex flex-row items-center justify-between bg-[rgb(99,133,255)] h-[220px] w-[750px] m-[50px] rounded-[120px_5px_50px_120px]">
