@@ -9,6 +9,9 @@ import MultiStepForm from '../components/Form/MultiStepForm.jsx';
 
 // Template by s 
 import TemplateS1 from "./templates/TemplateS1.jsx";
+import TemplateD1 from "./templates/TemplateD1.jsx";
+import TemplateD2 from "./templates/TemplateD2.jsx";
+import TemplateD3 from "./templates/TemplateD3.jsx";
 function DesktopView() {
   return (
     <div>

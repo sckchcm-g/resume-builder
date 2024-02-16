@@ -4,8 +4,8 @@ function TemplateS1() {
   const skillarray = ["Frontend", "Bakcend", "Python", "C++"]
   const EduDetails = ["Completed 10th and 12th from ICSE School","Completed B.Tech in CSE from ABC University", "Completed M.Tech in CSE from ABC University"]
   return (
-    <div className='shadow-lg shadow-[#9333ea]'>
-        <div className="a4-sheet  bg-white w-[794px] h-[1123px] flex flex-col items-center mt-[50px]">
+  
+        <div className="a4-sheet  bg-white w-[794px] h-[1123px] flex flex-col items-center mt-[50px] border-[2px] mt-[-150px]" style={{ transform: 'scale(0.7)' }}>
 
             {/* coloured box area  */}
             <div className="pfp-details  flex flex-row items-center justify-between bg-[rgb(99,133,255)] h-[220px] w-[750px] m-[50px] rounded-[120px_5px_50px_120px]">
@@ -101,7 +101,7 @@ function TemplateS1() {
               <hr className='w-[600px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]' />
             </div>
         </div>
-    </div>
+
   )
 }
 
