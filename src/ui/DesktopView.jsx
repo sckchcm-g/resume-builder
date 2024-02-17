@@ -60,7 +60,7 @@ function DesktopView() {
       </div>
       <div className="right  w-[60%] lg:w-[68%]   xl:w-[60%] ">
           {/* <MainTemplate />   */}
-          <TemplateS1/>  
+          <TemplateD2/>  
       </div>
     </div>
     <Footer />

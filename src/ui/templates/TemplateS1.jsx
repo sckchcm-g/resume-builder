@@ -124,9 +124,7 @@ function TemplateS1() {
               </div>
 
               <hr className='w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]' />
-            </div>
         </div>
-        <hr className="w-[600px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]" />
         {/* Adding additional sections based on userData */}
         {/* Languages */}
         {userInputData && userInputData.language ? (
@@ -148,7 +146,7 @@ function TemplateS1() {
             })}
           </>
         ) : null}
-
+        
         {/* Projects */}
         {userInputData && userInputData.projects ? (
           <>
@@ -204,7 +202,7 @@ function TemplateS1() {
             })
           : null}
       </div>
-    </div>
+    
   );
 }
 
