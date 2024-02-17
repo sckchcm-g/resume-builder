@@ -95,40 +95,36 @@ function TemplateS1() {
           </div>
         </div>
 
-        <hr className="w-[600px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]" />
+              <hr className='w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]'/>
 
-        {/* Professional skills  */}
-        <div className="skilldev flex flex-row items-center justify-between w-[700px] h-[280px] bg-[rgba(255,255,255,0.448)]">
-          <div className="skill-set w-[450px] h-[230px] text-base m-5 p-5 rounded-[20px]">
-            <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-              Key Skills
-            </h2>
-            <div className="skillarray">
-              {skillarray.map((item) => {
-                return (
-                  <div className="flex m-4 flex-row items-center">
-                    <div className="w-[100px] h-3 bg-[rgb(99,133,255)] mx-2.5 my-0" />{" "}
-                    <p>{item}</p>
+              {/* Professional skills  */}
+              <div className="skilldev flex flex-row items-center justify-between w-[700px] h-[280px] bg-[rgba(255,255,255,0.448)]">
+                  <div className='skill-set w-[450px] h-[230px] text-base m-5 p-5 rounded-[20px]'>
+                   <h2 className='text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]'>Key Skills</h2>
+                    <div className="skillarray">
+                    {
+                      skillarray.map((item)=>{
+                        return <div className='flex m-4 flex-row items-center'><div className='w-[100px] h-3 bg-[rgb(99,133,255)] mx-2.5 my-0'/> <p>{item}</p></div>
+                      })
+                    }
+
+                    </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                    
+                  {/* education details  */}
+                  <div className="educationbox">
+                    <h2 className='text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]'>Education</h2>
+                    {
+                      EduDetails.map((item)=>{
+                        return <div className='flex flex-row items-center justify-start'><div className=" w-3 h-2.5 bg-[rgb(99,133,255)] m-2.5 rounded-[50px]"/><p>{item}</p></div>
+                      })
+                    }
+                  </div>
 
-          {/* education details  */}
-          <div className="educationbox">
-            <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-              Education
-            </h2>
-            {EduDetails.map((item) => {
-              return (
-                <div className="flex flex-row items-center justify-start">
-                  <div className=" w-3 h-2.5 bg-[rgb(99,133,255)] m-2.5 rounded-[50px]" />
-                  <p>{item}</p>
-                </div>
-              );
-            })}
-          </div>
+              </div>
+
+              <hr className='w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]' />
+            </div>
         </div>
         <hr className="w-[600px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]" />
         {/* Adding additional sections based on userData */}
