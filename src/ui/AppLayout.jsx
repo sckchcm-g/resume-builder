@@ -14,8 +14,8 @@ function AppLayout() {
       <Header />
       {/* <PersonaIInfo /> */}
       <FormSection/>
-       {/* <MainTemplate /> */}
-       <TemplateS1/>
+        <MainTemplate /> 
+       {/* <TemplateD2 /> */}
       <Navbar />
     </div>
   )
