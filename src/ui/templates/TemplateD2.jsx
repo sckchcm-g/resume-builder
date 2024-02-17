@@ -1,8 +1,9 @@
 import { useState } from 'react'
-
+import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { useSelector } from "react-redux";
 function TemplateD2() {
   const [count, setCount] = useState(0)
-
+  const userInputData = useSelector(selectUserData);
   return (
     <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] " style={{ transform: 'scale(0.7)' }}>
 
@@ -62,11 +63,11 @@ function TemplateD2() {
         </div>
         <div className="bg-[rgb(234,230,254)] w-[35%]">
         </div>
+        
       </div>
       
-
-
     </div>
+    
   )
 }
 

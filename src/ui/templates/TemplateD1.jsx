@@ -1,11 +1,12 @@
 import { useState } from 'react'
-
+import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { useSelector } from "react-redux";
 
 function TemplateD1() {
   const [count, setCount] = useState(0)
-
+  const userInputData = useSelector(selectUserData)
   return (
-    <div className='w-[210mm] h-[297mm] flex flex-row;  border-[2px] border-color: rgb(0 0 0) mt-[-170px] 'style={{ transform: 'scale(0.7)' }}>
+    <div className='w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row;  border-[2px] border-color: rgb(0 0 0) mt-[-170px] 'style={{ transform: 'scale(0.7)' }}>
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)]">
         <div className="leftimgbox">
           <div className="img">
@@ -18,7 +19,7 @@ function TemplateD1() {
         <div className="w-4/5 bg-white text-[rgb(255,0,0)] ml-10 mt-5"><hr /></div>
 
 
-        <div className="text-[rgb(167,27,36)] ml-10 mt-5">
+        <div className="text-[rgb(167,27,36)] ml-10 mt-5 ">
           <h3 className='text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]'>EDUCATION</h3>
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>kuugsu fsisd ksuvd</p>
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>kuugsu fsisd ksuvd</p>
@@ -68,6 +69,80 @@ function TemplateD1() {
             <li className='mt-2 text-base text-[rgb(89,88,90)]'>Fefhehge</li>
           </ul>
         </div>
+        {/* Adding additional sections based on userData */}
+      {/* Languages */}
+      {userInputData && userInputData.language ? (
+        <>
+          <h1 className="languages  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+            Languages
+          </h1>
+          {userInputData.language.map((lan) => {
+            return (
+              <ul
+                key={lan[2]}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+              >
+                <li className="list-item text-black  w-[150px]">
+                  {lan[0]} - {lan[1]}
+                </li>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
+
+      {/* Projects */}
+      {userInputData && userInputData.projects ? (
+        <>
+          <h1 className="projects  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+            Projects
+          </h1>
+          {userInputData.projects.slice(1).map((project) => {
+            return (
+              <ul
+                key={project.id}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+              >
+                <li className=" w-full ">
+                  <div className="project-header flex flex-row gap-[15px] items-center">
+                    <h2 className="text-lg heading">{project.Heading}</h2>
+                    <a
+                      href={project.Link}
+                      className="text-md text-cyan-600 cursor-pointer"
+                    >
+                      {project.Link}
+                    </a>
+                  </div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  />
+                </li>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
+
+      {/* Custom Form */}
+      {userInputData && userInputData.customData
+        ? userInputData.customData.slice(1).map((customData) => {
+            return (
+              <ul
+                key={customData.id}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+              >
+                <li className=" w-full ">
+                  <h1 className="custom-data  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+                    {customData.Custom_Heading}
+                  </h1>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: customData.description }}
+                  />
+                </li>
+              </ul>
+            );
+          })
+        : null}
       </div>
     </div>
   )

@@ -59,8 +59,8 @@ function DesktopView() {
         <MultiStepForm />
       </div>
       <div className="right  w-[60%] lg:w-[68%]   xl:w-[60%] ">
-          <MainTemplate />  
-         {/* <TemplateS1/>  */}
+          {/* <MainTemplate />   */}
+          <TemplateS1/>  
       </div>
     </div>
     <Footer />

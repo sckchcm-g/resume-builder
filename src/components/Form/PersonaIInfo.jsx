@@ -226,12 +226,12 @@ export default function PersonaIInfo() {
           </div>
         </div>
         <div className="flex px-2">
-          {/* <button 
+           <button 
             type="submit"
             className="bg-purple-500 hover:bg-purple-700 text-white font-semibold py-1 px-3   rounded"
           >
             Save
-            </button>*/}
+            </button>
              {/* <FormButtons formLevel={formLevel} setForm={setForm} type={"submit"}/>  */}
               {/* <FormSection  />    */}
         </div>
