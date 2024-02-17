@@ -70,7 +70,7 @@ function TemplateS1() {
                   </div>
               </div>
 
-              <hr className='w-[600px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]'/>
+              <hr className='w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]'/>
 
               {/* Professional skills  */}
               <div className="skilldev flex flex-row items-center justify-between w-[700px] h-[280px] bg-[rgba(255,255,255,0.448)]">
@@ -98,7 +98,7 @@ function TemplateS1() {
 
               </div>
 
-              <hr className='w-[600px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]' />
+              <hr className='w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]' />
             </div>
         </div>
 
