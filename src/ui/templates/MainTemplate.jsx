@@ -1,19 +1,20 @@
 import React from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
+//import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
 
-function Template1() {
+function MainTemplate() {
   const userInputData = useSelector(selectUserData);
   return (
-    <div className="template template1 hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:h-[85%]  shadow-lg mx-20 px-3  lg:mx-0 shadow-[#9333ea] relative z-0">
+     <div className="template main-template hidden mt-[20px] lg:block  w-[21cm]   lg:max-h-[29.7cm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider">
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
         <header className="flex justify-between  ">
           {/* left */}
-          <div className="left flex  w-[300px] justify-between gap-[10px] ">
+          <div className="left flex  w-[300px]  justify-between gap-[10px] ">
             {/* logo */}
             <div className="mt-3">
-              <button className="logo p-4  bg-[#de8535] rounded-full ">
+              <button className="logo  p-4 bg-[#de8535] rounded-full ">
                 <span className="text-white text-4xl  font-serif">
                   {" "}
                   {userInputData && userInputData.firstName
@@ -44,7 +45,7 @@ function Template1() {
               </div>
             </div>
             {/* right */}
-            <div className="right  text-custom-orange absolute right-[15px]">
+            <div className="right  text-custom-orange absolute right-[60px]">
               <div className="adress text-xs">
                 {userInputData && userInputData.address
                   ? userInputData.address
@@ -83,7 +84,7 @@ function Template1() {
             </div>
           </div>
         </header>
-        <p className="description text-[10px] text-gray-500 pt-4">
+        <p className="description text-[10px] leading-[18px] text-gray-500 pt-4 leading-3">
           Human resources generalist with 8 years of experience in HR, including
           hiring and terminating, disciplining employees and helping department
           managers improve employee performance. Worked with labor unions to
@@ -105,20 +106,20 @@ function Template1() {
           </div>
         </div>
         <ul className="text-[10px] text-gray-500 leading-5">
-          <li>
+          <li className="list-item">
             Implement effective company policies to ensure that all practices
             comply with labor and employment regulations{" "}
           </li>
-          <li>
+          <li className="list-item">
             Increased employee retention rates by managing workplace
             satisfaction to an over 90% success rate by creating and maintaining
             a positive work environment{" "}
           </li>
-          <li>
+          <li className="list-item">
             Develop targeted outreach practices to increase minority recruitment
             and ensure compliance with affirmative action policies{" "}
           </li>
-          <li>
+          <li className="list-item">
             Monitor scheduled in and out times as well as employee breaks to
             ensure that proper employment laws are met{" "}
           </li>
@@ -130,16 +131,16 @@ function Template1() {
           </div>
         </div>
         <ul className="text-[10px] text-gray-500 leading-5">
-          <li>
+          <li className="list-item">
             Implement effective company policies to ensure that all practices
             comply with labor and employment regulations{" "}
           </li>
-          <li>
+          <li className="list-item">
             Increased employee retention rates by managing workplace
             satisfaction to an over 90% success rate by creating and maintaining
             a positive work environment{" "}
           </li>
-          <li>
+          <li className="list-item">
             Develop targeted outreach practices to increase minority recruitment
             and ensure compliance with affirmative action policies{" "}
           </li>
@@ -154,20 +155,99 @@ function Template1() {
           </div>
         </div>
         <ul className="text-[10px] text-gray-500 leading-5">
-          <li>Academic Awardee of AY 2007-2008</li>
+          <li className="list-item">Academic Awardee of AY 2007-2008</li>
         </ul>
         <h1 className="skills text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Key Skills
         </h1>
-        <ul className="text-[10px] text-gray-500 leading-5 pb-[150px] pt-2">
-          <li>Detail oriented</li>
-          <li>Well-versed in Texas employment law</li>
-          <li>Excellent written and oral communication skills</li>
-          <li>Develops positive workplace relationships</li>
+        <ul className="text-[10px] text-gray-500 leading-5  pt-2">
+          <li className="skill">Detail oriented</li>
+          <li className="skill">Well-versed in Texas employment law</li>
+          <li className="skill">
+            Excellent written and oral communication skills
+          </li>
+          <li className="skill">
+            Develops positive workplace relationships
+          </li>
         </ul>
       </div>
+
+      {/* Adding additional sections based on userData */}
+      {/* Languages */}
+      {userInputData && userInputData.language ? (
+        <>
+          <h1 className="languages  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+            Languages
+          </h1>
+          {userInputData.language.map((lan) => {
+            return (
+              <ul
+                key={lan[2]}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+              >
+                <li className="list-item text-black  w-[150px]">
+                  {lan[0]} - {lan[1]}
+                </li>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
+
+      {/* Projects */}
+      {userInputData && userInputData.projects ? (
+        <>
+          <h1 className="projects  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+            Projects
+          </h1>
+          {userInputData.projects.slice(1).map((project) => {
+            return (
+              <ul
+                key={project.id}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+              >
+                <li className=" w-full ">
+                  <div className="project-header flex flex-row gap-[15px] items-center">
+                    <h2 className="text-lg heading">{project.Heading}</h2>
+                    <a
+                      href={project.Link}
+                      className="text-md text-cyan-600 cursor-pointer"
+                    >
+                      {project.Link}
+                    </a>
+                  </div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  />
+                </li>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
+
+      {/* Custom Form */}
+      {userInputData && userInputData.customData
+        ? userInputData.customData.slice(1).map((customData) => {
+            return (
+              <ul
+                key={customData.id}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+              >
+                <li className=" w-full ">
+                  <h1 className="custom-data  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+                    {customData.Custom_Heading}
+                  </h1>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: customData.description }}
+                  />
+                </li>
+              </ul>
+            );
+          })
+        : null}
     </div>
   );
 }
 
-export default Template1;
+export default MainTemplate;

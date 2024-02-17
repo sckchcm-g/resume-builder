@@ -3,9 +3,18 @@ import Header from "./Header.jsx";
 import tempImg from '../assets/layout.png'
 import viewImg from "../assets/view.png"
 import PersonaIInfo from "../components/Form/PersonaIInfo.jsx";
-import Template1 from "./templates/Template1.jsx";
+import MainTemplate from "./templates/MainTemplate.jsx";
 import Footer from "./Footer.jsx";
 import MultiStepForm from '../components/Form/MultiStepForm.jsx';
+
+// Templates Import
+import TemplateS1 from "./templates/TemplateS1.jsx";
+import TemplateS2 from "./templates/TemplateS2.jsx";
+import TemplateD1 from "./templates/TemplateD1.jsx";
+import TemplateD2 from "./templates/TemplateD2.jsx";
+import TemplateD3 from "./templates/TemplateD3.jsx";
+
+
 function DesktopView() {
   return (
     <div>
@@ -49,8 +58,9 @@ function DesktopView() {
       </div>
         <MultiStepForm />
       </div>
-      <div className="right  w-[50%]  ">
-        <Template1 />
+      <div className="right  w-[60%] lg:w-[68%]   xl:w-[60%] ">
+          {/* <MainTemplate />   */}
+          <TemplateS1/>  
       </div>
     </div>
     <Footer />

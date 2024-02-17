@@ -2,8 +2,15 @@ import React from 'react'
 import Header from './Header.jsx'
 import PersonaIInfo from '../components/Form/PersonaIInfo.jsx'
 import Navbar from './Navbar.jsx'
-import Template1 from './templates/Template1.jsx'
+import MainTemplate from './templates/MainTemplate.jsx'
 import FormSection from '../components/Form/MultiStepForm.jsx' 
+
+// Templates Import
+import TemplateS1 from './templates/TemplateS1.jsx'
+import TemplateD1 from './templates/TemplateD1.jsx'
+import TemplateD2 from './templates/TemplateD2.jsx'
+import TemplateD3 from './templates/TemplateD3.jsx'
+
 
 function AppLayout() {
   return (
@@ -11,7 +18,7 @@ function AppLayout() {
       <Header />
       {/* <PersonaIInfo /> */}
       <FormSection/>
-       <Template1 />
+       <MainTemplate />
       <Navbar />
     </div>
   )

@@ -3,14 +3,25 @@ import { useState } from "react";
 import { LuLanguages } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
+import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
+import { useDispatch } from "react-redux";
+import { selectUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
+import { useSelector } from "react-redux";
+import { nanoid } from "nanoid";
 
 const LanguageOption = ({ currList, updateList }) => {
   // const [language] = useState('');
   const [selectedExpertise, setSelectedExpertise] = useState("beginner");
   // cons
   const [inputLang, setLangInput] = useState("");
+  const [languagesArr, setlanguagesArray] = useState([]);
+  const dispatch = useDispatch();
+  const userInputData = useSelector(selectUserData);
+  const id = nanoid();
+
   function handleChange(value) {
     setSelectedExpertise(value);
+    //dispatch(setUserData({...userInputData, value}))
   }
 
   function addItemList() {
@@ -20,8 +31,23 @@ const LanguageOption = ({ currList, updateList }) => {
     let curr_list = [...currList, list1];
     updateList(curr_list);
     setLangInput("");
-    setSelectedExpertise("begineer");
+    setSelectedExpertise("beginner");
     // console.log(curr_list);
+  }
+
+  function updateUserData(previousFormData, currentLangInput) {
+    const ArrItem = [currentLangInput, selectedExpertise, id];
+
+    setlanguagesArray((prevArrState) => {
+      const newState = [...prevArrState, ArrItem];
+      const updatedData = {
+        ...previousFormData,
+        language: newState,
+      };
+      console.log(updatedData);
+      dispatch(setUserData(updatedData));
+      return newState;
+    });
   }
 
   return (
@@ -30,6 +56,7 @@ const LanguageOption = ({ currList, updateList }) => {
         <div>
           <input
             value={inputLang}
+            name="language"
             onChange={(e) => setLangInput(e.target.value)}
             //  className="border border-slate-500 rounded-md p-1"
             className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
@@ -58,6 +85,7 @@ const LanguageOption = ({ currList, updateList }) => {
       <button
         onClick={() => {
           addItemList();
+          updateUserData(userInputData, inputLang);
         }}
         className="bg-indigo-700 text-white py-2 px-4 rounded-md"
       >

@@ -1,9 +1,9 @@
 // import React from 'react';
 import Accordian, { AccordianItem } from "../accordianForm.jsx";
 import Experience from "./Experience.jsx";
-import SkillsForm from "./MultiForms/SkillsForm.jsx";
-import { LanguageForm } from "./MultiForms/index.js";
-//import { LuLanguages } from "react-icons/lu";
+// import SkillsForm from './MultiForms/SkillsForm.jsx';
+import { LanguageForm, CustomForm, SkillsForm } from "./MultiForms/index.js";
+// import { LuLanguages } from "react-icons/lu";
 import ProjectsForm from "./MultiForms/ProjectsForm.jsx";
 
 const AccorComponent = () => {
