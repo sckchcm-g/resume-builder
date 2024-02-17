@@ -1,14 +1,12 @@
 import { createContext, useContext, useRef, useEffect, useState } from "react";
 
-
-const AccordianContext = createContext()
+const AccordianContext = createContext();
 
 export default function Accordian({ children, value, onChange, ...props }) {
-
   const [selected, setSelected] = useState(value);
   useEffect(() => {
-    onChange?.(selected)
-  }, [selected])
+    onChange?.(selected);
+  }, [selected]);
 
   return (
     <ul {...props}>
@@ -16,14 +14,14 @@ export default function Accordian({ children, value, onChange, ...props }) {
         {children}
       </AccordianContext.Provider>
     </ul>
-  )
+  );
 }
 
 export function AccordianItem({ children, value, trigger, ...props }) {
-  const { selected, setSelected } = useContext(AccordianContext)
-  const open = selected === value
-  const ref = useRef(null)
-
+  const { selected, setSelected } = useContext(AccordianContext);
+  const open = selected === value;
+  const ref = useRef(null);
+  console.log(ref);
   return (
     <li className="border-b bg-white" {...props}>
       <header
@@ -33,7 +31,6 @@ export function AccordianItem({ children, value, trigger, ...props }) {
        
       >
         {trigger}
-        
       </header>
       <div
         className="overflow-y-hidden transition-all"
@@ -45,5 +42,5 @@ export function AccordianItem({ children, value, trigger, ...props }) {
         </div>
       </div>
     </li>
-  )
+  );
 }

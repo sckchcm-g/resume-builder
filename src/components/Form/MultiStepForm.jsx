@@ -14,7 +14,7 @@ const FormCtn =({num})=>{
   )
 }
 
-const FormSection = () =>{
+ export const FormSection = () =>{
   const [formLevel,setForm] = useState(0);
 
   return(

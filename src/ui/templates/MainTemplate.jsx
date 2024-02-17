@@ -1,20 +1,20 @@
 import React from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
-import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
+//import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
 
 function MainTemplate() {
   const userInputData = useSelector(selectUserData);
   return (
-    <div className="template main-template hidden mt-[20px] lg:block w-[70%] lg:w-[100%] lg:max-h-[85%] lg:overflow-auto   shadow-lg mx-20 px-3 pb-[150px] lg:mx-0 shadow-[#9333ea] relative z-0">
+     <div className="template main-template hidden mt-[20px] lg:block  w-[21cm]   lg:max-h-[29.7cm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider">
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
         <header className="flex justify-between  ">
           {/* left */}
-          <div className="left flex  w-[300px] justify-between gap-[10px] ">
+          <div className="left flex  w-[300px]  justify-between gap-[10px] ">
             {/* logo */}
             <div className="mt-3">
-              <button className="logo p-4  bg-[#de8535] rounded-full ">
+              <button className="logo  p-4 bg-[#de8535] rounded-full ">
                 <span className="text-white text-4xl  font-serif">
                   {" "}
                   {userInputData && userInputData.firstName
@@ -45,7 +45,7 @@ function MainTemplate() {
               </div>
             </div>
             {/* right */}
-            <div className="right  text-custom-orange absolute right-[15px]">
+            <div className="right  text-custom-orange absolute right-[60px]">
               <div className="adress text-xs">
                 {userInputData && userInputData.address
                   ? userInputData.address
@@ -84,7 +84,7 @@ function MainTemplate() {
             </div>
           </div>
         </header>
-        <p className="description text-[10px] text-gray-500 pt-4">
+        <p className="description text-[10px] leading-[18px] text-gray-500 pt-4 leading-3">
           Human resources generalist with 8 years of experience in HR, including
           hiring and terminating, disciplining employees and helping department
           managers improve employee performance. Worked with labor unions to
@@ -161,12 +161,12 @@ function MainTemplate() {
           Key Skills
         </h1>
         <ul className="text-[10px] text-gray-500 leading-5  pt-2">
-          <li className="list-item">Detail oriented</li>
-          <li className="list-item">Well-versed in Texas employment law</li>
-          <li className="list-item">
+          <li className="skill">Detail oriented</li>
+          <li className="skill">Well-versed in Texas employment law</li>
+          <li className="skill">
             Excellent written and oral communication skills
           </li>
-          <li className="list-item">
+          <li className="skill">
             Develops positive workplace relationships
           </li>
         </ul>
