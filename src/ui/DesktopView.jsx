@@ -158,8 +158,3 @@ function DesktopView() {
 }
 
 export default DesktopView;
-
-
-
-
-

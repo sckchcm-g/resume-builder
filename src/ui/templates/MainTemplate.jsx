@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 function MainTemplate() {
   const userInputData = useSelector(selectUserData);
   return (
-     <div className="template main-template hidden mt-[20px] lg:block  w-[21cm]   lg:max-h-[29.7cm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider">
+     <div className="template main-template hidden mt-[20px] lg:block  w-[210mm] h-[297mm]   lg:max-h-[297mm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider"
+     style={{ transform: "scale(0.7)" , marginTop: "-120px"}}>
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
         <header className="flex justify-between  ">
@@ -40,42 +41,42 @@ function MainTemplate() {
                   ? userInputData["last-name"]
                   : "Candidate"}
               </div>
-              <div className="job-title w-[250px] text-md font-serif">
+              <div className="job-title w-[250px] text-md font-serif ">
                 Human Resource Manager
               </div>
             </div>
             {/* right */}
             <div className="right  text-custom-orange absolute right-[60px]">
-              <div className="adress text-xs">
+              <div className="adress text-[15px]">
                 {userInputData && userInputData.address
                   ? userInputData.address
                   : "Sunnydale Lane"}
               </div>
               <div className="adress-city  flex  gap-[5px]">
-                <div className="city text-xs">
+                <div className="city text-[15px]">
                   {userInputData && userInputData.city
                     ? userInputData.city
                     : "Plano"}
                 </div>
-                <div className="city-code text-xs">
+                <div className="city-code text-[15px]">
                   {userInputData && userInputData["city-code"]
                     ? userInputData["city-code"]
                     : "TX 75071"}
                 </div>
               </div>
               <div className="adress-state-country  flex   gap-[5px]">
-                <div className="state text-xs">
+                <div className="state text-[15px]">
                   {userInputData && userInputData.state
                     ? userInputData.state
                     : "Texas"}
                 </div>
-                <div className="country text-xs">
+                <div className="country text-[15px]">
                   {userInputData && userInputData.country
                     ? userInputData.country
                     : "USA"}
                 </div>
               </div>
-              <div className="email text-xs">
+              <div className="email text-[15px]">
                 {userInputData && userInputData["email-address"]
                   ? userInputData["email-address"]
                   : "email@youremail.com"}
@@ -84,7 +85,7 @@ function MainTemplate() {
             </div>
           </div>
         </header>
-        <p className="description text-[10px] leading-[18px] text-gray-500 pt-4 leading-3">
+        <p className="description text-[15px] leading-[24px] text-gray-500 pt-4 leading-3">
           Human resources generalist with 8 years of experience in HR, including
           hiring and terminating, disciplining employees and helping department
           managers improve employee performance. Worked with labor unions to
@@ -96,16 +97,16 @@ function MainTemplate() {
       </div>
       {/* Template body */}
       <div className=" hidden lg:block">
-        <h1 className=" text-serif text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+        <h1 className=" text-serif text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Professional Experience
         </h1>
-        <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[80%]">
+        <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
           <h2>Human Resources Manager</h2>
-          <div className="duration text-[10px] text-gray-500 ">
+          <div className="duration  text-gray-500 ">
             XYZ Company, City, State | June 2020 - Present
           </div>
         </div>
-        <ul className="text-[10px] text-gray-500 leading-5">
+        <ul className="text-[15px] text-gray-500 leading-[25px] ">
           <li className="list-item">
             Implement effective company policies to ensure that all practices
             comply with labor and employment regulations{" "}
@@ -124,13 +125,13 @@ function MainTemplate() {
             ensure that proper employment laws are met{" "}
           </li>
         </ul>
-        <div className="exp-2 flex items-center w-[70%]  gap-3 font-serif lg:w-[90%]">
+        <div className="exp-2 flex items-center w-[70%] pt-[15px] gap-3 font-serif lg:w-[90%]">
           <h2>Human Resources Associate</h2>
-          <div className="duration text-[10px] text-gray-500">
+          <div className="duration text-[15px] text-gray-500">
             XYZ Company, City, State | June 2020 - Present
           </div>
         </div>
-        <ul className="text-[10px] text-gray-500 leading-5">
+        <ul className="text-[15px] text-gray-500 leading-[25px]">
           <li className="list-item">
             Implement effective company policies to ensure that all practices
             comply with labor and employment regulations{" "}
@@ -145,22 +146,22 @@ function MainTemplate() {
             and ensure compliance with affirmative action policies{" "}
           </li>
         </ul>
-        <h1 className="education text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+        <h1 className="education text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Education
         </h1>
-        <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[90%]">
+        <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]">
           <h2>Masters in Human Resources</h2>
-          <div className="duration text-[10px] text-gray-500">
+          <div className="duration text-[15px] text-gray-500">
             The University of Texas, Dallas | September 2007 - May 2011
           </div>
         </div>
-        <ul className="text-[10px] text-gray-500 leading-5">
+        <ul className="text-[15px] text-gray-500 leading-5">
           <li className="list-item">Academic Awardee of AY 2007-2008</li>
         </ul>
-        <h1 className="skills text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+        <h1 className="skills text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Key Skills
         </h1>
-        <ul className="text-[10px] text-gray-500 leading-5  pt-2">
+        <ul className="text-[15px] text-gray-500 leading-5  pt-2">
           <li className="skill">Detail oriented</li>
           <li className="skill">Well-versed in Texas employment law</li>
           <li className="skill">
@@ -176,14 +177,14 @@ function MainTemplate() {
       {/* Languages */}
       {userInputData && userInputData.language ? (
         <>
-          <h1 className="languages  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+          <h1 className="languages  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Languages
           </h1>
           {userInputData.language.map((lan) => {
             return (
               <ul
                 key={lan[2]}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
               >
                 <li className="list-item text-black  w-[150px]">
                   {lan[0]} - {lan[1]}
@@ -197,14 +198,14 @@ function MainTemplate() {
       {/* Projects */}
       {userInputData && userInputData.projects ? (
         <>
-          <h1 className="projects  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+          <h1 className="projects  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Projects
           </h1>
           {userInputData.projects.slice(1).map((project) => {
             return (
               <ul
                 key={project.id}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
               >
                 <li className=" w-full ">
                   <div className="project-header flex flex-row gap-[15px] items-center">
@@ -232,10 +233,10 @@ function MainTemplate() {
             return (
               <ul
                 key={customData.id}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
               >
                 <li className=" w-full ">
-                  <h1 className="custom-data  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+                  <h1 className="custom-data  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
                     {customData.Custom_Heading}
                   </h1>
                   <div

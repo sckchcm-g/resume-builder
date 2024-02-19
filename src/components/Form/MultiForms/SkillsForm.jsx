@@ -19,7 +19,7 @@ const SkillTag = ({value,Id_num,array,setSkillArray})=>{
 
     return(
         <div className="flex justify-center align-middle mr-2">
-            <h2 className="bg-purple-500 text-white inline-block rounded-lg  my-1 p-2 w-auto" >{value}
+            <h2 className="bg-purple-500 text-white inline-block rounded-md  my-1 p-2 w-auto" >{value}
             <span className="cursor-pointer inline-block" onClick={(e)=>{
                 RemoveSkillTag(Id_num,array,setSkillArray);
                 // console.log(array);
@@ -34,7 +34,10 @@ const SkillsForm = () => {
     const [skillText,addSkill]=useState("")
 
   return (
-    <div>
+    // <div>
+    <div className="p-4 my-8 border border-gray-300 h-auto w-[360px] md:w-[460px] lg:w-[500px] max-w-[590px]">
+      <h2 className="text-2xl font-semibold mb-3"> Add Skills.</h2>
+
         <div className="flex flex-row my-4 gap-4" >
             <input
             className="block w-[50%] lg:w-[50%] rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
@@ -52,8 +55,6 @@ const SkillsForm = () => {
                 return(<SkillTag array={skillArray} setSkillArray={setSkillArray} key={index} Id_num={index} value={e} />)
             })}
         </div>
-
-        {/* <SkillTag value={"Red"} /> */}
 
     </div>
   )
