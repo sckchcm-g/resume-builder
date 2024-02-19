@@ -73,6 +73,7 @@
 
 
 
+
 import React, { useState } from "react";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
@@ -82,12 +83,14 @@ import TemplateS2 from "./templates/TemplateS2.jsx";
 import TemplateD1 from "./templates/TemplateD1.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
+import MainTemplate from "./templates/MainTemplate.jsx";
 import tempImg from '../assets/layout.png';
 import template1 from '../assets/template1.png';
 import template2 from '../assets/template2.png';
 import template3 from '../assets/template3.png';
 import template4 from '../assets/template4.png';
 import template5 from '../assets/template5.png';
+import maintemplate from "../assets/maintemplate.png";
 
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false);
@@ -104,6 +107,7 @@ function DesktopView() {
     { id: "TemplateD3", name: "Template 3", image: template3 },
     { id: "TemplateS1", name: "Template 4", image: template5 },
     { id: "TemplateS2", name: "Template 5", image: template4 },
+    { id: "MainTemplate", name: "Template 6", image: maintemplate },
   ];
 
   return (
@@ -128,6 +132,7 @@ function DesktopView() {
           {selectedTemplate === "TemplateD3" && <TemplateD3 />}
           {selectedTemplate === "TemplateS1" && <TemplateS1 />}
           {selectedTemplate === "TemplateS2" && <TemplateS2 />}
+          {selectedTemplate === "MainTemplate" && <MainTemplate />}
         </div>
       </div>
       <Footer />
