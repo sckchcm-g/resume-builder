@@ -94,7 +94,7 @@ import maintemplate from "../assets/maintemplate.png";
 
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false);
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [selectedTemplate, setSelectedTemplate] = useState("TemplateD2");
 
   const handleTemplateClick = (templateId) => {
     setSelectedTemplate(templateId);
