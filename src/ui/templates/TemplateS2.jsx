@@ -170,7 +170,7 @@ function TemplateS2() {
               })}
             </>
           ) : null}
-          {userInputData.projects && (
+          {userInputData && userInputData.projects && (
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           )}
           {/* Custom Form */}

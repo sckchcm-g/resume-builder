@@ -164,7 +164,7 @@ function TemplateS1() {
           })}
         </>
       ) : null}
-      {userInputData.language && (
+      {userInputData && userInputData.language && (
         <hr className="w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none] mt-[25px]" />
       )}
 
@@ -197,7 +197,7 @@ function TemplateS1() {
           })}
         </>
       ) : null}
-      {userInputData.projects && (
+      {userInputData && userInputData.projects && (
         <hr className="w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none] mt-[25px]" />
       )}
 
