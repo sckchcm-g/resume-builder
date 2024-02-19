@@ -9,16 +9,16 @@ function TemplateD3() {
       className="TemplateD3 flex flex-col items-center justify-center bg-[rgb(192,219,255)] w-[794px] h-[1123px] max-h-[1123px] lg:overflow-auto mt-[-150px]  "
       style={{ transform: "scale(0.7)" }}
     >
-      <div className="h-[300px] bg-[rgb(2,87,148)] w-[95%] mt-5 rounded-[150px]">
+      <div className="h-[230px] bg-[rgb(2,87,148)] w-[95%] mt-5 rounded-[150px]">
         <div className="flex flex-row items-center justify-evenly">
-          <div className="h-[200px] w-[200px] bg-[rgb(235,236,231)] m-10 rounded-[50%]"></div>
-          <div className="flex flex-col items-center justify-center bg-white w-[400px] h-[150px] m-10  rounded-[50px_100px_100px_50px] border-2 border-solid border-[rgba(1,63,107,)]">
-            <div className="text-[40px] text-[rgb(1,63,107)] mt-[-20px] m-5 p-0">
-              <p>Devraj Patil</p>
+          <div className="h-[200px] w-[200px] bg-[rgb(235,236,231)] ml-[-20px] mt-[20px] rounded-[50%]"></div>
+          <div className="flex flex-col items-center justify-center bg-white w-[400px] h-[150px] mt-[25px] ml-[30px]  rounded-[50px_100px_100px_50px] border-2 border-solid border-[rgba(1,63,107,)]">
+            <div className="flex flex-row text-[40px] text-[rgb(1,63,107)] mt-[-20px] m-6 p-0">
+              <p className="firstname  mr-3">Devraj</p><p className="lastname">Patil</p>
             </div>
             <hr className="w-[300px] border -mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="text-xl text-[rgb(1,63,107)] m-0 p-0">
-              <p>Software engineer</p>
+              <p>cdc@cdc.cdc</p>
             </div>
           </div>
         </div>
@@ -97,9 +97,9 @@ function TemplateD3() {
 
         {/* Projects */}
         {userInputData && userInputData.projects ? (
-          <>
+          <div>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-            <div className="projectsD3 bg-[rgba(255,255,255,0.448)] w-[720px] max-h-[200px] overflow-auto m-[38px] rounded-[25px]">
+            <div className="projectsD3  bg-[rgba(255,255,255,0.448)] w-[720px] max-h-[200px] overflow-auto m-[38px]  rounded-[25px]">
               <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
                 Projects
               </h2>
@@ -131,7 +131,8 @@ function TemplateD3() {
                 );
               })}
             </div>
-          </>
+            <hr />
+          </div>
         ) : null}
 
         {/* Custom Form */}
