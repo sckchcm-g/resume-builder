@@ -1,89 +1,104 @@
-// import React from 'react';
+import {useState} from 'react';
 import Accordian,{AccordianItem} from "../accordianForm.jsx"
 import Experience from './Experience.jsx';
+
+import { GiGraduateCap } from "react-icons/gi";
+import { GrCertificate } from "react-icons/gr";
+import { LiaLanguageSolid } from "react-icons/lia";
+import { FaTools } from "react-icons/fa";
+import { MdDeveloperMode } from "react-icons/md";
+
 // import SkillsForm from './MultiForms/SkillsForm.jsx';
-import {LanguageForm,CustomForm,SkillsForm} from './MultiForms/index.js';
+import {LanguageForm,CustomForm,SkillsForm,CertificatesForm} from './MultiForms/index.js';
 // import { LuLanguages } from "react-icons/lu";
 import ProjectsForm from "./MultiForms/ProjectsForm.jsx"
 
+
+// const AccorComponent = () => {
+//   return (
+//         <main className="m-4 w-full lg:w-6/6 min-h-screen flex flex-col items-center ">
+//             <Accordian>
+//                 <AccordianItem value="3" trigger="Skills">
+//                     <SkillsForm/>
+//                 </AccordianItem>
+//                 <AccordianItem value="4" trigger="Languages">
+//                       <LanguageForm/>
+//                   </AccordianItem>
+//                 <AccordianItem value="5" trigger="Projects">
+//                       <ProjectsForm/>
+//                 </AccordianItem>
+//                 <AccordianItem value="6" trigger="Custom Section">
+//                       <CustomForm/>
+//                 </AccordianItem>
+//             </Accordian>
+//         </main>
+//   )
+// }
+
+const FormCards = ({TabIcons,TabHead,setCurrForm,FormNum})=>{
+  return(
+    <div onClick={()=>setCurrForm(FormNum)}  className=" cursor-pointer sm:p-1 p-2 flex flex-col justify-center align-middle gap-2 border border-purple-600 w-16 h-20 md:w-24 md:h-24 md:min-w-14   bg-purple-100 rounded-lg">
+      <div>
+        {<TabIcons className="w-[20px] h-auto m-auto text-purple-900 "/>}
+      </div>
+      <div>
+          <h4 className="text-purple-600 font-medium text-[12px] text-center leading-4 ">{TabHead}</h4>
+      </div>
+    </div>
+  )
+  }
+
 const AccorComponent = () => {
+
+  const [currForm,setCurrForm] = useState(3); 
+
+  function RenderComponent(){
+    switch (currForm){
+      case 1:
+        return <SkillsForm/>
+      case 2:
+        return <LanguageForm/>
+      case 3:
+        return <ProjectsForm/>
+      case 4:
+        return <CustomForm/>
+      case 5:
+        return <CertificatesForm/>
+      default:
+        return <></>
+    }
+
+  }
+
   return (
-        <main className="m-4 w-full lg:w-6/6 min-h-screen flex flex-col items-center ">
-            <Accordian>
-                <AccordianItem value="1" trigger="Activities">
-                <form className="w-full max-w-lg">
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
-                          First Name
-                        </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane"/>
-                        <p className="text-red-500 text-xs italic">Please fill out this field.</p>
-                      </div>
-                      <div className="w-full md:w-1/2 px-3">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
-                          Last Name
-                        </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full px-3">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
-                          Password
-                        </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************"/>
-                        <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap -mx-3 mb-2">
-                      <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
-                          City
-                        </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque"/>
-                      </div>
-                      <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
-                          State
-                        </label>
-                        <div className="relative">
-                          <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                            <option>New Mexico</option>
-                            <option>Missouri</option>
-                            <option>Texas</option>
-                          </select>
-                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-zip">
-                          Zip
-                        </label>
-                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210"/>
-                      </div>
-                    </div>
-                </form>
-                </AccordianItem>
-                <AccordianItem value="2" trigger="Awards, Accomplishments">
-                  <Experience/>
-                </AccordianItem>
-                <AccordianItem value="3" trigger="Skills">
-                    <SkillsForm/>
-                </AccordianItem>
-                <AccordianItem value="4" trigger="Languages">
-                      <LanguageForm/>
-                  </AccordianItem>
-                <AccordianItem value="5" trigger="Projects">
-                      <ProjectsForm/>
-                </AccordianItem>
-                <AccordianItem value="6" trigger="Custom Section">
-                      <CustomForm/>
-                </AccordianItem>
-            </Accordian>
-        </main>
+    <div className="w-[95%] md:w-[520px] lg:w-[470px] xl:w-[490px] m-auto h-auto">
+      <div className="my-2">
+        <h2 className= "text-2xl font-semibold">Additional<span className="text-purple-700"> Section.</span></h2>
+        <div className=" my-4 flex flex-row gap-2 md:gap-8  justify-center">
+        <FormCards FormNum={3} setCurrForm={setCurrForm}  TabIcons={FaTools} TabHead={"Add Projects"}/> 
+        <FormCards FormNum={5} setCurrForm={setCurrForm}  TabIcons={GrCertificate} TabHead={"Add Certificates"}/> 
+        <FormCards FormNum={2} setCurrForm={setCurrForm}  TabIcons={LiaLanguageSolid} TabHead={"Add Languages"}/> 
+        {/* <FormCards FormNum={1} setCurrForm={setCurrForm}  TabIcons={GiGraduateCap} TabHead={"Add Skills"}/>  */}
+        <FormCards FormNum={4} setCurrForm={setCurrForm}  TabIcons={MdDeveloperMode} TabHead={"Add Custom Section"}/> 
+      </div>
+        {/* <div className="w-[100%] m-auto my-5 flex flex-row flex-wrap gap-2"> */}
+            {/* <button onClick={()=>setCurrForm(1)} className="w-[47%] rounded-3xl bg-purple-700 text-white py-2 text-lg cursor-pointer" >Add Skills</button>
+            <button onClick={()=>setCurrForm(2)} className="w-[47%] rounded-3xl  bg-purple-700 text-white py-2 text-lg cursor-pointer" >Languages</button>
+            <button onClick={()=>setCurrForm(3)} className="w-[47%] rounded-3xl bg-purple-700 text-white py-2 text-lg cursor-pointer" >Projects</button>
+            <button onClick={()=>setCurrForm(4)} className="w-[47%] rounded-3xl bg-purple-700 text-white py-2 text-lg cursor-pointer" >Custom Section</button>
+            <button className="w-[47%] rounded-3xl bg-purple-700 text-white py-2 text-lg cursor-pointer" >Certificates</button> */}
+
+
+
+
+        {/* </div> */}
+      </div>
+
+      <div>
+          {RenderComponent()}
+          {/* {currForm===1?<SkillsForm/>:currForm===2?<LanguageForm/>:currForm===3?<ProjectsForm/>:<></>} */}
+      </div>
+    </div>
   )
 }
 
