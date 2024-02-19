@@ -10,6 +10,7 @@ import MultiStepForm from '../components/Form/MultiStepForm.jsx';
 // Templates Import
 import TemplateS1 from "./templates/TemplateS1.jsx";
 import TemplateS2 from "./templates/TemplateS2.jsx";
+import TemplateS3 from "./templates/TemplateS3.jsx";
 import TemplateD1 from "./templates/TemplateD1.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
@@ -60,7 +61,7 @@ function DesktopView() {
       </div>
       <div className="right  w-[60%] lg:w-[68%]   xl:w-[60%] ">
           {/* <MainTemplate />   */}
-          <TemplateS1/>  
+          <TemplateS3/>  
       </div>
     </div>
     <Footer />
