@@ -10,6 +10,7 @@ import { selectUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
 import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
 import { nanoid } from "nanoid";
+
 export const ProjectsTab = ({
   Heading,
   Link,
@@ -21,9 +22,8 @@ export const ProjectsTab = ({
 
   return (
     <>
-    <div>
-      
-    </div>
+        {/* <div className="border border-gray-200 p-4 my-4"> */}
+
       <div className="rounded-lg border border-gray-400 w-[95%]  my-2 px-4 py-4">
         <div className="flex flex-row justify-between">
           <h3 className="text-2xl">{Heading}</h3>
@@ -129,7 +129,7 @@ const ProjectsForm = () => {
         </form>
       </div>
       {/* Results Section */}
-      <div className=" p-4 border border-gray-300 mb-4 h-[270px] overflow-scroll w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px] ">
+      <div className=" p-4 border border-gray-300 mb-4 h-[170px] overflow-scroll w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px] ">
         {submittedData.map((e, index) => {
           return (
             <ProjectsTab
