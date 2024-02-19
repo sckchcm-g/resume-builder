@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { FormSection } from "./MultiStepForm.jsx";
 
 export default function PersonaIInfo() {
   const dispatch = useDispatch();
-
+  const [formLevel, setForm] = useState(0);
   const {
     register,
     handleSubmit,
@@ -16,12 +17,8 @@ export default function PersonaIInfo() {
   const [successMsg, setSuccessMsg] = useState("");
 
   function sumbitData(data) {
-    //console.log(data);
-    // Dispatch the action to update the Redux store
     dispatch(setUserData(data));
-
     setSuccessMsg("Data is updated.");
-
     reset();
   }
 
@@ -229,12 +226,14 @@ export default function PersonaIInfo() {
           </div>
         </div>
         <div className="flex px-2">
-          <button
+           <button 
             type="submit"
             className="bg-purple-500 hover:bg-purple-700 text-white font-semibold py-1 px-3   rounded"
           >
             Save
-          </button>
+            </button>
+             {/* <FormButtons formLevel={formLevel} setForm={setForm} type={"submit"}/>  */}
+              {/* <FormSection  />    */}
         </div>
       </form>
       {/* <span className="block w-[70%] h-0.5 mt-4 bg-purple-200"></span> */}

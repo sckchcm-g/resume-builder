@@ -7,7 +7,7 @@ function TemplateS2() {
 
   return (
     <>
-    <div className="a4-sheet w-[794px] h-[1122px] bg-white flex mt-10"  style={{ transform: 'scale(0.9)' }}>
+    <div className="a4-sheet w-[794px] h-[1122px] bg-white flex mt-10"  style={{transform: 'scale(0.7)', marginTop: '-150px' }}>
       <div className="left-box">
             <div className="profile-space  w-[200px] h-[200px] bg-white mt-10 mx-10  rounded-[300px] border-[5px] border-solid border-[gold]" />
             <div className="top-curve w-[400px] h-[822px] bg-[gold] mx-2.5 my-[50px] rounded-[50px_50px_0px_0px]">

@@ -102,4 +102,4 @@ const AccorComponent = () => {
   )
 }
 
-export default AccorComponent
+export default AccorComponent;
