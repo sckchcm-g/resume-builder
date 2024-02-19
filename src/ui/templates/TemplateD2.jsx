@@ -15,9 +15,12 @@ function TemplateD2() {
       </div>
 
       <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 text-[whitesmoke] text-[15px] font-extralight w-[200px] left-[90%] top-2/4">
-        <p className='mt-[5px]'>Email: abcd@cde.com</p>
-        <p className='mt-[5px]'>Linkedin: abcdefgg</p>
-        <p className='mt-[5px]'>Ph.no: 98745632100 </p>
+        <p className='mt-[5px]'>
+          Email: {userInputData && userInputData["email-address"]
+                  ? userInputData["email-address"]
+                  : "abcd@cde.com"}</p>
+        {/* <p className='mt-[5px]'>Linkedin: abcdefgg</p> */}
+        {/* <p className='mt-[5px]'>Ph.no: 98745632100 </p> */}
       </div>
     </div>
     <div>
@@ -42,6 +45,40 @@ function TemplateD2() {
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>
       </ul>
     </div>
+
+   {/* Adding additional sections based on userData */}
+    {/* Projects */}
+   {/* {userInputData && userInputData.projects ? (
+        <>
+           <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[70%] ml-[151px]">
+    <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Projects</p>
+    </div>
+          {userInputData.projects.slice(1).map((project) => {
+            return (
+              <ul
+                key={project.id}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+              >
+                <li className=" w-full ">
+                  <div className="project-header flex flex-row gap-[15px] items-center">
+                    <h2 className="text-lg heading">{project.Heading}</h2>
+                    <a
+                      href={project.Link}
+                      className="text-md text-cyan-600 cursor-pointer"
+                    >
+                      {project.Link}
+                    </a>
+                  </div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  />
+                </li>
+              </ul>
+            );
+          })}
+        </>
+        ) : null}*/}
+
       <div className="flex flex-row">
         <div className="bg-[rgb(244,245,244)] w-[65%] h-[297mm]">
           <div className="absolute -translate-x-2/4 -translate-y-2/4 text-lg font-[bold] w-[210px] text-[rgb(90,80,154)] text-justify w-60 left-[82.5%] top-[52%]">

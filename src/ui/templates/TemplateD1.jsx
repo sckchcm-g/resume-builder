@@ -6,8 +6,8 @@ function TemplateD1() {
   const [count, setCount] = useState(0)
   const userInputData = useSelector(selectUserData)
   return (
-    <div className='w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row;  border-[2px] border-color: rgb(0 0 0) mt-[-170px] 'style={{ transform: 'scale(0.7)' }}>
-      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)]">
+    <div className='w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row;  border-[2px] border-color: rgb(0 0 0) mt-[-170px]'style={{ transform: 'scale(0.7)' }}>
+      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] grow">
         <div className="leftimgbox">
           <div className="img">
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
@@ -24,17 +24,36 @@ function TemplateD1() {
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>kuugsu fsisd ksuvd</p>
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>kuugsu fsisd ksuvd</p>
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>kuugsu fsisd ksuvd</p>
-          <h3 className='text-3xl font-semibold text-[rgb(252,255,250)] mt-[70px]'>Hobbies</h3>
+          {/*<h3 className='text-3xl font-semibold text-[rgb(252,255,250)] mt-[70px]'>Hobbies</h3>
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>drhdf</p>
           <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>drhdf</p>
-          <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>drhdf</p>  
+  <p className='text-l font-medium text-[rgb(224,231,239)] mt-5'>drhdf</p>  */}
+  {/* Adding additional sections based on userData */}
+      {/* Languages */}
+      {userInputData && userInputData.language ? (
+        <>
+          <h3 className='text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]'>LANGUAGES</h3>
+          {userInputData.language.map((lan) => {
+            return (
+              <ul
+                key={lan[2]}
+                className=""
+              >
+                <li className="list-item-D1 text-l font-medium text-[rgb(224,231,239)] mt-5">
+                  {lan[0]} - {lan[1]}
+                </li>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
         </div>
       </div>
 
       <div className="bg-[#FFFFFF]">
 
 
-        <div className="text-xl font-medium text-black ml-10 mt-20">
+        <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className='text-3xl font-bold text-[rgb(2,4,2)]'>Profile</h2>
           <p className='mt-5 text-base font-medium text-[rgb(89,88,90)] '>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo 
             veritatis mollitia voluptates reiciendis deleniti error quasi
@@ -70,42 +89,20 @@ function TemplateD1() {
           </ul>
         </div>
         {/* Adding additional sections based on userData */}
-      {/* Languages */}
-      {userInputData && userInputData.language ? (
-        <>
-          <h1 className="languages  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
-            Languages
-          </h1>
-          {userInputData.language.map((lan) => {
-            return (
-              <ul
-                key={lan[2]}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
-              >
-                <li className="list-item text-black  w-[150px]">
-                  {lan[0]} - {lan[1]}
-                </li>
-              </ul>
-            );
-          })}
-        </>
-      ) : null}
-
       {/* Projects */}
       {userInputData && userInputData.projects ? (
         <>
-          <h1 className="projects  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
-            Projects
-          </h1>
+         <div className="text-xl font-medium text-black ml-10 mt-5">
+          <h2 className='text-3xl font-semibold text-[rgb(2,4,2)]'>Projects</h2>
           {userInputData.projects.slice(1).map((project) => {
             return (
               <ul
                 key={project.id}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className="pt-5 text-lg font-medium"
               >
-                <li className=" w-full ">
-                  <div className="project-header flex flex-row gap-[15px] items-center">
-                    <h2 className="text-lg heading">{project.Heading}</h2>
+               
+                  <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
+                    <h2 className="text-2xl heading-D1">{project.Heading}</h2>
                     <a
                       href={project.Link}
                       className="text-md text-cyan-600 cursor-pointer"
@@ -113,13 +110,14 @@ function TemplateD1() {
                       {project.Link}
                     </a>
                   </div>
-                  <div
+                  <div className='max-w-[400px] text-wrap pt-[10px]'
                     dangerouslySetInnerHTML={{ __html: project.description }}
                   />
-                </li>
+                
               </ul>
             );
           })}
+          </div>
         </>
       ) : null}
 
@@ -129,19 +127,19 @@ function TemplateD1() {
             return (
               <ul
                 key={customData.id}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className="pt-5 text-lg font-medium "
               >
-                <li className=" w-full ">
-                  <h1 className="custom-data  text-xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
-                    {customData.Custom_Heading}
-                  </h1>
+               <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
+                    <h2 className="text-2xl heading-D1">  {customData.Custom_Heading}</h2>
                   <div
+                  className='max-w-[400px] text-wrap pt-[10px]'
                     dangerouslySetInnerHTML={{ __html: customData.description }}
                   />
-                </li>
+                </div>
               </ul>
             );
           })
+        
         : null}
       </div>
     </div>
