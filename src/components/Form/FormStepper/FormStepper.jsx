@@ -2,7 +2,7 @@
 import "./stepper.css";
 
 const FormStepper = ({Newnum}) => {
-    const steps = ["Personal","Expereince","Education","Skills"];
+    const steps = ["Personal","Education","Expereince","Skills","Additional"];
     // const [currentStep,setCurrentStep] = useState(Newnum);
     // const [currentStep,setCurrentStep] = useState(0);
     // console.log(Newnum);

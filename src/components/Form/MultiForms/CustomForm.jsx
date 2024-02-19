@@ -16,8 +16,8 @@ const CustomFormTab = ({ data, DeletCustomTab, idForCustom }) => {
   const SantizedHtml = DOMPurify.sanitize(description);
 
   return (
-    <div className="border border-green-400 w-[100%] my-2 py-1 px-4 ">
-      <div className="flex flex-row justify-between">
+    <div className="rounded-lg border border-gray-400 w-[95%] mx-3 my-2 px-4 py-4">
+    <div className="flex flex-row justify-between">
         <h2 className="text-2xl">{data.Custom_Heading}</h2>
         <MdDelete
           onClick={() => DeletCustomTab(idForCustom)}
@@ -65,10 +65,12 @@ const CustomForm = () => {
   }
 
   return (
-    <div className="min-h-[700px] ">
+    // <div className="min-h-[700px] ">
+    <div className="p-4 border border-gray-300 h-auto w-[410px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+
       {/* Input Section */}
       <div>
-        {/* <h2>Custom Section</h2> */}
+        <h2 className="text-2xl font-semibold mb-3">Custom Section</h2>
         <form onSubmit={handleSubmit(SubmitHandler)}>
           <label>Custom Heading</label>
           <input

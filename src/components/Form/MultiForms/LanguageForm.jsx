@@ -53,6 +53,7 @@ const LanguageOption = ({ currList, updateList }) => {
   return (
     <>
       <div className="flex flex-row gap-2 my-3">
+        
         <div>
           <input
             value={inputLang}
@@ -80,14 +81,25 @@ const LanguageOption = ({ currList, updateList }) => {
             <option value="Expert">Expert</option>
           </select>
           {/* <p>Selected Expertise: {selectedExpertise}</p> */}
+          
         </div>
+
+        <button
+        onClick={() => {
+          addItemList();
+          updateUserData(userInputData, inputLang);
+        }}
+        className="bg-indigo-700 sm:hidden md:block text-white my-2 px-4 py-1 rounded-md w-full md:w-auto"
+      >
+        Add
+      </button>
       </div>
       <button
         onClick={() => {
           addItemList();
           updateUserData(userInputData, inputLang);
         }}
-        className="bg-indigo-700 text-white py-2 px-4 rounded-md"
+        className="bg-indigo-700 lg:hidden text-white py-2 px-4 rounded-md w-full md:w-auto"
       >
         Add
       </button>
@@ -104,7 +116,7 @@ const DeleteButton = ({ Del_id, languageList, setLangList }) => {
   return (
     <MdDelete
       onClick={() => langDeleteItem(Del_id)}
-      className="text-red-700 mt-[6px]"
+      className="text-red-700 mt-[1px] h-8"
     />
   );
 };
@@ -116,16 +128,18 @@ const LanguageForm = () => {
   ]);
 
   return (
-    <div>
+    // <div >
+    <div className="p-4 my-8 border border-gray-300 h-auto w-[360px] md:w-[460px] lg:w-[550px] max-w-[590px]">
+      <h2 className="text-2xl font-semibold mb-3"> Add Languages.</h2>
       <div>
         <LanguageOption currList={languageList} updateList={setLangList} />
       </div>
-      <div className=" text-purple-500 text-lg my-2">
+      <div className=" text-gray-500 text-lg my-2">
         <ul>
           {" "}
           {languageList.map((e, index) => {
             return (
-              <div className="flex flex-row align-middle gap-5" key={index}>
+              <div className="flex flex-row align-middle gap-2" key={index}>
                 <h2 className="text-[20px] ">
                   {" "}
                   - {e[0]} - {e[1]}
