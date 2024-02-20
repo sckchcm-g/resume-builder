@@ -13,7 +13,7 @@ function TemplateS2() {
   return (
     <>
       <div
-        className="a4-sheet w-[794px] h-[1122px] max-h-[1122px] overflow-y-auto bg-white flex mt-10    shadow-lg shadow-[#9333ea]"
+        className="a4-sheet w-[794px] h-[1122px] max-h-[1122px] overflow-y-auto bg-white flex mt-10"
         style={{ transform: "scale(0.7)", marginTop: "-150px" }}
       >
         <div className="left-box">

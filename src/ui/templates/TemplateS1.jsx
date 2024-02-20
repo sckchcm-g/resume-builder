@@ -11,7 +11,7 @@ function TemplateS1() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="a4-sheet  bg-white w-[793px] h-[1123px] lg:max-h-[1123px] overflow-auto lg:overflow-y-[793px] flex flex-col items-center mt-[50px] border-[2px] pb-[20px]    shadow-lg  shadow-[#9333ea]"
+      className="a4-sheet  bg-white w-[793px] h-[1123px] lg:max-h-[1123px] overflow-auto lg:overflow-y-[793px] flex flex-col items-center mt-[50px] border-[2px] pb-[20px] "
       style={{ transform: "scale(0.7)", marginTop: "-150px" }}
     >
       {/* coloured box area  */}

@@ -5,7 +5,7 @@ function TemplateD2() {
   const [count, setCount] = useState(0)
   const userInputData = useSelector(selectUserData);
   return (
-    <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] shadow-lg  shadow-[#9333ea]" style={{ transform: 'scale(0.7)' }}>
+    <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] " style={{ transform: 'scale(0.7)' }}>
 
     <div className="bg-[rgb(91,80,155)] w-[180mm] h-[60mm] absolute flex rounded-[250px_0_0_250px] left-[112px] top-[80px]">
       <div className="bg-[whitesmoke] w-[55mm] h-[55mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[50%] left-[17%] top-2/4"></div>
