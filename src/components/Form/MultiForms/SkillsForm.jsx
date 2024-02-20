@@ -35,7 +35,7 @@ const SkillsForm = () => {
 
   return (
     // <div>
-    <div className="p-4 my-8 border border-gray-300 h-auto w-[360px] md:w-[460px] lg:w-[550px] max-w-[590px]">
+    <div className="p-4 my-8 border border-gray-300 h-auto w-[360px] md:w-[460px] lg:w-[500px] max-w-[590px]">
       <h2 className="text-2xl font-semibold mb-3"> Add Skills.</h2>
 
         <div className="flex flex-row my-4 gap-4" >
