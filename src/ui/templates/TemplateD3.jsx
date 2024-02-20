@@ -6,7 +6,7 @@ function TemplateD3() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="TemplateD3 flex flex-col items-center justify-center bg-[rgb(192,219,255)] w-[794px] h-[1123px] max-h-[1123px] lg:overflow-auto mt-[-150px]  "
+      className="TemplateD3 flex flex-col items-center justify-center bg-[rgb(192,219,255)] w-[794px] h-[1123px] max-h-[1123px] lg:overflow-auto mt-[-150px]  shadow-lg  shadow-[#9333ea]"
       style={{ transform: "scale(0.7)" }}
     >
       <div className="h-[230px] bg-[rgb(2,87,148)] w-[95%] mt-5 rounded-[150px]">
