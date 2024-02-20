@@ -80,7 +80,6 @@ import Footer from "./Footer.jsx";
 import MultiStepForm from '../components/Form/MultiStepForm.jsx';
 import TemplateS1 from "./templates/TemplateS1.jsx";
 import TemplateS2 from "./templates/TemplateS2.jsx";
-import TemplateS3 from "./templates/TemplateS3.jsx";
 import TemplateD1 from "./templates/TemplateD1.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
@@ -136,6 +135,7 @@ function DesktopView() {
           {selectedTemplate === "MainTemplate" && <MainTemplate />}
         </div>
       </div>
+
       <Footer />
 
       {/* Template button popup is coming from here */}
