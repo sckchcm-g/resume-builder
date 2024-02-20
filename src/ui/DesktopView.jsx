@@ -229,6 +229,7 @@ function DesktopView() {
           {selectedTemplate === "MainTemplate" && <MainTemplate />}
         </div>
       </div>
+
       <Footer />
 
       {/* Template button popup is coming from here */}

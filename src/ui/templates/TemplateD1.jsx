@@ -6,8 +6,8 @@ function TemplateD1() {
   const [count, setCount] = useState(0)
   const userInputData = useSelector(selectUserData)
   return (
-    <div className='w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row flex-grow  border-[2px] border-color: rgb(0 0 0) mt-[-170px]'style={{ transform: 'scale(0.7)' }}>
-      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] ">
+    <div className='w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row;  border-[2px] border-color: rgb(0 0 0) mt-[-170px] shadow-lg  shadow-[#9333ea] 'style={{ transform: 'scale(0.7)' }}>
+      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] grow">
         <div className="leftimgbox">
           <div className="img">
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
