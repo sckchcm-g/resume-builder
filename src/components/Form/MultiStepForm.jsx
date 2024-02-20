@@ -23,7 +23,7 @@ const FormCtn =({num})=>{
     {/* // <div className=" rounded-lg m-auto"> */}
 
       <div className="ml-10"> 
-        <FormStepper Newnum={formLevel} />
+        <FormStepper Newnum={formLevel} setForm={setForm}/>
       {/* Main Form Section Start */}
       </div>
 
