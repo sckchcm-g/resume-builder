@@ -220,7 +220,7 @@ function DesktopView() {
           </div>
           <MultiStepForm />
         </div>
-        <div className="right w-[60%] lg:w-[68%] xl:w-[60%]">
+        <div className="right w-[60%]  xl:w-[60%]">
           {selectedTemplate === "TemplateD1" && <TemplateD1 />}
           {selectedTemplate === "TemplateD2" && <TemplateD2 />}
           {selectedTemplate === "TemplateD3" && <TemplateD3 />}

@@ -153,7 +153,7 @@ function TemplateS2() {
                         </h2>
                         <a
                           href={project.Link}
-                          className="text-md text-cyan-600 cursor-pointer max-w-[150px] flex-wrap overflow-x-hidden"
+                          className="text-md text-cyan-600 cursor-pointer max-w-[200px] flex-wrap overflow-x-hidden"
                         >
                           {project.Link}
                         </a>

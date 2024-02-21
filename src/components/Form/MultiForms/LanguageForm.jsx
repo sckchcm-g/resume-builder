@@ -44,7 +44,6 @@ const LanguageOption = ({ currList, updateList }) => {
         ...previousFormData,
         language: newState,
       };
-      console.log(updatedData);
       dispatch(setUserData(updatedData));
       return newState;
     });

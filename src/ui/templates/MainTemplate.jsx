@@ -6,8 +6,10 @@ import { useSelector } from "react-redux";
 function MainTemplate() {
   const userInputData = useSelector(selectUserData);
   return (
-     <div className="template main-template hidden mt-[20px] lg:block  w-[210mm] h-[297mm]   lg:max-h-[297mm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider"
-     style={{ transform: "scale(0.7)" , marginTop: "-120px"}}>
+    <div
+      className="template main-template hidden mt-[20px] lg:block  w-[210mm] h-[297mm]   lg:max-h-[297mm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider"
+      style={{ transform: "scale(0.69)", marginTop: "-150px", marginLeft: "-100px" }}
+    >
       {/*Template Header */}
       <div className="header-wrapper pt-5 hidden lg:block ">
         <header className="flex justify-between  ">
@@ -158,21 +160,37 @@ function MainTemplate() {
         <ul className="text-[15px] text-gray-500 leading-5">
           <li className="list-item">Academic Awardee of AY 2007-2008</li>
         </ul>
-        <h1 className="skills text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
-          Key Skills
-        </h1>
-        <ul className="text-[15px] text-gray-500 leading-5  pt-2">
-          <li className="skill">Detail oriented</li>
-          <li className="skill">Well-versed in Texas employment law</li>
-          <li className="skill">
-            Excellent written and oral communication skills
-          </li>
-          <li className="skill">
-            Develops positive workplace relationships
-          </li>
-        </ul>
+        <div className="skills-div w-[100%]">
+          <h1 className="skills  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
+            Key Skills
+          </h1>
+          {userInputData && userInputData.skills ? (
+            userInputData.skills.slice(3).map((skill, index) => (
+              <ul
+                className="text-[15px] text-gray-500 leading-[25px] pt-2 flex items-center  w-[40%]   "
+                key={index}
+              >
+                <div
+                  className={`skillLevel w-[${skill[1]}] h-[15px]  rounded-sm  bg-[#de8535] mr-[15px]`}
+                ></div>
+                <li className="updated-skill">{skill[0]}</li>
+              </ul>
+            ))
+          ) : (
+            <ul className="text-[15px] text-gray-500 leading-[25px] pt-2">
+              <li className="skill">Detail oriented</li>
+              <li className="skill">Well-versed in Texas employment law</li>
+              <li className="skill">
+                Excellent written and oral communication skills
+              </li>
+              <li className="skill">
+                Develops positive workplace relationships
+              </li>
+            </ul>
+          )}
+        </div>
+        {console.log(userInputData)}
       </div>
-
       {/* Adding additional sections based on userData */}
       {/* Languages */}
       {userInputData && userInputData.language ? (
