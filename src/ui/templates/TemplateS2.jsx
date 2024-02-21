@@ -36,15 +36,33 @@ function TemplateS2() {
               </div>
               <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
 
-              <div className="Technical-skills grid grid-cols-[repeat(2,1fr)] m-5 p-5">
-                {techSkill.map((item) => {
-                  return (
-                    <div className="TechSkill">
-                      <p>{item}</p>
-                      <div className="progressbox w-[150px] h-5 bg-white mb-2.5 rounded-[10px]" />
-                    </div>
-                  );
-                })}
+              <div className="Technical-skills  h-[150px] flex flex-wrap max-h-[150px] overflow-y-auto">
+                {userInputData && userInputData.skills ? (
+                  userInputData.skills.slice(3).map((skill, index) => (
+                    <ul
+                      className="pt-[15px]   flex items-center  ml-[35px]  w-[60%]  "
+                      key={index}
+                    >
+                      <div
+                        className={`skillLevel w-[${skill[1]}] p-[3px]  rounded-lg  bg-white mr-[15px] text-[#ffd700] text-center text-[10px]`}
+                      >
+                        {skill[1]}
+                      </div>
+                      <li className="updated-skill  ">{skill[0]}</li>
+                    </ul>
+                  ))
+                ) : (
+                  <div className="Technical-skills grid grid-cols-[repeat(2,1fr)] m-5 p-5 gap-[10px]">
+                    {techSkill.map((item) => {
+                      return (
+                        <div className="TechSkill">
+                          <p>{item}</p>
+                          <div className="progressbox w-[150px] h-5 bg-white mb-2.5 rounded-[10px]" />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />

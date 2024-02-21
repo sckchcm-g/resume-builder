@@ -101,19 +101,19 @@ const SkillsForm = () => {
           <label className="Expertise text-lg">Expertise</label>
           <div className="skill-bar flex gap-[20px] items-center justify-center w-[130px]  h-[2px] bg-gray-300 relative z-0">
             <span
-              className="point skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel("25%")}
+              className="point cursor-pointer skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
+              onClick={() => setSkillLevel("35%")}
             ></span>
             <span
-              className="point skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
+              className="point  cursor-pointer skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
               onClick={() => setSkillLevel("50%")}
             ></span>
             <span
-              className="point skill-rating-3 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
+              className="point cursor-pointer skill-rating-3 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
               onClick={() => setSkillLevel("75%")}
             ></span>
             <span
-              className="point skill-rating-4 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
+              className="point  cursor-pointer skill-rating-4 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
               onClick={() => setSkillLevel("100%")}
             ></span>
           </div>

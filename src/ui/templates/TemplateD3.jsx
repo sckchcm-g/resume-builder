@@ -14,18 +14,24 @@ function TemplateD3() {
           <div className="h-[200px] w-[200px] bg-[rgb(235,236,231)] ml-[-20px] mt-[20px] rounded-[50%]"></div>
           <div className="flex flex-col items-center justify-center bg-white w-[400px] h-[150px] mt-[25px] ml-[30px]  rounded-[50px_100px_100px_50px] border-2 border-solid border-[rgba(1,63,107,)]">
             <div className="flex flex-row text-[40px] text-[rgb(1,63,107)] mt-[-20px] m-6 p-0">
-              <p className="firstname  mr-3">{userInputData && userInputData.firstName
+              <p className="firstname  mr-3">
+                {userInputData && userInputData.firstName
                   ? userInputData.firstName
-                  : "Devraj"}</p>
-              <p className="lastname">{userInputData && userInputData["last-name"]
+                  : "Devraj"}
+              </p>
+              <p className="lastname">
+                {userInputData && userInputData["last-name"]
                   ? userInputData["last-name"]
-                  : "Patil"}</p>
+                  : "Patil"}
+              </p>
             </div>
             <hr className="w-[300px] border -mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="text-xl text-[rgb(1,63,107)] m-0 p-0">
-              <p>{userInputData && userInputData["email-address"]
+              <p>
+                {userInputData && userInputData["email-address"]
                   ? userInputData["email-address"]
-                  : "cdc@cdc.cdc"}</p>
+                  : "cdc@cdc.cdc"}
+              </p>
             </div>
           </div>
         </div>
@@ -50,18 +56,33 @@ function TemplateD3() {
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px]">
+        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-y-auto m-[38px] rounded-[25px]">
           <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
             Skills
           </h2>
-          <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px] mt-[-10px]">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node</li>
-            <li>MongoDB</li>
-          </ul>
+          {userInputData && userInputData.skills ? (
+            userInputData.skills.slice(3).map((skill, index) => (
+              <ul
+                className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
+                key={index}
+              >
+                <div
+                  className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
+                >
+                  {skill[1]}
+                </div>
+                <li className="updated-skill  ">{skill[0]}</li>
+              </ul>
+            ))
+          ) : (
+            <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px] mt-[-10px]">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node</li>
+            </ul>
+          )}
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />

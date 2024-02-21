@@ -111,20 +111,36 @@ function TemplateS1() {
 
         {/* Professional skills  */}
         <div className="skilldev flex flex-row items-center justify-between w-[700px] h-[280px] bg-[rgba(255,255,255,0.448)]">
-          <div className="skill-set w-[450px] h-[230px] text-base m-5 p-5 rounded-[20px]">
+          <div className="skill-set w-[450px] h-[230px] max-h-[230px] overflow-y-auto text-base m-5 p-5 rounded-[20px]">
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
               Key Skills
             </h2>
-            <div className="skillarray">
-              {skillarray.map((item) => {
-                return (
-                  <div className="flex m-4 flex-row items-center">
-                    <div className="w-[100px] h-3 bg-[rgb(99,133,255)] mx-2.5 my-0" />{" "}
-                    <p>{item}</p>
+            {userInputData && userInputData.skills ? (
+              userInputData.skills.slice(3).map((skill, index) => (
+                <ul
+                  className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
+                  key={index}
+                >
+                  <div
+                    className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[rgb(99,133,255)] mr-[15px] text-white text-center text-[10px]`}
+                  >
+                    {skill[1]}
                   </div>
-                );
-              })}
-            </div>
+                  <li className="updated-skill ">{skill[0]}</li>
+                </ul>
+              ))
+            ) : (
+              <div className="skillarray">
+                {skillarray.map((item) => {
+                  return (
+                    <div className="flex m-4 flex-row items-center">
+                      <div className="w-[100px] h-3 bg-[rgb(99,133,255)] mx-2.5 my-0" />{" "}
+                      <p>{item}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* education details  */}

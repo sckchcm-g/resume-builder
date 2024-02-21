@@ -171,8 +171,8 @@ function MainTemplate() {
                 key={index}
               >
                 <div
-                  className={`skillLevel w-[${skill[1]}] h-[15px]  rounded-sm  bg-[#de8535] mr-[15px]`}
-                ></div>
+                  className={`skillLevel w-[${skill[1]}] p-[2px] text-white text-center text-[10px] rounded-sm  bg-[#de8535] mr-[15px]`}
+                >{skill[1]}</div>
                 <li className="updated-skill">{skill[0]}</li>
               </ul>
             ))
@@ -189,7 +189,7 @@ function MainTemplate() {
             </ul>
           )}
         </div>
-        {console.log(userInputData)}
+        
       </div>
       {/* Adding additional sections based on userData */}
       {/* Languages */}
