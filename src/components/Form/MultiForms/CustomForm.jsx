@@ -34,13 +34,13 @@ const CustomFormTab = ({ data, DeletCustomTab, idForCustom }) => {
 const CustomForm = () => {
   const dispatch = useDispatch();
   const userInputData = useSelector(selectUserData);
-  const [submittedData, setSubmitted] = useState([
+  {/*const [submittedData, setSubmitted] = useState([
     {
       Custom_Heading: "Dummy Data",
       description: "Dummy COntent please ignore please ignore please ignore.",
     },
-  ]);
-
+  ]);*/}
+  const [submittedData, setSubmitted] = useState([])
   const [customDescription, setCustomDes] = useState("");
 
   const { reset, register, handleSubmit } = useForm();
@@ -62,6 +62,13 @@ const CustomForm = () => {
     const TempCustomData = [...submittedData];
     TempCustomData.splice(cust_id, 1);
     setSubmitted(TempCustomData);
+    const storedData =[...userInputData.customData]
+    storedData.splice(cust_id,1)
+    const updatedData = {
+      ...userInputData,
+      customData: storedData
+    };
+    dispatch(setUserData(updatedData));
   }
 
   return (

@@ -7,7 +7,7 @@ function TemplateD1() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row;  border-[2px] border-color: rgb(0 0 0) mt-[-170px] "
+      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] mt-[-170px]  "
       style={{ transform: "scale(0.7)" }}
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
@@ -46,8 +46,8 @@ function TemplateD1() {
             <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
               Skills
             </h2>
-            {userInputData && userInputData.skills ? (
-              userInputData.skills.slice(3).map((skill, index) => (
+            {userInputData && userInputData.skills && userInputData.skills.length>0? (
+              userInputData.skills.map((skill, index) => (
                 <ul
                   className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
                   key={index}
@@ -73,14 +73,14 @@ function TemplateD1() {
           </div>
           {/* Adding additional sections based on userData */}
           {/* Languages */}
-          {userInputData && userInputData.language ? (
+          {userInputData && userInputData.language && userInputData.language.length>0 ? (
             <>
               <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
                 LANGUAGES
               </h3>
-              {userInputData.language.map((lan) => {
+              {userInputData.language.map((lan,index) => {
                 return (
-                  <ul key={lan[2]} className="">
+                  <ul key={index} className="">
                     <li className="list-item-D1 text-l font-medium text-[rgb(224,231,239)] mt-5">
                       {lan[0]} - {lan[1]}
                     </li>
@@ -119,13 +119,13 @@ function TemplateD1() {
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects ? (
+        {userInputData && userInputData.projects && userInputData.projects.length>0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
                 Projects
               </h2>
-              {userInputData.projects.slice(1).map((project) => {
+              {userInputData.projects.map((project) => {
                 return (
                   <ul key={project.id} className="pt-5 text-lg font-medium">
                     <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
@@ -148,13 +148,44 @@ function TemplateD1() {
           </>
         ) : null}
 
+        {/* Certificates */}
+        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+          <>
+            <div className="text-xl font-medium text-black ml-10 mt-5">
+              <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
+                Certificates
+              </h2>
+              {userInputData.certificates.map((certificate, index) => {
+                return (
+                  <ul
+                    key={index}
+                    className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+                  >
+                    <h2 className="font-serif font-bold">
+                      {certificate.Certificate_Name}
+                    </h2>
+                    <div className=" flex gap-[10px]">
+                      <h3>{certificate.Institute}</h3>
+                      <span>|</span>
+                      <span>{certificate.startDate}</span>
+                    </div>
+                  </ul>
+                );
+              })}
+            </div>
+          </>
+        ) : null}
+
         {/* Custom Form */}
         {userInputData && userInputData.customData
-          ? userInputData.customData.slice(1).map((customData) => {
+          ? userInputData.customData.map((customData) => {
               return (
-                <ul key={customData.id} className="pt-5 text-lg font-medium ">
+                <ul
+                  key={customData.id}
+                  className="pt-5 text-lg font-medium ml-10"
+                >
                   <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
-                    <h2 className="text-2xl heading-D1">
+                    <h2 className=" text-3xl font-semibold text-[rgb(2,4,2)]">
                       {" "}
                       {customData.Custom_Heading}
                     </h2>

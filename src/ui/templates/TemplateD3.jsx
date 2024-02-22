@@ -60,8 +60,8 @@ function TemplateD3() {
           <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
             Skills
           </h2>
-          {userInputData && userInputData.skills ? (
-            userInputData.skills.slice(3).map((skill, index) => (
+          {userInputData && userInputData.skills && userInputData.skills.length>0? (
+            userInputData.skills.map((skill, index) => (
               <ul
                 className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
                 key={index}
@@ -99,45 +99,21 @@ function TemplateD3() {
           </ul>
         </div>
         {/* Adding additional sections based on userData */}
-        {/* Languages */}
-        {userInputData && userInputData.language ? (
-          <>
-            <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-            <div className="languagesD3 bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
-              <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-                Languages
-              </h2>
-              {userInputData.language.map((lan) => {
-                return (
-                  <ul
-                    key={lan[2]}
-                    className="text-[17px] text-[rgb(77,77,77)] m-[15px]"
-                  >
-                    <li className="list-item-D3 text-black  w-[150px]">
-                      {lan[0]} - {lan[1]}
-                    </li>
-                  </ul>
-                );
-              })}
-            </div>
-          </>
-        ) : null}
-
         {/* Projects */}
-        {userInputData && userInputData.projects ? (
+        {userInputData && userInputData.projects && userInputData.projects.length>0? (
           <div>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="projectsD3  bg-[rgba(255,255,255,0.448)] w-[720px] overflow-x-hidden max-h-[200px] overflow-auto m-[38px]  rounded-[25px]">
               <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
                 Projects
               </h2>
-              {userInputData.projects.slice(1).map((project) => {
+              {userInputData.projects.map((project) => {
                 return (
                   <ul
                     key={project.id}
                     className=" text-[rgb(77,77,77)] m-[15px] "
                   >
-                    <li className=" w-full list-item-D3 text-black ">
+                    <li className=" w-full  text-black ">
                       <div className="project-header flex flex-row gap-[15px] items-center">
                         <h2 className="text-[23px] heading-D3">
                           {project.Heading}
@@ -163,9 +139,60 @@ function TemplateD3() {
           </div>
         ) : null}
 
+        {/*Certificates*/}
+        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+          <>
+            <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
+            <div className="certificates bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
+              <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+                Certificates
+              </h2>
+              {userInputData.certificates.map((certificate, index) => {
+                return (
+                  <ul
+                    key={index}
+                    className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px] m-[15px] "
+                  >
+                    <h2 className=" font-bold">
+                      {certificate.Certificate_Name}
+                    </h2>
+                    <div className=" flex gap-[10px]">
+                      <h3>{certificate.Institute}</h3> |
+                      <span>{certificate.startDate}</span>
+                    </div>
+                  </ul>
+                );
+              })}
+            </div>
+          </>
+        ) : null}
+        {/* Languages */}
+        {userInputData && userInputData.language && userInputData.language.length>0? (
+          <>
+            <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
+            <div className="languagesD3 bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
+              <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+                Languages
+              </h2>
+              {userInputData.language.map((lan,index) => {
+                return (
+                  <ul
+                    key={index}
+                    className="text-[17px] text-[rgb(77,77,77)] m-[15px]"
+                  >
+                    <li className="list-item-D3 text-black  w-[150px]">
+                      {lan[0]} - {lan[1]}
+                    </li>
+                  </ul>
+                );
+              })}
+            </div>
+          </>
+        ) : null}
+
         {/* Custom Form */}
         {userInputData && userInputData.customData
-          ? userInputData.customData.slice(1).map((customData) => {
+          ? userInputData.customData.map((customData) => {
               return (
                 <>
                   <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
@@ -174,8 +201,8 @@ function TemplateD3() {
                       key={customData.id}
                       className=" text-[17px] text-[rgb(77,77,77)] m-[15px] "
                     >
-                      <li className=" w-full list-item-D3 text-black ">
-                        <h1 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+                      <li className=" w-full  text-black ">
+                        <h1 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px] ">
                           {customData.Custom_Heading}
                         </h1>
                         <div

@@ -37,8 +37,8 @@ function TemplateS2() {
               <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
 
               <div className="Technical-skills  h-[150px] flex flex-wrap max-h-[150px] overflow-y-auto">
-                {userInputData && userInputData.skills ? (
-                  userInputData.skills.slice(3).map((skill, index) => (
+                {userInputData && userInputData.skills && userInputData.skills.length>0? (
+                  userInputData.skills.map((skill, index) => (
                     <ul
                       className="pt-[15px]   flex items-center  ml-[35px]  w-[60%]  "
                       key={index}
@@ -71,14 +71,14 @@ function TemplateS2() {
             </div>*/}
             {/* Adding additional sections based on userData */}
             {/* Languages */}
-            {userInputData && userInputData.language ? (
+            {userInputData && userInputData.language && userInputData.language.length>0? (
               <>
                 <h1 className="text-center text-[40px] pt-2.5 text-3xl my-10">
                   Languages
                 </h1>
-                {userInputData.language.map((lan) => {
+                {userInputData.language.map((lan,index) => {
                   return (
-                    <ul key={lan[2]} className="flex justify-center mb-[15px]">
+                    <ul key={index} className="flex justify-center mb-[15px]">
                       <div className=" w-3 h-2.5 bg-[rgb(255,255,255)] m-2.5 rounded-[50px]" />
                       <li className="text-black  w-[150px]">
                         {lan[0]} - {lan[1]}
@@ -158,10 +158,10 @@ function TemplateS2() {
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           {/* Projects */}
-          {userInputData && userInputData.projects ? (
+          {userInputData && userInputData.projects && userInputData.projects.length>0? (
             <>
               <h2 className=" text-center px-5 text-2xl">Projects</h2>
-              {userInputData.projects.slice(1).map((project) => {
+              {userInputData.projects.map((project) => {
                 return (
                   <ul key={project.id} className="">
                     <li className=" w-full ">
@@ -188,12 +188,36 @@ function TemplateS2() {
               })}
             </>
           ) : null}
-          {userInputData && userInputData.projects && (
+          {/* <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" /> */}
+          {/*{userInputData && userInputData.projects && userInputData.projects.length>0 && (
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
-          )}
+          )}*/}
+          {/* Certificates */}
+          {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+            <>
+              <h2 className=" text-center px-5 text-2xl">Certificates</h2>
+              {userInputData.certificates.map((certificate,index) => {
+                return (
+                  <ul
+                key={index}
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+              >
+                <h2 className="font-serif font-bold">{certificate.Certificate_Name}</h2>
+                <div className=" flex gap-[10px]">
+                <h3>{certificate.Institute}</h3> |
+                <span>{certificate.startDate}</span>
+                </div>
+              </ul>
+                );
+              })}
+            </>
+          ) : null}
+
+
+          
           {/* Custom Form */}
           {userInputData && userInputData.customData
-            ? userInputData.customData.slice(1).map((customData) => {
+            ? userInputData.customData.map((customData) => {
                 return (
                   <>
                     <ul key={customData.id} className=" ">
@@ -209,7 +233,7 @@ function TemplateS2() {
                         />
                       </li>
                     </ul>
-                    <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
+                    {/* <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" /> */}
                   </>
                 );
               })

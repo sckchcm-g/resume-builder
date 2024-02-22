@@ -47,14 +47,15 @@ const ProjectsForm = () => {
   const dispatch = useDispatch();
   const userInputData = useSelector(selectUserData);
 
-  const [submittedData, setSubmittedData] = useState([
+ {/* const [submittedData, setSubmittedData] = useState([
     {
       Heading: "Dummy",
       Link: "www.fhasihif/com",
       description: "nenwen enwi nei ien wien iweij ",
       id: nanoid(),
     },
-  ]);
+  ]);*/}
+  const [submittedData, setSubmittedData] = useState([])
   const [description, setDescription] = useState("");
 
   const { register, handleSubmit, reset } = useForm();
@@ -80,6 +81,13 @@ const ProjectsForm = () => {
     let tempData = [...submittedData];
     tempData.splice(idValue, 1);
     setSubmittedData(tempData);
+    let storedTempData = [...userInputData.projects]
+    storedTempData.splice(idValue,1)
+    const updatedData = {
+      ...userInputData,
+      projects: storedTempData,
+    };
+    dispatch(setUserData(updatedData))
   }
 
   return (

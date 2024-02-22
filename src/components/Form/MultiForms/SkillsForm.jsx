@@ -67,11 +67,14 @@ const SkillTag = ({ value, Id_num, array, setSkillArray }) => {
 };
 
 const SkillsForm = () => {
-  const [skillArray, setSkillArray] = useState([
+  {
+    /*const [skillArray, setSkillArray] = useState([
     "Skill 1",
     "Skill 2",
     "Skill 3",
-  ]);
+  ]);*/
+  }
+  const [skillArray, setSkillArray] = useState([]);
   const [skillLevel, setSkillLevel] = useState("");
   const [skillText, addSkill] = useState("");
   const dispatch = useDispatch();

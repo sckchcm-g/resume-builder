@@ -115,8 +115,8 @@ function TemplateS1() {
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
               Key Skills
             </h2>
-            {userInputData && userInputData.skills ? (
-              userInputData.skills.slice(3).map((skill, index) => (
+            {userInputData && userInputData.skills  && userInputData.skills.length>0? (
+              userInputData.skills.map((skill, index) => (
                 <ul
                   className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
                   key={index}
@@ -163,14 +163,14 @@ function TemplateS1() {
       </div>
       {/* Adding additional sections based on userData */}
       {/* Languages */}
-      {userInputData && userInputData.language ? (
+      {userInputData && userInputData.language && userInputData.language.length>0 ? (
         <>
           <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
             Languages
           </h2>
-          {userInputData.language.map((lan) => {
+          {userInputData.language.map((lan,index) => {
             return (
-              <ul key={lan[2]} className="flex">
+              <ul key={index} className="flex">
                 <div className=" w-3 h-2.5 bg-[rgb(99,133,255)] m-2.5 rounded-[50px]" />
                 <li className=" text-black  w-[150px]">
                   {lan[0]} - {lan[1]}
@@ -185,12 +185,12 @@ function TemplateS1() {
       )}
 
       {/* Projects */}
-      {userInputData && userInputData.projects ? (
+      {userInputData && userInputData.projects  && userInputData.projects.length>0? (
         <>
           <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
             Projects
           </h2>
-          {userInputData.projects.slice(1).map((project) => {
+          {userInputData.projects.map((project) => {
             return (
               <ul key={project.id} className="">
                 <li className=" w-full ">
@@ -217,9 +217,34 @@ function TemplateS1() {
         <hr className="w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none] mt-[25px]" />
       )}
 
+      {/* Certificates */}
+      {userInputData && userInputData.certificates  && userInputData.certificates.length>0? (
+        <>
+          <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+            Certificates
+          </h2>
+          {userInputData.certificates.map((certificate,index) => {
+            return (
+              <ul
+                key={index}
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+              >
+                <h2 className="font-serif font-bold">{certificate.Certificate_Name}</h2>
+                <div className=" flex gap-[10px]">
+                <h3>{certificate.Institute}</h3> |
+                <span>{certificate.startDate}</span>
+                </div>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
+      {userInputData && userInputData.projects && (
+        <hr className="w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none] mt-[25px]" />
+      )}
       {/* Custom Form */}
       {userInputData && userInputData.customData
-        ? userInputData.customData.slice(1).map((customData) => {
+        ? userInputData.customData.map((customData) => {
             return (
               <>
                 <ul key={customData.id} className=" ">

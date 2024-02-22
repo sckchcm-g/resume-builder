@@ -12,16 +12,13 @@ import { nanoid } from "nanoid";
 const LanguageOption = ({ currList, updateList }) => {
   // const [language] = useState('');
   const [selectedExpertise, setSelectedExpertise] = useState("beginner");
-  // cons
   const [inputLang, setLangInput] = useState("");
-  const [languagesArr, setlanguagesArray] = useState([]);
   const dispatch = useDispatch();
   const userInputData = useSelector(selectUserData);
-  const id = nanoid();
-
+  //const id = nanoid();
+  
   function handleChange(value) {
     setSelectedExpertise(value);
-    //dispatch(setUserData({...userInputData, value}))
   }
 
   function addItemList() {
@@ -30,29 +27,22 @@ const LanguageOption = ({ currList, updateList }) => {
     const list1 = [a, b];
     let curr_list = [...currList, list1];
     updateList(curr_list);
+    //const ArrItem = [list1, id];
+    const updatedData = {
+      ...userInputData,
+      language: curr_list,
+    };
+    dispatch(setUserData(updatedData));
     setLangInput("");
     setSelectedExpertise("beginner");
     // console.log(curr_list);
   }
 
-  function updateUserData(previousFormData, currentLangInput) {
-    const ArrItem = [currentLangInput, selectedExpertise, id];
-
-    setlanguagesArray((prevArrState) => {
-      const newState = [...prevArrState, ArrItem];
-      const updatedData = {
-        ...previousFormData,
-        language: newState,
-      };
-      dispatch(setUserData(updatedData));
-      return newState;
-    });
-  }
+  
 
   return (
     <>
       <div className="flex flex-row gap-2 my-3">
-        
         <div>
           <input
             value={inputLang}
@@ -80,24 +70,20 @@ const LanguageOption = ({ currList, updateList }) => {
             <option value="Expert">Expert</option>
           </select>
           {/* <p>Selected Expertise: {selectedExpertise}</p> */}
-          
         </div>
 
         <button
-        onClick={() => {
-          addItemList();
-          updateUserData(userInputData, inputLang);
-        }}
-        className="bg-indigo-700 sm:hidden md:block text-white my-2 px-4 py-1 rounded-md w-full md:w-auto"
-      >
-        Add
-      </button>
+          onClick={() => {
+            addItemList();
+            updateUserData(userInputData, inputLang);
+          }}
+          className="bg-indigo-700 sm:hidden md:block text-white my-2 px-4 py-1 rounded-md w-full md:w-auto"
+        >
+          Add
+        </button>
       </div>
       <button
-        onClick={() => {
-          addItemList();
-          updateUserData(userInputData, inputLang);
-        }}
+        onClick={() => addItemList()}
         className="bg-indigo-700 lg:hidden text-white py-2 px-4 rounded-md w-full md:w-auto"
       >
         Add
@@ -107,24 +93,34 @@ const LanguageOption = ({ currList, updateList }) => {
 };
 
 const DeleteButton = ({ Del_id, languageList, setLangList }) => {
+  const dispatch = useDispatch();
+  const userInputData = useSelector(selectUserData);
+
   function langDeleteItem(index) {
     let newLangArray = [...languageList];
     newLangArray.splice(index, 1);
     setLangList(newLangArray);
+    //const storedData = [...userInputData.language];
+   // storedData.splice(index, 1);
+    const updatedData = {
+      ...userInputData,
+      language: newLangArray,
+    };
+    dispatch(setUserData(updatedData));
   }
+  
   return (
     <MdDelete
-      onClick={() => langDeleteItem(Del_id)}
+      onClick={() => {
+        langDeleteItem(Del_id)
+      }}
       className="text-red-700 mt-[1px] h-8"
     />
   );
 };
 
 const LanguageForm = () => {
-  const [languageList, setLangList] = useState([
-    ["English", "Begineer"],
-    ["Justice League", "Newbie"],
-  ]);
+  const [languageList, setLangList] = useState([]);
 
   return (
     // <div >

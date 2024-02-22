@@ -164,8 +164,8 @@ function MainTemplate() {
           <h1 className="skills  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
           </h1>
-          {userInputData && userInputData.skills ? (
-            userInputData.skills.slice(3).map((skill, index) => (
+          {userInputData && userInputData.skills && userInputData.skills>0 ? (
+            userInputData.skills.map((skill, index) => (
               <ul
                 className="text-[15px] text-gray-500 leading-[25px] pt-2 flex items-center  w-[40%]   "
                 key={index}
@@ -192,34 +192,15 @@ function MainTemplate() {
         
       </div>
       {/* Adding additional sections based on userData */}
-      {/* Languages */}
-      {userInputData && userInputData.language ? (
-        <>
-          <h1 className="languages  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
-            Languages
-          </h1>
-          {userInputData.language.map((lan) => {
-            return (
-              <ul
-                key={lan[2]}
-                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
-              >
-                <li className="list-item text-black  w-[150px]">
-                  {lan[0]} - {lan[1]}
-                </li>
-              </ul>
-            );
-          })}
-        </>
-      ) : null}
+      
 
       {/* Projects */}
-      {userInputData && userInputData.projects ? (
+      {userInputData && userInputData.projects  && userInputData.projects.length>0? (
         <>
           <h1 className="projects  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Projects
           </h1>
-          {userInputData.projects.slice(1).map((project) => {
+          {userInputData.projects.map((project) => {
             return (
               <ul
                 key={project.id}
@@ -244,10 +225,52 @@ function MainTemplate() {
           })}
         </>
       ) : null}
+    {/*Certificates*/}
+    {userInputData && userInputData.certificates  && userInputData.certificates.length>0 ? (
+        <>
+          <h1 className="languages  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+            Certificates
+          </h1>
+          {userInputData.certificates.map((certificate,index) => {
+            return (
+              <ul
+                key={index}
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+              >
+                <h2 className="font-serif font-bold">{certificate.Certificate_Name}</h2>
+                <div className=" flex gap-[10px]">
+                <h3>{certificate.Institute}</h3> |
+                <span>{certificate.startDate}</span>
+                </div>
+              </ul>
+            );
+          })}
+        </>
+        ) : null}
+      {/* Languages */}
+      {userInputData && userInputData.language  && userInputData.language.length>0? (
+        <>
+          <h1 className="languages  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+            Languages
+          </h1>
+          {userInputData.language.map((lan,index) => {
+            return (
+              <ul
+                key={index}
+                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+              >
+                <li className="list-item text-black  w-[150px]">
+                  {lan[0]} - {lan[1]}
+                </li>
+              </ul>
+            );
+          })}
+        </>
+      ) : null}
 
       {/* Custom Form */}
       {userInputData && userInputData.customData
-        ? userInputData.customData.slice(1).map((customData) => {
+        ? userInputData.customData.map((customData) => {
             return (
               <ul
                 key={customData.id}
