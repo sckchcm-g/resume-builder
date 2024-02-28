@@ -4,148 +4,156 @@ import FormStepper from "./FormStepper/FormStepper.jsx";
 import { useDispatch } from "react-redux";
 import { setExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
 
+import DOMPurify from "dompurify";
+import { MdDelete } from "react-icons/md";
+
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import "./MultiForms/quill.css";
+
+export const ExperienceTab = ({
+  idRef,
+  jobRole,
+  companyName,
+  startDate,
+  endDate,
+  expDescription,
+  deleteExpData
+  // Link,
+  // Description,
+  // idRef,
+  // HandleDeleteItem,
+}) => {
+  const sanitizedHtml = DOMPurify.sanitize(expDescription);
+
+  return (
+    <>
+        {/* <div className="border border-gray-200 p-4 my-4"> */}
+
+      <div className="rounded-lg border border-gray-400 w-[95%]  my-2 px-4 py-4">
+        <div className="flex flex-row justify-between">
+          <h3 className="text-md font-semibold">{jobRole} at <span className="text-gray-600">{companyName}</span></h3>
+          <div className="flex flex-row justify-center ">
+            <h3 className="text-md text-cyan-600 ">From {startDate} to {endDate}</h3>
+            <MdDelete
+              onClick={() => deleteExpData(idRef)}
+              className=" cursor-pointer mt-1 ml-2 w-4 text-red-700"
+            />
+          </div>
+        </div>
+        <div className="py-2 max-w-[95%] ">
+          <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+
+
 const Experience = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
+  const [ExpDesc, setExpDes] = useState("");
+  // const [successMsg, setSuccessMsg] = useState("");
 
-  const [successMsg, setSuccessMsg] = useState("");
+  const [expData,setExpData]=useState([]);
+  
+
 
   function sumbitData(data) {
-    console.log(data);
+    data.description=ExpDesc;
+    let currData = [...expData,data];
+    setExpData(currData);
+    console.log(expData);
+    // Dispatcher here
     dispatch(setExperienceData(data));
-    setSuccessMsg("Data is updated.");
+    // setSuccessMsg("Data is updated.");
+    setExpDes("")
     reset();
   }
+
+  function deleteExpData(expID){
+    let currData = [...expData];
+    currData.splice(expID,1)
+    setExpData(currData)
+  }
+
   return (
-    // <div className="p-6 m-4 w-full h-[100vh] lg:w-full rounded-xl relative">
-    <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%]">
-      {successMsg && (
-        <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
-          {successMsg}
-        </p>
-      )}
-      <h2 className="text-2xl font-semibold leading-7 text-gray-900 ">
-        Professional Experience
-      </h2>
-      {/* <div className="absolute border-t-4  border-purple-600 w-1/3"></div> */}
-      <p className=" text-sm  leading-6 text-gray-500 ">
-        Tell me about most recent jobs
-      </p>
+    <div>
+      <div className="p-4 border border-gray-300 h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+          <h2 className="text-2xl font-semibold mb-3">Add Experience.</h2>
+          <form onSubmit={handleSubmit(sumbitData)}>
+            <div className="flex flex-row justify-between ">
+              <div className="flex flex-col w-[45%]">
+                <label>Job Title</label>
+                <input
+                  className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  "
+                  autoComplete="off"
+                  type="text"
+                  {...register("Job_Title", {
+                    required: "Required!",
+                  })}
+                ></input>
+              </div>
+              <div className="flex flex-col w-[45%]">
+                <label>Company Name</label>
+                <input
+                  className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm "
+                  autoComplete="off"
+                  type="text"
+                  {...register("Company_Name", {
+                    required: "Required!",
+                  })}
+                ></input>
+              </div>
+            </div>
+            <div className="flex flex-row justify-between ">
+              <div className="flex flex-col w-[45%]">
+                <label>Start Date</label>
+                <input
+                  type="month"
+                  name="WorkstartDate"
+                  id="start-date"
+                  {...register("WrkStartDate")}
+                  autoComplete="off"
+                  className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
+                />
+              </div>
+              <div className="flex flex-col w-[45%]">
+              <label>End Date</label>
+                <input
+                  type="month"
+                  name="WorkendDate"
+                  id="end-date"
+                  {...register("WrkEndDate")}
+                  autoComplete="off"
+                  className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
+                />
+                </div>
+            </div>
+            <div className="">
+            <ReactQuill
+            value={ExpDesc}
+           
+            onChange={(e)=>{
+              setExpDes(e);
+            }}
+            className="border my-5  bg-slate-100 border-purple-400"
+          />
+            </div>
+            <button type={"submit"}   className=" bg-indigo-700 text-white py-2 px-3 rounded-md flex flex-row justify-center cursor-pointer ">
+                Save
+            </button>
+          </form>
 
-      <form
-        className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6 "
-        onSubmit={handleSubmit(sumbitData)}
-      >
-        <div className="sm:col-span-3">
-          <label
-            htmlFor="position-title"
-            className="block text-sm font-normal leading-6 text-gray-900 "
-          >
-            Position Title
-          </label>
-          <div className="mt-2">
-            <input
-              type="text"
-              name="positionTitle"
-              id="position-title"
-              {...register("positionTitle")}
-              autoComplete="off"
-              className="block w-full rounded-md border-0 p-1  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
+      </div>
+        <div className="p-4 border border-gray-300 h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+            {expData.map((e,index)=>{ return(
+              <ExperienceTab key={index} idRef={index} jobRole={e.Job_Title} companyName={e.Company_Name} startDate={e.WrkStartDate} endDate={e.WrkEndDate} expDescription={e.description} deleteExpData={deleteExpData}  />)
+            })}
 
-        <div className="sm:col-span-3">
-          <label
-            htmlFor="company-name"
-            className="block text-sm font-normal leading-6 text-gray-900"
-          >
-            Company Name
-          </label>
-          <div className="mt-2">
-            <input
-              type="text"
-              name="companyName"
-              id="company-name"
-              autoComplete="off"
-              {...register("companyName")}
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
-            />
-          </div>
         </div>
-
-        <div className="sm:col-span-3">
-          <label
-            htmlFor="start-date"
-            className="block text-sm font-normal leading-6 text-gray-900"
-          >
-            Start Date
-          </label>
-          <div className="mt-2">
-            <input
-              type="date"
-              name="startDate"
-              id="start-date"
-              {...register("startDate")}
-              autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-
-        <div className="sm:col-span-3">
-          <label
-            htmlFor="end-date"
-            className="block text-sm font-normal leading-6 text-gray-900"
-          >
-            End Date
-          </label>
-          <div className="mt-2">
-            <input
-              type="date"
-              name="endDate"
-              id="end-date"
-              {...register("endDate")}
-              autoComplete="off"
-              className="block w-full rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
-            />
-          </div>
-          <div className="mt-1 text-xs text-slate-500 flex items-center gap-1">
-            <label htmlFor="currentEmployed">current employed</label>
-            <input
-              type="checkbox"
-              name="currentEmployed"
-              id="currentEmployed"
-            />
-          </div>
-        </div>
-
-        <div className="sm:col-span-6">
-          <label
-            htmlFor="message"
-            className="block mb-2 text-sm font-normal text-gray-900 "
-          >
-            Work summary
-          </label>
-          <textarea
-            id="message"
-            rows="4"
-            name="description"
-            {...register("description")}
-            className="flex p-2.5 w-full  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500      "
-            placeholder="e.g. Supported mentor teacher throughout lessons by preparing…"
-          ></textarea>
-        </div>
-
-        <div className="flex flex-col mt-2">
-          <button
-            type="submit"
-            className="bg-purple-500 hover:bg-purple-700 text-white font-semibold py-1 px-3   rounded"
-          >
-            Save
-          </button>
-        </div>
-      </form>
     </div>
   );
 };

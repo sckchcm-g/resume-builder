@@ -21,7 +21,7 @@ const CertificatesForm = () => {
       certificates: certificateData,
     };
     dispatch(setUserData(updatedData));
-    console.log(updatedData)
+    // console.log(updatedData)
     reset();
   }
 
