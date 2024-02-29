@@ -17,7 +17,7 @@ function MainTemplate() {
     
     <div
       className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px] lg:mx-20 lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
-       style={isLargeViewport ? { transform: "scale(0.6)", marginTop: "-300px",marginLeft:"200px"} : {}}
+       style={isLargeViewport ? { transform: "scale(0.6)", marginTop:"100px", marginLeft:"200px"} : {}}
     >
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
