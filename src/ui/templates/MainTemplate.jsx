@@ -2,9 +2,16 @@ import React from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
 //import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 function MainTemplate() {
   const userInputData = useSelector(selectUserData);
+  const userExperienceData = useSelector(selectExperienceData);
+  const userEducationData = useSelector(selectEducationData);
+  console.log(userInputData);
+  console.log(userExperienceData);
+  console.log(userEducationData);
   const isLargeViewport = window.innerWidth >= 1024; 
   return (
     
@@ -105,9 +112,27 @@ function MainTemplate() {
           Professional Experience
         </h1>
         <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          <h2>Human Resources Manager</h2>
+          <h2>
+            {userExperienceData && userExperienceData.positionTitle
+              ? userExperienceData.positionTitle
+              : "Manager"}
+          </h2>
           <div className="duration  text-gray-500 ">
-            XYZ Company, City, State | June 2020 - Present
+            {userExperienceData && userExperienceData.companyName
+              ? userExperienceData.companyName
+              : "XYZ Company"}
+            ,{" "}
+            {userExperienceData && userExperienceData.description
+              ? userExperienceData.description
+              : "Description "}
+            |{" "}
+            {userExperienceData && userExperienceData.startDate
+              ? userExperienceData.startDate
+              : "Start Date"}
+            -
+            {userExperienceData && userExperienceData.endDate
+              ? userExperienceData.endDate
+              : "End Date"}
           </div>
         </div>
         <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
@@ -154,19 +179,34 @@ function MainTemplate() {
           Education
         </h1>
         <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          <h2>Masters in Human Resources</h2>
-          <div className="duration text-[15px] text-gray-500">
+          {/* <h2>Masters in Human Resources</h2> */}
+          <h2>
+            {userEducationData && userEducationData.degree
+              ? userEducationData.degree
+              : "Masters in Human Resources "}
+          </h2>
+          {/* <div className="duration text-[15px] text-gray-500">
             The University of Texas, Dallas | September 2007 - May 2011
+          </div> */}
+          <div className="duration text-[15px] text-gray-500">
+            {userEducationData && userEducationData.schoolName
+              ? userEducationData.schoolName
+              : "The University of Texas, Dallas | September 2007 - May 2011"}
           </div>
         </div>
-        <ul className="text-[15px] text-gray-500 lg:leading-5">
-          <li className="list-item">Academic Awardee of AY 2007-2008</li>
+        <ul className="text-[15px] text-gray-500 leading-5">
+          {/* <li className="list-item">Academic Awardee of AY 2007-2008</li> */}
+          <li className="list-item">
+            {userEducationData && userEducationData.description
+              ? userEducationData.description
+              : "Academic Awardee of AY 2007-2008"}
+          </li>
         </ul>
         <div className="skills-div w-[100%]">
           <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
           </h1>
-          {userInputData && userInputData.skills && userInputData.skills>0 ? (
+          {userInputData && userInputData.skills && userInputData.skills > 0 ? (
             userInputData.skills.map((skill, index) => (
               <ul
                 className="text-[15px] text-gray-500 lg:leading-[25px] pt-2 flex items-center  w-[40%]   "
@@ -174,7 +214,9 @@ function MainTemplate() {
               >
                 <div
                   className={`skillLevel w-[${skill[1]}] p-[2px] text-white text-center text-[10px] rounded-sm  bg-[#de8535] mr-[15px]`}
-                >{skill[1]}</div>
+                >
+                  {skill[1]}
+                </div>
                 <li className="updated-skill">{skill[0]}</li>
               </ul>
             ))
@@ -191,13 +233,13 @@ function MainTemplate() {
             </ul>
           )}
         </div>
-        
       </div>
       {/* Adding additional sections based on userData */}
-      
 
       {/* Projects */}
-      {userInputData && userInputData.projects  && userInputData.projects.length>0? (
+      {userInputData &&
+      userInputData.projects &&
+      userInputData.projects.length > 0 ? (
         <>
           <h1 className="projects text-lg  lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Projects
@@ -227,35 +269,41 @@ function MainTemplate() {
           })}
         </>
       ) : null}
-    {/*Certificates*/}
-    {userInputData && userInputData.certificates  && userInputData.certificates.length>0 ? (
+      {/*Certificates*/}
+      {userInputData &&
+      userInputData.certificates &&
+      userInputData.certificates.length > 0 ? (
         <>
           <h1 className="languages text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Certificates
           </h1>
-          {userInputData.certificates.map((certificate,index) => {
+          {userInputData.certificates.map((certificate, index) => {
             return (
               <ul
                 key={index}
                 className="text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px]"
               >
-                <h2 className="font-serif font-bold">{certificate.Certificate_Name}</h2>
+                <h2 className="font-serif font-bold">
+                  {certificate.Certificate_Name}
+                </h2>
                 <div className=" flex gap-[10px]">
-                <h3>{certificate.Institute}</h3> |
-                <span>{certificate.startDate}</span>
+                  <h3>{certificate.Institute}</h3> |
+                  <span>{certificate.startDate}</span>
                 </div>
               </ul>
             );
           })}
         </>
-        ) : null}
+      ) : null}
       {/* Languages */}
-      {userInputData && userInputData.language  && userInputData.language.length>0? (
+      {userInputData &&
+      userInputData.language &&
+      userInputData.language.length > 0 ? (
         <>
           <h1 className="languages text-sm lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Languages
           </h1>
-          {userInputData.language.map((lan,index) => {
+          {userInputData.language.map((lan, index) => {
             return (
               <ul
                 key={index}

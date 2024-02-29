@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import FormStepper from './FormStepper/FormStepper.jsx';
+import FormStepper from "./FormStepper/FormStepper.jsx";
+import { useDispatch } from "react-redux";
+import { setEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 const Education = () => {
   const { register, handleSubmit, reset } = useForm();
-
   const [successMsg, setSuccessMsg] = useState("");
+  const dispatch = useDispatch();
 
   function sumbitData(data) {
     console.log(data);
-
+    dispatch(setEducationData(data));
     setSuccessMsg("Data is updated.");
-
     reset();
   }
   return (
     // <div className=" p-6 m-4 w-full h-[100vh] lg:w-full rounded-xl relative">
     <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%]">
-  
-    {successMsg && (
+      {successMsg && (
         <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
           {successMsg}
         </p>
