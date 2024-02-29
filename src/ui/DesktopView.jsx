@@ -174,18 +174,17 @@ import TemplateD1 from "./templates/TemplateD1.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
 import MainTemplate from "./templates/MainTemplate.jsx";
-import tempImg from '../assets/layout.png';
 import template1 from '../assets/template1.png';
 import template2 from '../assets/template2.png';
 import template3 from '../assets/template3.png';
 import template4 from '../assets/template4.png';
 import template5 from '../assets/template5.png';
 import maintemplate from "../assets/maintemplate.png";
+import Navbar from "./Navbar.jsx";
 
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState("TemplateD2");
-
   const handleTemplateClick = (templateId) => {
     setSelectedTemplate(templateId);
     setPopupVisible(false);
@@ -196,31 +195,27 @@ function DesktopView() {
   };
 
   const templates = [
-    { id: "TemplateD1", name: "Template 1", image: template1 },
-    { id: "TemplateD2", name: "Template 2", image: template2 },
-    { id: "TemplateD3", name: "Template 3", image: template3 },
-    { id: "TemplateS1", name: "Template 4", image: template5 },
-    { id: "TemplateS2", name: "Template 5", image: template4 },
-    { id: "MainTemplate", name: "Template 6", image: maintemplate },
+    { id: "TemplateD1", name: "Template 1", image: template1 , component:TemplateD1},
+    { id: "TemplateD2", name: "Template 2", image: template2 , component:TemplateD2},
+    { id: "TemplateD3", name: "Template 3", image: template3 , component:TemplateD3},
+    { id: "TemplateS1", name: "Template 4", image: template5 , component:TemplateS1},
+    { id: "TemplateS2", name: "Template 5", image: template4 , component:TemplateS2},
+    { id: "MainTemplate", name: "Template 6", image: maintemplate , component:MainTemplate},
   ];
 
   return (
     <div>
       <div className="desktop-view flex w-[97%] pt-[20px] mx-[30px]">
         <Header />
+        
         <div className="left w-[45%]">
-          <div className="bg-white flex items-center justify-between w-[85%]">
-            <button
-              onClick={() => setPopupVisible(true)}
-              className="flex items-center gap-2 border border-sky-500 rounded-2xl py-1 px-2 hover:bg-sky-500 hover:text-white transition duration-700 shadow-[#9333ea] shadow-md"
-            >
-              <img src={tempImg} alt="" className="w-4 hover:text-white" />
-              <span className="hover:text-white text-sky-500">Templates</span>
-            </button>
-          </div>
+        <Navbar selectedTemplate={selectedTemplate} setPopupVisible={setPopupVisible} templates={templates} popupVisible={popupVisible} handleTemplateClick={handleTemplateClick} closePopup={closePopup}/> 
+        
+      
+          
           <MultiStepForm />
         </div>
-        <div className="right w-[60%]  xl:w-[60%]">
+        <div className="right w-[60%]  xl:w-[60%] z-0 ">
           {selectedTemplate === "TemplateD1" && <TemplateD1 />}
           {selectedTemplate === "TemplateD2" && <TemplateD2 />}
           {selectedTemplate === "TemplateD3" && <TemplateD3 />}
@@ -228,10 +223,13 @@ function DesktopView() {
           {selectedTemplate === "TemplateS2" && <TemplateS2 />}
           {selectedTemplate === "MainTemplate" && <MainTemplate />}
         </div>
+        
+
       </div>
+      
 
       <Footer />
-
+     
       {/* Template button popup is coming from here */}
       {popupVisible && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -252,10 +250,19 @@ function DesktopView() {
             ))}
           </div>
         </div>
-      )}
-    </div>
-  );
-}
+            )}
 
-export default DesktopView;
+      </div>
+      ); 
+} 
 
+export default DesktopView; 
+
+{/*
+            <button
+              onClick={() => setPopupVisible(true)}
+              className="flex items-center gap-2 border border-sky-500 rounded-2xl py-1 px-2 hover:bg-sky-500 hover:text-white transition duration-700 shadow-[#9333ea] shadow-md"
+            >
+              <img src={tempImg} alt="" className="w-4 hover:text-white" />
+              <span className="hover:text-white text-sky-500">Templates</span>
+  </button>*/}

@@ -1,4 +1,9 @@
-
+/*.main-template{
+  transform: "scale(0.69)"; margin-top: "-150px"; margin-left: "-100px"
+}*/
+.template-button:hover svg path {
+  fill: white;
+}
 ul .list-item::before,
 .listItem::before,
 .heading::before {
@@ -10,7 +15,7 @@ ul .list-item::before,
   background-color: rgba(222, 133, 53, 0.5);
   margin-right: 7px;
 }
-.list-item-D3::before{
+.list-item-D3::before {
   background-color: #025794;
   content: " ";
   display: inline-block;
@@ -20,7 +25,8 @@ ul .list-item::before,
   margin-right: 7px;
 }
 
-.heading-D3::before, .heading-D1::before {
+.heading-D3::before,
+.heading-D1::before {
   content: " ";
   display: inline-block;
   width: 10px;
@@ -35,7 +41,7 @@ ul .list-item::before,
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color:rgb(99,133,255);
+  background-color: rgb(99, 133, 255);
   margin-right: 7px;
 }
 .heading-S2::before {
@@ -44,7 +50,7 @@ ul .list-item::before,
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color:gold;
+  background-color: gold;
   margin-right: 7px;
 }
 .listItem::before,
@@ -62,7 +68,6 @@ ul .list-item::before,
   border-radius: 2px;
 }
 
-
 ::-webkit-scrollbar {
   width: 2px;
 }
@@ -72,4 +77,37 @@ ul .list-item::before,
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+}
+
+@media screen and (min-width: 300px) {
+  .main-template {
+    transform: scale(0.3);
+    position: relative;
+    right: 250px;
+    bottom: 300px;
+    height: 1000px;
+    max-height: 1000px;
+    overflow: auto;
+  }
+}
+@media screen and (min-width: 375px) {
+  .main-template {
+     transform: scale(0.3);
+    right: 230px;
+    bottom: 300px;
+  }
+}
+@media screen and (min-width: 425px) {
+  .main-template {
+     transform: scale(0.3);
+    right: 200px;
+    bottom: 300px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-template {
+     transform: scale(0.3);
+    
+    right: 280px;
+  }
 }

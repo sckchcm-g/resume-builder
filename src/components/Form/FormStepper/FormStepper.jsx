@@ -9,7 +9,7 @@ const FormStepper = ({Newnum,setForm}) => {
     {/* Stepper with Completion-Green */}
 
       {/* Without Completion-Not Green */}
-      <div className="flex justify-between my-2 w-[270px]  ">
+      <div className="flex justify-between my-2 w-[270px] bg-blue static z-0 ">
             {steps.map?.((step,i)=>(
               <div 
                key={i} 
