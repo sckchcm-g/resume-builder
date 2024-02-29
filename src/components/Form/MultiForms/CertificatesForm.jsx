@@ -50,6 +50,13 @@ const CertificatesForm = () => {
               required: " Certificate Name Required!",
             })}
           ></input>
+                    <label>Certificate Link</label>
+                    <input
+            placeholder="Add Certificate Link"
+            type="text"
+            className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
+            {...register("Certificate_Link")}
+          ></input>
           <div className="flex flex-row gap-6">
             <div className="flex flex-col">
               <label>Institution</label>
