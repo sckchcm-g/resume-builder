@@ -232,8 +232,8 @@ function DesktopView() {
      
       {/* Template button popup is coming from here */}
       {popupVisible && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg grid grid-cols-3 gap-4 h-[600px] w-[600px] relative">
+        <div className="z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className=" bg-white p-8 rounded-lg shadow-lg grid grid-cols-3 gap-4 h-[600px] w-[600px] relative">
             <button onClick={closePopup} className="absolute top-4 right-2 text-gray-500 hover:text-gray-700 focus:outline-none">
               <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M6 18L18 6M6 6l12 12"></path>
