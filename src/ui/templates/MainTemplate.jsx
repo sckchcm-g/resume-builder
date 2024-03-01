@@ -2,29 +2,38 @@ import React from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
 //import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 function MainTemplate() {
   const userInputData = useSelector(selectUserData);
+  const userExperienceData = useSelector(selectExperienceData);
+  const userEducationData = useSelector(selectEducationData);
+  console.log(userInputData);
+  console.log(userExperienceData);
+  console.log(userEducationData);
+  const isLargeViewport = window.innerWidth >= 1024; 
   return (
+    
     <div
-      className="template main-template hidden mt-[20px] lg:block  w-[210mm] h-[297mm]   lg:max-h-[297mm] lg:overflow-auto mb-[150px]   shadow-lg mx-20 px-[50px] pb-[100px] lg:mx-0 shadow-[#9333ea] relative z-0 tracking-wider"
-      style={{ transform: "scale(0.69)", marginTop: "-150px", marginLeft: "-100px" }}
+      className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px] lg:mx-20 lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
+       style={isLargeViewport ? { transform: "scale(0.6)", marginTop:"100px", marginLeft:"200px"} : {}}
     >
       {/*Template Header */}
-      <div className="header-wrapper pt-5 hidden lg:block ">
+      <div className="header-wrapper pt-5  ">
         <header className="flex justify-between  ">
           {/* left */}
           <div className="left flex  w-[300px]  justify-between gap-[10px] ">
             {/* logo */}
             <div className="mt-3">
               <button className="logo  p-4 bg-[#de8535] rounded-full ">
-                <span className="text-white text-4xl  font-serif">
+                <span className="text-white text-lg lg:text-4xl  font-serif">
                   {" "}
                   {userInputData && userInputData.firstName
                     ? userInputData.firstName[0]
                     : "C"}
                 </span>
-                <span className="text-white text-4xl font-serif">
+                <span className="text-white text-lg lg:text-4xl font-serif">
                   {userInputData && userInputData["last-name"]
                     ? userInputData["last-name"][0]
                     : "C"}{" "}
@@ -33,17 +42,17 @@ function MainTemplate() {
             </div>
             {/* name & job */}
             <div className="name-job ">
-              <div className="firstName text-[#de8535] font-serif text-4xl">
+              <div className="firstName text-[#de8535] font-serif text-xl lg:text-4xl">
                 {userInputData && userInputData.firstName
                   ? userInputData.firstName
                   : "Chris"}
               </div>
-              <div className="lastName text-[#de8535] font-serif text-4xl">
+              <div className="lastName text-[#de8535] font-serif text-xl lg:text-4xl">
                 {userInputData && userInputData["last-name"]
                   ? userInputData["last-name"]
                   : "Candidate"}
               </div>
-              <div className="job-title w-[250px] text-md font-serif ">
+              <div className="job-title w-[250px] text-[15px] lg:text-md font-serif ">
                 Human Resource Manager
               </div>
             </div>
@@ -87,7 +96,7 @@ function MainTemplate() {
             </div>
           </div>
         </header>
-        <p className="description text-[15px] leading-[24px] text-gray-500 pt-4 leading-3">
+        <p className="description text-[13px] leading-[20px] lg:text-[15px] lg:leading-[24px] text-gray-500 pt-4 leading-3">
           Human resources generalist with 8 years of experience in HR, including
           hiring and terminating, disciplining employees and helping department
           managers improve employee performance. Worked with labor unions to
@@ -98,17 +107,35 @@ function MainTemplate() {
         </p>
       </div>
       {/* Template body */}
-      <div className=" hidden lg:block">
-        <h1 className=" text-serif text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+      <div className=" ">
+        <h1 className=" text-serif  text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Professional Experience
         </h1>
         <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          <h2>Human Resources Manager</h2>
+          <h2>
+            {userExperienceData && userExperienceData.positionTitle
+              ? userExperienceData.positionTitle
+              : "Manager"}
+          </h2>
           <div className="duration  text-gray-500 ">
-            XYZ Company, City, State | June 2020 - Present
+            {userExperienceData && userExperienceData.companyName
+              ? userExperienceData.companyName
+              : "XYZ Company"}
+            ,{" "}
+            {userExperienceData && userExperienceData.description
+              ? userExperienceData.description
+              : "Description "}
+            |{" "}
+            {userExperienceData && userExperienceData.startDate
+              ? userExperienceData.startDate
+              : "Start Date"}
+            -
+            {userExperienceData && userExperienceData.endDate
+              ? userExperienceData.endDate
+              : "End Date"}
           </div>
         </div>
-        <ul className="text-[15px] text-gray-500 leading-[25px] ">
+        <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
           <li className="list-item">
             Implement effective company policies to ensure that all practices
             comply with labor and employment regulations{" "}
@@ -133,7 +160,7 @@ function MainTemplate() {
             XYZ Company, City, State | June 2020 - Present
           </div>
         </div>
-        <ul className="text-[15px] text-gray-500 leading-[25px]">
+        <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
           <li className="list-item">
             Implement effective company policies to ensure that all practices
             comply with labor and employment regulations{" "}
@@ -148,36 +175,53 @@ function MainTemplate() {
             and ensure compliance with affirmative action policies{" "}
           </li>
         </ul>
-        <h1 className="education text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+        <h1 className="education text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Education
         </h1>
         <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          <h2>Masters in Human Resources</h2>
-          <div className="duration text-[15px] text-gray-500">
+          {/* <h2>Masters in Human Resources</h2> */}
+          <h2>
+            {userEducationData && userEducationData.degree
+              ? userEducationData.degree
+              : "Masters in Human Resources "}
+          </h2>
+          {/* <div className="duration text-[15px] text-gray-500">
             The University of Texas, Dallas | September 2007 - May 2011
+          </div> */}
+          <div className="duration text-[15px] text-gray-500">
+            {userEducationData && userEducationData.schoolName
+              ? userEducationData.schoolName
+              : "The University of Texas, Dallas | September 2007 - May 2011"}
           </div>
         </div>
         <ul className="text-[15px] text-gray-500 leading-5">
-          <li className="list-item">Academic Awardee of AY 2007-2008</li>
+          {/* <li className="list-item">Academic Awardee of AY 2007-2008</li> */}
+          <li className="list-item">
+            {userEducationData && userEducationData.description
+              ? userEducationData.description
+              : "Academic Awardee of AY 2007-2008"}
+          </li>
         </ul>
         <div className="skills-div w-[100%]">
-          <h1 className="skills  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
+          <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
           </h1>
-          {userInputData && userInputData.skills && userInputData.skills>0 ? (
+          {userInputData && userInputData.skills && userInputData.skills > 0 ? (
             userInputData.skills.map((skill, index) => (
               <ul
-                className="text-[15px] text-gray-500 leading-[25px] pt-2 flex items-center  w-[40%]   "
+                className="text-[15px] text-gray-500 lg:leading-[25px] pt-2 flex items-center  w-[40%]   "
                 key={index}
               >
                 <div
                   className={`skillLevel w-[${skill[1]}] p-[2px] text-white text-center text-[10px] rounded-sm  bg-[#de8535] mr-[15px]`}
-                >{skill[1]}</div>
+                >
+                  {skill[1]}
+                </div>
                 <li className="updated-skill">{skill[0]}</li>
               </ul>
             ))
           ) : (
-            <ul className="text-[15px] text-gray-500 leading-[25px] pt-2">
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px] pt-2">
               <li className="skill">Detail oriented</li>
               <li className="skill">Well-versed in Texas employment law</li>
               <li className="skill">
@@ -189,22 +233,22 @@ function MainTemplate() {
             </ul>
           )}
         </div>
-        
       </div>
       {/* Adding additional sections based on userData */}
-      
 
       {/* Projects */}
-      {userInputData && userInputData.projects  && userInputData.projects.length>0? (
+      {userInputData &&
+      userInputData.projects &&
+      userInputData.projects.length > 0 ? (
         <>
-          <h1 className="projects  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+          <h1 className="projects text-lg  lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Projects
           </h1>
           {userInputData.projects.map((project) => {
             return (
               <ul
                 key={project.id}
-                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className="text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px] "
               >
                 <li className=" w-full ">
                   <div className="project-header flex flex-row gap-[15px] items-center">
@@ -225,39 +269,45 @@ function MainTemplate() {
           })}
         </>
       ) : null}
-    {/*Certificates*/}
-    {userInputData && userInputData.certificates  && userInputData.certificates.length>0 ? (
+      {/*Certificates*/}
+      {userInputData &&
+      userInputData.certificates &&
+      userInputData.certificates.length > 0 ? (
         <>
-          <h1 className="languages  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+          <h1 className="languages text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Certificates
           </h1>
-          {userInputData.certificates.map((certificate,index) => {
+          {userInputData.certificates.map((certificate, index) => {
             return (
               <ul
                 key={index}
-                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+                className="text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px]"
               >
-                <h2 className="font-serif font-bold">{certificate.Certificate_Name}</h2>
+                <h2 className="font-serif font-bold">
+                  {certificate.Certificate_Name}
+                </h2>
                 <div className=" flex gap-[10px]">
-                <h3>{certificate.Institute}</h3> |
-                <span>{certificate.startDate}</span>
+                  <h3>{certificate.Institute}</h3> |
+                  <span>{certificate.startDate}</span>
                 </div>
               </ul>
             );
           })}
         </>
-        ) : null}
+      ) : null}
       {/* Languages */}
-      {userInputData && userInputData.language  && userInputData.language.length>0? (
+      {userInputData &&
+      userInputData.language &&
+      userInputData.language.length > 0 ? (
         <>
-          <h1 className="languages  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+          <h1 className="languages text-sm lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
             Languages
           </h1>
-          {userInputData.language.map((lan,index) => {
+          {userInputData.language.map((lan, index) => {
             return (
               <ul
                 key={index}
-                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+                className="text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px]"
               >
                 <li className="list-item text-black  w-[150px]">
                   {lan[0]} - {lan[1]}
@@ -274,10 +324,10 @@ function MainTemplate() {
             return (
               <ul
                 key={customData.id}
-                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className="text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px] "
               >
                 <li className=" w-full ">
-                  <h1 className="custom-data  text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+                  <h1 className="custom-data  text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
                     {customData.Custom_Heading}
                   </h1>
                   <div

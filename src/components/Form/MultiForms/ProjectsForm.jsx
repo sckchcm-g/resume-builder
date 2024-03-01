@@ -61,6 +61,7 @@ const ProjectsForm = () => {
   const { register, handleSubmit, reset } = useForm();
   function DesHandler(value) {
     setDescription(value);
+    // console.log(description);
   }
 
   function onSubmit(data) {
@@ -68,10 +69,12 @@ const ProjectsForm = () => {
     data.id = nanoid();
     const prevData = [...submittedData, data];
     setSubmittedData(prevData);
+    
     const updatedData = {
       ...userInputData,
       projects: prevData,
     };
+    // console.log(updatedData);
     dispatch(setUserData(updatedData));
     reset();
     setDescription("");
