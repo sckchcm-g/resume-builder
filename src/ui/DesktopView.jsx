@@ -208,14 +208,14 @@ function DesktopView() {
       <div className="desktop-view flex w-[97%] pt-[20px] mx-[30px]">
         <Header />
         
-        <div className="left w-[45%]">
+        <div className="left w-[50%]">
         <Navbar selectedTemplate={selectedTemplate} setPopupVisible={setPopupVisible} templates={templates} popupVisible={popupVisible} handleTemplateClick={handleTemplateClick} closePopup={closePopup}/> 
         
       
           
           <MultiStepForm />
         </div>
-        <div className="right w-[60%]  xl:w-[60%] z-0 ">
+        <div className="right w-[60%]  xl:w-[30%] z-0 ">
           {selectedTemplate === "TemplateD1" && <TemplateD1 />}
           {selectedTemplate === "TemplateD2" && <TemplateD2 />}
           {selectedTemplate === "TemplateD3" && <TemplateD3 />}
