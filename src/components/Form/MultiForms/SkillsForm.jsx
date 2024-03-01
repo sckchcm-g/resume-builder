@@ -82,7 +82,7 @@ const SkillsForm = () => {
 
   return (
     // <div>
-    <div className="flex flex-col  items-center p-4 my-8 border border-gray-300 h-auto w-[300px] md:w-[460px] lg:w-[400px]  max-w-[590px]">
+    <div className="flex flex-col  items-center p-4 my-8 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[300px] md:w-[460px] lg:w-[400px]  max-w-[590px]">
       <h2 className="text-2xl font-semibold mb-3"> Add Skills & Expertise.</h2>
 
       <div className="flex flex-col md:flex-row md:items-center my-4 gap-4">

@@ -72,7 +72,7 @@ function AppLayout() {
   ];
 
   return previewToggle ? (
-    <div className="preview-container ">
+    <div className="preview-container fixed top-0 left-0 h-full ">
       {templates.map((template) => {
         if (selectedTemplate === template.id) {
           return (
@@ -140,5 +140,6 @@ function AppLayout() {
       )}
     </div>
   );
+  
 }
 export default AppLayout;

@@ -30,8 +30,8 @@ export const ExperienceTab = ({
     <>
         {/* <div className="border border-gray-200 p-4 my-4"> */}
 
-      <div className="rounded-lg border border-gray-400 w-[95%]  my-2 px-4 py-4">
-        <div className="flex flex-row justify-between">
+      <div className="rounded-lg border border-gray-400  w-[95%]  my-2 px-4 py-4">
+        <div className="flex flex-row justify-between ">
           <h3 className="text-md font-semibold">{jobRole} at <span className="text-gray-600">{companyName}</span></h3>
           <div className="flex flex-row justify-center ">
             <h3 className="text-md text-cyan-600 ">From {startDate} to {endDate}</h3>
@@ -81,7 +81,7 @@ const Experience = () => {
 
   return (
     <div>
-      <div className="p-4 border border-gray-300 h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+      <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
           <h2 className="text-2xl font-semibold mb-3">Add Experience.</h2>
           <form onSubmit={handleSubmit(sumbitData)}>
             <div className="flex flex-row justify-between ">
