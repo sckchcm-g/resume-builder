@@ -34,8 +34,14 @@ const FormCtn =({num})=>{
        <button className="focus:outline-none text-white bg-purple-300  hover:bg-purple-400  font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3">Prev</button>
         }  
 
-        {formLevel<4?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3 " onClick={()=>setForm(formLevel+1)} >Next</button>:
+        {/* {formLevel<4?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3 " onClick={()=>setForm(formLevel+1)} >Next</button>:
         <button className="focus:outline-none disabled:opacity-100 text-white bg-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3 ">Next</button>
+        } */}
+                {formLevel<4?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3 " onClick={()=>setForm(formLevel+1)} >Next</button>:
+        <></>
+        }
+        {formLevel===4?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3 " onClick={()=>{}} >Download</button>:
+        <></>
         }
         </div>
     </div>

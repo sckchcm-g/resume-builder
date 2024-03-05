@@ -164,13 +164,15 @@
 
 
 
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import MultiStepForm from '../components/Form/MultiStepForm.jsx';
 import TemplateS1 from "./templates/TemplateS1.jsx";
 import TemplateS2 from "./templates/TemplateS2.jsx";
-import TemplateD1 from "./templates/TemplateD1.jsx";
+import TemplateD1 from "./templates/TemplateD1Sidh.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
 import MainTemplate from "./templates/MainTemplate.jsx";
@@ -182,9 +184,41 @@ import template5 from '../assets/template5.png';
 import maintemplate from "../assets/maintemplate.png";
 import Navbar from "./Navbar.jsx";
 
+
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState("TemplateD2");
+
+  // Pdf Download Part
+
+  const pdfRef = useRef();
+
+  const downloadPDF = async () => {
+    const input = pdfRef.current;
+    const canvas = await html2canvas(input,{ scale: 3 });
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4', true);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    const imgWidth = canvas.width;
+    const imgHeight = canvas.height;
+    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+    const imgX = (pdfWidth - imgWidth * ratio) / 2;
+    const imgY = 0; // Adjust this value based on your header height
+    // const imgWidth = pdfWidth; // Set imgWidth to match the PDF width
+    // const imgHeight = (canvas.height * pdfWidth) / canvas.width; // Calculate proportional height
+    // const ratio = pdfWidth / imgWidth; // Adjusted ratio
+    // const imgX = 0; // Align to the left
+    // const imgY = 0; // Align to the top
+    
+    pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+    pdf.save('resume.pdf');
+  };
+
+  // Download part end
+
+
   const handleTemplateClick = (templateId) => {
     setSelectedTemplate(templateId);
     setPopupVisible(false);
@@ -208,20 +242,25 @@ function DesktopView() {
       <div className="desktop-view flex w-[97%] pt-[20px] mx-[30px]">
         <Header />
         
+        {/* <div className="left w-[45%]"> */}
         <div className="left w-[45%]">
         <Navbar selectedTemplate={selectedTemplate} setPopupVisible={setPopupVisible} templates={templates} popupVisible={popupVisible} handleTemplateClick={handleTemplateClick} closePopup={closePopup}/> 
-        
+        <button onClick={downloadPDF} >Download</button>
       
           
           <MultiStepForm />
         </div>
-        <div className="right w-[60%]  xl:w-[60%] z-0 ">
+        {/* <div   className="right w-[60%]  xl:w-[60%] z-0 "> */}
+        <div   className="right w-auto  xl:w-auto z-0 ">
+
+          <div ref={pdfRef}>
           {selectedTemplate === "TemplateD1" && <TemplateD1 />}
           {selectedTemplate === "TemplateD2" && <TemplateD2 />}
           {selectedTemplate === "TemplateD3" && <TemplateD3 />}
           {selectedTemplate === "TemplateS1" && <TemplateS1 />}
           {selectedTemplate === "TemplateS2" && <TemplateS2 />}
           {selectedTemplate === "MainTemplate" && <MainTemplate />}
+          </div>
         </div>
         
 

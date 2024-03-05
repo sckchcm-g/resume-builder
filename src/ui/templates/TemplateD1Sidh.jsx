@@ -7,8 +7,8 @@ function TemplateD1() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] mt-[-170px]  "
-      style={{ transform: "scale(1.1)" }}
+      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
+      // style={{ transform: "scale(0.7)" }}
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
         <div className="leftimgbox">
@@ -16,7 +16,7 @@ function TemplateD1() {
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
           <div className="mt-[-0px] text-[40px] font-bold ml-10 flex">
-            <p className="text-[rgb(252,255,250)] firstname">Devraj</p>
+            <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
             <p className="text-[rgb(252,255,250)] lastname ml-2">Patil</p>
           </div>
           <div className="text-xl font-medium mt-[-0px] ml-[70px]">
