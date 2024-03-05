@@ -160,7 +160,104 @@
 // export default DesktopView;
 
 
+                                                                                                                                                                                                                                                                                                                                                                                         
 
+
+
+// import React, { useState } from "react";
+// import Header from "./Header.jsx";
+// import Footer from "./Footer.jsx";
+// import MultiStepForm from '../components/Form/MultiStepForm.jsx';
+// import TemplateS1 from "./templates/TemplateS1.jsx";
+// import TemplateS2 from "./templates/TemplateS2.jsx";
+// import TemplateD1 from "./templates/TemplateD1.jsx";
+// import TemplateD2 from "./templates/TemplateD2.jsx";
+// import TemplateD3 from "./templates/TemplateD3.jsx";
+// import MainTemplate from "./templates/MainTemplate.jsx";
+// import tempImg from '../assets/layout.png';
+// import template1 from '../assets/template1.png';
+// import template2 from '../assets/template2.png';
+// import template3 from '../assets/template3.png';
+// import template4 from '../assets/template4.png';
+// import template5 from '../assets/template5.png';
+// import maintemplate from "../assets/maintemplate.png";
+
+// function DesktopView() {
+//   const [popupVisible, setPopupVisible] = useState(false);
+//   const [selectedTemplate, setSelectedTemplate] = useState("TemplateD2");
+
+//   const handleTemplateClick = (templateId) => {
+//     setSelectedTemplate(templateId);
+//     setPopupVisible(false);
+//   };
+
+//   const closePopup = () => {
+//     setPopupVisible(false);
+//   };
+
+//   const templates = [
+//     { id: "TemplateD1", name: "Template 1", image: template1 },
+//     { id: "TemplateD2", name: "Template 2", image: template2 },
+//     { id: "TemplateD3", name: "Template 3", image: template3 },
+//     { id: "TemplateS1", name: "Template 4", image: template5 },
+//     { id: "TemplateS2", name: "Template 5", image: template4 },
+//     { id: "MainTemplate", name: "Template 6", image: maintemplate },
+//   ];
+
+//   return (
+//     <div>
+//       <div className="desktop-view flex w-[97%] pt-[20px] mx-[30px]">
+//         <Header />
+//         <div className="left w-[45%]">
+//           <div className="bg-white flex items-center justify-between w-[85%]">
+//             <button
+//               onClick={() => setPopupVisible(true)}
+//               className="flex items-center gap-2 border border-sky-500 rounded-2xl py-1 px-2 hover:bg-sky-500 hover:text-white transition duration-700 shadow-[#9333ea] shadow-md"
+//             >
+//               <img src={tempImg} alt="" className="w-4 hover:text-white" />
+//               <span className="hover:text-white text-sky-500">Templates</span>
+//             </button>
+//           </div>
+//           <MultiStepForm />
+//         </div>
+//         <div className="right w-[60%] lg:w-[68%] xl:w-[60%]">
+//           {selectedTemplate === "TemplateD1" && <TemplateD1 />}
+//           {selectedTemplate === "TemplateD2" && <TemplateD2 />}
+//           {selectedTemplate === "TemplateD3" && <TemplateD3 />}
+//           {selectedTemplate === "TemplateS1" && <TemplateS1 />}
+//           {selectedTemplate === "TemplateS2" && <TemplateS2 />}
+//           {selectedTemplate === "MainTemplate" && <MainTemplate />}
+//         </div>
+//       </div>
+
+//       <Footer />
+
+//       {/* Template button popup is coming from here */}
+//       {popupVisible && (
+//         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+//           <div className="bg-white p-8 rounded-lg shadow-lg grid grid-cols-3 gap-4 h-[600px] w-[600px] relative">
+//             <button onClick={closePopup} className="absolute top-4 right-2 text-gray-500 hover:text-gray-700 focus:outline-none">
+//               <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+//                 <path d="M6 18L18 6M6 6l12 12"></path>
+//               </svg>
+//             </button>
+//             {templates.map((template) => (
+//               <img
+//                 key={template.id}
+//                 src={template.image}
+//                 alt={template.name}
+//                 onClick={() => handleTemplateClick(template.id)}
+//                 className="cursor-pointer border-4 border-indigo-500" 
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default DesktopView;
 
 
 
@@ -228,6 +325,10 @@ function DesktopView() {
     setPopupVisible(false);
   };
 
+  const handlePreview = () => {
+    setPreviewVisible(true);
+  };
+
   const templates = [
     { id: "TemplateD1", name: "Template 1", image: template1 , component:TemplateD1},
     { id: "TemplateD2", name: "Template 2", image: template2 , component:TemplateD2},
@@ -239,7 +340,7 @@ function DesktopView() {
 
   return (
     <div>
-      <div className="desktop-view flex w-[97%] pt-[20px] mx-[30px]">
+      <div className="desktop-view flex flex-col md:flex-row w-[97%] pt-[20px] mx-[30px]">
         <Header />
         
         {/* <div className="left w-[45%]"> */}

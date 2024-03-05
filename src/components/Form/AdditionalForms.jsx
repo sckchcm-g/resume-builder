@@ -71,7 +71,7 @@ const AccorComponent = () => {
   }
 
   return (
-    <div className="w-[95%] md:w-[520px] lg:w-[470px] xl:w-[490px] m-auto h-auto">
+    <div className="w-[95%] md:w-[520px] lg:w-[470px] xl:w-[490px] m-auto h-auto ">
       <div className="my-2">
         <h2 className= "text-2xl font-semibold">Additional<span className="text-purple-700"> Section.</span></h2>
         <div className=" my-4 flex flex-row gap-2 md:gap-8  justify-center">

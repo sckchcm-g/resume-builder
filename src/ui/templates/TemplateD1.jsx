@@ -21,6 +21,7 @@ function TemplateD1() {
           </div>
           <div className="text-xl font-medium mt-[-0px] ml-[70px]">
             <p className="emailaddress">gmail@gmail.com</p>
+            <p className="Address">Belgian tower, Paris</p>
           </div>
         </div>
 

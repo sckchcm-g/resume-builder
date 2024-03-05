@@ -8,7 +8,7 @@ import SkillsForm from './MultiForms/SkillsForm.jsx';
 // import Accordian from './'
 const FormCtn =({num})=>{
   return(
-  <div className="w-[100%]">
+  <div className="">
     {/* Used COndtional Rendering to Render Different Forms */}
     {num===0?<PersonaIInfo/>:num===1?<Education/>:num===2?<Experience/>:num===3?<SkillsForm/>:<AccorComponent/>}
   </div>
@@ -22,13 +22,13 @@ const FormCtn =({num})=>{
     <div className=" rounded-lg w-12/12 m-auto md:w-12/12 lg:w-12/12 ">
     {/* // <div className=" rounded-lg m-auto"> */}
 
-      <div className="ml-10"> 
+      <div className=""> 
         <FormStepper Newnum={formLevel} setForm={setForm}/>
       {/* Main Form Section Start */}
       </div>
 
           <FormCtn num={formLevel}/>
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-row justify-center mt-[20px]">
 
         {formLevel>0?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3" onClick={()=>setForm(formLevel-1)} >Prev</button>:
        <button className="focus:outline-none text-white bg-purple-300  hover:bg-purple-400  font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3">Prev</button>
