@@ -10,7 +10,10 @@ function TemplateD2() {
     <div className="bg-[rgb(91,80,155)] w-[180mm] h-[60mm] absolute flex rounded-[250px_0_0_250px] left-[112px] top-[80px]">
       <div className="bg-[whitesmoke] w-[55mm] h-[55mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[50%] left-[17%] top-2/4"></div>
       <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-[40%]">
-        <h1 className='text-[whitesmoke] text-[40px] font-[bold]'>Devraj Patil</h1>
+        <div className="flex">
+        <h1 className='text-[whitesmoke] text-[40px] font-[bold] Firstname'>Devraj</h1>
+        <h1 className='text-[whitesmoke] text-[40px] font-[bold] Lastname'>Patil</h1>
+        </div>
         <div className="text-[whitesmoke] text-[25px] font-extralight"><h3>Full Stack Developer</h3></div>
       </div>
 
@@ -19,7 +22,7 @@ function TemplateD2() {
           Email: {userInputData && userInputData["email-address"]
                   ? userInputData["email-address"]
                   : "abcd@cde.com"}</p>
-        {/* <p className='mt-[5px]'>Linkedin: abcdefgg</p> */}
+        {/* <p className='mt-[5px]'>Linkedin: abcdefgg</p>  Here you should add address */}
         {/* <p className='mt-[5px]'>Ph.no: 98745632100 </p> */}
       </div>
     </div>
