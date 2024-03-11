@@ -16,11 +16,17 @@ function TemplateD1() {
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
           <div className="mt-[-0px] text-[40px] font-bold ml-10 flex">
-            <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">Patil</p>
+            <p className="text-[rgb(252,255,250)] firstname">{userInputData && userInputData.firstName
+                  ? userInputData.firstName
+                  : "Sidh"}</p>
+            <p className="text-[rgb(252,255,250)] lastname ml-2">{userInputData && userInputData["last-name"]
+                  ? userInputData["last-name"]
+                  : "Patil"}</p>
           </div>
           <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">gmail@gmail.com</p>
+            <p className="emailaddress">{userInputData && userInputData["email-address"]
+                  ? userInputData["email-address"]
+                  : "gmail@gmail.com"}</p>
           </div>
         </div>
 
