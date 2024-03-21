@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { FormSection } from "./MultiStepForm.jsx";
+import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
+// import { FormSection } from "./MultiStepForm.jsx";
 
 export default function PersonaIInfo() {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import FormStepper from "./FormStepper/FormStepper.jsx";
+// import FormStepper from "./FormStepper/FormStepper.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { setEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { setEducationData } from "../../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../../reduxToolkit/FormDataSlice.jsx";
 
 const Education = () => {
   const { register, handleSubmit, reset } = useForm();

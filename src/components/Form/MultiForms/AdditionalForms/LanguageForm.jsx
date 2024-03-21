@@ -3,9 +3,9 @@ import { useState } from "react";
 import { LuLanguages } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
-import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
+import { setUserData } from "../../../../reduxToolkit/FormDataSlice.jsx";
 import { useDispatch } from "react-redux";
-import { selectUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
+import { selectUserData } from "../../../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 

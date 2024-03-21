@@ -2,7 +2,7 @@ import React, { useState,useRef  } from "react";
 import { useReactToPrint } from 'react-to-print';
 import Header from "./Header.jsx";
 import Navbar from "./Navbar.jsx";
-import FormSection from "../components/Form/MultiStepForm.jsx";
+import FormSection from "../components/Form/MultiForms/MultiStepForm.jsx";
 
 // Templates Import
 import TemplateS1 from "./templates/TemplateS1.jsx";

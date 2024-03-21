@@ -1,10 +1,10 @@
 import {useState} from 'react';
-import FormStepper from './FormStepper/FormStepper.jsx';
+import FormStepper from '../FormStepper/FormStepper.jsx';
 import PersonaIInfo from './PersonaIInfo.jsx';
 import Education from './Education.jsx';
 import Experience from './Experience.jsx';
 import AccorComponent from './AdditionalForms.jsx';
-import SkillsForm from './MultiForms/SkillsForm.jsx';
+import SkillsForm from './SkillsForm.jsx';
 // import Accordian from './'
 const FormCtn =({num})=>{
   return(
@@ -48,13 +48,7 @@ const FormCtn =({num})=>{
     )
 }
 
-// const PreviewDummy = () => {
-//   return(
-//     <div className="bg-yellow-200 md:w-5/12 lg:w-6/12">
-//       <h2>Preview Dummy Need to be replaced with Actual Preview</h2>
-//     </div>
-//   )
-// }
+
 
 const MultiStepForm = () => {
   return (

@@ -266,7 +266,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
-import MultiStepForm from '../components/Form/MultiStepForm.jsx';
+import MultiStepForm from '../components/Form/MultiForms/MultiStepForm.jsx';
 import TemplateS1 from "./templates/TemplateS1.jsx";
 import TemplateS2 from "./templates/TemplateS2.jsx";
 import TemplateD1 from "./templates/TemplateD1Sidh.jsx";
@@ -346,7 +346,7 @@ function DesktopView() {
         {/* <div className="left w-[45%]"> */}
         <div className="left w-[45%]">
         <Navbar selectedTemplate={selectedTemplate} setPopupVisible={setPopupVisible} templates={templates} popupVisible={popupVisible} handleTemplateClick={handleTemplateClick} closePopup={closePopup}/> 
-        <button onClick={downloadPDF} >Download</button>
+        {/* <button onClick={downloadPDF} >Download</button> */}
       
           
           <MultiStepForm />
@@ -397,12 +397,3 @@ function DesktopView() {
 } 
 
 export default DesktopView; 
-
-{/*
-            <button
-              onClick={() => setPopupVisible(true)}
-              className="flex items-center gap-2 border border-sky-500 rounded-2xl py-1 px-2 hover:bg-sky-500 hover:text-white transition duration-700 shadow-[#9333ea] shadow-md"
-            >
-              <img src={tempImg} alt="" className="w-4 hover:text-white" />
-              <span className="hover:text-white text-sky-500">Templates</span>
-  </button>*/}

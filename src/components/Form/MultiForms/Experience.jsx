@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import FormStepper from "./FormStepper/FormStepper.jsx";
+// import FormStepper from "./FormStepper/FormStepper.jsx";
 import { useDispatch } from "react-redux";
-import { setExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { setExperienceData } from "../../../reduxToolkit/FormDataSlice.jsx";
 
 import DOMPurify from "dompurify";
 import { MdDelete } from "react-icons/md";
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "./MultiForms/quill.css";
+import "./quill.css";
 
 export const ExperienceTab = ({
   idRef,
