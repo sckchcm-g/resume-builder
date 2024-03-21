@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+// import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
+// import { useSelector } from "react-redux";
 
-function TemplateD1() {
+function TemplateD1Sidh() {
   const [count, setCount] = useState(0);
-  const userInputData = useSelector(selectUserData);
+  // const userInputData = useSelector(selectUserData);
   return (
     <div
       className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
@@ -15,12 +15,12 @@ function TemplateD1() {
           <div className="img">
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
-          <div className="mt-[-0px] text-[40px] font-bold ml-10 flex">
+          <div className="mt-[-0px] text-15px lg:text-[40px] font-bold ml-10 flex">
             <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">Patil</p>
+            <p className="text-[rgb(252,255,250)] lastname ">Patil</p>
           </div>
-          <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">gmail@gmail.com</p>
+          <div className="text-xl  font-medium mt-[-0px] ml-[70px]">
+            <p className="emailaddress text-[15px]">gmail@gmail.com</p>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ function TemplateD1() {
             <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
               Skills
             </h2>
-            {userInputData && userInputData.skills && userInputData.skills.length>0? (
+            {/* {userInputData && userInputData.skills && userInputData.skills.length>0? (
               userInputData.skills.map((skill, index) => (
                 <ul
                   className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
@@ -69,11 +69,11 @@ function TemplateD1() {
                 <li className="mt-2">sdgsdgt</li>
                 <li className="mt-2">Fisdg</li>
               </ul>
-            )}
+            )} */}
           </div>
           {/* Adding additional sections based on userData */}
           {/* Languages */}
-          {userInputData && userInputData.language && userInputData.language.length>0 ? (
+          {/* {userInputData && userInputData.language && userInputData.language.length>0 ? (
             <>
               <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
                 LANGUAGES
@@ -88,7 +88,7 @@ function TemplateD1() {
                 );
               })}
             </>
-          ) : null}
+          ) : null} */}
         </div>
       </div>
 
@@ -119,7 +119,7 @@ function TemplateD1() {
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects && userInputData.projects.length>0 ? (
+        {/* {userInputData && userInputData.projects && userInputData.projects.length>0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -146,10 +146,10 @@ function TemplateD1() {
               })}
             </div>
           </>
-        ) : null}
+        ) : null} */}
 
         {/* Certificates */}
-        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+        {/* {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -174,10 +174,10 @@ function TemplateD1() {
               })}
             </div>
           </>
-        ) : null}
+        ) : null} */}
 
         {/* Custom Form */}
-        {userInputData && userInputData.customData
+        {/* {userInputData && userInputData.customData
           ? userInputData.customData.map((customData) => {
               return (
                 <ul
@@ -199,10 +199,10 @@ function TemplateD1() {
                 </ul>
               );
             })
-          : null}
+          : null} */}
       </div>
     </div>
   );
 }
 
-export default TemplateD1;
+export default TemplateD1Sidh;

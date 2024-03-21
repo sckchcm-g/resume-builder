@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useRef  } from "react";
+import { useReactToPrint } from 'react-to-print';
 import Header from "./Header.jsx";
 import Navbar from "./Navbar.jsx";
 import FormSection from "../components/Form/MultiStepForm.jsx";
 
 // Templates Import
 import TemplateS1 from "./templates/TemplateS1.jsx";
+
+import TemplateD1Sidh from "./templates/TemplateD1Sidh.jsx";
 import TemplateS2 from "./templates/TemplateS2.jsx";
 import TemplateD1 from "./templates/TemplateD1.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
@@ -21,7 +24,7 @@ function AppLayout() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState("TemplateD2");
   const [previewToggle, setPreviewToggle] = useState(false);
-
+  const pdfRef2 = useRef();
   const handleTemplateClick = (templateId) => {
     setSelectedTemplate(templateId);
     setPopupVisible(false);
@@ -30,6 +33,16 @@ function AppLayout() {
   const closePopup = () => {
     setPopupVisible(false);
     setPreviewToggle(false);
+  };
+
+  const PrintButton = ({ componentRef }) => {
+    const handlePrint = useReactToPrint({
+      content: () => componentRef.current,
+    });
+  
+    return (
+      <button onClick={handlePrint} className="mx-10 text-3xl mt-[-100px]"> Download </button>
+    );
   };
 
   const templates = [
@@ -72,15 +85,31 @@ function AppLayout() {
   ];
 
   return previewToggle ? (
-    <div className="preview-container fixed top-0 left-0 h-full ">
+    // #1
+    // <div className="preview-container fixed top-0 left-0 h-full ">
+
+          <div className="preview-container  ">
       {templates.map((template) => {
         if (selectedTemplate === template.id) {
           return (
+            // Original
+            // <div
+            //   className="bg-black bg-opacity-50 absolute top-0 bottom-0 h-full overflow-hidden "
+            //   key={template.id}
+            // > 
             <div
-              className="bg-black bg-opacity-50 absolute top-0 bottom-0 h-full overflow-hidden "
+              // className="bg-black bg-opacity-50 "
               key={template.id}
-            > 
-                <template.component />
+            >
+
+                <div className="  " id="template-part ">
+                  <div className="scale-[0.60] w-[70%] ">
+                    <div ref={pdfRef2}>
+                    <MainTemplate/>
+                    </div>
+                  </div>
+                </div>
+
                 <button
                   onClick={closePopup}
                   className="absolute top-0 z-50 text-black hover:text-gray-700 focus:outline-none "
@@ -97,6 +126,7 @@ function AppLayout() {
                     <path d="M6 18L18 6M6 6l12 12"></path>
                   </svg>
                 </button>
+                <PrintButton componentRef={pdfRef2}/>
               </div>
           );
         }
