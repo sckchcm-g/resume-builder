@@ -1,17 +1,24 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import FormStepper from "./FormStepper/FormStepper.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 const Education = () => {
   const { register, handleSubmit, reset } = useForm();
   const [successMsg, setSuccessMsg] = useState("");
   const dispatch = useDispatch();
+  //const userEduData = useSelector(selectEducationData);
+
+  const [eduData, setEduData] = useState([]);
 
   function sumbitData(data) {
-    console.log(data);
-    dispatch(setEducationData(data));
+    //console.log(data);
+    let currData = [...eduData, data];
+    setEduData(currData);
+    console.log(eduData);
+    dispatch(setEducationData(currData));
     setSuccessMsg("Data is updated.");
     reset();
   }

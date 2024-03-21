@@ -12,16 +12,15 @@ function MainTemplate() {
   console.log(userInputData);
   console.log(userExperienceData);
   console.log(userEducationData);
-  const isLargeViewport = window.innerWidth >= 1024; 
+  const isLargeViewport = window.innerWidth >= 1024;
   return (
-    
-    // <div
-    //   className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px] lg:mx-20 lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
-    //    style={isLargeViewport ? { transform: "scale(0.6)", marginTop:"100px", marginLeft:"200px"} : {}}
-    // >
-          <div
-      className="template main-template bg-white    w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px] lg:mx-20 lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
-      style={isLargeViewport ? { transform: "scale(1)", marginTop:"100px", marginLeft:"200px"} : {}}
+    <div
+      className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
+      style={
+        isLargeViewport
+          ? { transform: "scale(0.6)", marginTop: "100px", marginLeft: "200px" }
+          : {}
+      }
     >
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
@@ -117,92 +116,164 @@ function MainTemplate() {
         </h1>
         <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
           <h2>
-            {userExperienceData && userExperienceData.positionTitle
-              ? userExperienceData.positionTitle
+            {userExperienceData &&
+            userExperienceData.length > 0 &&
+            userExperienceData[0].Job_Title
+              ? userExperienceData[0].Job_Title
               : "Manager"}
           </h2>
           <div className="duration  text-gray-500 ">
-            {userExperienceData && userExperienceData.companyName
-              ? userExperienceData.companyName
+            {userExperienceData &&
+            userExperienceData.length > 0 &&
+            userExperienceData[0].Company_Name
+              ? userExperienceData[0].Company_Name
               : "XYZ Company"}
-            ,{" "}
-            {userExperienceData && userExperienceData.description
-              ? userExperienceData.description
-              : "Description "}
-            |{" "}
-            {userExperienceData && userExperienceData.startDate
-              ? userExperienceData.startDate
+            {" | "}
+            {userExperienceData &&
+            userExperienceData.length > 0 &&
+            userExperienceData[0].WrkStartDate
+              ? userExperienceData[0].WrkStartDate
               : "Start Date"}
-            -
-            {userExperienceData && userExperienceData.endDate
-              ? userExperienceData.endDate
+            &nbsp; to &nbsp;
+            {userExperienceData &&
+            userExperienceData.length > 0 &&
+            userExperienceData[0].WrkEndDate
+              ? userExperienceData[0].WrkEndDate
               : "End Date"}
           </div>
         </div>
-        <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
-          <li className="list-item">
-            Implement effective company policies to ensure that all practices
-            comply with labor and employment regulations{" "}
-          </li>
-          <li className="list-item">
-            Increased employee retention rates by managing workplace
-            satisfaction to an over 90% success rate by creating and maintaining
-            a positive work environment{" "}
-          </li>
-          <li className="list-item">
-            Develop targeted outreach practices to increase minority recruitment
-            and ensure compliance with affirmative action policies{" "}
-          </li>
-          <li className="list-item">
-            Monitor scheduled in and out times as well as employee breaks to
-            ensure that proper employment laws are met{" "}
-          </li>
-        </ul>
+
+        {userExperienceData &&
+        userExperienceData.length > 0 &&
+        userExperienceData[0].description ? (
+          <div
+            className=""
+            dangerouslySetInnerHTML={{
+              __html: userExperienceData[0].description,
+            }}
+          ></div>
+        ) : (
+          <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
+            <li className="list-item">
+              Implement effective company policies to ensure that all practices
+              comply with labor and employment regulations{" "}
+            </li>
+            <li className="list-item">
+              Increased employee retention rates by managing workplace
+              satisfaction to an over 90% success rate by creating and
+              maintaining a positive work environment{" "}
+            </li>
+            <li className="list-item">
+              Develop targeted outreach practices to increase minority
+              recruitment and ensure compliance with affirmative action policies{" "}
+            </li>
+            <li className="list-item">
+              Monitor scheduled in and out times as well as employee breaks to
+              ensure that proper employment laws are met{" "}
+            </li>
+          </ul>
+        )}
+
         <div className="exp-2 flex items-center w-[70%] pt-[15px] gap-3 font-serif lg:w-[90%]">
-          <h2>Human Resources Associate</h2>
-          <div className="duration text-[15px] text-gray-500">
+          {/* <h2>Human Resources Associate</h2> */}
+          <h2>
+            {userExperienceData &&
+            userExperienceData.length > 1 &&
+            userExperienceData[1].Job_Title
+              ? userExperienceData[1].Job_Title
+              : "Human Resources Associate"}
+          </h2>
+          {/* <div className="duration text-[15px] text-gray-500">
             XYZ Company, City, State | June 2020 - Present
+          </div> */}
+          <div className="duration  text-gray-500 ">
+            {userExperienceData &&
+            userExperienceData.length > 1 &&
+            userExperienceData[1].Company_Name
+              ? userExperienceData[1].Company_Name
+              : "XYZ Company"}
+            {" | "}
+            {userExperienceData &&
+            userExperienceData.length > 1 &&
+            userExperienceData[1].WrkStartDate
+              ? userExperienceData[1].WrkStartDate
+              : "Start Date"}
+            &nbsp; to &nbsp;
+            {userExperienceData &&
+            userExperienceData.length > 1 &&
+            userExperienceData[1].WrkEndDate
+              ? userExperienceData[1].WrkEndDate
+              : "End Date"}
           </div>
         </div>
-        <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
-          <li className="list-item">
-            Implement effective company policies to ensure that all practices
-            comply with labor and employment regulations{" "}
-          </li>
-          <li className="list-item">
-            Increased employee retention rates by managing workplace
-            satisfaction to an over 90% success rate by creating and maintaining
-            a positive work environment{" "}
-          </li>
-          <li className="list-item">
-            Develop targeted outreach practices to increase minority recruitment
-            and ensure compliance with affirmative action policies{" "}
-          </li>
-        </ul>
+        {userExperienceData &&
+        userExperienceData.length > 1 &&
+        userExperienceData[1].description ? (
+          <div
+            className=""
+            dangerouslySetInnerHTML={{
+              __html: userExperienceData[1].description,
+            }}
+          ></div>
+        ) : (
+          <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+            <li className="list-item">
+              Implement effective company policies to ensure that all practices
+              comply with labor and employment regulations{" "}
+            </li>
+            <li className="list-item">
+              Increased employee retention rates by managing workplace
+              satisfaction to an over 90% success rate by creating and
+              maintaining a positive work environment{" "}
+            </li>
+            <li className="list-item">
+              Develop targeted outreach practices to increase minority
+              recruitment and ensure compliance with affirmative action policies{" "}
+            </li>
+          </ul>
+        )}
         <h1 className="education text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Education
         </h1>
         <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]">
           {/* <h2>Masters in Human Resources</h2> */}
           <h2>
-            {userEducationData && userEducationData.degree
-              ? userEducationData.degree
+            {userEducationData &&
+            userEducationData.length > 0 &&
+            userEducationData[0].degree
+              ? userEducationData[0].degree
               : "Masters in Human Resources "}
           </h2>
           {/* <div className="duration text-[15px] text-gray-500">
             The University of Texas, Dallas | September 2007 - May 2011
           </div> */}
           <div className="duration text-[15px] text-gray-500">
-            {userEducationData && userEducationData.schoolName
-              ? userEducationData.schoolName
-              : "The University of Texas, Dallas | September 2007 - May 2011"}
+            {userEducationData &&
+            userEducationData.length > 0 &&
+            userEducationData[0].schoolName
+              ? userEducationData[0].schoolName
+              : "The University of Texas, Dallas "}
+            {" | "}
+            {userEducationData &&
+            userEducationData.length > 0 &&
+            userEducationData[0].startDate
+              ? userEducationData[0].startDate
+              : "Start Date"}
+            {" - "}
+            {userEducationData &&
+            userEducationData.length > 0 &&
+            userEducationData[0].endDate
+              ? userEducationData[0].endDate
+              : "End Date"}
           </div>
         </div>
         <ul className="text-[15px] text-gray-500 leading-5">
           {/* <li className="list-item">Academic Awardee of AY 2007-2008</li> */}
           <li className="list-item">
-            {userEducationData && userEducationData.description
-              ? userEducationData.description
+            {userEducationData &&
+            userEducationData.length > 0 &&
+            userEducationData[0].description
+              ? userEducationData[0].description
               : "Academic Awardee of AY 2007-2008"}
           </li>
         </ul>
