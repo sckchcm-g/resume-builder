@@ -5,16 +5,10 @@ function TemplateD2() {
   const [count, setCount] = useState(0)
   const userInputData = useSelector(selectUserData);
   return (
-    // <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] " style={{ transform: 'scale(1)' }}>
-    <div
-      className="w-[200mm] h-[297mm] lg:max-h-[297mm] bg-[white]   flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
-      style={{ transform: "scale(1)" }}
-    >
-    
-    {/* <div className="w-[210mm] h-[1120px] lg:max-h-[1120px]  bg-[white]  relative flex flex-row  "> */}
+    <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] " style={{ transform: 'scale(0.7)' }}>
 
-    <div className="bg-[rgb(91,80,155)] w-[197mm] h-[60mm] absolute flex rounded-[250px_0_0_250px] left-[112px] top-[80px]">
-      <div className="bg-[whitesmoke] w-[55mm] h-[55mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[50%] left-[16%] top-2/4"></div>
+    <div className="bg-[rgb(91,80,155)] w-[180mm] h-[60mm] absolute flex rounded-[250px_0_0_250px] left-[112px] top-[80px]">
+      <div className="bg-[whitesmoke] w-[55mm] h-[55mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[50%] left-[17%] top-2/4"></div>
       <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-[40%]">
         <div className="flex">
         <h1 className='text-[whitesmoke] text-[40px] font-[bold] Firstname'>Devraj</h1>
@@ -32,7 +26,6 @@ function TemplateD2() {
         {/* <p className='mt-[5px]'>Ph.no: 98745632100 </p> */}
       </div>
     </div>
-
     <div>
       <div className="bg-[rgb(91,80,155)] w-[120mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[28.5%] top-[37%]">
         <p className=' text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[75%] top-[10%] ml-[10px] mt-[10px]'>Professional Experience</p>
@@ -87,7 +80,7 @@ function TemplateD2() {
             );
           })}
         </>
-        ) : null} */}
+        ) : null}*/}
 
       <div className="flex flex-row">
         <div className="bg-[rgb(244,245,244)] w-[65%] h-[297mm]">

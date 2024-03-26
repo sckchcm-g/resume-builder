@@ -7,7 +7,7 @@ function TemplateD1() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] mt-[-170px]  "
+      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] "
       style={{ transform: "scale(1.1)" }}
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">

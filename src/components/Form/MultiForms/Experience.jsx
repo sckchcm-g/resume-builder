@@ -81,7 +81,10 @@ const Experience = () => {
 
   return (
     <div>
-      <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+      {/* <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]"> */}
+      {/* <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[85%] md:w-[440px] lg:w-[440px] max-w-[590px]"> */}
+      <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
+
         <h2 className="text-2xl font-semibold mb-3">Add Experience.</h2>
         <form onSubmit={handleSubmit(sumbitData)}>
           <div className="flex flex-row justify-between ">

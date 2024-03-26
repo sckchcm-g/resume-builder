@@ -6,9 +6,15 @@ function TemplateD1Sidh() {
   const [count, setCount] = useState(0);
   // const userInputData = useSelector(selectUserData);
   return (
-    <div
-      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
-      // style={{ transform: "scale(0.7)" }}
+    // <div
+    //   className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
+
+    // >
+    //       <div
+    //   className="w-[210mm] h-[297mm] lg:max-h-[842px] lg:overflow-hidden flex flex-row  "
+    // >
+                <div
+      className="w-[210mm] h-[1120px]  lg:overflow-hidden flex flex-row border border-gray-300 "
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
         <div className="leftimgbox">

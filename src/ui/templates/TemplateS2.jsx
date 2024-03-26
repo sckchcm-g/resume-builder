@@ -12,9 +12,12 @@ function TemplateS2() {
 
   return (
     <>
-      <div
+      {/* <div
         className="a4-sheet w-[794px] h-[1122px] max-h-[1122px] overflow-y-auto bg-white flex mt-10"
-        style={{ transform: "scale(0.7)", marginTop: "-150px" }}
+      > */}
+            <div
+        className=" w-[794px] h-[1070px] max-h-[1070px] overflow-y-hidden bg-white flex border border-gray-200"
+        // style={{ transform: "scale(0.7)", marginTop: "-150px" }}
       >
         <div className="left-box">
           <div className="profile-space  w-[200px] h-[200px] bg-white mt-10 mx-10  rounded-[300px] border-[5px] border-solid border-[gold]" />

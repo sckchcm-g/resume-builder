@@ -11,9 +11,10 @@ function TemplateS1() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="a4-sheet  bg-white w-[793px] h-[1123px] lg:max-h-[1123px] overflow-auto lg:overflow-y-[793px] flex flex-col items-center mt-[50px] border-[2px] pb-[20px] "
-      style={{ transform: "scale(0.7)", marginTop: "-150px" }}
+      className="a4-sheet  bg-white w-[793px] h-[11210x] lg:max-h-[1110px] overflow-auto mt-5 flex flex-col items-center  border border-gray-200 "
+      // style={{ transform: "scale(0.7)", marginTop: "-150px" }}
     >
+   {/* <div className="w-[210mm] h-[297mm] lg:max-h-[1100px] lg:overflow-hidden  "> */}
       {/* coloured box area  */}
       <div className="pfp-details  flex flex-row items-center justify-between bg-[rgb(99,133,255)] h-[220px] w-[750px] m-[15px] rounded-[120px_5px_50px_120px]">
         <div className="pfp  bg-[white] w-[180px] h-[180px] border m-[15px] rounded-[50%] border-solid border-[gray]" />

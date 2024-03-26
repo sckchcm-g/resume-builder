@@ -25,9 +25,9 @@ const FormCtn =({num})=>{
       <div className=""> 
         <FormStepper Newnum={formLevel} setForm={setForm}/>
       {/* Main Form Section Start */}
-      </div>
 
-          <FormCtn num={formLevel}/>
+      </div>
+        <FormCtn num={formLevel}/>
         <div className="flex flex-row justify-center mt-[20px]">
 
         {formLevel>0?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3" onClick={()=>setForm(formLevel-1)} >Prev</button>:

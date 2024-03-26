@@ -262,6 +262,7 @@
 
 
 import React, { useState,useRef } from "react";
+import { useReactToPrint } from 'react-to-print';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import Header from "./Header.jsx";
@@ -273,6 +274,7 @@ import TemplateD1 from "./templates/TemplateD1Sidh.jsx";
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
 import MainTemplate from "./templates/MainTemplate.jsx";
+import MainTemplate1 from "./templates/MainTemplate copy.jsx";
 import template1 from '../assets/template1.png';
 import template2 from '../assets/template2.png';
 import template3 from '../assets/template3.png';
@@ -280,41 +282,31 @@ import template4 from '../assets/template4.png';
 import template5 from '../assets/template5.png';
 import maintemplate from "../assets/maintemplate.png";
 import Navbar from "./Navbar.jsx";
+import { FaFileDownload } from "react-icons/fa";
 
+const PrintButton = ({ componentRef }) => {
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    beforePrint: () => ({
+      // Specify the CSS styles for printing
+      styles: `@page { size: A4; margin: 0; }`,
+      // Set the scale to 1 to fit everything on a single page
+      scale: 0.9,
+    }),
+  });
+
+  return (
+    <button onClick={handlePrint} className="mx-10 text-2xl"> Download</button>
+  );
+};
 
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false);
-  const [selectedTemplate, setSelectedTemplate] = useState("TemplateD2");
+  const [selectedTemplate, setSelectedTemplate] = useState("TemplateD1");
 
   // Pdf Download Part
 
   const pdfRef = useRef();
-
-  const downloadPDF = async () => {
-    const input = pdfRef.current;
-    const canvas = await html2canvas(input,{ scale: 3 });
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4', true);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-
-    const pdfHeight = pdf.internal.pageSize.getHeight();
-    const imgWidth = canvas.width;
-    const imgHeight = canvas.height;
-    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-    const imgX = (pdfWidth - imgWidth * ratio) / 2;
-    const imgY = 0; // Adjust this value based on your header height
-    // const imgWidth = pdfWidth; // Set imgWidth to match the PDF width
-    // const imgHeight = (canvas.height * pdfWidth) / canvas.width; // Calculate proportional height
-    // const ratio = pdfWidth / imgWidth; // Adjusted ratio
-    // const imgX = 0; // Align to the left
-    // const imgY = 0; // Align to the top
-    
-    pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-    pdf.save('resume.pdf');
-  };
-
-  // Download part end
-
 
   const handleTemplateClick = (templateId) => {
     setSelectedTemplate(templateId);
@@ -340,29 +332,44 @@ function DesktopView() {
 
   return (
     <div>
-      <div className="desktop-view flex flex-col md:flex-row w-[97%] pt-[20px] mx-[30px]">
+      {/* Original */}
+      {/* <div className="desktop-view flex flex-col md:flex-row w-[97%] pt-[20px] mx-[30px]"> */}
+
+      <div className="desktop-view flex flex-col max-w-8xl m-auto pt-[20px] mx-[30px]">
+
         <Header />
         
         {/* <div className="left w-[45%]"> */}
-        <div className="left w-[45%]">
-        <Navbar selectedTemplate={selectedTemplate} setPopupVisible={setPopupVisible} templates={templates} popupVisible={popupVisible} handleTemplateClick={handleTemplateClick} closePopup={closePopup}/> 
-        {/* <button onClick={downloadPDF} >Download</button> */}
-      
-          
-          <MultiStepForm />
-        </div>
-        {/* <div   className="right w-[60%]  xl:w-[60%] z-0 "> */}
-        <div   className="right w-auto  xl:w-auto z-0 ">
+        <div className="flex flex-row">
+            <div className="left w-[50%]">
+            <Navbar selectedTemplate={selectedTemplate} setPopupVisible={setPopupVisible} templates={templates} popupVisible={popupVisible} handleTemplateClick={handleTemplateClick} closePopup={closePopup}/> 
+            {/* <button onClick={downloadPDF} >Download</button> */}
 
-          <div ref={pdfRef}>
-          {selectedTemplate === "TemplateD1" && <TemplateD1 />}
-          {selectedTemplate === "TemplateD2" && <TemplateD2 />}
-          {selectedTemplate === "TemplateD3" && <TemplateD3 />}
-          {selectedTemplate === "TemplateS1" && <TemplateS1 />}
-          {selectedTemplate === "TemplateS2" && <TemplateS2 />}
-          {selectedTemplate === "MainTemplate" && <MainTemplate />}
+            <PrintButton componentRef={pdfRef} />  
+            <div className="w-auto">
+              <MultiStepForm />
+            </div>
+            </div>
+            {/* <div   className="right w-[60%]  xl:w-[60%] z-0 "> */}
+              {/* <div className="right w-[400px]"> */}
+              <div className=" w-[48%]  translate-y-40  overflow-scroll">
+              {/* <div className=" w-[48%] ml-[-120px] mt-[-100px] overflow-scroll"> */}
+
+                <div className="transform origin-top-left scale-[0.60] ">
+                {/* <div className="scale-[0.60] border border-gray-300"> */}
+
+                  <div className="" ref={pdfRef}>
+                    {selectedTemplate === "TemplateD1" && <TemplateD1 />}
+                    {selectedTemplate === "TemplateD2" && <TemplateD2 />}
+                    {selectedTemplate === "TemplateD3" && <TemplateD3 />}
+                    {selectedTemplate === "TemplateS1" && <TemplateS1 />}
+                    {selectedTemplate === "TemplateS2" && <TemplateS2 />}
+                    {selectedTemplate === "MainTemplate" && <MainTemplate />}
+                    {/* MainTemplate1 */}
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
         
 
       </div>
