@@ -126,10 +126,24 @@ function TemplateS2() {
                 {userInputData && userInputData.address
                   ? userInputData.address
                   : "S-2 330 Palm Heights"}
-                ,
+                , 
                 {userInputData && userInputData.city
                   ? userInputData.city
                   : "Hyderabad"}{" "}
+              </p>
+              <p>
+              {userInputData && userInputData.state
+                  ? userInputData.state
+                  : "Telangana"}
+                  , 
+              {userInputData && userInputData.country
+                  ? userInputData.pincode
+                  : "India"}
+              </p>
+              <p>
+              {userInputData && userInputData.citycode
+                  ? userInputData.citycode
+                  : "500072"}
               </p>
             </div>
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
@@ -152,7 +166,7 @@ function TemplateS2() {
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           <div className="Professional-skills ">
             <h2 className="work-right text-center px-5 text-2xl">
-              Education Details
+              Education 
             </h2>
             {professionalSkill.map((item) => {
               return (
