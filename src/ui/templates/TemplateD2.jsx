@@ -13,7 +13,7 @@ function TemplateD2() {
     
     {/* <div className="w-[210mm] h-[1120px] lg:max-h-[1120px]  bg-[white]  relative flex flex-row  "> */}
 
-    <div className="bg-[rgb(91,80,155)] w-[197mm] h-[60mm] absolute flex rounded-[250px_0_0_250px] left-[112px] top-[80px]">
+    <div className="bg-[rgb(91,80,155)] w-[197mm] h-[60mm] absolute flex rounded-[250px_0_0_250px] left-[10px] top-[80px]">
       <div className="bg-[whitesmoke] w-[55mm] h-[55mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[50%] left-[16%] top-2/4"></div>
       <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-[40%]">
         <div className="flex">
@@ -28,7 +28,9 @@ function TemplateD2() {
           Email: {userInputData && userInputData["email-address"]
                   ? userInputData["email-address"]
                   : "abcd@cde.com"}</p>
-        {/* <p className='mt-[5px]'>Linkedin: abcdefgg</p>  Here you should add address */}
+        <p className='mt-[5px]'>Address and city</p>  {/*Here you should add address and city*/}
+        <p className='mt-[5px]'>City code</p>  {/*Here you should add citycode*/}
+        <p className='mt-[5px]'>State and country</p>  {/*Here you should add state and country*/}
         {/* <p className='mt-[5px]'>Ph.no: 98745632100 </p> */}
       </div>
     </div>
@@ -36,9 +38,11 @@ function TemplateD2() {
     <div>
       <div className="bg-[rgb(91,80,155)] w-[120mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[28.5%] top-[37%]">
         <p className=' text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[75%] top-[10%] ml-[10px] mt-[10px]'>Professional Experience</p>
+    <p className='text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[12px]'>company name from to</p> {/*job title and company name to be added here*/}
+    <p className='text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[px]'>Job title</p> {/*job title here to be added here*/}
       </div>
-      <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-[22%] top-[52%]">
-        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[10px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
+      <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-[22%] top-[54%]">
+        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[10px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>          {/*Here you should add description*/}
         <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
         <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
         <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
@@ -46,8 +50,10 @@ function TemplateD2() {
     </div>
     <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[70%] ml-[151px]">
     <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Education</p>
+    <p className='text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[12px]'>School name and location      from 2004-2005</p> {/*School name and location to be added here*/}
+    <p className='text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[px]'>B-Tech CSE</p> {/*deggree added here to be added here*/}
     </div>
-    <div className="flex flex-row justify-start items-center absolute -translate-x-2/4 -translate-y-2/4 text-[15px] font-extralight w-[400px] text-[rgb(60,60,60)] left-[32%] top-[82%]">
+    <div className="flex flex-row justify-start items-center absolute -translate-x-2/4 -translate-y-2/4 text-[15px] font-extralight w-[400px] text-[rgb(60,60,60)] left-[32%] top-[83%]">
       <ul>
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>

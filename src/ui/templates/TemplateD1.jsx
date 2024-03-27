@@ -32,6 +32,9 @@ function TemplateD1() {
                   : "Belgian tower"},{userInputData && userInputData.city
                     ? userInputData.city
                     : "Paris"}</p>
+                    <p className="citycode">12345</p>
+                    <p className="state">state</p>
+                    <p className="country">Country</p>
           </div>
         </div>
 
@@ -43,14 +46,17 @@ function TemplateD1() {
           <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
             EDUCATION
           </h3>
+          <h5 className=" font-medium text-[rgb(224,231,239)] mt-5">
+            School name + Loction
+          </h5>  {/*school name and location to be added here */}
+          <h6 className=" font-medium text-[rgb(224,231,239)] mt-5">
+            2023 -2023 {/*start date and end date to be added here */}
+          </h6>
+          <h6 className=" font-medium text-[rgb(224,231,239)] mt-5">
+            Degree and field of study {/*degree and field of study to be added here */}
+          </h6>
           <p className=" font-medium text-[rgb(224,231,239)] mt-5">
-            kuugsu fsisd ksuvd
-          </p>
-          <p className=" font-medium text-[rgb(224,231,239)] mt-5">
-            kuugsu fsisd ksuvd
-          </p>
-          <p className=" font-medium text-[rgb(224,231,239)] mt-5">
-            kuugsu fsisd ksuvd
+            Description {/*description to be added here */}
           </p>
 
           <div className=" font-medium  mt-[35px] ">
@@ -74,7 +80,7 @@ function TemplateD1() {
                 </ul>
               ))
             ) : (
-              <ul className="pt-5 text-lg  text-[rgb(252,255,250)] ">
+              <ul className="pt-5 text-lg  text-[rgb(252,255,250)] ">  {/*add name oof the skills to be added here */}
                 <li className="mt-2">First</li>
                 <li className="mt-2">Fdfsrdst</li>
                 <li className="mt-2">sdgsdgt</li>
@@ -122,7 +128,14 @@ function TemplateD1() {
           <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
             Experience
           </h2>
-          <ul className="mt-5 text-lg font-medium ">
+          <h4 className="text-2xl font-semibold text-[rgb(2,4,2)]">
+            Job title and Company Name
+          </h4>  {/*job title and company name to be added here */}
+
+          <h6 className="text-1xl font-semibold text-[rgb(2,4,2)]">
+            Date Range {/*date range start and end date to be added here */}
+          </h6>
+          <ul className="mt-5 text-lg font-medium "> {/*description to be added inside this*/}
             <li className="mt-5 text-base text-[rgb(89,88,90)]">First</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fdfsrdst</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">sdgsdgt</li>

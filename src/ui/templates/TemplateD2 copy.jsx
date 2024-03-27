@@ -31,7 +31,7 @@ function TemplateD2() {
         <p className=' text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[75%] top-[10%] ml-[10px] mt-[10px]'>Professional Experience</p>
       </div>
       <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-[22%] top-[52%]">
-        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[10px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
+        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[10px]'>- Worked in Capgimini for 2 years, <br /> Plano, Human Resources Manager</p></div>
         <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
         <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
         <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
