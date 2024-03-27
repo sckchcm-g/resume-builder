@@ -50,6 +50,6 @@ const EducationSlice = createSlice({
 });
 
 // for education
-export const selectEducationData = (state) => state.experience.educationData;
+export const selectEducationData = (state) => state.education.educationData;
 export const { setEducationData } = EducationSlice.actions;
 export const EducationDataReducer = EducationSlice.reducer;

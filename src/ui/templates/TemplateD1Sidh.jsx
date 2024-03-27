@@ -2,25 +2,31 @@ import { useState } from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
 
-function TemplateD1() {
+function TemplateD1Sidh() {
   const [count, setCount] = useState(0);
   const userInputData = useSelector(selectUserData);
   return (
-    <div
-      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
-      // style={{ transform: "scale(0.7)" }}
+    // <div
+    //   className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
+
+    // >
+    //       <div
+    //   className="w-[210mm] h-[297mm] lg:max-h-[842px] lg:overflow-hidden flex flex-row  "
+    // >
+                <div
+      className="w-[210mm] h-[1120px]  lg:overflow-hidden flex flex-row border border-gray-300 "
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
         <div className="leftimgbox">
           <div className="img">
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
-          <div className="mt-[-0px] text-[40px] font-bold ml-10 flex">
+          <div className="mt-[-0px] text-15px lg:text-[40px] font-bold ml-10 flex">
             <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">Patil</p>
+            <p className="text-[rgb(252,255,250)] lastname ">Patil</p>
           </div>
-          <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">gmail@gmail.com</p>
+          <div className="text-xl  font-medium mt-[-0px] ml-[70px]">
+            <p className="emailaddress text-[15px]">gmail@gmail.com</p>
           </div>
         </div>
 
@@ -95,12 +101,16 @@ function TemplateD1() {
       <div className="bg-[#FFFFFF]">
         <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
+          {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
           <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
             veritatis mollitia voluptates reiciendis deleniti error quasi
             dolorum dignissimos rem? Adipisci error facere aspernatur delectus
             consequatur dolorem ducimus eligendi hic omnis.
           </p>
+        )}
         </div>
 
         <div className="text-xl font-medium text-black ml-10 mt-5">
@@ -176,6 +186,7 @@ function TemplateD1() {
           </>
         ) : null}
 
+
         {/* Custom Form */}
         {userInputData && userInputData.customData
           ? userInputData.customData.map((customData) => {
@@ -205,4 +216,4 @@ function TemplateD1() {
   );
 }
 
-export default TemplateD1;
+export default TemplateD1Sidh;

@@ -1,10 +1,10 @@
 import {useState} from 'react';
-import FormStepper from './FormStepper/FormStepper.jsx';
+import FormStepper from '../FormStepper/FormStepper.jsx';
 import PersonaIInfo from './PersonaIInfo.jsx';
 import Education from './Education.jsx';
 import Experience from './Experience.jsx';
 import AccorComponent from './AdditionalForms.jsx';
-import SkillsForm from './MultiForms/SkillsForm.jsx';
+import SkillsForm from './SkillsForm.jsx';
 // import Accordian from './'
 const FormCtn =({num})=>{
   return(
@@ -25,9 +25,9 @@ const FormCtn =({num})=>{
       <div className=""> 
         <FormStepper Newnum={formLevel} setForm={setForm}/>
       {/* Main Form Section Start */}
-      </div>
 
-          <FormCtn num={formLevel}/>
+      </div>
+        <FormCtn num={formLevel}/>
         <div className="flex flex-row justify-center mt-[20px]">
 
         {formLevel>0?<button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1.5 mb-3 mx-3" onClick={()=>setForm(formLevel-1)} >Prev</button>:
@@ -48,13 +48,7 @@ const FormCtn =({num})=>{
     )
 }
 
-// const PreviewDummy = () => {
-//   return(
-//     <div className="bg-yellow-200 md:w-5/12 lg:w-6/12">
-//       <h2>Preview Dummy Need to be replaced with Actual Preview</h2>
-//     </div>
-//   )
-// }
+
 
 const MultiStepForm = () => {
   return (

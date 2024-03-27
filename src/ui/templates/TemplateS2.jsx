@@ -12,9 +12,12 @@ function TemplateS2() {
 
   return (
     <>
-      <div
+      {/* <div
         className="a4-sheet w-[794px] h-[1122px] max-h-[1122px] overflow-y-auto bg-white flex mt-10"
-        style={{ transform: "scale(0.7)", marginTop: "-150px" }}
+      > */}
+            <div
+        className=" w-[794px] h-[1070px] max-h-[1070px] overflow-y-hidden bg-white flex border border-gray-200"
+        // style={{ transform: "scale(0.7)", marginTop: "-150px" }}
       >
         <div className="left-box">
           <div className="profile-space  w-[200px] h-[200px] bg-white mt-10 mx-10  rounded-[300px] border-[5px] border-solid border-[gold]" />
@@ -24,6 +27,9 @@ function TemplateS2() {
                 <h1 className="text-center text-[40px] pt-2.5 text-3xl my-10">
                   About Me
                 </h1>
+                {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Libero quisquam modi suscipit hic deleniti totam sint tempore
@@ -33,6 +39,7 @@ function TemplateS2() {
                   provident possimus illo eligendi veniam est molestias? Dicta,
                   quo quod. Repudiandae.
                 </p>
+        )}
               </div>
               <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
 

@@ -7,7 +7,7 @@ function TemplateD1() {
   const userInputData = useSelector(selectUserData);
   return (
     <div
-      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] mt-[-170px]  "
+      className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] "
       style={{ transform: "scale(1.1)" }}
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
@@ -16,12 +16,22 @@ function TemplateD1() {
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
           <div className="mt-[-0px] text-[40px] font-bold ml-10 flex">
-            <p className="text-[rgb(252,255,250)] firstname">Devraj</p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">Patil</p>
+            <p className="text-[rgb(252,255,250)] firstname">{userInputData && userInputData.firstName
+                  ? userInputData.firstName
+                  : "Devraj"}</p>
+            <p className="text-[rgb(252,255,250)] lastname ml-2">{userInputData && userInputData["last-name"]
+                  ? userInputData["last-name"]
+                  : "Patil"}</p>
           </div>
           <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">gmail@gmail.com</p>
-            <p className="Address">Belgian tower, Paris</p>
+            <p className="emailaddress">{userInputData && userInputData["email-address"]
+                  ? userInputData["email-address"]
+                  : "gmail@gmail.com"}</p>
+            <p className="Address">{userInputData && userInputData.address
+                  ? userInputData.address
+                  : "Belgian tower"},{userInputData && userInputData.city
+                    ? userInputData.city
+                    : "Paris"}</p>
           </div>
         </div>
 
@@ -96,12 +106,16 @@ function TemplateD1() {
       <div className="bg-[#FFFFFF]">
         <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
+          {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
           <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
             veritatis mollitia voluptates reiciendis deleniti error quasi
             dolorum dignissimos rem? Adipisci error facere aspernatur delectus
             consequatur dolorem ducimus eligendi hic omnis.
           </p>
+        )}
         </div>
 
         <div className="text-xl font-medium text-black ml-10 mt-5">
