@@ -17,9 +17,7 @@ function MainTemplate() {
     // <div
     //   className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] relative z-0 tracking-wider"
     // >
-    <div
-    className="w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-hidden p-10 border border-gray-200 "
-  >
+    <div className="w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-hidden p-10 border border-gray-200 ">
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
         <header className="flex justify-between  ">
@@ -54,12 +52,12 @@ function MainTemplate() {
                   : "Candidate"}
               </div>
               <div className="job-title w-[250px] text-[15px] lg:text-md font-serif ">
-                Human Resource Manager
+               {userExperienceData ? userExperienceData[userExperienceData.length-1].Job_Title : "Human Resource Manager"}
               </div>
             </div>
             {/* right */}
             <div className="right  text-custom-orange absolute right-[60px]">
-            {/* <div className="right  text-custom-orange "> */}
+              {/* <div className="right  text-custom-orange "> */}
 
               <div className="adress text-[15px]">
                 {userInputData && userInputData.address
@@ -99,15 +97,19 @@ function MainTemplate() {
             </div>
           </div>
         </header>
-        <p className="description text-[13px] leading-[20px] lg:text-[15px] lg:leading-[24px] text-gray-500 pt-4 leading-3">
-          Human resources generalist with 8 years of experience in HR, including
-          hiring and terminating, disciplining employees and helping department
-          managers improve employee performance. Worked with labor unions to
-          negotiate compensation packages for workers. Organized new hire
-          training initiatives as well as ongoing training to adhere to
-          workplace safety standards. Worked with OSHA to ensure that all safety
-          regulations are followed.
-        </p>
+        {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
+          <p className="description text-[13px] leading-[20px] lg:text-[15px] lg:leading-[24px] text-gray-500 pt-4 leading-3">
+            Human resources generalist with 8 years of experience in HR,
+            including hiring and terminating, disciplining employees and helping
+            department managers improve employee performance. Worked with labor
+            unions to negotiate compensation packages for workers. Organized new
+            hire training initiatives as well as ongoing training to adhere to
+            workplace safety standards. Worked with OSHA to ensure that all
+            safety regulations are followed.
+          </p>
+        )}
       </div>
       {/* Template body */}
       <div className=" ">
@@ -281,7 +283,9 @@ function MainTemplate() {
           <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
           </h1>
-          {userInputData && userInputData.skills && userInputData.skills > 0 ? (
+          {userInputData &&
+          userInputData.skills &&
+          userInputData.skills.length > 0 ? (
             userInputData.skills.map((skill, index) => (
               <ul
                 className="text-[15px] text-gray-500 lg:leading-[25px] pt-2 flex items-center  w-[40%]   "

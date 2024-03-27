@@ -83,6 +83,9 @@ function TemplateS1() {
               About me
             </h2>
             <div className="text-[17px] text-[rgb(84,84,84)] m-[15px]">
+            {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
               <p>
                 Human resources generalist with 8 years of experience in HR,
                 including hiring and terminating, disciplining employees and
@@ -92,6 +95,7 @@ function TemplateS1() {
                 ongoing training to adhere to workplace safety standards. Worked
                 with OSHA to ensure that all safety regulations are followed.
               </p>
+        )}
             </div>
           </div>
 

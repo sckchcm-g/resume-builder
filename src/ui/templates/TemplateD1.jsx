@@ -106,12 +106,16 @@ function TemplateD1() {
       <div className="bg-[#FFFFFF]">
         <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
+          {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
           <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
             veritatis mollitia voluptates reiciendis deleniti error quasi
             dolorum dignissimos rem? Adipisci error facere aspernatur delectus
             consequatur dolorem ducimus eligendi hic omnis.
           </p>
+        )}
         </div>
 
         <div className="text-xl font-medium text-black ml-10 mt-5">

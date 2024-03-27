@@ -281,7 +281,7 @@ function MainTemplate() {
           <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
           </h1>
-          {userInputData && userInputData.skills && userInputData.skills > 0 ? (
+          {userInputData && userInputData.skills && userInputData.skills.length > 0 ? (
             userInputData.skills.map((skill, index) => (
               <ul
                 className="text-[15px] text-gray-500 lg:leading-[25px] pt-2 flex items-center  w-[40%]   "

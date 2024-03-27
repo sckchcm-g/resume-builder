@@ -44,6 +44,9 @@ function TemplateD3() {
             About me
           </h2>
           <div className="text-[17px] text-[rgb(77,77,77)] m-[15px]">
+          {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
             <p>
               Human resources generalist with 8 years of experience in HR,
               including hiring and terminating, disciplining employees and
@@ -53,7 +56,9 @@ function TemplateD3() {
               training to adhere to workplace safety standards. Worked with OSHA
               to ensure that all safety regulations are followed.
             </p>
+        )}
           </div>
+      
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />

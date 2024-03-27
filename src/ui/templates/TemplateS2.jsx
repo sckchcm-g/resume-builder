@@ -27,6 +27,9 @@ function TemplateS2() {
                 <h1 className="text-center text-[40px] pt-2.5 text-3xl my-10">
                   About Me
                 </h1>
+                {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Libero quisquam modi suscipit hic deleniti totam sint tempore
@@ -36,6 +39,7 @@ function TemplateS2() {
                   provident possimus illo eligendi veniam est molestias? Dicta,
                   quo quod. Repudiandae.
                 </p>
+        )}
               </div>
               <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
 
