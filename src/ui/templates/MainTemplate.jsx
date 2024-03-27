@@ -17,7 +17,7 @@ function MainTemplate() {
     // <div
     //   className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] relative z-0 tracking-wider"
     // >
-    <div className="w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-hidden p-10 border border-gray-200 ">
+    <div className="bg-white w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-hidden p-10 border border-gray-200 ">
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
         <header className="flex justify-between  ">
@@ -56,8 +56,8 @@ function MainTemplate() {
               </div>
             </div>
             {/* right */}
-            <div className="right  text-custom-orange absolute right-[60px]">
-              {/* <div className="right  text-custom-orange "> */}
+            {/* <div className="right  text-custom-orange absolute right-[60px]"> */}
+              <div className="right  text-custom-orange ml-[180px]">
 
               <div className="adress text-[15px]">
                 {userInputData && userInputData.address
