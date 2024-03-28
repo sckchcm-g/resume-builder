@@ -42,10 +42,7 @@ function TemplateD2() {
     <p className='text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[px]'>Job title</p> {/*job title here to be added here*/}
       </div>
       <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-[22%] top-[54%]">
-        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[10px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>          {/*Here you should add description*/}
-        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
-        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
-        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[8px]'>- Worked in Capgimini for 4 years, <br /> Plano, Human Resources Manager</p></div>
+        <div className="flex flex-row justify-start items-center"><div className="ellipsething"></div><p className='mt-[10px] ml-[100px] w-[400px]'> Worked in Capgimini for 4 years Plano, Human Resources Manager heloo everyone everyone is doing fine i guss</p></div>          {/*Discription added as deepak asked */}
       </div>
     </div>
     <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[70%] ml-[151px]">
@@ -54,12 +51,13 @@ function TemplateD2() {
     <p className='text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[px]'>B-Tech CSE</p> {/*deggree added here to be added here*/}
     </div>
     <div className="flex flex-row justify-start items-center absolute -translate-x-2/4 -translate-y-2/4 text-[15px] font-extralight w-[400px] text-[rgb(60,60,60)] left-[32%] top-[83%]">
-      <ul>
+      {/* <ul>
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>
         <li className='list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5'>Studied from Harward university</li>
-      </ul>
+      </ul> */}
+      <p>Studied from Harward university Studied from Harward university Studied from Harward university Studied from Harward universityStudied from Harward university</p>   {/*Discription added as deepak asked */}
     </div>
 
    {/* Adding additional sections based on userData */}
