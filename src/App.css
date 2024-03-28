@@ -81,7 +81,7 @@ ul .list-item::before,
 
 @media screen and (min-width: 300px) {
   .main-template {
-    transform: scale(0.3);
+    transform: scale(0.4);
     position: relative;
     right: 250px;
     bottom: 300px;
@@ -92,22 +92,37 @@ ul .list-item::before,
 }
 @media screen and (min-width: 375px) {
   .main-template {
-     transform: scale(0.3);
+     transform: scale(0.4);
     right: 230px;
     bottom: 300px;
   }
 }
 @media screen and (min-width: 425px) {
   .main-template {
-     transform: scale(0.3);
+     transform: scale(0.4);
     right: 200px;
     bottom: 300px;
   }
 }
 @media screen and (min-width: 768px) {
   .main-template {
-     transform: scale(0.3);
+     transform: scale(0.5);
     
     right: 280px;
+  }
+}
+@media screen and (min-width: 375px) {
+#temp{
+transform: scale(0.4);
+margin-top: -250px;
+  }
+}
+#template-part{
+  background-color: #7f7f7f;
+}
+@media screen and (min-width: 768px){
+  #temp{
+    transform: scale(0.5);
+    margin-left: 50px;
   }
 }

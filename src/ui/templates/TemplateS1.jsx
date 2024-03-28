@@ -60,6 +60,7 @@ function TemplateS1() {
           {/* Address line  */}
           <div className="city-and-state font-semibold">
             <p>121-a9, ABC Highrise,</p>
+            <p>City Code: 829911</p>
           </div>
           <div className="city-and-state font-semibold">
             <p>
