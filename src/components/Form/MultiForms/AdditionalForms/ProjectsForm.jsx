@@ -97,6 +97,7 @@ const ProjectsForm = () => {
     <div>
 
       {/* Form Section */}
+      {/* <div className="p-4 border-[#9333ea] border-2 w-[400px] shadow-[#9333ea] shadow-md h-auto "> */}
       <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
       <h2 className="text-2xl font-semibold mb-3"> Add Projects.</h2>
         <form onSubmit={handleSubmit(onSubmit)}>

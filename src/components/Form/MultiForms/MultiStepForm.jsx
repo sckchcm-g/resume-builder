@@ -19,7 +19,7 @@ const FormCtn =({num})=>{
   const [formLevel,setForm] = useState(0);
 
   return(
-    <div className=" rounded-lg w-12/12 m-auto md:w-12/12 lg:w-12/12 ">
+    <div className=" rounded-lg w-12/12  md:w-12/12 lg:w-12/12 ">
     {/* // <div className=" rounded-lg m-auto"> */}
 
       <div className=""> 

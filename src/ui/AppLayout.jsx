@@ -105,6 +105,7 @@ function AppLayout() {
 
                 <div className="  " id="template-part" >
                   <div className="scale-[0.30] ml-[-40px] mr-[50px] mt-[-350px] w-[70%] " id="temp">
+                    
                     <div ref={pdfRef2}>
                     {/* <MainTemplate/> */}
                     <template.component />

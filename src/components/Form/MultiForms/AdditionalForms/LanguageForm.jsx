@@ -72,7 +72,7 @@ const LanguageOption = ({ currList, updateList }) => {
           {/* <p>Selected Expertise: {selectedExpertise}</p> */}
         </div>
 
-        <button
+        {/* <button
           onClick={() => {
             addItemList();
             updateUserData(userInputData, inputLang);
@@ -80,10 +80,13 @@ const LanguageOption = ({ currList, updateList }) => {
           className="bg-indigo-700 sm:hidden md:block text-white my-2 px-4 py-1 rounded-md w-full md:w-auto"
         >
           Add
-        </button>
+        </button> */}
       </div>
       <button
-        onClick={() => addItemList()}
+        onClick={() => 
+          {addItemList()
+          updateUserData(userInputData, inputLang);}
+        }
         className="bg-indigo-700 lg:hidden text-white py-2 px-4 rounded-md w-full md:w-auto"
       >
         Add

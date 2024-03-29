@@ -352,7 +352,7 @@ function DesktopView() {
             </div>
             {/* <div   className="right w-[60%]  xl:w-[60%] z-0 "> */}
               {/* <div className="right w-[400px]"> */}
-              <div className=" w-[48%]  translate-y-40  overflow-scroll">
+              <div className=" w-[45%]  translate-y-36  overflow-scroll">
               {/* <div className=" w-[48%] ml-[-120px] mt-[-100px] overflow-scroll"> */}
 
                 <div className="transform origin-top-left scale-[0.60]  ">
