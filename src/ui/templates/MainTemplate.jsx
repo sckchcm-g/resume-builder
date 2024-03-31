@@ -9,9 +9,7 @@ function MainTemplate() {
   const userInputData = useSelector(selectUserData);
   const userExperienceData = useSelector(selectExperienceData);
   const userEducationData = useSelector(selectEducationData);
-  console.log(userInputData);
-  //console.log(userExperienceData);
-  console.log(userEducationData);
+
   const isLargeViewport = window.innerWidth >= 1024;
   return (
     // <div
@@ -117,90 +115,6 @@ function MainTemplate() {
         <h1 className=" text-serif  text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Professional Experience
         </h1>
-        {/* <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          <h2>
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].Job_Title
-              ? userExperienceData[0].Job_Title
-              : "Manager"}
-          </h2>
-          <div className="duration  text-gray-500 ">
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].Company_Name
-              ? userExperienceData[0].Company_Name
-              : "XYZ Company"}
-            {" | "}
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].WrkStartDate
-              ? userExperienceData[0].WrkStartDate
-              : "Start Date"}
-            &nbsp; to &nbsp;
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].WrkEndDate
-              ? userExperienceData[0].WrkEndDate
-              : "End Date"}
-          </div>
-
-
-        </div> */}
-        {/* {userExperienceData && userExperienceData.length > 0 ? (
-          <>
-            {userExperienceData.map((exp, index) => {
-              <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
-                console.log(exp);
-                <h2>{exp.Job_Title}</h2>
-                <div className="duration  text-gray-500 ">
-                  {exp.Company_Name}
-                  {" | "}
-                  {exp.WrkStartDate}
-                  &nbsp; to &nbsp;
-                  {exp.WrkEndDate}
-                </div>
-                <div
-                  className=""
-                  dangerouslySetInnerHTML={{
-                    __html: exp.description,
-                  }}
-                ></div>
-              </div>;
-            })}
-          </>
-        ) : (
-          <>
-            <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
-              <h2>{"Manager"}</h2>
-              <div className="duration  text-gray-500 ">
-                {"XYZ company"}
-                {" | "}
-                {"Start Date - End Date"}
-              </div>
-            </div>
-            <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
-              <li className="list-item">
-                Implement effective company policies to ensure that all
-                practices comply with labor and employment regulations{" "}
-              </li>
-              <li className="list-item">
-                Increased employee retention rates by managing workplace
-                satisfaction to an over 90% success rate by creating and
-                maintaining a positive work environment{" "}
-              </li>
-              <li className="list-item">
-                Develop targeted outreach practices to increase minority
-                recruitment and ensure compliance with affirmative action
-                policies{" "}
-              </li>
-              <li className="list-item">
-                Monitor scheduled in and out times as well as employee breaks to
-                ensure that proper employment laws are met{" "}
-              </li>
-            </ul>
-          </>
-        )} */}
         {userExperienceData && userExperienceData.length > 0 ? (
           <>
             {userExperienceData.map((exp, index) => (
@@ -280,158 +194,9 @@ function MainTemplate() {
             </ul>
           </>
         )}
-        {/* 
-        {userExperienceData &&
-        userExperienceData.length > 0 &&
-        userExperienceData[0].description ? (
-          <div
-            className=""
-            dangerouslySetInnerHTML={{
-              __html: userExperienceData[0].description,
-            }}
-          ></div>
-        ) : (
-          <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
-            <li className="list-item">
-              Implement effective company policies to ensure that all practices
-              comply with labor and employment regulations{" "}
-            </li>
-            <li className="list-item">
-              Increased employee retention rates by managing workplace
-              satisfaction to an over 90% success rate by creating and
-              maintaining a positive work environment{" "}
-            </li>
-            <li className="list-item">
-              Develop targeted outreach practices to increase minority
-              recruitment and ensure compliance with affirmative action policies{" "}
-            </li>
-            <li className="list-item">
-              Monitor scheduled in and out times as well as employee breaks to
-              ensure that proper employment laws are met{" "}
-            </li>
-          </ul>
-        )}
-
-        <div className="exp-2 flex items-center w-[70%] pt-[15px] gap-3 font-serif lg:w-[90%]">
-          {/* <h2>Human Resources Associate</h2> */}
-        {/* <h2>
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].Job_Title
-              ? userExperienceData[1].Job_Title
-              : "Human Resources Associate"}
-          </h2>
-          {/* <div className="duration text-[15px] text-gray-500">
-            XYZ Company, City, State | June 2020 - Present
-          </div> */}
-        {/* <div className="duration  text-gray-500 ">
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].Company_Name
-              ? userExperienceData[1].Company_Name
-              : "XYZ Company"}
-            {" | "}
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].WrkStartDate
-              ? userExperienceData[1].WrkStartDate
-              : "Start Date"}
-            &nbsp; to &nbsp;
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].WrkEndDate
-              ? userExperienceData[1].WrkEndDate
-              : "End Date"}
-          </div>
-        </div>
-        {userExperienceData &&
-        userExperienceData.length > 1 &&
-        userExperienceData[1].description ? (
-          <div
-            className=""
-            dangerouslySetInnerHTML={{
-              __html: userExperienceData[1].description,
-            }}
-          ></div>
-        ) : (
-          <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
-            <li className="list-item">
-              Implement effective company policies to ensure that all practices
-              comply with labor and employment regulations{" "}
-            </li>
-            <li className="list-item">
-              Increased employee retention rates by managing workplace
-              satisfaction to an over 90% success rate by creating and
-              maintaining a positive work environment{" "}
-            </li>
-            <li className="list-item">
-              Develop targeted outreach practices to increase minority
-              recruitment and ensure compliance with affirmative action policies{" "}
-            </li>
-          </ul>
-        )} */}{" "}
         <h1 className="education text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Education
         </h1>
-        {/* <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]"> */}
-        {/* <h2>Masters in Human Resources</h2> */}
-        {/* <h2>
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].degree
-              ? userEducationData[0].degree
-              : "Masters in Human Resources "}
-          </h2> */}
-        {/* <div className="duration text-[15px] text-gray-500">
-            The University of Texas, Dallas | September 2007 - May 2011
-          </div> */}
-        {/* <div className="duration text-[15px] text-gray-500">
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].schoolName
-              ? userEducationData[0].schoolName
-              : "The University of Texas, Dallas "}
-            {" | "}
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].startDate
-              ? userEducationData[0].startDate
-              : "Start Date"}
-            {" - "}
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].endDate
-              ? userEducationData[0].endDate
-              : "End Date"}
-          </div> */}
-        {/* </div> */}
-        {/* {userEducationData && userEducationData.length > 0 ? (
-          <>
-            {userEducationData.map((edu, index) => (
-              <div
-                key={index}
-                className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]"
-              >
-                <h2>{edu.degree}</h2>
-                <div>
-                  {edu.schoolName} | {edu.startDate} - {edu.endDate}
-                </div>
-              </div>
-            ))}
-          </>
-        ) : (
-          <div>
-          <h2>{"Masters in Human Resources"}</h2>
-          <div className="duration text-[15px] text-gray-500">
-            
-            {"The University of Texas, Dallas "}
-            {" | "}
-            { "Start Date"}
-            {" - "}
-            {"End Date"}
-          </div>
-          <div/>
-        )} */}
         {userEducationData && userEducationData.length > 0 ? (
           <>
             {userEducationData.map((edu, index) => (
@@ -470,16 +235,7 @@ function MainTemplate() {
             </div>
           </div>
         )}
-        {/* <ul className="text-[15px] text-gray-500 leading-5">
-          {/* <li className="list-item">Academic Awardee of AY 2007-2008</li> */}
-        {/* <li className="list-item">
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].description
-              ? userEducationData[0].description
-              : "Academic Awardee of AY 2007-2008"}
-          </li> */}
-        {/* </ul> */}
+
         <div className="skills-div w-[100%]">
           <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
