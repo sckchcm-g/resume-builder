@@ -21,7 +21,7 @@ import {
 
 const FormCards = ({TabIcons,TabHead,setCurrForm,FormNum})=>{
   return(
-    <div onClick={()=>setCurrForm(FormNum)}  className=" cursor-pointer  p-2 flex flex-col justify-center align-middle gap-2 border border-purple-600 md:w-20 h-20  md:h-24 md:min-w-14   bg-purple-100 rounded-lg">
+    <div onClick={()=>setCurrForm(FormNum)}  className=" cursor-pointer  p-2 flex flex-col justify-center align-middle gap-2 border border-purple-600 md:w-24 h-20  md:h-24 md:min-w-14   bg-purple-100 rounded-lg">
       <div>
         {<TabIcons className="w-[20px] h-auto m-auto text-purple-900 " />}
       </div>
