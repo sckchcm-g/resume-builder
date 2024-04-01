@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
-import { useSelector } from 'react-redux'
-import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
-import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useState } from "react";
+import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { useSelector } from "react-redux";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
+
 function TemplateD2() {
-  const [count, setCount] = useState(0)
-  const userInputData = useSelector(selectUserData)
-  const userExperienceData = useSelector(selectExperienceData)
+  const [count, setCount] = useState(0);
+  const userInputData = useSelector(selectUserData);
+  const userExperienceData = useSelector(selectExperienceData);
+  const userEducationData = useSelector(selectEducationData);
   return (
     // <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] " style={{ transform: 'scale(1)' }}>
     <div
@@ -80,61 +82,184 @@ function TemplateD2() {
           <p className=" text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[75%] top-[10%] ml-[10px] mt-[10px]">
             Professional Experience
           </p>
-          <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[12px]">
+          {/* <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[12px]">
             company name from to
           </p>{' '}
           {/*job title and company name to be added here*/}
-          <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[px]">
+          {/* <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[30px] mt-[px]">
             Job title
-          </p>{' '}
+          </p>{" "} */}
+
+{userExperienceData && userExperienceData.length > 0 ? (
+          <>
+            {userExperienceData.map((exp, index) => (
+              <div
+                key={index}
+                className="flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2 ">
+                  <h2>{exp.Job_Title}</h2>
+                  <span className="text-gray-500">
+                    {exp.Company_Name} | {exp.WrkStartDate} to {exp.WrkEndDate}
+                  </span>
+                </div>
+                <div
+                  className="text-gray-500"
+                  dangerouslySetInnerHTML={{
+                    __html: exp.description,
+                  }}
+                ></div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            <div className="exp-1 flex items-center px-6 w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{"Manager"}</h2>
+              <div className="duration text-gray-500 ">
+                {"XYZ company"} | {"Start Date - End Date"}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+
+            {/* <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{"Manager"}</h2>
+              <div className="duration text-gray-500 ">
+                {"XYZ company"} | {"Start Date - End Date"}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul> */}
+          </>
+        )}
+
           {/*job title here to be added here*/}
         </div>
-        <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-[22%] top-[54%]">
-          <div className="flex flex-row justify-start items-center">
+        {/* <div className="flex flex-col absolute -translate-x-2/4 -translate-y-2/4 left-[22%] top-[54%]"> */}
+          {/* <div className="flex flex-row justify-start items-center">
             <div className="ellipsething"></div>
             <p className="mt-[10px]">
               - Worked in Capgimini for 4 years, <br /> Plano, Human Resources
               Manager
             </p>
-          </div>{' '}
+          </div> */}
           {/*Here you should add description*/}
-          <div className="flex flex-row justify-start items-center">
+          {/* <div className="flex flex-row justify-start items-center">
             <div className="ellipsething"></div>
             <p className="mt-[8px]">
               - Worked in Capgimini for 4 years, <br /> Plano, Human Resources
               Manager
             </p>
-          </div>
-          <div className="flex flex-row justify-start items-center">
+          </div> */}
+          {/* <div className="flex flex-row justify-start items-center">
             <div className="ellipsething"></div>
             <p className="mt-[8px]">
               - Worked in Capgimini for 4 years, <br /> Plano, Human Resources
               Manager
             </p>
-          </div>
-          <div className="flex flex-row justify-start items-center">
+          </div> */}
+          {/* <div className="flex flex-row justify-start items-center">
             <div className="ellipsething"></div>
             <p className="mt-[8px]">
               - Worked in Capgimini for 4 years, <br /> Plano, Human Resources
               Manager
             </p>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
       <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[70%] ml-[151px]">
         <p className="text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]">
           Education
         </p>
-        <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[12px]">
+        <br/>
+        {/* <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[12px]">
           School name and location from 2004-2005
-        </p>{' '}
+        </p>{" "} */}
         {/*School name and location to be added here*/}
-        <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[px]">
+        {/* <p className="text-[rgb(192,179,255)] text-1.5xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[px]">
           B-Tech CSE
-        </p>{' '}
+        </p>{" "} */}
+
+{userEducationData && userEducationData.length > 0 ? (
+          <>
+            {userEducationData.map((edu, index) => (
+              <div
+                key={index}
+                className="edu-1 flex-col justify-start  flex items-start px-4 w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2">
+                  <h2>{edu.degree}</h2>
+                  <span className="text-[15px] text-gray-500">
+                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                  </span>
+                </div>
+
+                <div className="duration text-[15px] text-gray-500">
+                  {edu.description}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+          </div>
+        )}
+
+
         {/*deggree added here to be added here*/}
       </div>
-      <div className="flex flex-row justify-start items-center absolute -translate-x-2/4 -translate-y-2/4 text-[15px] font-extralight w-[400px] text-[rgb(60,60,60)] left-[32%] top-[83%]">
+      {/* <div className="flex flex-row justify-start items-center absolute -translate-x-2/4 -translate-y-2/4 text-[15px] font-extralight w-[400px] text-[rgb(60,60,60)] left-[32%] top-[83%]">
         <ul>
           <li className="list-disc text-[17px] font-[bold] w-[400px] text-[rgb(60,60,60)] ml-0 my-2.5">
             Studied from Harward university
@@ -150,6 +275,39 @@ function TemplateD2() {
           </li>
         </ul>
       </div>
+
+      {/* Adding additional sections based on userData */}
+      {/* Projects */}
+      {/* {userInputData && userInputData.projects ? (
+        <>
+           <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[70%] ml-[151px]">
+    <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Projects</p>
+    </div>
+          {userInputData.projects.slice(1).map((project) => {
+            return (
+              <ul
+                key={project.id}
+                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+              >
+                <li className=" w-full ">
+                  <div className="project-header flex flex-row gap-[15px] items-center">
+                    <h2 className="text-lg heading">{project.Heading}</h2>
+                    <a
+                      href={project.Link}
+                      className="text-md text-cyan-600 cursor-pointer"
+                    >
+                      {project.Link}
+                    </a>
+                  </div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  />
+                </li>
+              </ul>
+            );
+          })}
+        </>
+        ) : null} */}
 
       <div className="flex flex-row">
         <div className="bg-[rgb(244,245,244)] w-[65%] h-[297mm]">

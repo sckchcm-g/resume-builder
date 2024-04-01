@@ -1,10 +1,14 @@
-import { useState } from 'react'
-import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
-import { useSelector } from 'react-redux'
+import { useState } from "react";
+import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { useSelector } from "react-redux";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 function TemplateD1Sidh() {
-  const [count, setCount] = useState(0)
-  const userInputData = useSelector(selectUserData)
+  const [count, setCount] = useState(0);
+  const userInputData = useSelector(selectUserData);
+  const userExperienceData = useSelector(selectExperienceData);
+  const userEducationData = useSelector(selectEducationData);
   return (
     // <div
     //   className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
@@ -78,7 +82,7 @@ function TemplateD1Sidh() {
           <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
             EDUCATION
           </h3>
-          <p className=" font-medium text-[rgb(224,231,239)] mt-5">
+          {/* <p className=" font-medium text-[rgb(224,231,239)] mt-5">
             kuugsu fsisd ksuvd
           </p>
           <p className=" font-medium text-[rgb(224,231,239)] mt-5">
@@ -86,7 +90,46 @@ function TemplateD1Sidh() {
           </p>
           <p className=" font-medium text-[rgb(224,231,239)] mt-5">
             kuugsu fsisd ksuvd
-          </p>
+          </p> */}
+
+{userEducationData && userEducationData.length > 0 ? (
+          <>
+            {userEducationData.map((edu, index) => (
+              <div
+                key={index}
+                className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2">
+                  <h2>{edu.degree}</h2>
+                  <span className="text-[15px] text-gray-500">
+                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                  </span>
+                </div>
+
+                <div className="duration text-[15px] text-gray-500">
+                  {edu.description}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+          </div>
+        )}
 
           <div className=" font-medium  mt-[35px] ">
             <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
@@ -159,9 +202,90 @@ function TemplateD1Sidh() {
 
         <div className="text-xl font-medium text-black ml-10 mt-5">
           <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
-            Experience
+            Professional Experience
           </h2>
-          <ul className="mt-5 text-lg font-medium ">
+
+          {userExperienceData && userExperienceData.length > 0 ? (
+          <>
+            {userExperienceData.map((exp, index) => (
+              <div
+                key={index}
+                className="flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2 ">
+                  <h2>{exp.Job_Title}</h2>
+                  <span className="text-gray-500">
+                    {exp.Company_Name} | {exp.WrkStartDate} to {exp.WrkEndDate}
+                  </span>
+                </div>
+                <div
+                  className="text-gray-500"
+                  dangerouslySetInnerHTML={{
+                    __html: exp.description,
+                  }}
+                ></div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{"Manager"}</h2>
+              <div className="duration text-gray-500 ">
+                {"XYZ company"} | {"Start Date - End Date"}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{"Manager"}</h2>
+              <div className="duration text-gray-500 ">
+                {"XYZ company"} | {"Start Date - End Date"}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+          </>
+        )}
+
+          {/* <ul className="mt-5 text-lg font-medium ">
             <li className="mt-5 text-base text-[rgb(89,88,90)]">First</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fdfsrdst</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">sdgsdgt</li>
@@ -169,7 +293,7 @@ function TemplateD1Sidh() {
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fsdgsdt</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Firesnt</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fefhehge</li>
-          </ul>
+          </ul> */}
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
