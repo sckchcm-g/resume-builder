@@ -278,11 +278,12 @@ function TemplateD2() {
 
       {/* Adding additional sections based on userData */}
       {/* Projects */}
-      {/* {userInputData && userInputData.projects ? (
+      {userInputData && userInputData.projects ? (
         <>
-           <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[70%] ml-[151px]">
+           <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[90%] ml-[151px]">
+           {/* <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm]  rounded-[0_250px_250px_0]  ml-[151px]"> */}
     <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Projects</p>
-    </div>
+
           {userInputData.projects.slice(1).map((project) => {
             return (
               <ul
@@ -306,8 +307,9 @@ function TemplateD2() {
               </ul>
             );
           })}
+              </div>
         </>
-        ) : null} */}
+        ) : null}
 
       <div className="flex flex-row">
         <div className="bg-[rgb(244,245,244)] w-[65%] h-[297mm]">
