@@ -17,10 +17,8 @@ function TemplateD1Sidh() {
     //       <div
     //   className="w-[210mm] h-[297mm] lg:max-h-[842px] lg:overflow-hidden flex flex-row  "
     // >
-                <div
-      className="w-[210mm] h-[1120px]  lg:overflow-hidden flex flex-row border border-gray-300 "
-    >
-      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
+    <div className="w-[210mm] h-[1120px] max-h-[1120px] lg:overflow-y-auto flex flex-row border border-gray-300 ">
+      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto grow">
         <div className="leftimgbox">
           <div className="img">
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
@@ -32,31 +30,48 @@ function TemplateD1Sidh() {
           <div className="text-xl  font-medium mt-[-0px] ml-[70px]">
             <p className="emailaddress text-[15px]">gmail@gmail.com</p>
           </div> */}
-           <p className="text-[rgb(252,255,250)] firstname">{userInputData && userInputData.firstName
-                  ? userInputData.firstName
-                  : "Devraj"}</p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">{userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Patil"}</p>
+            <p className="text-[rgb(252,255,250)] firstname">
+              {userInputData && userInputData.firstName
+                ? userInputData.firstName
+                : 'Devraj'}
+            </p>
+            <p className="text-[rgb(252,255,250)] lastname ml-2">
+              {userInputData && userInputData['last-name']
+                ? userInputData['last-name']
+                : 'Patil'}
+            </p>
           </div>
           <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">{userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "gmail@gmail.com"}</p>
-            <p className="Address">{userInputData && userInputData.address
-                  ? userInputData.address
-                  : "Belgian tower"},{userInputData && userInputData.city
-                    ? userInputData.city
-                    : "Paris"}</p>
-                    <p className="citycode">{userInputData && userInputData["city-code"]
-                    ? userInputData["city-code"] :"12345"}</p>
-                    <p className="state">{userInputData && userInputData.state
-                    ? userInputData.state
-                    : "state"}</p>
-                    <p className="country">{userInputData && userInputData.country
-                    ? userInputData.country
-                    : "Country"}</p>
-                    </div>
+            <p className="emailaddress">
+              {userInputData && userInputData['email-address']
+                ? userInputData['email-address']
+                : 'gmail@gmail.com'}
+            </p>
+            <p className="Address">
+              {userInputData && userInputData.address
+                ? userInputData.address
+                : 'Belgian tower'}
+              ,
+              {userInputData && userInputData.city
+                ? userInputData.city
+                : 'Paris'}
+            </p>
+            <p className="citycode">
+              {userInputData && userInputData['city-code']
+                ? userInputData['city-code']
+                : '12345'}
+            </p>
+            <p className="state">
+              {userInputData && userInputData.state
+                ? userInputData.state
+                : 'state'}
+            </p>
+            <p className="country">
+              {userInputData && userInputData.country
+                ? userInputData.country
+                : 'Country'}
+            </p>
+          </div>
         </div>
 
         <div className="w-4/5 bg-white text-[rgb(255,0,0)] ml-10 mt-5">
@@ -120,7 +135,9 @@ function TemplateD1Sidh() {
             <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
               Skills
             </h2>
-            {userInputData && userInputData.skills && userInputData.skills.length>0? (
+            {userInputData &&
+            userInputData.skills &&
+            userInputData.skills.length > 0 ? (
               userInputData.skills.map((skill, index) => (
                 <ul
                   className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
@@ -147,19 +164,21 @@ function TemplateD1Sidh() {
           </div>
           {/* Adding additional sections based on userData */}
           {/* Languages */}
-          {userInputData && userInputData.language && userInputData.language.length>0 ? (
+          {userInputData &&
+          userInputData.language &&
+          userInputData.language.length > 0 ? (
             <>
               <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
                 LANGUAGES
               </h3>
-              {userInputData.language.map((lan,index) => {
+              {userInputData.language.map((lan, index) => {
                 return (
                   <ul key={index} className="">
                     <li className="list-item-D1 text-l font-medium text-[rgb(224,231,239)] mt-5">
                       {lan[0]} - {lan[1]}
                     </li>
                   </ul>
-                );
+                )
               })}
             </>
           ) : null}
@@ -170,15 +189,15 @@ function TemplateD1Sidh() {
         <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
           {userInputData && userInputData.description ? (
-          userInputData.description
-        ) : (
-          <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            veritatis mollitia voluptates reiciendis deleniti error quasi
-            dolorum dignissimos rem? Adipisci error facere aspernatur delectus
-            consequatur dolorem ducimus eligendi hic omnis.
-          </p>
-        )}
+            userInputData.description
+          ) : (
+            <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Explicabo veritatis mollitia voluptates reiciendis deleniti error
+              quasi dolorum dignissimos rem? Adipisci error facere aspernatur
+              delectus consequatur dolorem ducimus eligendi hic omnis.
+            </p>
+          )}
         </div>
 
         <div className="text-xl font-medium text-black ml-10 mt-5">
@@ -278,7 +297,9 @@ function TemplateD1Sidh() {
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects && userInputData.projects.length>0 ? (
+        {userInputData &&
+        userInputData.projects &&
+        userInputData.projects.length > 0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -301,14 +322,16 @@ function TemplateD1Sidh() {
                       dangerouslySetInnerHTML={{ __html: project.description }}
                     />
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
 
         {/* Certificates */}
-        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+        {userInputData &&
+        userInputData.certificates &&
+        userInputData.certificates.length > 0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -329,12 +352,11 @@ function TemplateD1Sidh() {
                       <span>{certificate.startDate}</span>
                     </div>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
-
 
         {/* Custom Form */}
         {userInputData && userInputData.customData
@@ -346,7 +368,7 @@ function TemplateD1Sidh() {
                 >
                   <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
                     <h2 className=" text-3xl font-semibold text-[rgb(2,4,2)]">
-                      {" "}
+                      {' '}
                       {customData.Custom_Heading}
                     </h2>
                     <div
@@ -357,12 +379,12 @@ function TemplateD1Sidh() {
                     />
                   </div>
                 </ul>
-              );
+              )
             })
           : null}
       </div>
     </div>
-  );
+  )
 }
 
-export default TemplateD1Sidh;
+export default TemplateD1Sidh

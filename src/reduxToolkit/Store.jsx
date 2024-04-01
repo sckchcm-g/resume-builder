@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import FormDataReducer from "./FormDataSlice.jsx";
-import { ExperienceDataReducer } from "./FormDataSlice.jsx";
-import { EducationDataReducer } from "./FormDataSlice.jsx";
+import { configureStore } from '@reduxjs/toolkit'
+import FormDataReducer from './FormDataSlice.jsx'
+import { ExperienceDataReducer } from './FormDataSlice.jsx'
+import { EducationDataReducer } from './FormDataSlice.jsx'
 
 const store = configureStore({
   reducer: {
@@ -9,5 +9,5 @@ const store = configureStore({
     experience: ExperienceDataReducer,
     education: EducationDataReducer,
   },
-});
-export default store;
+})
+export default store

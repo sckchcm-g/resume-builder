@@ -1,8 +1,8 @@
 // import {useState} from 'react';
-import "./stepper.css";
+import './stepper.css'
 
 const FormStepper = ({ Newnum, setForm }) => {
-  const steps = ["Personal", "Education", "Expereince", "Skills", "Additional"];
+  const steps = ['Personal', 'Education', 'Expereince', 'Skills', 'Additional']
   return (
     <>
       {/* Stepper with Completion-Green */}
@@ -12,11 +12,11 @@ const FormStepper = ({ Newnum, setForm }) => {
         {steps.map?.((step, i) => (
           <div
             key={i}
-            className={` step-item ${Newnum + 1 >= i + 1 && "active"} `}
+            className={` step-item ${Newnum + 1 >= i + 1 && 'active'} `}
           >
             <div className="step cursor-pointer" onClick={() => setForm(i)}>
-              {" "}
-              {i + 1}{" "}
+              {' '}
+              {i + 1}{' '}
             </div>
             <p className="text-gray-500 text-[10px] "> {step} </p>
           </div>
@@ -38,7 +38,7 @@ const FormStepper = ({ Newnum, setForm }) => {
         > Next {currentStep} </button> */}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FormStepper;
+export default FormStepper

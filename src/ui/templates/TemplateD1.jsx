@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import { useState } from 'react'
+import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
 
 function TemplateD1() {
-  const [count, setCount] = useState(0);
-  const userInputData = useSelector(selectUserData);
+  const [count, setCount] = useState(0)
+  const userInputData = useSelector(selectUserData)
   return (
     <div
       className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)] "
-      style={{ transform: "scale(1.1)" }}
+      style={{ transform: 'scale(1.1)' }}
     >
       <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
         <div className="leftimgbox">
@@ -16,30 +16,47 @@ function TemplateD1() {
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
           <div className="mt-[-0px] text-[40px] font-bold ml-10 flex">
-            <p className="text-[rgb(252,255,250)] firstname">{userInputData && userInputData.firstName
-                  ? userInputData.firstName
-                  : "Devraj"}</p>
-            <p className="text-[rgb(252,255,250)] lastname ml-2">{userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Patil"}</p>
+            <p className="text-[rgb(252,255,250)] firstname">
+              {userInputData && userInputData.firstName
+                ? userInputData.firstName
+                : 'Devraj'}
+            </p>
+            <p className="text-[rgb(252,255,250)] lastname ml-2">
+              {userInputData && userInputData['last-name']
+                ? userInputData['last-name']
+                : 'Patil'}
+            </p>
           </div>
           <div className="text-xl font-medium mt-[-0px] ml-[70px]">
-            <p className="emailaddress">{userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "gmail@gmail.com"}</p>
-            <p className="Address">{userInputData && userInputData.address
-                  ? userInputData.address
-                  : "Belgian tower"},{userInputData && userInputData.city
-                    ? userInputData.city
-                    : "Paris"}</p>
-                    <p className="citycode">{userInputData && userInputData["city-code"]
-                    ? userInputData["city-code"] :"12345"}</p>
-                    <p className="state">{userInputData && userInputData.state
-                    ? userInputData.state
-                    : "state"}</p>
-                    <p className="country">{userInputData && userInputData.country
-                    ? userInputData.country
-                    : "Country"}</p>
+            <p className="emailaddress">
+              {userInputData && userInputData['email-address']
+                ? userInputData['email-address']
+                : 'gmail@gmail.com'}
+            </p>
+            <p className="Address">
+              {userInputData && userInputData.address
+                ? userInputData.address
+                : 'Belgian tower'}
+              ,
+              {userInputData && userInputData.city
+                ? userInputData.city
+                : 'Paris'}
+            </p>
+            <p className="citycode">
+              {userInputData && userInputData['city-code']
+                ? userInputData['city-code']
+                : '12345'}
+            </p>
+            <p className="state">
+              {userInputData && userInputData.state
+                ? userInputData.state
+                : 'state'}
+            </p>
+            <p className="country">
+              {userInputData && userInputData.country
+                ? userInputData.country
+                : 'Country'}
+            </p>
           </div>
         </div>
 
@@ -53,22 +70,25 @@ function TemplateD1() {
           </h3>
           <h5 className=" font-medium text-[rgb(224,231,239)] mt-5">
             School name + Loction
-          </h5>  {/*school name and location to be added here */}
+          </h5>{' '}
+          {/*school name and location to be added here */}
           <h6 className=" font-medium text-[rgb(224,231,239)] mt-5">
             2023 -2023 {/*start date and end date to be added here */}
           </h6>
           <h6 className=" font-medium text-[rgb(224,231,239)] mt-5">
-            Degree and field of study {/*degree and field of study to be added here */}
+            Degree and field of study{' '}
+            {/*degree and field of study to be added here */}
           </h6>
           <p className=" font-medium text-[rgb(224,231,239)] mt-5">
             Description {/*description to be added here */}
           </p>
-
           <div className=" font-medium  mt-[35px] ">
             <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
               Skills
             </h2>
-            {userInputData && userInputData.skills && userInputData.skills.length>0? (
+            {userInputData &&
+            userInputData.skills &&
+            userInputData.skills.length > 0 ? (
               userInputData.skills.map((skill, index) => (
                 <ul
                   className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
@@ -85,7 +105,9 @@ function TemplateD1() {
                 </ul>
               ))
             ) : (
-              <ul className="pt-5 text-lg  text-[rgb(252,255,250)] ">  {/*add name oof the skills to be added here */}
+              <ul className="pt-5 text-lg  text-[rgb(252,255,250)] ">
+                {' '}
+                {/*add name oof the skills to be added here */}
                 <li className="mt-2">First</li>
                 <li className="mt-2">Fdfsrdst</li>
                 <li className="mt-2">sdgsdgt</li>
@@ -95,19 +117,21 @@ function TemplateD1() {
           </div>
           {/* Adding additional sections based on userData */}
           {/* Languages */}
-          {userInputData && userInputData.language && userInputData.language.length>0 ? (
+          {userInputData &&
+          userInputData.language &&
+          userInputData.language.length > 0 ? (
             <>
               <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
                 LANGUAGES
               </h3>
-              {userInputData.language.map((lan,index) => {
+              {userInputData.language.map((lan, index) => {
                 return (
                   <ul key={index} className="">
                     <li className="list-item-D1 text-l font-medium text-[rgb(224,231,239)] mt-5">
                       {lan[0]} - {lan[1]}
                     </li>
                   </ul>
-                );
+                )
               })}
             </>
           ) : null}
@@ -118,15 +142,15 @@ function TemplateD1() {
         <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
           {userInputData && userInputData.description ? (
-          userInputData.description
-        ) : (
-          <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            veritatis mollitia voluptates reiciendis deleniti error quasi
-            dolorum dignissimos rem? Adipisci error facere aspernatur delectus
-            consequatur dolorem ducimus eligendi hic omnis.
-          </p>
-        )}
+            userInputData.description
+          ) : (
+            <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Explicabo veritatis mollitia voluptates reiciendis deleniti error
+              quasi dolorum dignissimos rem? Adipisci error facere aspernatur
+              delectus consequatur dolorem ducimus eligendi hic omnis.
+            </p>
+          )}
         </div>
 
         <div className="text-xl font-medium text-black ml-10 mt-5">
@@ -135,16 +159,22 @@ function TemplateD1() {
           </h2>
           <h4 className="text-2xl font-semibold text-[rgb(2,4,2)]">
             Job title and Company Name
-          </h4>  {/*job title and company name to be added here */}
-
+          </h4>{' '}
+          {/*job title and company name to be added here */}
           <h6 className="text-1xl font-semibold text-[rgb(2,4,2)]">
             Date Range {/*date range start and end date to be added here */}
           </h6>
-          <p>Studied from Harward university Studied from Harward university Studied from Harward university Studied from Harward universityStudied from Harward university</p>
+          <p>
+            Studied from Harward university Studied from Harward university
+            Studied from Harward university Studied from Harward
+            universityStudied from Harward university
+          </p>
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects && userInputData.projects.length>0 ? (
+        {userInputData &&
+        userInputData.projects &&
+        userInputData.projects.length > 0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -167,14 +197,16 @@ function TemplateD1() {
                       dangerouslySetInnerHTML={{ __html: project.description }}
                     />
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
 
         {/* Certificates */}
-        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+        {userInputData &&
+        userInputData.certificates &&
+        userInputData.certificates.length > 0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -195,7 +227,7 @@ function TemplateD1() {
                       <span>{certificate.startDate}</span>
                     </div>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
@@ -211,7 +243,7 @@ function TemplateD1() {
                 >
                   <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
                     <h2 className=" text-3xl font-semibold text-[rgb(2,4,2)]">
-                      {" "}
+                      {' '}
                       {customData.Custom_Heading}
                     </h2>
                     <div
@@ -222,12 +254,12 @@ function TemplateD1() {
                     />
                   </div>
                 </ul>
-              );
+              )
             })
           : null}
       </div>
     </div>
-  );
+  )
 }
 
-export default TemplateD1;
+export default TemplateD1
