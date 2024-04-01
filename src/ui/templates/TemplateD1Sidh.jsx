@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
 
 function TemplateD1Sidh() {
   const [count, setCount] = useState(0);
   const userInputData = useSelector(selectUserData);
+  const userExperienceData = useSelector(selectExperienceData);
+  const userEducationData = useSelector(selectEducationData);
   return (
     // <div
     //   className="w-[210mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
@@ -13,20 +17,60 @@ function TemplateD1Sidh() {
     //       <div
     //   className="w-[210mm] h-[297mm] lg:max-h-[842px] lg:overflow-hidden flex flex-row  "
     // >
-                <div
-      className="w-[210mm] h-[1120px]  lg:overflow-hidden flex flex-row border border-gray-300 "
-    >
-      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto  grow">
+    <div className="w-[210mm] h-[1120px] max-h-[1120px] lg:overflow-y-auto flex flex-row border border-gray-300 ">
+      <div className="bg-[rgb(39,55,85)] w-[150%] text-[rgb(252,255,250)] max-h-[297mm] overflow-auto grow">
         <div className="leftimgbox">
           <div className="img">
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
           <div className="mt-[-0px] text-15px lg:text-[40px] font-bold ml-10 flex">
-            <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
+            {/* <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
             <p className="text-[rgb(252,255,250)] lastname ">Patil</p>
           </div>
           <div className="text-xl  font-medium mt-[-0px] ml-[70px]">
             <p className="emailaddress text-[15px]">gmail@gmail.com</p>
+          </div> */}
+            <p className="text-[rgb(252,255,250)] firstname">
+              {userInputData && userInputData.firstName
+                ? userInputData.firstName
+                : 'Devraj'}
+            </p>
+            <p className="text-[rgb(252,255,250)] lastname ml-2">
+              {userInputData && userInputData['last-name']
+                ? userInputData['last-name']
+                : 'Patil'}
+            </p>
+          </div>
+          <div className="text-xl font-medium mt-[-0px] ml-[70px]">
+            <p className="emailaddress">
+              {userInputData && userInputData['email-address']
+                ? userInputData['email-address']
+                : 'gmail@gmail.com'}
+            </p>
+            <p className="Address">
+              {userInputData && userInputData.address
+                ? userInputData.address
+                : 'Belgian tower'}
+              ,
+              {userInputData && userInputData.city
+                ? userInputData.city
+                : 'Paris'}
+            </p>
+            <p className="citycode">
+              {userInputData && userInputData['city-code']
+                ? userInputData['city-code']
+                : '12345'}
+            </p>
+            <p className="state">
+              {userInputData && userInputData.state
+                ? userInputData.state
+                : 'state'}
+            </p>
+            <p className="country">
+              {userInputData && userInputData.country
+                ? userInputData.country
+                : 'Country'}
+            </p>
           </div>
         </div>
 
@@ -38,7 +82,7 @@ function TemplateD1Sidh() {
           <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
             EDUCATION
           </h3>
-          <p className=" font-medium text-[rgb(224,231,239)] mt-5">
+          {/* <p className=" font-medium text-[rgb(224,231,239)] mt-5">
             kuugsu fsisd ksuvd
           </p>
           <p className=" font-medium text-[rgb(224,231,239)] mt-5">
@@ -46,13 +90,54 @@ function TemplateD1Sidh() {
           </p>
           <p className=" font-medium text-[rgb(224,231,239)] mt-5">
             kuugsu fsisd ksuvd
-          </p>
+          </p> */}
+
+{userEducationData && userEducationData.length > 0 ? (
+          <>
+            {userEducationData.map((edu, index) => (
+              <div
+                key={index}
+                className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2">
+                  <h2>{edu.degree}</h2>
+                  <span className="text-[15px] text-gray-500">
+                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                  </span>
+                </div>
+
+                <div className="duration text-[15px] text-gray-500">
+                  {edu.description}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+          </div>
+        )}
 
           <div className=" font-medium  mt-[35px] ">
             <h2 className="text-3xl font-semibold text-[rgb(252,255,250)]">
               Skills
             </h2>
-            {userInputData && userInputData.skills && userInputData.skills.length>0? (
+            {userInputData &&
+            userInputData.skills &&
+            userInputData.skills.length > 0 ? (
               userInputData.skills.map((skill, index) => (
                 <ul
                   className="pt-5 text-lg  text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[90%]   "
@@ -79,19 +164,21 @@ function TemplateD1Sidh() {
           </div>
           {/* Adding additional sections based on userData */}
           {/* Languages */}
-          {userInputData && userInputData.language && userInputData.language.length>0 ? (
+          {userInputData &&
+          userInputData.language &&
+          userInputData.language.length > 0 ? (
             <>
               <h3 className="text-3xl font-semibold text-[rgb(252,255,250)] mt-[60px]">
                 LANGUAGES
               </h3>
-              {userInputData.language.map((lan,index) => {
+              {userInputData.language.map((lan, index) => {
                 return (
                   <ul key={index} className="">
                     <li className="list-item-D1 text-l font-medium text-[rgb(224,231,239)] mt-5">
                       {lan[0]} - {lan[1]}
                     </li>
                   </ul>
-                );
+                )
               })}
             </>
           ) : null}
@@ -102,22 +189,103 @@ function TemplateD1Sidh() {
         <div className="text-xl font-medium text-black ml-10 mt-20 ">
           <h2 className="text-3xl font-bold text-[rgb(2,4,2)]">Profile</h2>
           {userInputData && userInputData.description ? (
-          userInputData.description
-        ) : (
-          <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            veritatis mollitia voluptates reiciendis deleniti error quasi
-            dolorum dignissimos rem? Adipisci error facere aspernatur delectus
-            consequatur dolorem ducimus eligendi hic omnis.
-          </p>
-        )}
+            userInputData.description
+          ) : (
+            <p className="mt-5 text-base font-medium text-[rgb(89,88,90)] ">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Explicabo veritatis mollitia voluptates reiciendis deleniti error
+              quasi dolorum dignissimos rem? Adipisci error facere aspernatur
+              delectus consequatur dolorem ducimus eligendi hic omnis.
+            </p>
+          )}
         </div>
 
         <div className="text-xl font-medium text-black ml-10 mt-5">
           <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
-            Experience
+            Professional Experience
           </h2>
-          <ul className="mt-5 text-lg font-medium ">
+
+          {userExperienceData && userExperienceData.length > 0 ? (
+          <>
+            {userExperienceData.map((exp, index) => (
+              <div
+                key={index}
+                className="flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2 ">
+                  <h2>{exp.Job_Title}</h2>
+                  <span className="text-gray-500">
+                    {exp.Company_Name} | {exp.WrkStartDate} to {exp.WrkEndDate}
+                  </span>
+                </div>
+                <div
+                  className="text-gray-500"
+                  dangerouslySetInnerHTML={{
+                    __html: exp.description,
+                  }}
+                ></div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{"Manager"}</h2>
+              <div className="duration text-gray-500 ">
+                {"XYZ company"} | {"Start Date - End Date"}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{"Manager"}</h2>
+              <div className="duration text-gray-500 ">
+                {"XYZ company"} | {"Start Date - End Date"}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+          </>
+        )}
+
+          {/* <ul className="mt-5 text-lg font-medium ">
             <li className="mt-5 text-base text-[rgb(89,88,90)]">First</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fdfsrdst</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">sdgsdgt</li>
@@ -125,11 +293,13 @@ function TemplateD1Sidh() {
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fsdgsdt</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Firesnt</li>
             <li className="mt-2 text-base text-[rgb(89,88,90)]">Fefhehge</li>
-          </ul>
+          </ul> */}
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects && userInputData.projects.length>0 ? (
+        {userInputData &&
+        userInputData.projects &&
+        userInputData.projects.length > 0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -152,14 +322,16 @@ function TemplateD1Sidh() {
                       dangerouslySetInnerHTML={{ __html: project.description }}
                     />
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
 
         {/* Certificates */}
-        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+        {userInputData &&
+        userInputData.certificates &&
+        userInputData.certificates.length > 0 ? (
           <>
             <div className="text-xl font-medium text-black ml-10 mt-5">
               <h2 className="text-3xl font-semibold text-[rgb(2,4,2)]">
@@ -180,12 +352,11 @@ function TemplateD1Sidh() {
                       <span>{certificate.startDate}</span>
                     </div>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
-
 
         {/* Custom Form */}
         {userInputData && userInputData.customData
@@ -197,7 +368,7 @@ function TemplateD1Sidh() {
                 >
                   <div className="project-header mt-2 text-base text-[rgb(89,88,90)]">
                     <h2 className=" text-3xl font-semibold text-[rgb(2,4,2)]">
-                      {" "}
+                      {' '}
                       {customData.Custom_Heading}
                     </h2>
                     <div
@@ -208,12 +379,12 @@ function TemplateD1Sidh() {
                     />
                   </div>
                 </ul>
-              );
+              )
             })
           : null}
       </div>
     </div>
-  );
+  )
 }
 
-export default TemplateD1Sidh;
+export default TemplateD1Sidh

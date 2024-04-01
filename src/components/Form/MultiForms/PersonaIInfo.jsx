@@ -1,30 +1,29 @@
-import { useState } from "react";
-import ReactQuill from "react-quill";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
+import { useState } from 'react'
+import ReactQuill from 'react-quill'
+import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { setUserData } from '../../../reduxToolkit/FormDataSlice.jsx'
 // import { FormSection } from "./MultiStepForm.jsx";
 
 export default function PersonaIInfo() {
-  const dispatch = useDispatch();
-  const [formLevel, setForm] = useState(0);
+  const dispatch = useDispatch()
+  const [formLevel, setForm] = useState(0)
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm()
 
-  const [successMsg, setSuccessMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState('')
 
   function sumbitData(data) {
-    dispatch(setUserData(data));
-    setSuccessMsg("Data is updated.");
-    reset();
+    dispatch(setUserData(data))
+    setSuccessMsg('Data is updated.')
+    reset()
   }
 
   return (
-
     // <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
     <div className="p-6 mt-[20px] w-[350px]  md:w-auto md:max-w-[500px] h-[100%] xl:h-[65%]  border-[#9333ea] m-0 border-2 shadow-[#9333ea] shadow-md">
       {successMsg && (
@@ -56,16 +55,16 @@ export default function PersonaIInfo() {
               placeholder="First Name"
               name="firstName"
               id="first-name"
-              {...register("firstName", {
-                required: "enter your first name please!!",
+              {...register('firstName', {
+                required: 'enter your first name please!!',
                 pattern: {
                   value: /^[a-zA-Z]+$/,
-                  message: "name should contain only characters.",
+                  message: 'name should contain only characters.',
                 },
               })}
               autoComplete="off"
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
-              />
+            />
             {errors.firstName && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
                 {errors.firstName.message}
@@ -75,8 +74,8 @@ export default function PersonaIInfo() {
         </div>
 
         {/*  */}
-  
-{/*  */}
+
+        {/*  */}
         <div className="sm:col-span-3">
           <label
             htmlFor="last-name"
@@ -91,19 +90,18 @@ export default function PersonaIInfo() {
               placeholder="Last Name"
               id="last-name"
               autoComplete="off"
-              {...register("last-name", {
-                required: "enter your last name please!!",
+              {...register('last-name', {
+                required: 'enter your last name please!!',
                 pattern: {
                   value: /^[a-zA-Z]+$/,
-                  message: "name should contain only characters.",
+                  message: 'name should contain only characters.',
                 },
               })}
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
-              
             />
-            {errors["last-name"] && (
+            {errors['last-name'] && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
-                {errors["last-name"].message}
+                {errors['last-name'].message}
               </p>
             )}
           </div>
@@ -122,19 +120,19 @@ export default function PersonaIInfo() {
               name="email-address"
               placeholder="Email"
               id="email-address"
-              {...register("email-address", {
-                required: "email is required",
+              {...register('email-address', {
+                required: 'email is required',
                 pattern: {
                   value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                  message: "enter the vaild email",
+                  message: 'enter the vaild email',
                 },
               })}
               autoComplete="off"
               className="border  my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
-            {errors["email-address"] && (
+            {errors['email-address'] && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
-                {errors["email-address"].message}
+                {errors['email-address'].message}
               </p>
             )}
           </div>
@@ -154,7 +152,7 @@ export default function PersonaIInfo() {
               placeholder="Address"
               id="address"
               autoComplete="off"
-              {...register("address")}
+              {...register('address')}
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
           </div>
@@ -173,7 +171,7 @@ export default function PersonaIInfo() {
               name="city"
               placeholder="City"
               id="city"
-              {...register("city")}
+              {...register('city')}
               autoComplete="off"
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
@@ -193,7 +191,7 @@ export default function PersonaIInfo() {
               name="city-code"
               placeholder="Pincode"
               id="city-code"
-              {...register("city-code")}
+              {...register('city-code')}
               autoComplete="off"
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
@@ -213,7 +211,7 @@ export default function PersonaIInfo() {
               name="state"
               placeholder="State"
               id="state"
-              {...register("state")}
+              {...register('state')}
               autoComplete="off"
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
@@ -233,7 +231,7 @@ export default function PersonaIInfo() {
               name="country"
               placeholder="Country"
               id="country"
-              {...register("country")}
+              {...register('country')}
               autoComplete="off"
               className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
@@ -252,7 +250,7 @@ export default function PersonaIInfo() {
             placeholder="Add Profile Description"
             rows="4"
             name="description"
-            {...register("description")}
+            {...register('description')}
             className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
           ></textarea>
         </div>
@@ -272,5 +270,5 @@ export default function PersonaIInfo() {
       </form>
       {/* <span className="block w-[70%] h-0.5 mt-4 bg-purple-200"></span> */}
     </div>
-  );
+  )
 }

@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import "./quill.css";
-import DOMPurify from "dompurify";
-import { MdDelete } from "react-icons/md";
-import { nanoid } from "nanoid";
-import { useDispatch } from "react-redux";
-import { selectUserData } from "../../../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
-import { setUserData } from "../../../../reduxToolkit/FormDataSlice.jsx";
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
+import './quill.css'
+import DOMPurify from 'dompurify'
+import { MdDelete } from 'react-icons/md'
+import { nanoid } from 'nanoid'
+import { useDispatch } from 'react-redux'
+import { selectUserData } from '../../../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
+import { setUserData } from '../../../../reduxToolkit/FormDataSlice.jsx'
 
 const CustomFormTab = ({ data, DeletCustomTab, idForCustom }) => {
-  const description = data.description;
-  const SantizedHtml = DOMPurify.sanitize(description);
+  const description = data.description
+  const SantizedHtml = DOMPurify.sanitize(description)
 
   return (
     <div className="rounded-lg border border-gray-400 w-[95%] mx-3 my-2 px-4 py-4">
-    <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between">
         <h2 className="text-2xl">{data.Custom_Heading}</h2>
         <MdDelete
           onClick={() => DeletCustomTab(idForCustom)}
@@ -28,47 +28,49 @@ const CustomFormTab = ({ data, DeletCustomTab, idForCustom }) => {
         <div dangerouslySetInnerHTML={{ __html: SantizedHtml }}></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const CustomForm = () => {
-  const dispatch = useDispatch();
-  const userInputData = useSelector(selectUserData);
-  {/*const [submittedData, setSubmitted] = useState([
+  const dispatch = useDispatch()
+  const userInputData = useSelector(selectUserData)
+  {
+    /*const [submittedData, setSubmitted] = useState([
     {
       Custom_Heading: "Dummy Data",
       description: "Dummy COntent please ignore please ignore please ignore.",
     },
-  ]);*/}
+  ]);*/
+  }
   const [submittedData, setSubmitted] = useState([])
-  const [customDescription, setCustomDes] = useState("");
+  const [customDescription, setCustomDes] = useState('')
 
-  const { reset, register, handleSubmit } = useForm();
+  const { reset, register, handleSubmit } = useForm()
 
   function SubmitHandler(data) {
-    data.description = customDescription;
-    data.id = nanoid();
-    const listData = [...submittedData, data];
-    setSubmitted(listData);
+    data.description = customDescription
+    data.id = nanoid()
+    const listData = [...submittedData, data]
+    setSubmitted(listData)
     const updatedData = {
       ...userInputData,
       customData: listData,
-    };
-    dispatch(setUserData(updatedData));
-    reset();
-    setCustomDes("");
+    }
+    dispatch(setUserData(updatedData))
+    reset()
+    setCustomDes('')
   }
   function DeletCustomTab(cust_id) {
-    const TempCustomData = [...submittedData];
-    TempCustomData.splice(cust_id, 1);
-    setSubmitted(TempCustomData);
-    const storedData =[...userInputData.customData]
-    storedData.splice(cust_id,1)
+    const TempCustomData = [...submittedData]
+    TempCustomData.splice(cust_id, 1)
+    setSubmitted(TempCustomData)
+    const storedData = [...userInputData.customData]
+    storedData.splice(cust_id, 1)
     const updatedData = {
       ...userInputData,
-      customData: storedData
-    };
-    dispatch(setUserData(updatedData));
+      customData: storedData,
+    }
+    dispatch(setUserData(updatedData))
   }
 
   return (
@@ -88,10 +90,10 @@ const CustomForm = () => {
             className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
             type="text"
             name="Content"
-            {...register("Custom_Heading", {
-              required: " Heading Required! ",
+            {...register('Custom_Heading', {
+              required: ' Heading Required! ',
               pattern: {
-                message: "Custom Heading",
+                message: 'Custom Heading',
               },
             })}
           ></input>
@@ -101,7 +103,7 @@ const CustomForm = () => {
             className="border my-5  bg-slate-100 border-purple-400"
             value={customDescription}
             onChange={(content) => {
-              setCustomDes(content);
+              setCustomDes(content)
               // console.log(content);
             }}
           />
@@ -123,11 +125,11 @@ const CustomForm = () => {
               idForCustom={index}
               DeletCustomTab={DeletCustomTab}
             />
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CustomForm;
+export default CustomForm

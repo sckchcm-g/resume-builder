@@ -1,10 +1,9 @@
-import MultiStepForm from "../components/Form/MultiForms/MultiStepForm.jsx";
-
+import MultiStepForm from '../components/Form/MultiForms/MultiStepForm.jsx'
 
 const FormPanel = () => {
   return (
     <div>
-        <MultiStepForm/>
+      <MultiStepForm />
     </div>
   )
 }

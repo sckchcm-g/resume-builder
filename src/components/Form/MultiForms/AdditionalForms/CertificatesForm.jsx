@@ -1,39 +1,39 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { MdDelete } from "react-icons/md";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { setUserData } from "../../../../reduxToolkit/FormDataSlice.jsx";
-import { selectUserData } from "../../../../reduxToolkit/FormDataSlice.jsx";
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { MdDelete } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { setUserData } from '../../../../reduxToolkit/FormDataSlice.jsx'
+import { selectUserData } from '../../../../reduxToolkit/FormDataSlice.jsx'
 
 const CertificatesForm = () => {
-  const dispatch = useDispatch();
-  const userInputData = useSelector(selectUserData);
-  const { reset, register, handleSubmit } = useForm();
-  const [AddedCertificates, setCertficate] = useState([]);
+  const dispatch = useDispatch()
+  const userInputData = useSelector(selectUserData)
+  const { reset, register, handleSubmit } = useForm()
+  const [AddedCertificates, setCertficate] = useState([])
 
   function onSubmit(data) {
-    console.log(AddedCertificates);
-    let certificateData = [...AddedCertificates, data];
-    setCertficate(certificateData);
+    console.log(AddedCertificates)
+    let certificateData = [...AddedCertificates, data]
+    setCertficate(certificateData)
     const updatedData = {
       ...userInputData,
       certificates: certificateData,
-    };
-    dispatch(setUserData(updatedData));
+    }
+    dispatch(setUserData(updatedData))
     // console.log(updatedData)
-    reset();
+    reset()
   }
 
   function handleDeleteCertificate(itemID) {
-    let currList = [...AddedCertificates];
-    currList.splice(itemID, 1);
-    setCertficate(currList);
+    let currList = [...AddedCertificates]
+    currList.splice(itemID, 1)
+    setCertficate(currList)
     const updatedData = {
       ...userInputData,
       certificates: currList,
-    };
-    dispatch(setUserData(updatedData));
+    }
+    dispatch(setUserData(updatedData))
   }
 
   return (
@@ -46,16 +46,16 @@ const CertificatesForm = () => {
             placeholder="Add Certificate Name"
             type="text"
             className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
-            {...register("Certificate_Name", {
-              required: " Certificate Name Required!",
+            {...register('Certificate_Name', {
+              required: ' Certificate Name Required!',
             })}
           ></input>
-                    <label>Certificate Link</label>
-                    <input
+          <label>Certificate Link</label>
+          <input
             placeholder="Add Certificate Link"
             type="text"
             className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
-            {...register("Certificate_Link")}
+            {...register('Certificate_Link')}
           ></input>
           <div className="flex flex-row gap-6">
             <div className="flex flex-col">
@@ -63,8 +63,8 @@ const CertificatesForm = () => {
               <input
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
                 type="text"
-                {...register("Institute", {
-                  required: "Required!",
+                {...register('Institute', {
+                  required: 'Required!',
                 })}
               ></input>
             </div>
@@ -74,7 +74,7 @@ const CertificatesForm = () => {
                 type="date"
                 name="startDate"
                 id="start-date"
-                {...register("startDate")}
+                {...register('startDate')}
                 autoComplete="off"
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
               />
@@ -108,20 +108,20 @@ const CertificatesForm = () => {
               className=" p-1 my-2 border border-l-4 border-l-purple-800 px-2 "
             >
               <div className="text-xl font-semibold flex flex-row justify-between ">
-                <h2> {data.Certificate_Name}</h2>{" "}
+                <h2> {data.Certificate_Name}</h2>{' '}
                 <div className="mt-2 text-red-700 cursor-pointer">
-                  <MdDelete onClick={() => handleDeleteCertificate(index)} />{" "}
+                  <MdDelete onClick={() => handleDeleteCertificate(index)} />{' '}
                 </div>
               </div>
               <div>
-                {data.Institute} &middot; {data.startDate}{" "}
+                {data.Institute} &middot; {data.startDate}{' '}
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CertificatesForm;
+export default CertificatesForm
