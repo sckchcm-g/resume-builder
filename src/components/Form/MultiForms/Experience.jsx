@@ -83,15 +83,21 @@ const Experience = () => {
     <div>
       {/* <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]"> */}
       {/* <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[85%] md:w-[440px] lg:w-[440px] max-w-[590px]"> */}
-      <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
+      {/* <div className="p-6  mt-[20px] w-[90%]  h-[100%]  lg:w-[95%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md"> */}
+      <div className="p-6 mt-[20px] w-[350px]  md:w-auto md:max-w-[500px] h-[100%]  xl:h-[65%]  border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
 
         <h2 className="text-2xl font-semibold mb-3">Add Experience.</h2>
-        <form onSubmit={handleSubmit(sumbitData)}>
-          <div className="flex flex-row justify-between ">
-            <div className="flex flex-col w-[45%]">
+        <form 
+          className="flex flex-col md:flex-col "
+          onSubmit={handleSubmit(sumbitData)}>
+         
+          {/* <div className="flex flex-row justify-between "> */}
+          <div className="flex flex-col md:flex-row  justify-between  w-[100%]">   
+            <div className="flex flex-col w-[100%] md:w-[45%]">
               <label>Job Title</label>
               <input
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  "
+                placeholder="Job Title"
                 autoComplete="off"
                 type="text"
                 {...register("Job_Title", {
@@ -99,10 +105,11 @@ const Experience = () => {
                 })}
               ></input>
             </div>
-            <div className="flex flex-col w-[45%]">
+            <div className="w-[100%] md:w-[45%]">
               <label>Company Name</label>
               <input
-                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm "
+                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%]"
+                placeholder="Company Name"
                 autoComplete="off"
                 type="text"
                 {...register("Company_Name", {
@@ -111,11 +118,13 @@ const Experience = () => {
               ></input>
             </div>
           </div>
-          <div className="flex flex-row justify-between ">
-            <div className="flex flex-col w-[45%]">
+          {/* 2 */}
+          <div className="flex flex-col md:flex-row justify-between  w-[100%] ">
+            <div className="flex flex-col w-[100%] md:w-[45%]">
               <label>Start Date</label>
               <input
                 type="month"
+                
                 name="WorkstartDate"
                 id="start-date"
                 {...register("WrkStartDate")}
@@ -123,7 +132,7 @@ const Experience = () => {
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
               />
             </div>
-            <div className="flex flex-col w-[45%]">
+            <div className="w-[100%] md:w-[45%]">
               <label>End Date</label>
               <input
                 type="month"
@@ -131,13 +140,14 @@ const Experience = () => {
                 id="end-date"
                 {...register("WrkEndDate")}
                 autoComplete="off"
-                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
+                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  w-[100%]"
               />
             </div>
           </div>
           <div className="">
             <ReactQuill
               value={ExpDesc}
+              
               onChange={(e) => {
                 setExpDes(e);
               }}
@@ -152,7 +162,7 @@ const Experience = () => {
           </button>
         </form>
       </div>
-      <div className="p-4 border border-gray-300 h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+      {/* <div className="p-4 border border-gray-300 h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
         {expData.map((e, index) => {
           return (
             <ExperienceTab
@@ -167,7 +177,23 @@ const Experience = () => {
             />
           );
         })}
-      </div>
+      </div> */}
+      {/* <div className="p-4 border border-gray-300 h-auto w-[350px]  md:w-auto  md:max-w-[500px] max-w-[590px]">
+        {expData.map((e, index) => {
+          return (
+            <ExperienceTab
+              key={index}
+              idRef={index}
+              jobRole={e.Job_Title}
+              companyName={e.Company_Name}
+              startDate={e.WrkStartDate}
+              endDate={e.WrkEndDate}
+              expDescription={e.description}
+              deleteExpData={deleteExpData}
+            />
+          );
+        })}
+      </div> */}
     </div>
   );
 };

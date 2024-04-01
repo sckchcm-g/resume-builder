@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactQuill from "react-quill";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
@@ -23,18 +24,15 @@ export default function PersonaIInfo() {
   }
 
   return (
-    // <div className="border-[#9333ea] border-2 shadow-[#9333ea] shadow-md p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[95%] xl:h-[65%] xl:w-[90%]">
-      // <div className="border-[#9333ea] border-2 shadow-[#9333ea] shadow-md p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[95%] xl:h-[65%] xl:w-[90%]">
-      // <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[440px] lg:w-[440px] max-w-[590px]">
-              // <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[85%] md:w-[440px] lg:w-[440px] max-w-[590px]">
-    <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
 
+    // <div className="p-6 mt-[20px] w-[90%]  h-[100%]  lg:w-[100%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
+    <div className="p-6 mt-[20px] w-[350px]  md:w-auto md:max-w-[480px] h-[100%] xl:h-[65%]  border-[#9333ea] m-0 border-2 shadow-[#9333ea] shadow-md">
       {successMsg && (
         <p className=" absolute right-10 top-8 font-bold p-0 bg-green-600 px-3 py-0.5 rounded-tr-xl rounded-bl-xl inline-block text-white text-sm">
           {successMsg}
         </p>
       )}
-      <h2 className="text-xl md:text-2xl md:w-[230px] font-semibold leading-7 text-gray-900 border-b-4 border-[#9333ea]  w-[200px] pb-[5px]">
+      <h2 className="text-xl md:text-2xl md:w-[230px] font-semibold leading-7 text-gray-900 border-b-4 border-[#9333ea] pb-[5px]  w-[200px] ">
         Personal Information
       </h2>
       {/* <div className="absolute border-t-4  border-purple-600 w-1/3"></div> */}
@@ -258,7 +256,7 @@ export default function PersonaIInfo() {
         </div>
       </form> */}
             <form
-        className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6"
+        className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6"
         onSubmit={handleSubmit(sumbitData)}
       >
         <div className="sm:col-span-3">
@@ -268,9 +266,10 @@ export default function PersonaIInfo() {
           >
             First Name
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
+              placeholder="First Name"
               name="firstName"
               id="first-name"
               {...register("firstName", {
@@ -281,8 +280,8 @@ export default function PersonaIInfo() {
                 },
               })}
               autoComplete="off"
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
-            />
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
+              />
             {errors.firstName && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
                 {errors.firstName.message}
@@ -301,10 +300,11 @@ export default function PersonaIInfo() {
           >
             Last name
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
               name="last-name"
+              placeholder="Last Name"
               id="last-name"
               autoComplete="off"
               {...register("last-name", {
@@ -314,7 +314,8 @@ export default function PersonaIInfo() {
                   message: "name should contain only characters.",
                 },
               })}
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
+              
             />
             {errors["last-name"] && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
@@ -331,10 +332,11 @@ export default function PersonaIInfo() {
           >
             Email Address
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="email"
               name="email-address"
+              placeholder="Email"
               id="email-address"
               {...register("email-address", {
                 required: "email is required",
@@ -344,7 +346,7 @@ export default function PersonaIInfo() {
                 },
               })}
               autoComplete="off"
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border  my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
             {errors["email-address"] && (
               <p className="text-red-600 py-0 mx-0 font-sans text-sm ">
@@ -361,14 +363,15 @@ export default function PersonaIInfo() {
           >
             Address
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
               name="address"
+              placeholder="Address"
               id="address"
               autoComplete="off"
               {...register("address")}
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
           </div>
         </div>
@@ -380,14 +383,15 @@ export default function PersonaIInfo() {
           >
             City
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
               name="city"
+              placeholder="City"
               id="city"
               {...register("city")}
               autoComplete="off"
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
           </div>
         </div>
@@ -399,14 +403,15 @@ export default function PersonaIInfo() {
           >
             City Code
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
               name="city-code"
+              placeholder="Pincode"
               id="city-code"
               {...register("city-code")}
               autoComplete="off"
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
           </div>
         </div>
@@ -418,14 +423,15 @@ export default function PersonaIInfo() {
           >
             State
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
               name="state"
+              placeholder="State"
               id="state"
               {...register("state")}
               autoComplete="off"
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
           </div>
         </div>
@@ -437,14 +443,15 @@ export default function PersonaIInfo() {
           >
             Country
           </label>
-          <div className="mt-2">
+          <div className="mt-1">
             <input
               type="text"
               name="country"
+              placeholder="Country"
               id="country"
               {...register("country")}
               autoComplete="off"
-              className="block w-[90%] lg:w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-400 sm:text-sm sm:leading-6"
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
             />
           </div>
         </div>
@@ -458,14 +465,18 @@ export default function PersonaIInfo() {
           </label>
           <textarea
             id="description"
+            placeholder="Add Profile Description"
             rows="4"
             name="description"
             {...register("description")}
-            className="flex p-2.5 w-full  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500      "
-            placeholder="e.g. Supported mentor teacher throughout lessons by preparing…"
+            className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%] "
           ></textarea>
         </div>
-
+        {/* <div className="sm:col-span-6">
+            <ReactQuill
+              className="border my-5  bg-slate-100 border-purple-400"
+            />
+          </div> */}
         <div className="flex px-2">
           <button
             type="submit"

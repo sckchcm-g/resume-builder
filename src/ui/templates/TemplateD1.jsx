@@ -140,15 +140,7 @@ function TemplateD1() {
           <h6 className="text-1xl font-semibold text-[rgb(2,4,2)]">
             Date Range {/*date range start and end date to be added here */}
           </h6>
-          <ul className="mt-5 text-lg font-medium "> {/*description to be added inside this*/}
-            <li className="mt-5 text-base text-[rgb(89,88,90)]">First</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fdfsrdst</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">sdgsdgt</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fisdg</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fsdgsdt</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Firesnt</li>
-            <li className="mt-2 text-base text-[rgb(89,88,90)]">Fefhehge</li>
-          </ul>
+          <p>Studied from Harward university Studied from Harward university Studied from Harward university Studied from Harward universityStudied from Harward university</p>
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}

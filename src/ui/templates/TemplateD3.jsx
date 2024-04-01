@@ -32,6 +32,11 @@ function TemplateD3() {
                   ? userInputData["email-address"]
                   : "cdc@cdc.cdc"}
               </p>
+              <div className="flex flex-row">
+              <p>city code</p>
+              <p>state</p>
+              <p>country</p>
+              </div>
               
             </div>
           </div>
@@ -92,17 +97,17 @@ function TemplateD3() {
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px]">
+        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px] ">
+          <div className="flex flex-row">
           <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
             Education
           </h2>
-          <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px]  ">
-            <li>Studied from Hardward university</li>
-            <li>Studied from Hardward university</li>
-            <li>Studied from Hardward university</li>
-            <li>Studied from Hardward university</li>
-            <li>Studied from Hardward university</li>
-          </ul>
+          <p className="m-[22px] ml-[-2px]">School name</p>
+          <p className="m-[22px] ml-[-2px]">School location</p>
+          <p className="m-[22px] ml-[-2px]">स्टार्ट एंड एन्ड date</p>
+          <p className="m-[22px] ml-[-2px]">Degree and field of study</p>
+          </div>
+          <p className="text-[17px] text-[rgb(77,77,77)] m-[15px]">devraj is a good person he is very good person Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore debitis sint saepe omnis porro alias fugiat animi expedita dolorem sapiente blanditiis voluptate aliquam, id repudiandae! Accusantium quos doloremque ab nostrum!</p>
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}

@@ -164,18 +164,29 @@ function TemplateS2() {
             </div>
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
-          <div className="Professional-skills ">
+          <div className="Professional-skills">
             <h2 className="work-right text-center px-5 text-2xl">
               Education 
             </h2>
-            {professionalSkill.map((item) => {
+            {/* {professionalSkill.map((item) => {
               return (
                 <>
                   <div className="flex boxboxbox"></div>
                   <p className="m-5">{item}</p>
                 </>
               );
-            })}
+            })} */}
+            <div>
+              <p className="my-2 mx-1 text-s">School Name: </p>
+              <p className="my-2 mx-1 text-s">School Location: </p>
+              <p className="my-2 mx-1 text-s">Start Date: </p>
+              <p className="my-2 mx-1 text-s">End Date: </p>
+              <p className="my-2 mx-1 text-s">Degree: </p>
+              <p className="my-2 mx-1 text-s">Field of Study: </p>
+              <div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem consequuntur, aut debitis eum perferendis sapiente maxime ipsa necessitatibus minus, possimus eos, eligendi exercitationem voluptatem pariatur.</p>
+              </div>
+            </div>
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           {/* Projects */}

@@ -7,7 +7,7 @@ function TemplateS1() {
   const EduDetails = [
     "Completed 10th and 12th from ICSE School",
     "Completed B.Tech in CSE from ABC University",
-    "Completed M.Tech in CSE from ABC University",
+    "Completed M.Tech in CSE from ABC University"
   ];
   const userInputData = useSelector(selectUserData);
   const userExperienceData = useSelector(selectExperienceData);
@@ -104,7 +104,7 @@ function TemplateS1() {
 
           <div className="professional-experience">
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-              Professional Experience
+              Description
             </h2>
             <p className="text-[17px] text-[rgb(84,84,84)] m-[15px]">
               Worked with labor unions to negotiate compensation packages for
@@ -118,7 +118,7 @@ function TemplateS1() {
         <hr className="w-[700px] h-[5px] bg-[rgb(99,133,255)] shadow-[0_0_5px_2px_rgba(82,160,255,0.8)] rounded-[90%] border-[none]" />
 
         {/* Professional skills  */}
-        <div className="skilldev flex flex-row items-center justify-between w-[700px] h-[280px] bg-[rgba(255,255,255,0.448)]">
+        <div className="skilldev flex flex-row items-center justify-start w-[700px] h-[280px] bg-[rgba(255,255,255,0.448)]">
           <div className="skill-set w-[450px] h-[230px] max-h-[230px] overflow-y-auto text-base m-5 p-5 rounded-[20px]">
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
               Key Skills
@@ -156,14 +156,16 @@ function TemplateS1() {
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
               Education
             </h2>
-            {EduDetails.map((item) => {
-              return (
-                <div className="flex flex-row items-center justify-start">
-                  <div className=" w-3 h-2.5 bg-[rgb(99,133,255)] m-2.5 rounded-[50px]" />
-                  <p>{item}</p>
-                </div>
-              );
-            })}
+            <div>
+              <div>
+                <p className="my-2 mx-1 text-s">School Name: </p>
+                <p className="my-2 mx-1 text-s">School Location: </p>
+                <p className="my-2 mx-1 text-s">Start Date: </p>
+                <p className="my-2 mx-1 text-s">End Date: </p>
+                <p className="my-2 mx-1 text-s">Degree: </p>
+                <p className="my-2 mx-1 text-s">Field of Study: </p>
+              </div>
+            </div>
           </div>
         </div>
 
