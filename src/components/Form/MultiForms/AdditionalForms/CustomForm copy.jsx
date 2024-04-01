@@ -74,15 +74,12 @@ const CustomForm = () => {
   return (
     // <div className="min-h-[700px] ">
     // <div className="p-4 border border-gray-300 h-auto w-[410px] md:w-[490px] lg:w-[550px] max-w-[590px]">
-    <div className="p-3 md:p-4  w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  m-0 ">
+    <div className="p-2 md:p-6  w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  m-0 ">
       {/* Input Section */}
       <div>
         <h2 className="text-2xl font-semibold mb-3">Custom Section</h2>
-        <form
-                
-        onSubmit={handleSubmit(SubmitHandler)}>
-
-          <label className="">Custom Heading</label>
+        <form onSubmit={handleSubmit(SubmitHandler)}>
+          <label>Custom Heading</label>
           <input
             placeholder="Add Heading."
             className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-full"
@@ -95,7 +92,6 @@ const CustomForm = () => {
               },
             })}
           ></input>
-
           <label>Add Description.</label>
           <ReactQuill
             className="border my-5  bg-slate-100 border-purple-400"
@@ -114,7 +110,7 @@ const CustomForm = () => {
         </form>
       </div>
       {/* Output section */}
-      <div className=" md:w-auto max-w-[500px]  ">
+      <div className=" md:w-[490px] max-w-[500px] min-h-56 ">
         {submittedData.map((e, index) => {
           return (
             <CustomFormTab

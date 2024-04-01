@@ -98,7 +98,8 @@ const ProjectsForm = () => {
 
       {/* Form Section */}
       {/* <div className="p-4 border-[#9333ea] border-2 w-[400px] shadow-[#9333ea] shadow-md h-auto "> */}
-      <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]">
+      {/* <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px]"> */}
+      <div className="p-3 md:p-4 md:pt-4 w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]   m-0 ">
       <h2 className="text-2xl font-semibold mb-3"> Add Projects.</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Project Heading</label>
@@ -110,7 +111,6 @@ const ProjectsForm = () => {
             {...register("Heading", {
               required: "Enter Project Name!!",
               pattern: {
-                // value: /^[a-zA-Z]+$/,
                 message: "Heading..",
               },
             })}
@@ -126,6 +126,7 @@ const ProjectsForm = () => {
           <label>Project Description</label>
 
           {/* Some styles to below Quill Editor are imported from quill.css file. */}
+
           <ReactQuill
             value={description}
             onChange={DesHandler}
@@ -141,7 +142,8 @@ const ProjectsForm = () => {
         </form>
       </div>
       {/* Results Section */}
-      <div className=" p-4 border border-gray-300 mb-4 h-[170px] overflow-scroll w-[360px] md:w-[490px] lg:w-[550px] max-w-[590px] ">
+      <div className=" p-4   w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%] ">
+
         {submittedData.map((e, index) => {
           return (
             <ProjectsTab

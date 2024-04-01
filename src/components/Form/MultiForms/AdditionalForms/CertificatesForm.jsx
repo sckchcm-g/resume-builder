@@ -38,7 +38,7 @@ const CertificatesForm = () => {
 
   return (
     <div>
-      <div className="border border-gray-200 p-4 my-4">
+      <div className=" p-2 md:p-4 ">
         <h2 className="font-semibold text-2xl">Add Certificates</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="my-4">
           <label>Certificate Name</label>
@@ -97,7 +97,10 @@ const CertificatesForm = () => {
           </button>
         </form>
       </div>
-      <div className=" p-4 border border-gray-300 mb-4 h-[170px] overflow-scroll">
+      {/* <div className=" p-4 border border-gray-300 mb-4 h-[170px] overflow-scroll"> */}
+      <div className=" p-4  mb-4 w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  overflow-scroll">
+
+      {/* w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  */}
         {AddedCertificates.map((data, index) => {
           return (
             <div
