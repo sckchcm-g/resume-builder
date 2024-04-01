@@ -1,6 +1,6 @@
-import { useState } from "react"
-import Modal from "./components/Modal"
-import Trash from "./icons/Trash"
+import { useState } from 'react'
+import Modal from './components/Modal'
+import Trash from './icons/Trash'
 
 export default function App() {
   const [open, setOpen] = useState(false)

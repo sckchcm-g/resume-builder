@@ -1,21 +1,21 @@
-import React from "react";
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
 //import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
-import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
 
 function MainTemplate() {
-  const userInputData = useSelector(selectUserData);
-  const userExperienceData = useSelector(selectExperienceData);
-  const userEducationData = useSelector(selectEducationData);
+  const userInputData = useSelector(selectUserData)
+  const userExperienceData = useSelector(selectExperienceData)
+  const userEducationData = useSelector(selectEducationData)
 
-  const isLargeViewport = window.innerWidth >= 1024;
+  //const isLargeViewport = window.innerWidth >= 1024;
   return (
     // <div
     //   className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] relative z-0 tracking-wider"
     // >
-    <div className="bg-white w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-hidden p-10 border border-gray-200 ">
+    <div className="bg-white w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-y-auto p-10 border border-gray-200 ">
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
         <header className="flex justify-between  ">
@@ -25,15 +25,15 @@ function MainTemplate() {
             <div className="mt-3">
               <button className="logo  p-4 bg-[#de8535] rounded-full ">
                 <span className="text-white text-lg lg:text-4xl  font-serif">
-                  {" "}
+                  {' '}
                   {userInputData && userInputData.firstName
                     ? userInputData.firstName[0]
-                    : "C"}
+                    : 'C'}
                 </span>
                 <span className="text-white text-lg lg:text-4xl font-serif">
-                  {userInputData && userInputData["last-name"]
-                    ? userInputData["last-name"][0]
-                    : "C"}{" "}
+                  {userInputData && userInputData['last-name']
+                    ? userInputData['last-name'][0]
+                    : 'C'}{' '}
                 </span>
               </button>
             </div>
@@ -42,17 +42,17 @@ function MainTemplate() {
               <div className="firstName text-[#de8535] font-serif text-xl lg:text-4xl">
                 {userInputData && userInputData.firstName
                   ? userInputData.firstName
-                  : "Chris"}
+                  : 'Chris'}
               </div>
               <div className="lastName text-[#de8535] font-serif text-xl lg:text-4xl">
-                {userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Candidate"}
+                {userInputData && userInputData['last-name']
+                  ? userInputData['last-name']
+                  : 'Candidate'}
               </div>
               <div className="job-title w-[250px] text-[15px] lg:text-md font-serif ">
                 {userExperienceData
                   ? userExperienceData[userExperienceData.length - 1].Job_Title
-                  : "Human Resource Manager"}
+                  : 'Human Resource Manager'}
               </div>
             </div>
             {/* right */}
@@ -61,36 +61,36 @@ function MainTemplate() {
               <div className="adress text-[15px]">
                 {userInputData && userInputData.address
                   ? userInputData.address
-                  : "Sunnydale Lane"}
+                  : 'Sunnydale Lane'}
               </div>
               <div className="adress-city  flex  gap-[5px]">
                 <div className="city text-[15px]">
                   {userInputData && userInputData.city
                     ? userInputData.city
-                    : "Plano"}
+                    : 'Plano'}
                 </div>
                 <div className="city-code text-[15px]">
-                  {userInputData && userInputData["city-code"]
-                    ? userInputData["city-code"]
-                    : "TX 75071"}
+                  {userInputData && userInputData['city-code']
+                    ? userInputData['city-code']
+                    : 'TX 75071'}
                 </div>
               </div>
               <div className="adress-state-country  flex   gap-[5px]">
                 <div className="state text-[15px]">
                   {userInputData && userInputData.state
                     ? userInputData.state
-                    : "Texas"}
+                    : 'Texas'}
                 </div>
                 <div className="country text-[15px]">
                   {userInputData && userInputData.country
                     ? userInputData.country
-                    : "USA"}
+                    : 'USA'}
                 </div>
               </div>
               <div className="email text-[15px]">
-                {userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "email@youremail.com"}
+                {userInputData && userInputData['email-address']
+                  ? userInputData['email-address']
+                  : 'email@youremail.com'}
               </div>
               {/* <div className="phone text-xs">{userInputData && userInputData.address ? userInputData.address : "(469) 385-2948"}</div> */}
             </div>
@@ -140,9 +140,9 @@ function MainTemplate() {
         ) : (
           <>
             <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
-              <h2>{"Manager"}</h2>
+              <h2>{'Manager'}</h2>
               <div className="duration text-gray-500 ">
-                {"XYZ company"} | {"Start Date - End Date"}
+                {'XYZ company'} | {'Start Date - End Date'}
               </div>
             </div>
             <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
@@ -167,9 +167,9 @@ function MainTemplate() {
             </ul>
 
             <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
-              <h2>{"Manager"}</h2>
+              <h2>{'Manager'}</h2>
               <div className="duration text-gray-500 ">
-                {"XYZ company"} | {"Start Date - End Date"}
+                {'XYZ company'} | {'Start Date - End Date'}
               </div>
             </div>
             <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
@@ -220,17 +220,17 @@ function MainTemplate() {
         ) : (
           <div>
             <div>
-              <h2>{"Masters in Human Resources"}</h2>
+              <h2>{'Masters in Human Resources'}</h2>
               <div className="duration text-[15px] text-gray-500">
-                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
-                {"End Date"}
+                {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                {'End Date'}
               </div>
             </div>
             <div>
-              <h2>{"Masters in Human Resources"}</h2>
+              <h2>{'Masters in Human Resources'}</h2>
               <div className="duration text-[15px] text-gray-500">
-                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
-                {"End Date"}
+                {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                {'End Date'}
               </div>
             </div>
           </div>
@@ -301,7 +301,7 @@ function MainTemplate() {
                   />
                 </li>
               </ul>
-            );
+            )
           })}
         </>
       ) : null}
@@ -327,7 +327,7 @@ function MainTemplate() {
                   <span>{certificate.startDate}</span>
                 </div>
               </ul>
-            );
+            )
           })}
         </>
       ) : null}
@@ -349,7 +349,7 @@ function MainTemplate() {
                   {lan[0]} - {lan[1]}
                 </li>
               </ul>
-            );
+            )
           })}
         </>
       ) : null}
@@ -371,11 +371,11 @@ function MainTemplate() {
                   />
                 </li>
               </ul>
-            );
+            )
           })
         : null}
     </div>
-  );
+  )
 }
 
-export default MainTemplate;
+export default MainTemplate

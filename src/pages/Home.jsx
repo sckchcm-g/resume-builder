@@ -1,7 +1,7 @@
-import Header from "../ui/Header";
-import createNewResume from "../assets/create-new-resume.svg";
-import importResume from "../assets/import-your-resume.svg";
-import { Link } from "react-router-dom";
+import Header from '../ui/Header'
+import createNewResume from '../assets/create-new-resume.svg'
+import importResume from '../assets/import-your-resume.svg'
+import { Link } from 'react-router-dom'
 function Home() {
   return (
     <>
@@ -92,7 +92,7 @@ function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home
