@@ -22,12 +22,37 @@ function TemplateD1Sidh() {
             <div className="w-[200px] h-[200px] bg-[black] ml-10 mt-10 p-2.5 rounded-[50%]"></div>
           </div>
           <div className="mt-[-0px] text-15px lg:text-[40px] font-bold ml-10 flex">
-            <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
+            {/* <p className="text-[rgb(252,255,250)] firstname">Sidh</p>
             <p className="text-[rgb(252,255,250)] lastname ">Patil</p>
           </div>
           <div className="text-xl  font-medium mt-[-0px] ml-[70px]">
             <p className="emailaddress text-[15px]">gmail@gmail.com</p>
+          </div> */}
+           <p className="text-[rgb(252,255,250)] firstname">{userInputData && userInputData.firstName
+                  ? userInputData.firstName
+                  : "Devraj"}</p>
+            <p className="text-[rgb(252,255,250)] lastname ml-2">{userInputData && userInputData["last-name"]
+                  ? userInputData["last-name"]
+                  : "Patil"}</p>
           </div>
+          <div className="text-xl font-medium mt-[-0px] ml-[70px]">
+            <p className="emailaddress">{userInputData && userInputData["email-address"]
+                  ? userInputData["email-address"]
+                  : "gmail@gmail.com"}</p>
+            <p className="Address">{userInputData && userInputData.address
+                  ? userInputData.address
+                  : "Belgian tower"},{userInputData && userInputData.city
+                    ? userInputData.city
+                    : "Paris"}</p>
+                    <p className="citycode">{userInputData && userInputData["city-code"]
+                    ? userInputData["city-code"] :"12345"}</p>
+                    <p className="state">{userInputData && userInputData.state
+                    ? userInputData.state
+                    : "state"}</p>
+                    <p className="country">{userInputData && userInputData.country
+                    ? userInputData.country
+                    : "Country"}</p>
+                    </div>
         </div>
 
         <div className="w-4/5 bg-white text-[rgb(255,0,0)] ml-10 mt-5">

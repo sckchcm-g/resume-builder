@@ -32,9 +32,14 @@ function TemplateD1() {
                   : "Belgian tower"},{userInputData && userInputData.city
                     ? userInputData.city
                     : "Paris"}</p>
-                    <p className="citycode">12345</p>
-                    <p className="state">state</p>
-                    <p className="country">Country</p>
+                    <p className="citycode">{userInputData && userInputData["city-code"]
+                    ? userInputData["city-code"] :"12345"}</p>
+                    <p className="state">{userInputData && userInputData.state
+                    ? userInputData.state
+                    : "state"}</p>
+                    <p className="country">{userInputData && userInputData.country
+                    ? userInputData.country
+                    : "Country"}</p>
           </div>
         </div>
 

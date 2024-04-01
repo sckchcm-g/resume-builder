@@ -137,7 +137,7 @@ function TemplateS2() {
                   : "Telangana"}
                   , 
               {userInputData && userInputData.country
-                  ? userInputData.pincode
+                  ? userInputData.country
                   : "India"}
               </p>
               <p>

@@ -276,7 +276,7 @@ import Footer from "./Footer.jsx";
 import MultiStepForm from '../components/Form/MultiForms/MultiStepForm.jsx';
 import TemplateS1 from "./templates/TemplateS1.jsx";
 import TemplateS2 from "./templates/TemplateS2.jsx";
-import TemplateD1 from "./templates/TemplateD1Sidh.jsx";
+import TemplateD1 from "./templates/TemplateD1Sidh.jsx"
 import TemplateD2 from "./templates/TemplateD2.jsx";
 import TemplateD3 from "./templates/TemplateD3.jsx";
 import MainTemplate from "./templates/MainTemplate.jsx";

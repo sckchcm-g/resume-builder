@@ -1,6 +1,7 @@
 import React from "react";
 import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
 import { useSelector } from "react-redux";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
 function TemplateS1() {
   const skillarray = ["Frontend", "Bakcend", "Python", "C++"];
   const EduDetails = [
@@ -9,6 +10,7 @@ function TemplateS1() {
     "Completed M.Tech in CSE from ABC University",
   ];
   const userInputData = useSelector(selectUserData);
+  const userExperienceData = useSelector(selectExperienceData);
   return (
     <div
       className="a4-sheet  bg-white w-[793px] h-[11210x] lg:max-h-[1110px] overflow-auto mt-5 flex flex-col items-center  border border-gray-200 "
@@ -38,7 +40,7 @@ function TemplateS1() {
           {/* Occupation  */}
           <div className="occupation">
             <p className="text-xl font-[bold] text-[white] m-0.5">
-              MERN Stack Developer
+            {userExperienceData ? userExperienceData[userExperienceData.length-1].Job_Title : "MERN Stack Developer"}
             </p>
           </div>
         </div>
@@ -53,9 +55,9 @@ function TemplateS1() {
                 : "oDfJt@example.com"}
             </p>
           </div>
-          <div className="phno font-medium">
+          {/* <div className="phno font-medium">
             <p className="m-1">1234567890</p>
-          </div>
+          </div> */}
 
           {/* Address line  */}
           <div className="city-and-state font-semibold">
