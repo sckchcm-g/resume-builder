@@ -60,7 +60,7 @@ function AppLayout() {
       id: 'TemplateD1',
       name: 'Template 1',
       image: template1,
-      component: TemplateD1,
+      component: TemplateD1Sidh,
     },
     {
       id: 'TemplateD2',

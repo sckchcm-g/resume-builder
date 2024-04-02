@@ -12,7 +12,7 @@ function TemplateD2() {
   return (
     // <div className="w-[210mm] h-[297mm] bg-[white] border m-[10mm] border-solid border-[black] mt-[-150px] " style={{ transform: 'scale(1)' }}>
     <div
-      className="w-[200mm] h-[297mm] lg:max-h-[297mm]  bg-white  flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
+      className="w-[200mm] h-[297mm] lg:max-h-[297mm] lg:overflow-auto  bg-white  flex flex-row  border-[2px] border-[rgb(0 0 0)]  "
       style={{ transform: 'scale(1)' }}
     >
       {/* <div className="w-[210mm] h-[1120px] lg:max-h-[1120px]  bg-[white]  relative flex flex-row  "> */}
@@ -278,21 +278,22 @@ function TemplateD2() {
 
       {/* Adding additional sections based on userData */}
       {/* Projects */}
-      {userInputData && userInputData.projects ? (
-        <>
-           <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[90%] ml-[151px]">
-           {/* <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm]  rounded-[0_250px_250px_0]  ml-[151px]"> */}
+      {userInputData &&
+      userInputData.projects &&
+      userInputData.projects.length > 0 ? (
+       
+          <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[90%] ml-[151px]">
     <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Projects</p>
 
-          {userInputData.projects.slice(1).map((project) => {
+          {userInputData.projects.map((project) => {
             return (
               <ul
                 key={project.id}
-                className="text-[10px] text-gray-500 leading-5  pt-2 flex gap-[10px] "
+                className=" text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px] "
               >
                 <li className=" w-full ">
-                  <div className="project-header flex flex-row gap-[15px] items-center">
-                    <h2 className="text-lg heading">{project.Heading}</h2>
+                  <div className="project-header flex flex-row gap-[15px] items-center mt-[15px]">
+                    <h2 className="text-lg font-black">{project.Heading}</h2>
                     <a
                       href={project.Link}
                       className="text-md text-cyan-600 cursor-pointer"
@@ -305,11 +306,81 @@ function TemplateD2() {
                   />
                 </li>
               </ul>
-            );
+            )
           })}
-              </div>
-        </>
-        ) : null}
+        </div>
+      ) : null}
+         {/*Certificates*/}
+      {userInputData &&
+      userInputData.certificates &&
+      userInputData.certificates.length > 0 ? (
+        
+           <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm]  -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[120%] ml-[151px]">
+    <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Certificates</p>
+
+          {userInputData.certificates.map((certificate, index) => {
+            return (
+              <ul
+                key={index}
+                className="text-[15px] text-gray-500 lg:leading-[10px]  pt-2 flex gap-[10px] mt-[15px]"
+              >
+                <h2 className="font-serif font-bold">
+                  {certificate.Certificate_Name}
+                </h2>
+                <div className=" flex gap-[10px]">
+                  <h3>{certificate.Institute}</h3> |
+                  <span>{certificate.startDate}</span>
+                </div>
+              </ul>
+            )
+          })}
+          </div>
+        
+      ) : null}
+      {/* Languages */}
+      {userInputData &&
+      userInputData.language &&
+      userInputData.language.length > 0 ? (
+        <div className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[4%] ml-[151px]">
+    <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>Languages</p>
+
+          {userInputData.language.map((lan, index) => {
+            return (
+              <ul
+                key={index}
+                className="text-[15px] text-gray-500 lg:leading-5  pt-2 flex gap-[10px]"
+              >
+                <li className="list-item text-black  w-[150px]">
+                  {lan[0]} - {lan[1]}
+                </li>
+              </ul>
+            )
+          })}
+        </div>
+      ) : null}
+
+      {/* Custom Form */}
+      {userInputData && userInputData.customData
+        ? userInputData.customData.map((customData) => {
+            return (
+              <ul
+                key={customData.id}
+                className="bg-[rgb(91,80,155)] w-[80mm] h-[15mm] absolute -translate-x-2/4 -translate-y-2/4 rounded-[0_250px_250px_0] left-[30.%] top-[90%] ml-[151px] "
+              >
+                
+                <li className=" w-full ">
+                  {/* <h1 className="custom-data  text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
+                    {customData.Custom_Heading}
+                  </h1> */}
+                  <p className='text-[rgb(234,230,254)] text-3xl font-bold w-[400px] left-[105%] top-[%] ml-[15px] mt-[10px]'>{customData.Custom_Heading}</p>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: customData.description }}
+                  />
+                </li>
+              </ul>
+            )
+          })
+        : null}
 
       <div className="flex flex-row">
         <div className="bg-[rgb(244,245,244)] w-[65%] h-[297mm]">

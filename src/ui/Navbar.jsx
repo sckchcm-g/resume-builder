@@ -1,18 +1,7 @@
 import React from 'react'
-import { useRef } from 'react'
-import { useReactToPrint } from 'react-to-print'
-function Navbar({ setPopupVisible, setPreviewToggle }) {
-  // const pdfRef2 = useRef();
-  // const PrintButton = ({ componentRef }) => {
-  //   const handlePrint = useReactToPrint({
-  //     content: () => componentRef.current,
-  //   });
 
-  //   return (
-  //     // <button onClick={handlePrint} className="absolute top-5 right-5 z-50    "> Download </button>
-  //     <button onClick={handlePrint} className="hidden lg:block"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={"30px"} fill="#3b82f6"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg> </button>
-  //   )
-  // };
+function Navbar({ setPopupVisible, setPreviewToggle }) {
+  
   return (
     <>
       <div className=" bg-white fixed bottom-0 left-0 lg:static w-[100%] lg:w-[100%] flex lg:items-center justify-between  px-2  py-3 lg:py-0 lg:pb-3 md:justify-between md:px-[30px]  md:pt-[30px] ">
@@ -52,7 +41,7 @@ function Navbar({ setPopupVisible, setPreviewToggle }) {
             <path d="M1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12ZM12.0003 17C14.7617 17 17.0003 14.7614 17.0003 12C17.0003 9.23858 14.7617 7 12.0003 7C9.23884 7 7.00026 9.23858 7.00026 12C7.00026 14.7614 9.23884 17 12.0003 17ZM12.0003 15C10.3434 15 9.00026 13.6569 9.00026 12C9.00026 10.3431 10.3434 9 12.0003 9C13.6571 9 15.0003 10.3431 15.0003 12C15.0003 13.6569 13.6571 15 12.0003 15Z"></path>
           </svg>
         </button>
-        {/* <PrintButton componentRef={pdfRef2}/> */}
+       
       </div>
     </>
   )

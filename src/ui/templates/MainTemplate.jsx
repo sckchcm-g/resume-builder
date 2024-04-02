@@ -1,7 +1,6 @@
 import React from 'react'
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
-//import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
 
@@ -9,12 +8,8 @@ function MainTemplate() {
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
   const userEducationData = useSelector(selectEducationData)
-
-  //const isLargeViewport = window.innerWidth >= 1024;
   return (
-    // <div
-    //   className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] relative z-0 tracking-wider"
-    // >
+    
     <div className="bg-white w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-y-auto p-10 border border-gray-200 ">
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
@@ -56,7 +51,6 @@ function MainTemplate() {
               </div>
             </div>
             {/* right */}
-            {/* <div className="right  text-custom-orange absolute right-[60px]"> */}
             <div className="right  text-custom-orange ml-[180px]">
               <div className="adress text-[15px]">
                 {userInputData && userInputData.address
@@ -92,7 +86,6 @@ function MainTemplate() {
                   ? userInputData['email-address']
                   : 'email@youremail.com'}
               </div>
-              {/* <div className="phone text-xs">{userInputData && userInputData.address ? userInputData.address : "(469) 385-2948"}</div> */}
             </div>
           </div>
         </header>
