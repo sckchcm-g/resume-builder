@@ -1,12 +1,19 @@
-import { useState } from "react";
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import { useState } from 'react'
+import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
+import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+
 function TemplateD3() {
-  const [count, setCount] = useState(0);
-  const userInputData = useSelector(selectUserData);
+  const [count, setCount] = useState(0)
+  const userInputData = useSelector(selectUserData)
+  const userEducationData = useSelector(selectEducationData);
+  const userExperienceData = useSelector(selectExperienceData);
+
+
   return (
     <div
-      className="TemplateD3 flex flex-col items-center justify-center bg-[rgb(192,219,255)] w-[210mm] h-[1120px] max-h-[1120px] lg:overflow-x-auto "
+      className="TemplateD3 flex flex-col items-center justify-center bg-[rgb(192,219,255)] w-[210mm] h-[1120px] max-h-[1120px] lg:overflow-y-auto "
       // style={{ transform: "scale(1)" }}
     >
       <div className="h-[230px] bg-[rgb(2,87,148)] w-[95%] mt-5 rounded-[150px]">
@@ -17,27 +24,40 @@ function TemplateD3() {
               <p className="firstname  mr-3">
                 {userInputData && userInputData.firstName
                   ? userInputData.firstName
-                  : "Devraj"}
+                  : 'Devraj'}
               </p>
               <p className="lastname">
-                {userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Patil"}
+                {userInputData && userInputData['last-name']
+                  ? userInputData['last-name']
+                  : 'Patil'}
               </p>
             </div>
             <hr className="w-[300px] border -mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="text-xl text-[rgb(1,63,107)] m-0 p-0">
               <p>
-                {userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "cdc@cdc.cdc"}
+                {userInputData && userInputData['email-address']
+                  ? userInputData['email-address']
+                  : 'cdc@cdc.cdc'}
               </p>
               <div className="flex flex-row">
-              <p>city code</p>
-              <p>state</p>
-              <p>country</p>
+                <p>
+                  {' '}
+                  {userInputData && userInputData['city-code']
+                    ? userInputData['city-code']
+                    : 'city code'}
+                </p>
+                <p>
+                  {userInputData && userInputData.state
+                    ? userInputData.state
+                    : 'state'}
+                </p>
+                <p>
+                  {' '}
+                  {userInputData && userInputData.country
+                    ? userInputData.country
+                    : 'country'}
+                </p>
               </div>
-              
             </div>
           </div>
         </div>
@@ -49,82 +69,114 @@ function TemplateD3() {
             About me
           </h2>
           <div className="text-[17px] text-[rgb(77,77,77)] m-[15px]">
-          {userInputData && userInputData.description ? (
-          userInputData.description
-        ) : (
-            <p>
-              Human resources generalist with 8 years of experience in HR,
-              including hiring and terminating, disciplining employees and
-              helping department managers improve employee performance. Worked
-              with labor unions to negotiate compensation packages for workers.
-              Organized new hire training initiatives as well as ongoing
-              training to adhere to workplace safety standards. Worked with OSHA
-              to ensure that all safety regulations are followed.
-            </p>
-        )}
+            {userInputData && userInputData.description ? (
+              userInputData.description
+            ) : (
+              <p>
+                Human resources generalist with 8 years of experience in HR,
+                including hiring and terminating, disciplining employees and
+                helping department managers improve employee performance. Worked
+                with labor unions to negotiate compensation packages for
+                workers. Organized new hire training initiatives as well as
+                ongoing training to adhere to workplace safety standards. Worked
+                with OSHA to ensure that all safety regulations are followed.
+              </p>
+            )}
           </div>
-      
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-
-        <div className="flex flex-row items-start justify-evenly">
-          <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-y-auto m-[38px] rounded-[25px]">
-            <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-              Skills
-            </h2>
-            {userInputData && userInputData.skills && userInputData.skills.length>0? (
-              userInputData.skills.map((skill, index) => (
-                <ul
-                  className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
-                  key={index}
+        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-y-auto m-[38px] rounded-[25px]">
+          <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+            Skills
+          </h2>
+          {userInputData &&
+          userInputData.skills &&
+          userInputData.skills.length > 0 ? (
+            userInputData.skills.map((skill, index) => (
+              <ul
+                className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
+                key={index}
+              >
+                <div
+                  className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
                 >
-                  <div
-                    className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
-                  >
-                    {skill[1]}
-                  </div>
-                  <li className="updated-skill  ">{skill[0]}</li>
-                </ul>
-              ))
-            ) : (
-              <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px] mt-[-10px]">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Node</li>
+                  {skill[1]}
+                </div>
+                <li className="updated-skill  ">{skill[0]}</li>
               </ul>
-            )}
-          </div>
-            <div className="mt-[35px] ">
-              <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">Experience</h2>
-              <div className="flex flex-row text-[17px] text-[rgb(77,77,77)]">
-                <p>Job title</p>
-                <p className="ml-5">Company name</p>
-                <p className="ml-5">Start date</p>
-                <p className="ml-5">End date</p>
-              </div>
-              <p>Lorem ipsum dolor sit amet consecvtetur adipisicing elit. Minus ab, dolorum ea iure eius, nisi qui nesciunt provident id necessitatibus consectetur voluptate ut laboriosam alias dolores accusamus nihil fugit repellat.</p>
-            </div>
+            ))
+          ) : (
+            <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px] mt-[-10px]">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node</li>
+            </ul>
+          )}
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
         <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px] ">
-          <div className="flex flex-row">
-          <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-            Education
-          </h2>
-          <p className="m-[22px] ml-[-2px]">School name</p>
-          <p className="m-[22px] ml-[-2px]">School location</p>
-          <p className="m-[22px] ml-[-2px]">स्टार्ट एंड एन्ड date</p>
-          <p className="m-[22px] ml-[-2px]">Degree and field of study</p>
+          <div className="flex flex-col px-4 ">
+            {/* <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]"> */}
+          <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] mt-2">
+              Education
+            </h2>
+            {/* <br/> */}
+          {/* <p className="m-[22px] ml-[-2px]">School name</p>
+            <p className="m-[22px] ml-[-2px]">School location</p>
+            <p className="m-[22px] ml-[-2px]">स्टार्ट एंड एन्ड date</p>
+            <p className="m-[22px] ml-[-2px]">Degree and field of study</p> */}
+
+{userEducationData && userEducationData.length > 0 ? (
+          <>
+            {userEducationData.map((edu, index) => (
+              <div
+                key={index}
+                className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2">
+                  <h2>{edu.degree}</h2>
+                  <span className="text-[15px] text-gray-500">
+                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                  </span>
+                </div>
+
+                <div className="duration text-[15px] text-gray-500">
+                  {edu.description}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
+            <div>
+              <h2>{"Masters in Human Resources"}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
+                {"End Date"}
+              </div>
+            </div>
           </div>
-          <p className="text-[17px] text-[rgb(77,77,77)] m-[15px]">devraj is a good person he is very good person Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore debitis sint saepe omnis porro alias fugiat animi expedita dolorem sapiente blanditiis voluptate aliquam, id repudiandae! Accusantium quos doloremque ab nostrum!</p>
+        )}
+
+          </div>
+          {/* <p className="text-[17px] text-[rgb(77,77,77)] m-[15px]">devraj is a good person he is very good person Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore debitis sint saepe omnis porro alias fugiat animi expedita dolorem sapiente blanditiis voluptate aliquam, id repudiandae! Accusantium quos doloremque ab nostrum!</p> */}
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects && userInputData.projects.length>0? (
+        {userInputData &&
+        userInputData.projects &&
+        userInputData.projects.length > 0 ? (
           <div>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="projectsD3  bg-[rgba(255,255,255,0.448)] w-[720px] overflow-x-hidden max-h-[200px] overflow-auto m-[38px]  rounded-[25px]">
@@ -156,7 +208,7 @@ function TemplateD3() {
                       />
                     </li>
                   </ul>
-                );
+                )
               })}
             </div>
             <hr />
@@ -164,7 +216,9 @@ function TemplateD3() {
         ) : null}
 
         {/*Certificates*/}
-        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+        {userInputData &&
+        userInputData.certificates &&
+        userInputData.certificates.length > 0 ? (
           <>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="certificates bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
@@ -185,20 +239,22 @@ function TemplateD3() {
                       <span>{certificate.startDate}</span>
                     </div>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
         {/* Languages */}
-        {userInputData && userInputData.language && userInputData.language.length>0? (
+        {userInputData &&
+        userInputData.language &&
+        userInputData.language.length > 0 ? (
           <>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="languagesD3 bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
               <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
                 Languages
               </h2>
-              {userInputData.language.map((lan,index) => {
+              {userInputData.language.map((lan, index) => {
                 return (
                   <ul
                     key={index}
@@ -208,7 +264,7 @@ function TemplateD3() {
                       {lan[0]} - {lan[1]}
                     </li>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
@@ -220,13 +276,13 @@ function TemplateD3() {
               return (
                 <>
                   <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-                  <div className="customD3 bg-[rgba(255,255,255,0.448)] w-[720px] overflow-x-hidden  max-h-[200px] overflow-auto m-[38px] rounded-[25px]">
+                  <div className="customD3  bg-[rgba(255,255,255,0.448)] w-[720px] overflow-x-hidden  max-h-[200px] overflow-auto m-[38px] rounded-[25px]">
                     <ul
                       key={customData.id}
                       className=" text-[17px] text-[rgb(77,77,77)] m-[15px] "
                     >
                       <li className=" w-full  text-black ">
-                        <h1 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px] ">
+                        <h1 className="text-[25px] font-[bold] text-[rgb(99,133,255)]  ">
                           {customData.Custom_Heading}
                         </h1>
                         <div
@@ -238,12 +294,12 @@ function TemplateD3() {
                     </ul>
                   </div>
                 </>
-              );
+              )
             })
           : null}
       </div>
     </div>
-  );
+  )
 }
 
-export default TemplateD3;
+export default TemplateD3

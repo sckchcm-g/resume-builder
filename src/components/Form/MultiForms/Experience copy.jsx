@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 // import FormStepper from "./FormStepper/FormStepper.jsx";
-import { useDispatch } from 'react-redux'
-import { setExperienceData } from '../../../reduxToolkit/FormDataSlice.jsx'
+import { useDispatch } from "react-redux";
+import { setExperienceData } from "../../../reduxToolkit/FormDataSlice.jsx";
 
-import DOMPurify from 'dompurify'
-import { MdDelete } from 'react-icons/md'
+import DOMPurify from "dompurify";
+import { MdDelete } from "react-icons/md";
 
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import './quill.css'
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import "./quill.css";
 
 export const ExperienceTab = ({
   idRef,
@@ -19,8 +19,12 @@ export const ExperienceTab = ({
   endDate,
   expDescription,
   deleteExpData,
+  // Link,
+  // Description,
+  // idRef,
+  // HandleDeleteItem,
 }) => {
-  const sanitizedHtml = DOMPurify.sanitize(expDescription)
+  const sanitizedHtml = DOMPurify.sanitize(expDescription);
 
   return (
     <>
@@ -46,33 +50,33 @@ export const ExperienceTab = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 const Experience = () => {
-  const dispatch = useDispatch()
-  const { register, handleSubmit, reset } = useForm()
-  const [ExpDesc, setExpDes] = useState('')
+  const dispatch = useDispatch();
+  const { register, handleSubmit, reset } = useForm();
+  const [ExpDesc, setExpDes] = useState("");
   // const [successMsg, setSuccessMsg] = useState("");
 
-  const [expData, setExpData] = useState([])
+  const [expData, setExpData] = useState([]);
 
   function sumbitData(data) {
-    data.description = ExpDesc
-    let currData = [...expData, data]
-    setExpData(currData)
-    console.log(expData)
+    data.description = ExpDesc;
+    let currData = [...expData, data];
+    setExpData(currData);
+    console.log(expData);
     // Dispatcher here
-    dispatch(setExperienceData(currData))
+    dispatch(setExperienceData(currData));
     // setSuccessMsg("Data is updated.");
-    setExpDes('')
-    reset()
+    setExpDes("");
+    reset();
   }
 
   function deleteExpData(expID) {
-    let currData = [...expData]
-    currData.splice(expID, 1)
-    setExpData(currData)
+    let currData = [...expData];
+    currData.splice(expID, 1);
+    setExpData(currData);
   }
 
   return (
@@ -81,81 +85,77 @@ const Experience = () => {
       {/* <div className="p-4 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[85%] md:w-[440px] lg:w-[440px] max-w-[590px]"> */}
       {/* <div className="p-6  mt-[20px] w-[90%]  h-[100%]  lg:w-[95%] xl:h-[65%] xl:w-[100%] border-[#9333ea] border-2 shadow-[#9333ea] shadow-md"> */}
       <div className="p-6 mt-[20px] w-[350px]  md:w-auto md:max-w-[500px] h-[100%]  xl:h-[65%]  border-[#9333ea] border-2 shadow-[#9333ea] shadow-md">
+
         <h2 className="text-2xl font-semibold mb-3">Add Experience.</h2>
-        {/* <form 
+        <form 
           className="flex flex-col md:flex-col "
-          onSubmit={handleSubmit(sumbitData)}> */}
-      <form
-        className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6"
-        onSubmit={handleSubmit(sumbitData)}
-      >
-          <div className="sm:col-span-3">  
-              <div className="flex flex-col"> 
-                <label>Job Title</label>
-                <input
-                  className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  "
-                  placeholder="Job Title"
-                  autoComplete="off"
-                  type="text"
-                  {...register("Job_Title", {
-                    required: "Required!",
-                  })}
-                ></input>
-              </div>
-          </div>
-          <div className="sm:col-span-3"> 
+          onSubmit={handleSubmit(sumbitData)}>
+         
+          {/* <div className="flex flex-row justify-between "> */}
+          <div className="flex flex-col md:flex-row  justify-between  w-[100%]">   
+            <div className="flex flex-col w-[100%] md:w-[45%]">
+              <label>Job Title</label>
+              <input
+                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  "
+                placeholder="Job Title"
+                autoComplete="off"
+                type="text"
+                {...register("Job_Title", {
+                  required: "Required!",
+                })}
+              ></input>
+            </div>
+            <div className="w-[100%] md:w-[45%]">
               <label>Company Name</label>
               <input
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%]"
                 placeholder="Company Name"
                 autoComplete="off"
                 type="text"
-                {...register('Company_Name', {
-                  required: 'Required!',
+                {...register("Company_Name", {
+                  required: "Required!",
                 })}
               ></input>
+            </div>
           </div>
-
           {/* 2 */}
-          <div className="sm:col-span-3">
-          <div className="flex flex-col"> 
+          <div className="flex flex-col md:flex-row justify-between  w-[100%] ">
+            <div className="flex flex-col w-[100%] md:w-[45%]">
               <label>Start Date</label>
               <input
                 type="month"
+                
                 name="WorkstartDate"
                 id="start-date"
-                {...register('WrkStartDate')}
+                {...register("WrkStartDate")}
                 autoComplete="off"
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
               />
-              </div>
-          </div>
-
-          <div className="sm:col-span-3">
-          <div className="flex flex-col"> 
-            <label>End Date</label>
+            </div>
+            <div className="w-[100%] md:w-[45%]">
+              <label>End Date</label>
               <input
                 type="month"
                 name="WorkendDate"
                 id="end-date"
-                {...register('WrkEndDate')}
+                {...register("WrkEndDate")}
                 autoComplete="off"
-                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
+                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  w-[100%]"
               />
-              </div>
+            </div>
           </div>
-
-          <div className="sm:col-span-6">
+          <div className="">
             <ReactQuill
               value={ExpDesc}
+              
               onChange={(e) => {
-                setExpDes(e)
+                setExpDes(e);
               }}
               className="border my-5  bg-slate-100 border-purple-400"
             />
           </div>
           <button
-            type={'submit'}
+            type={"submit"}
             className=" bg-indigo-700 text-white py-2 px-3 rounded-md flex flex-row justify-center cursor-pointer "
           >
             Save
@@ -178,7 +178,7 @@ const Experience = () => {
           );
         })}
       </div> */}
-      <div className="p-4 border border-gray-300 overflow-scroll h-auto w-[350px]  md:w-auto  md:max-w-[500px] max-w-[590px]">
+      {/* <div className="p-4 border border-gray-300 h-auto w-[350px]  md:w-auto  md:max-w-[500px] max-w-[590px]">
         {expData.map((e, index) => {
           return (
             <ExperienceTab
@@ -193,9 +193,9 @@ const Experience = () => {
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;

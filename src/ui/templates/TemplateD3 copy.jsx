@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import { useState } from 'react'
+import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
 function TemplateD3() {
-  const [count, setCount] = useState(0);
-  const userInputData = useSelector(selectUserData);
+  const [count, setCount] = useState(0)
+  const userInputData = useSelector(selectUserData)
   return (
     <div
       className="TemplateD3 flex flex-col items-center justify-center bg-[rgb(192,219,255)] w-[794px] h-[1123px] max-h-[1123px] lg:overflow-auto mt-[-150px] "
-      style={{ transform: "scale(1)" }}
+      style={{ transform: 'scale(1)' }}
     >
       <div className="h-[230px] bg-[rgb(2,87,148)] w-[95%] mt-5 rounded-[150px]">
         <div className="flex flex-row items-center justify-evenly">
@@ -17,22 +17,21 @@ function TemplateD3() {
               <p className="firstname  mr-3">
                 {userInputData && userInputData.firstName
                   ? userInputData.firstName
-                  : "Devraj"}
+                  : 'Devraj'}
               </p>
               <p className="lastname">
-                {userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Patil"}
+                {userInputData && userInputData['last-name']
+                  ? userInputData['last-name']
+                  : 'Patil'}
               </p>
             </div>
             <hr className="w-[300px] border -mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="text-xl text-[rgb(1,63,107)] m-0 p-0">
               <p>
-                {userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "cdc@cdc.cdc"}
+                {userInputData && userInputData['email-address']
+                  ? userInputData['email-address']
+                  : 'cdc@cdc.cdc'}
               </p>
-              
             </div>
           </div>
         </div>
@@ -44,19 +43,19 @@ function TemplateD3() {
             About me
           </h2>
           <div className="text-[17px] text-[rgb(77,77,77)] m-[15px]">
-          {userInputData && userInputData.description ? (
-          userInputData.description
-        ) : (
-            <p>
-              Human resources generalist with 8 years of experience in HR,
-              including hiring and terminating, disciplining employees and
-              helping department managers improve employee performance. Worked
-              with labor unions to negotiate compensation packages for workers.
-              Organized new hire training initiatives as well as ongoing
-              training to adhere to workplace safety standards. Worked with OSHA
-              to ensure that all safety regulations are followed.
-            </p>
-        )}
+            {userInputData && userInputData.description ? (
+              userInputData.description
+            ) : (
+              <p>
+                Human resources generalist with 8 years of experience in HR,
+                including hiring and terminating, disciplining employees and
+                helping department managers improve employee performance. Worked
+                with labor unions to negotiate compensation packages for
+                workers. Organized new hire training initiatives as well as
+                ongoing training to adhere to workplace safety standards. Worked
+                with OSHA to ensure that all safety regulations are followed.
+              </p>
+            )}
           </div>
         </div>
 
@@ -65,7 +64,9 @@ function TemplateD3() {
           <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
             Skills
           </h2>
-          {userInputData && userInputData.skills && userInputData.skills.length>0? (
+          {userInputData &&
+          userInputData.skills &&
+          userInputData.skills.length > 0 ? (
             userInputData.skills.map((skill, index) => (
               <ul
                 className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
@@ -105,7 +106,9 @@ function TemplateD3() {
         </div>
         {/* Adding additional sections based on userData */}
         {/* Projects */}
-        {userInputData && userInputData.projects && userInputData.projects.length>0? (
+        {userInputData &&
+        userInputData.projects &&
+        userInputData.projects.length > 0 ? (
           <div>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="projectsD3  bg-[rgba(255,255,255,0.448)] w-[720px] overflow-x-hidden max-h-[200px] overflow-auto m-[38px]  rounded-[25px]">
@@ -137,7 +140,7 @@ function TemplateD3() {
                       />
                     </li>
                   </ul>
-                );
+                )
               })}
             </div>
             <hr />
@@ -145,7 +148,9 @@ function TemplateD3() {
         ) : null}
 
         {/*Certificates*/}
-        {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+        {userInputData &&
+        userInputData.certificates &&
+        userInputData.certificates.length > 0 ? (
           <>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="certificates bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
@@ -166,20 +171,22 @@ function TemplateD3() {
                       <span>{certificate.startDate}</span>
                     </div>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
         ) : null}
         {/* Languages */}
-        {userInputData && userInputData.language && userInputData.language.length>0? (
+        {userInputData &&
+        userInputData.language &&
+        userInputData.language.length > 0 ? (
           <>
             <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
             <div className="languagesD3 bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-auto m-[38px] rounded-[25px] ">
               <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
                 Languages
               </h2>
-              {userInputData.language.map((lan,index) => {
+              {userInputData.language.map((lan, index) => {
                 return (
                   <ul
                     key={index}
@@ -189,7 +196,7 @@ function TemplateD3() {
                       {lan[0]} - {lan[1]}
                     </li>
                   </ul>
-                );
+                )
               })}
             </div>
           </>
@@ -219,12 +226,12 @@ function TemplateD3() {
                     </ul>
                   </div>
                 </>
-              );
+              )
             })
           : null}
       </div>
     </div>
-  );
+  )
 }
 
-export default TemplateD3;
+export default TemplateD3

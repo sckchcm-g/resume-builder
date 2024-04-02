@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react'
 // import {useForm} from 'react-hook-form';
-import { GrClose } from "react-icons/gr";
-import { useDispatch } from "react-redux";
-import { setUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
-import { selectUserData } from "../../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import { GrClose } from 'react-icons/gr'
+import { useDispatch } from 'react-redux'
+import { setUserData } from '../../../reduxToolkit/FormDataSlice.jsx'
+import { selectUserData } from '../../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
 function RemoveSkillTag(Id_num, array, setSkillArray, dispatch, userInputData) {
-  const New_Array = [...array];
-  New_Array.splice(Id_num, 1);
-  setSkillArray(New_Array);
+  const New_Array = [...array]
+  New_Array.splice(Id_num, 1)
+  setSkillArray(New_Array)
   const updatedData = {
     ...userInputData,
     skills: New_Array,
-  };
-  dispatch(setUserData(updatedData));
+  }
+  dispatch(setUserData(updatedData))
 }
 function AddSkillTag(
   skillArray,
@@ -23,25 +23,25 @@ function AddSkillTag(
   skillLevel,
   setSkillLevel,
   userInputData,
-  dispatch
+  dispatch,
 ) {
-  let skillAndLevel = [skillText, skillLevel];
-  let newArray = [...skillArray, skillAndLevel];
-  setSkillArray(newArray);
+  let skillAndLevel = [skillText, skillLevel]
+  let newArray = [...skillArray, skillAndLevel]
+  setSkillArray(newArray)
   const updatedData = {
     ...userInputData,
     skills: newArray,
-  };
-  dispatch(setUserData(updatedData));
+  }
+  dispatch(setUserData(updatedData))
 
-  addSkill("");
-  setSkillLevel("");
+  addSkill('')
+  setSkillLevel('')
 }
 
 const SkillTag = ({ value, Id_num, array, setSkillArray }) => {
   // let array2=[...array];
-  const dispatch = useDispatch();
-  const userInputData = useSelector(selectUserData);
+  const dispatch = useDispatch()
+  const userInputData = useSelector(selectUserData)
   return (
     <div className="flex justify-center align-middle mr-2  ">
       <h2 className="bg-purple-500 text-white inline-block rounded-md  my-1 p-2 w-auto">
@@ -54,8 +54,8 @@ const SkillTag = ({ value, Id_num, array, setSkillArray }) => {
               array,
               setSkillArray,
               dispatch,
-              userInputData
-            );
+              userInputData,
+            )
             // console.log(array);
           }}
         >
@@ -63,8 +63,8 @@ const SkillTag = ({ value, Id_num, array, setSkillArray }) => {
         </span>
       </h2>
     </div>
-  );
-};
+  )
+}
 
 const SkillsForm = () => {
   {
@@ -74,19 +74,21 @@ const SkillsForm = () => {
     "Skill 3",
   ]);*/
   }
-  const [skillArray, setSkillArray] = useState([]);
-  const [skillLevel, setSkillLevel] = useState("");
-  const [skillText, addSkill] = useState("");
-  const dispatch = useDispatch();
-  const userInputData = useSelector(selectUserData);
+  const [skillArray, setSkillArray] = useState([])
+  const [skillLevel, setSkillLevel] = useState('')
+  const [skillText, addSkill] = useState('')
+  const dispatch = useDispatch()
+  const userInputData = useSelector(selectUserData)
 
   return (
     // <div>
-    <div className="flex flex-col  items-center p-4 my-8 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[300px] md:w-[460px] lg:w-[400px]  max-w-[590px]">
+    // w-[350px]  md:w-auto md:max-w-[480px]
+    // <div className="flex flex-col  items-center p-4 my-8 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto w-[300px] md:w-[460px] lg:w-[400px]  max-w-[590px]">
+    <div className="flex flex-col  w-[350px]  md:w-auto md:max-w-[480px]  items-center p-4 my-8 border-[#9333ea] border-2 shadow-[#9333ea] shadow-md h-auto ">
       <h2 className="text-2xl font-semibold mb-3"> Add Skills & Expertise.</h2>
 
       <div className="flex flex-col md:flex-row md:items-center my-4 gap-4">
-        <div className="skill-field flex items-center gap-[20px]">
+        <div className="skill-field flex  items-center gap-[20px]">
           <label className=" text-lg" id="skill">
             Skill
           </label>
@@ -105,19 +107,19 @@ const SkillsForm = () => {
           <div className="skill-bar flex gap-[20px] items-center justify-center w-[130px]  h-[2px] bg-gray-300 relative z-0">
             <span
               className="point cursor-pointer skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel("35%")}
+              onClick={() => setSkillLevel('35%')}
             ></span>
             <span
               className="point  cursor-pointer skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel("50%")}
+              onClick={() => setSkillLevel('50%')}
             ></span>
             <span
               className="point cursor-pointer skill-rating-3 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel("75%")}
+              onClick={() => setSkillLevel('65%')}
             ></span>
             <span
               className="point  cursor-pointer skill-rating-4 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel("100%")}
+              onClick={() => setSkillLevel('100%')}
             ></span>
           </div>
         </div>
@@ -133,8 +135,8 @@ const SkillsForm = () => {
             skillLevel,
             setSkillLevel,
             userInputData,
-            dispatch
-          );
+            dispatch,
+          )
         }}
       >
         Add Skill
@@ -149,11 +151,11 @@ const SkillsForm = () => {
               Id_num={index}
               value={e}
             />
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SkillsForm;
+export default SkillsForm

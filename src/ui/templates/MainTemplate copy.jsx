@@ -1,24 +1,24 @@
-import React from "react";
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
 //import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
-import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
 
 function MainTemplate() {
-  const userInputData = useSelector(selectUserData);
-  const userExperienceData = useSelector(selectExperienceData);
-  const userEducationData = useSelector(selectEducationData);
-  console.log(userInputData);
-  console.log(userExperienceData);
-  console.log(userEducationData);
-  const isLargeViewport = window.innerWidth >= 1024;
+  const userInputData = useSelector(selectUserData)
+  const userExperienceData = useSelector(selectExperienceData)
+  const userEducationData = useSelector(selectEducationData)
+  console.log(userInputData)
+  console.log(userExperienceData)
+  console.log(userEducationData)
+  const isLargeViewport = window.innerWidth >= 1024
   return (
     <div
       className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
       style={
         isLargeViewport
-          ? { transform: "scale(0.6)", marginTop: "100px", marginLeft: "200px" }
+          ? { transform: 'scale(0.6)', marginTop: '100px', marginLeft: '200px' }
           : {}
       }
     >
@@ -31,15 +31,15 @@ function MainTemplate() {
             <div className="mt-3">
               <button className="logo  p-4 bg-[#de8535] rounded-full ">
                 <span className="text-white text-lg lg:text-4xl  font-serif">
-                  {" "}
+                  {' '}
                   {userInputData && userInputData.firstName
                     ? userInputData.firstName[0]
-                    : "C"}
+                    : 'C'}
                 </span>
                 <span className="text-white text-lg lg:text-4xl font-serif">
-                  {userInputData && userInputData["last-name"]
-                    ? userInputData["last-name"][0]
-                    : "C"}{" "}
+                  {userInputData && userInputData['last-name']
+                    ? userInputData['last-name'][0]
+                    : 'C'}{' '}
                 </span>
               </button>
             </div>
@@ -48,12 +48,12 @@ function MainTemplate() {
               <div className="firstName text-[#de8535] font-serif text-xl lg:text-4xl">
                 {userInputData && userInputData.firstName
                   ? userInputData.firstName
-                  : "Chris"}
+                  : 'Chris'}
               </div>
               <div className="lastName text-[#de8535] font-serif text-xl lg:text-4xl">
-                {userInputData && userInputData["last-name"]
-                  ? userInputData["last-name"]
-                  : "Candidate"}
+                {userInputData && userInputData['last-name']
+                  ? userInputData['last-name']
+                  : 'Candidate'}
               </div>
               <div className="job-title w-[250px] text-[15px] lg:text-md font-serif ">
                 Human Resource Manager
@@ -64,36 +64,36 @@ function MainTemplate() {
               <div className="adress text-[15px]">
                 {userInputData && userInputData.address
                   ? userInputData.address
-                  : "Sunnydale Lane"}
+                  : 'Sunnydale Lane'}
               </div>
               <div className="adress-city  flex  gap-[5px]">
                 <div className="city text-[15px]">
                   {userInputData && userInputData.city
                     ? userInputData.city
-                    : "Plano"}
+                    : 'Plano'}
                 </div>
                 <div className="city-code text-[15px]">
-                  {userInputData && userInputData["city-code"]
-                    ? userInputData["city-code"]
-                    : "TX 75071"}
+                  {userInputData && userInputData['city-code']
+                    ? userInputData['city-code']
+                    : 'TX 75071'}
                 </div>
               </div>
               <div className="adress-state-country  flex   gap-[5px]">
                 <div className="state text-[15px]">
                   {userInputData && userInputData.state
                     ? userInputData.state
-                    : "Texas"}
+                    : 'Texas'}
                 </div>
                 <div className="country text-[15px]">
                   {userInputData && userInputData.country
                     ? userInputData.country
-                    : "USA"}
+                    : 'USA'}
                 </div>
               </div>
               <div className="email text-[15px]">
-                {userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "email@youremail.com"}
+                {userInputData && userInputData['email-address']
+                  ? userInputData['email-address']
+                  : 'email@youremail.com'}
               </div>
               {/* <div className="phone text-xs">{userInputData && userInputData.address ? userInputData.address : "(469) 385-2948"}</div> */}
             </div>
@@ -109,6 +109,9 @@ function MainTemplate() {
           regulations are followed.
         </p>
       </div>
+      <h1>Testing
+        This code is written to check another device setup
+      </h1>
       {/* Template body */}
       <div className=" ">
         <h1 className=" text-serif  text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
@@ -120,29 +123,28 @@ function MainTemplate() {
             userExperienceData.length > 0 &&
             userExperienceData[0].Job_Title
               ? userExperienceData[0].Job_Title
-              : "Manager"}
+              : 'Manager'}
           </h2>
           <div className="duration  text-gray-500 ">
             {userExperienceData &&
             userExperienceData.length > 0 &&
             userExperienceData[0].Company_Name
               ? userExperienceData[0].Company_Name
-              : "XYZ Company"}
-            {" | "}
+              : 'XYZ Company'}
+            {' | '}
             {userExperienceData &&
             userExperienceData.length > 0 &&
             userExperienceData[0].WrkStartDate
               ? userExperienceData[0].WrkStartDate
-              : "Start Date"}
+              : 'Start Date'}
             &nbsp; to &nbsp;
             {userExperienceData &&
             userExperienceData.length > 0 &&
             userExperienceData[0].WrkEndDate
               ? userExperienceData[0].WrkEndDate
-              : "End Date"}
+              : 'End Date'}
           </div>
         </div>
-
         {userExperienceData &&
         userExperienceData.length > 0 &&
         userExperienceData[0].description ? (
@@ -156,20 +158,20 @@ function MainTemplate() {
           <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
             <li className="list-item">
               Implement effective company policies to ensure that all practices
-              comply with labor and employment regulations{" "}
+              comply with labor and employment regulations{' '}
             </li>
             <li className="list-item">
               Increased employee retention rates by managing workplace
               satisfaction to an over 90% success rate by creating and
-              maintaining a positive work environment{" "}
+              maintaining a positive work environment{' '}
             </li>
             <li className="list-item">
               Develop targeted outreach practices to increase minority
-              recruitment and ensure compliance with affirmative action policies{" "}
+              recruitment and ensure compliance with affirmative action policies{' '}
             </li>
             <li className="list-item">
               Monitor scheduled in and out times as well as employee breaks to
-              ensure that proper employment laws are met{" "}
+              ensure that proper employment laws are met{' '}
             </li>
           </ul>
         )}
@@ -181,7 +183,7 @@ function MainTemplate() {
             userExperienceData.length > 1 &&
             userExperienceData[1].Job_Title
               ? userExperienceData[1].Job_Title
-              : "Human Resources Associate"}
+              : 'Human Resources Associate'}
           </h2>
           {/* <div className="duration text-[15px] text-gray-500">
             XYZ Company, City, State | June 2020 - Present
@@ -191,19 +193,19 @@ function MainTemplate() {
             userExperienceData.length > 1 &&
             userExperienceData[1].Company_Name
               ? userExperienceData[1].Company_Name
-              : "XYZ Company"}
-            {" | "}
+              : 'XYZ Company'}
+            {' | '}
             {userExperienceData &&
             userExperienceData.length > 1 &&
             userExperienceData[1].WrkStartDate
               ? userExperienceData[1].WrkStartDate
-              : "Start Date"}
+              : 'Start Date'}
             &nbsp; to &nbsp;
             {userExperienceData &&
             userExperienceData.length > 1 &&
             userExperienceData[1].WrkEndDate
               ? userExperienceData[1].WrkEndDate
-              : "End Date"}
+              : 'End Date'}
           </div>
         </div>
         {userExperienceData &&
@@ -219,16 +221,16 @@ function MainTemplate() {
           <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
             <li className="list-item">
               Implement effective company policies to ensure that all practices
-              comply with labor and employment regulations{" "}
+              comply with labor and employment regulations{' '}
             </li>
             <li className="list-item">
               Increased employee retention rates by managing workplace
               satisfaction to an over 90% success rate by creating and
-              maintaining a positive work environment{" "}
+              maintaining a positive work environment{' '}
             </li>
             <li className="list-item">
               Develop targeted outreach practices to increase minority
-              recruitment and ensure compliance with affirmative action policies{" "}
+              recruitment and ensure compliance with affirmative action policies{' '}
             </li>
           </ul>
         )}
@@ -242,7 +244,7 @@ function MainTemplate() {
             userEducationData.length > 0 &&
             userEducationData[0].degree
               ? userEducationData[0].degree
-              : "Masters in Human Resources "}
+              : 'Masters in Human Resources '}
           </h2>
           {/* <div className="duration text-[15px] text-gray-500">
             The University of Texas, Dallas | September 2007 - May 2011
@@ -252,19 +254,19 @@ function MainTemplate() {
             userEducationData.length > 0 &&
             userEducationData[0].schoolName
               ? userEducationData[0].schoolName
-              : "The University of Texas, Dallas "}
-            {" | "}
+              : 'The University of Texas, Dallas '}
+            {' | '}
             {userEducationData &&
             userEducationData.length > 0 &&
             userEducationData[0].startDate
               ? userEducationData[0].startDate
-              : "Start Date"}
-            {" - "}
+              : 'Start Date'}
+            {' - '}
             {userEducationData &&
             userEducationData.length > 0 &&
             userEducationData[0].endDate
               ? userEducationData[0].endDate
-              : "End Date"}
+              : 'End Date'}
           </div>
         </div>
         <ul className="text-[15px] text-gray-500 leading-5">
@@ -274,14 +276,16 @@ function MainTemplate() {
             userEducationData.length > 0 &&
             userEducationData[0].description
               ? userEducationData[0].description
-              : "Academic Awardee of AY 2007-2008"}
+              : 'Academic Awardee of AY 2007-2008'}
           </li>
         </ul>
         <div className="skills-div w-[100%]">
           <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
           </h1>
-          {userInputData && userInputData.skills && userInputData.skills.length > 0 ? (
+          {userInputData &&
+          userInputData.skills &&
+          userInputData.skills.length > 0 ? (
             userInputData.skills.map((skill, index) => (
               <ul
                 className="text-[15px] text-gray-500 lg:leading-[25px] pt-2 flex items-center  w-[40%]   "
@@ -340,7 +344,7 @@ function MainTemplate() {
                   />
                 </li>
               </ul>
-            );
+            )
           })}
         </>
       ) : null}
@@ -366,7 +370,7 @@ function MainTemplate() {
                   <span>{certificate.startDate}</span>
                 </div>
               </ul>
-            );
+            )
           })}
         </>
       ) : null}
@@ -388,7 +392,7 @@ function MainTemplate() {
                   {lan[0]} - {lan[1]}
                 </li>
               </ul>
-            );
+            )
           })}
         </>
       ) : null}
@@ -410,11 +414,11 @@ function MainTemplate() {
                   />
                 </li>
               </ul>
-            );
+            )
           })
         : null}
     </div>
-  );
+  )
 }
 
-export default MainTemplate;
+export default MainTemplate

@@ -1,22 +1,24 @@
-import { selectUserData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { useSelector } from "react-redux";
+import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { useSelector } from 'react-redux'
+import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
 function TemplateS2() {
-  const userInputData = useSelector(selectUserData);
-  const workData = ["Has worked in CISCO for 5 years", "work2", "work3"];
+  const userInputData = useSelector(selectUserData)
+  const userExperienceData = useSelector(selectExperienceData)
+  const workData = ['Has worked in CISCO for 5 years', 'work2', 'work3']
   const professionalSkill = [
-    "10th and 12th from XYZ School",
-    "4 years of B.Tech from ABC University",
-    "2 years of M.tech from PQR University",
-  ];
-  const techSkill = ["Frontend", "Backend", "Testing", "Devops"];
+    '10th and 12th from XYZ School',
+    '4 years of B.Tech from ABC University',
+    '2 years of M.tech from PQR University',
+  ]
+  const techSkill = ['Frontend', 'Backend', 'Testing', 'Devops']
 
   return (
     <>
       {/* <div
         className="a4-sheet w-[794px] h-[1122px] max-h-[1122px] overflow-y-auto bg-white flex mt-10"
       > */}
-            <div
-        className=" w-[794px] h-[1070px] max-h-[1070px] overflow-y-hidden bg-white flex border border-gray-200"
+      <div
+        className=" w-[794px] h-[1070px] max-h-[1070px] lg:overflow-y-auto bg-white flex border border-gray-200"
         // style={{ transform: "scale(0.7)", marginTop: "-150px" }}
       >
         <div className="left-box">
@@ -28,23 +30,25 @@ function TemplateS2() {
                   About Me
                 </h1>
                 {userInputData && userInputData.description ? (
-          userInputData.description
-        ) : (
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Libero quisquam modi suscipit hic deleniti totam sint tempore
-                  vel velit! Perspiciatis, molestias maiores totam, minima
-                  excepturi accusantium nesciunt deserunt suscipit illo officia
-                  eaque blanditiis. Deserunt eveniet veritatis, sunt, quos, quis
-                  provident possimus illo eligendi veniam est molestias? Dicta,
-                  quo quod. Repudiandae.
-                </p>
-        )}
+                  userInputData.description
+                ) : (
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Libero quisquam modi suscipit hic deleniti totam sint
+                    tempore vel velit! Perspiciatis, molestias maiores totam,
+                    minima excepturi accusantium nesciunt deserunt suscipit illo
+                    officia eaque blanditiis. Deserunt eveniet veritatis, sunt,
+                    quos, quis provident possimus illo eligendi veniam est
+                    molestias? Dicta, quo quod. Repudiandae.
+                  </p>
+                )}
               </div>
               <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
 
               <div className="Technical-skills  h-[150px] flex flex-wrap max-h-[150px] overflow-y-auto">
-                {userInputData && userInputData.skills && userInputData.skills.length>0? (
+                {userInputData &&
+                userInputData.skills &&
+                userInputData.skills.length > 0 ? (
                   userInputData.skills.map((skill, index) => (
                     <ul
                       className="pt-[15px]   flex items-center  ml-[35px]  w-[60%]  "
@@ -66,7 +70,7 @@ function TemplateS2() {
                           <p>{item}</p>
                           <div className="progressbox w-[150px] h-5 bg-white mb-2.5 rounded-[10px]" />
                         </div>
-                      );
+                      )
                     })}
                   </div>
                 )}
@@ -78,12 +82,14 @@ function TemplateS2() {
             </div>*/}
             {/* Adding additional sections based on userData */}
             {/* Languages */}
-            {userInputData && userInputData.language && userInputData.language.length>0? (
+            {userInputData &&
+            userInputData.language &&
+            userInputData.language.length > 0 ? (
               <>
                 <h1 className="text-center text-[40px] pt-2.5 text-3xl my-10">
                   Languages
                 </h1>
-                {userInputData.language.map((lan,index) => {
+                {userInputData.language.map((lan, index) => {
                   return (
                     <ul key={index} className="flex justify-center mb-[15px]">
                       <div className=" w-3 h-2.5 bg-[rgb(255,255,255)] m-2.5 rounded-[50px]" />
@@ -91,7 +97,7 @@ function TemplateS2() {
                         {lan[0]} - {lan[1]}
                       </li>
                     </ul>
-                  );
+                  )
                 })}
               </>
             ) : null}
@@ -99,10 +105,17 @@ function TemplateS2() {
         </div>
         <div className="right-box bg-white w-[400px] border-[50px_0px_20px_0px] border-solid border-t-[35px] border-b-[20px] border-[gold]">
           <h1 className="name-right pt-[45px] text-center text-[40px] ">
-            Saksham Gupta
+            {userInputData && userInputData.firstName
+              ? userInputData.firstName
+              : 'Saksham'}{' '}
+            {userInputData && userInputData['last-name']
+              ? userInputData['last-name']
+              : 'Gupta'}
           </h1>
           <h4 className="jobmain-right text-center pt-2.5">
-            MERN Stack Developer
+            {userExperienceData
+              ? userExperienceData[userExperienceData.length - 1].Job_Title
+              : 'MERN Stack Developer'}
           </h4>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           <br /> <br />
@@ -112,9 +125,9 @@ function TemplateS2() {
             </div>*/}
             <div className="valdetail text-end text-[15px] font-[Medium] mx-10 my-5">
               <p>
-                {userInputData && userInputData["email-address"]
-                  ? userInputData["email-address"]
-                  : "qRr0h@example.com"}
+                {userInputData && userInputData['email-address']
+                  ? userInputData['email-address']
+                  : 'qRr0h@example.com'}
               </p>
             </div>
             {/*<div className="valdetail text-end text-[15px] font-[Medium] mx-10 my-5">
@@ -125,25 +138,25 @@ function TemplateS2() {
               <p>
                 {userInputData && userInputData.address
                   ? userInputData.address
-                  : "S-2 330 Palm Heights"}
-                , 
+                  : 'S-2 330 Palm Heights'}
+                ,
                 {userInputData && userInputData.city
                   ? userInputData.city
-                  : "Hyderabad"}{" "}
+                  : 'Hyderabad'}{' '}
               </p>
               <p>
-              {userInputData && userInputData.state
+                {userInputData && userInputData.state
                   ? userInputData.state
-                  : "Telangana"}
-                  , 
-              {userInputData && userInputData.country
-                  ? userInputData.pincode
-                  : "India"}
+                  : 'Telangana'}
+                ,
+                {userInputData && userInputData.country
+                  ? userInputData.country
+                  : 'India'}
               </p>
               <p>
-              {userInputData && userInputData.citycode
+                {userInputData && userInputData.citycode
                   ? userInputData.citycode
-                  : "500072"}
+                  : '500072'}
               </p>
             </div>
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
@@ -159,29 +172,45 @@ function TemplateS2() {
                     <div className="flex boxboxbox"></div>
                     <p className="m-5">{item}</p>
                   </>
-                );
+                )
               })}
             </div>
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
-          <div className="Professional-skills ">
-            <h2 className="work-right text-center px-5 text-2xl">
-              Education 
-            </h2>
-            {professionalSkill.map((item) => {
+          <div className="Professional-skills">
+            <h2 className="work-right text-center px-5 text-2xl">Education</h2>
+            {/* {professionalSkill.map((item) => {
               return (
                 <>
                   <div className="flex boxboxbox"></div>
                   <p className="m-5">{item}</p>
                 </>
               );
-            })}
+            })} */}
+            <div>
+              <p className="my-2 mx-1 text-s">School Name: </p>
+              <p className="my-2 mx-1 text-s">School Location: </p>
+              <p className="my-2 mx-1 text-s">Start Date: </p>
+              <p className="my-2 mx-1 text-s">End Date: </p>
+              <p className="my-2 mx-1 text-s">Degree: </p>
+              <p className="my-2 mx-1 text-s">Field of Study: </p>
+              <div>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolorem consequuntur, aut debitis eum perferendis sapiente
+                  maxime ipsa necessitatibus minus, possimus eos, eligendi
+                  exercitationem voluptatem pariatur.
+                </p>
+              </div>
+            </div>
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           {/* Projects */}
-          {userInputData && userInputData.projects && userInputData.projects.length>0? (
+          {userInputData &&
+          userInputData.projects &&
+          userInputData.projects.length > 0 ? (
             <>
-              <h2 className=" text-center px-5 text-2xl">Projects</h2>
+              <h2 className=" text-center px-5 text-2xl mt-[30px]">Projects</h2>
               {userInputData.projects.map((project) => {
                 return (
                   <ul key={project.id} className="">
@@ -205,7 +234,7 @@ function TemplateS2() {
                       />
                     </li>
                   </ul>
-                );
+                )
               })}
             </>
           ) : null}
@@ -214,28 +243,31 @@ function TemplateS2() {
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           )}*/}
           {/* Certificates */}
-          {userInputData && userInputData.certificates && userInputData.certificates.length>0? (
+          {userInputData &&
+          userInputData.certificates &&
+          userInputData.certificates.length > 0 ? (
             <>
-              <h2 className=" text-center px-5 text-2xl">Certificates</h2>
-              {userInputData.certificates.map((certificate,index) => {
+              <h2 className=" text-center px-5 text-2xl mt-[30px]">
+                Certificates
+              </h2>
+              {userInputData.certificates.map((certificate, index) => {
                 return (
                   <ul
-                key={index}
-                className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
-              >
-                <h2 className="font-serif font-bold">{certificate.Certificate_Name}</h2>
-                <div className=" flex gap-[10px]">
-                <h3>{certificate.Institute}</h3> |
-                <span>{certificate.startDate}</span>
-                </div>
-              </ul>
-                );
+                    key={index}
+                    className="text-[15px] text-gray-500 leading-5  pt-2 flex gap-[10px]"
+                  >
+                    <h2 className="font-serif font-bold">
+                      {certificate.Certificate_Name}
+                    </h2>
+                    <div className=" flex gap-[10px]">
+                      <h3>{certificate.Institute}</h3> |
+                      <span>{certificate.startDate}</span>
+                    </div>
+                  </ul>
+                )
               })}
             </>
           ) : null}
-
-
-          
           {/* Custom Form */}
           {userInputData && userInputData.customData
             ? userInputData.customData.map((customData) => {
@@ -243,7 +275,7 @@ function TemplateS2() {
                   <>
                     <ul key={customData.id} className=" ">
                       <li className=" w-full ">
-                        <h2 className="text-center px-5 text-2xl">
+                        <h2 className="text-center px-5 text-2xl mt-[30px]">
                           {customData.Custom_Heading}
                         </h2>
                         <div
@@ -256,12 +288,12 @@ function TemplateS2() {
                     </ul>
                     {/* <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" /> */}
                   </>
-                );
+                )
               })
             : null}
         </div>
       </div>
     </>
-  );
+  )
 }
-export default TemplateS2;
+export default TemplateS2
