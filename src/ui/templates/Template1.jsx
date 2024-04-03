@@ -56,21 +56,24 @@ function Template1() {
                 ? userInputData.city
                 : 'Paris'}
             </p>
-            <p className="citycode">
-              {userInputData && userInputData['city-code']
-                ? userInputData['city-code']
-                : '12345'}
-            </p>
-            <p className="state">
-              {userInputData && userInputData.state
-                ? userInputData.state
-                : 'state'}
-            </p>
-            <p className="country">
+            <div className='flex flex-row'>
+              <p className="citycode">
+                {userInputData && userInputData['city-code']
+                  ? userInputData['city-code']
+                  : '12345'}
+              </p>
+              <p className="state">
+                {userInputData && userInputData.state
+                  ? userInputData.state
+                  : 'state'}
+              </p>
+              <p className="country">
               {userInputData && userInputData.country
                 ? userInputData.country
                 : 'Country'}
             </p>
+            </div>
+            
           </div>
         </div>
 
