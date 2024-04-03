@@ -1,9 +1,11 @@
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
 function TemplateS2() {
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
+  const userEducationData = useSelector(selectEducationData);
   const workData = ['Has worked in CISCO for 5 years', 'work2', 'work3']
   const professionalSkill = [
     '10th and 12th from XYZ School',
@@ -14,9 +16,7 @@ function TemplateS2() {
 
   return (
     <>
-      {/* <div
-        className="a4-sheet w-[794px] h-[1122px] max-h-[1122px] overflow-y-auto bg-white flex mt-10"
-      > */}
+      
       <div
         className=" w-[794px] h-[1070px] max-h-[1070px] lg:overflow-y-auto bg-white flex border border-gray-200"
         // style={{ transform: "scale(0.7)", marginTop: "-150px" }}
@@ -77,9 +77,7 @@ function TemplateS2() {
               </div>
             </div>
             <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
-            {/*<div className="oldexperience text-center text-[15px] font-[Medium] m-0 p-5">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione culpa fugit assumenda autem, quaerat, hic quis accusantium laboriosam libero ea doloribus temporibus non pariatur aut dolorum provident eaque laborum necessitatibus natus nostrum quam! Obcaecati provident, voluptatibus sed voluptate ex distinctio ipsum amet quis laborum sapiente consequuntur cum totam reiciendis veniam dignissimos nam fugiat minus soluta eius? Porro sed dignissimos commodi?</p>
-            </div>*/}
+            
             {/* Adding additional sections based on userData */}
             {/* Languages */}
             {userInputData &&
@@ -120,9 +118,6 @@ function TemplateS2() {
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           <br /> <br />
           <div className="contact-box">
-            {/*<div className='valdetail text-end text-[15px] font-[Medium] mx-10 my-5'>
-                    <p>+91 1234567890</p>
-            </div>*/}
             <div className="valdetail text-end text-[15px] font-[Medium] mx-10 my-5">
               <p>
                 {userInputData && userInputData['email-address']
@@ -130,9 +125,6 @@ function TemplateS2() {
                   : 'qRr0h@example.com'}
               </p>
             </div>
-            {/*<div className="valdetail text-end text-[15px] font-[Medium] mx-10 my-5">
-                    <p>https://github.com</p>
-          </div>*/}
 
             <div className="valdetail text-end text-[15px] font-[Medium] mx-10 my-5">
               <p>
@@ -165,44 +157,102 @@ function TemplateS2() {
             <h2 className="work-right text-center px-5 text-2xl">
               Work Experience
             </h2>
-            <div>
-              {workData.map((item) => {
-                return (
-                  <>
-                    <div className="flex boxboxbox"></div>
-                    <p className="m-5">{item}</p>
-                  </>
-                )
-              })}
+            {userExperienceData && userExperienceData.length > 0 ? (
+          <>
+            {userExperienceData.map((exp, index) => (
+              <div
+                key={index}
+                className="flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2 ">
+                  <h2>{exp.Job_Title}</h2>
+                  <span className="text-gray-500">
+                    {exp.Company_Name} | {exp.WrkStartDate} to {exp.WrkEndDate}
+                  </span>
+                </div>
+                <div
+                  className="text-gray-500"
+                  dangerouslySetInnerHTML={{
+                    __html: exp.description,
+                  }}
+                ></div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{'Manager'}</h2>
+              <div className="duration text-gray-500 ">
+                {'XYZ company'} | {'Start Date - End Date'}
+              </div>
             </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+          </>
+        )}
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           <div className="Professional-skills">
             <h2 className="work-right text-center px-5 text-2xl">Education</h2>
-            {/* {professionalSkill.map((item) => {
-              return (
-                <>
-                  <div className="flex boxboxbox"></div>
-                  <p className="m-5">{item}</p>
-                </>
-              );
-            })} */}
+            {userEducationData && userEducationData.length > 0 ? (
+          <>
+            {userEducationData.map((edu, index) => (
+              <div
+                key={index}
+                className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2">
+                  <h2>{edu.degree}</h2>
+                  <span className="text-[15px] text-gray-500">
+                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                  </span>
+                </div>
+
+                <div className="duration text-[15px] text-gray-500">
+                  {edu.description}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>
             <div>
-              <p className="my-2 mx-1 text-s">School Name: </p>
-              <p className="my-2 mx-1 text-s">School Location: </p>
-              <p className="my-2 mx-1 text-s">Start Date: </p>
-              <p className="my-2 mx-1 text-s">End Date: </p>
-              <p className="my-2 mx-1 text-s">Degree: </p>
-              <p className="my-2 mx-1 text-s">Field of Study: </p>
-              <div>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorem consequuntur, aut debitis eum perferendis sapiente
-                  maxime ipsa necessitatibus minus, possimus eos, eligendi
-                  exercitationem voluptatem pariatur.
-                </p>
+              <h2>{'Masters in Human Resources'}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                {'End Date'}
               </div>
             </div>
+            <div>
+              <h2>{'Masters in Human Resources'}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                {'End Date'}
+              </div>
+            </div>
+          </div>
+        )}
+
           </div>
           <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
           {/* Projects */}
@@ -238,10 +288,7 @@ function TemplateS2() {
               })}
             </>
           ) : null}
-          {/* <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" /> */}
-          {/*{userInputData && userInputData.projects && userInputData.projects.length>0 && (
-            <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" />
-          )}*/}
+          
           {/* Certificates */}
           {userInputData &&
           userInputData.certificates &&
@@ -286,7 +333,7 @@ function TemplateS2() {
                         />
                       </li>
                     </ul>
-                    {/* <hr className="my-4 w-4/5 bg-[aliceblue]  m-auto rounded-[70px] border-2 border-solid border-[aliceblue]" /> */}
+                    
                   </>
                 )
               })
