@@ -100,32 +100,38 @@ function Template3() {
       {/* colorless area  */}
       <div className="data-space">
         {/* About me  */}
-        <div className="about-me h-[380px] bg-[rgba(255,255,255,0.448)] w-[720px]">
-          <div className="about">
-            <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-              About me
-            </h2>
-            <div className="text-[17px] text-[rgb(84,84,84)] m-[15px]">
-              {userInputData && userInputData.description ? (
-                userInputData.description
-              ) : (
-                <p>
-                  Human resources generalist with 8 years of experience in HR,
-                  including hiring and terminating, disciplining employees and
-                  helping department managers improve employee performance.
-                  Worked with labor unions to negotiate compensation packages
-                  for workers. Organized new hire training initiatives as well
-                  as ongoing training to adhere to workplace safety standards.
-                  Worked with OSHA to ensure that all safety regulations are
-                  followed.
-                </p>
-              )}
+        <div className="about-me mb-[-50px] h-[380px] bg-[rgba(255,255,255,0.448)] w-[720px]">
+          <div>
+            <div className="about">
+              <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+                Experience
+              </h2>
+              <div className="text-[17px] text-[rgb(84,84,84)] m-[15px]">
+                {userInputData && userInputData.description ? (
+                  userInputData.description
+                ) : (
+                  <p>
+                    Human resources generalist with 8 years of experience in HR,
+                    including hiring and terminating, disciplining employees and
+                    helping department.
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className='flex flex-row ml-2 items-center justify-around'>
+              <p>Job Title</p>
+              <p>Company name</p>
+              <div>
+              <span>Start Date</span>
+              <span> - </span>
+              <span>End Date</span>
+              </div>
             </div>
           </div>
 
           <div className="professional-experience">
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-              Description
+              Education
             </h2>
             <p className="text-[17px] text-[rgb(84,84,84)] m-[15px]">
               Worked with labor unions to negotiate compensation packages for
@@ -164,7 +170,7 @@ function Template3() {
               <div className="skillarray">
                 {skillarray.map((item) => {
                   return (
-                    <div className="flex m-4 flex-row items-center">
+                    <div className="flex m-2 flex-row items-center">
                       <div className="w-[100px] h-3 bg-[rgb(99,133,255)] mx-2.5 my-0" />{' '}
                       <p>{item}</p>
                     </div>
