@@ -99,8 +99,7 @@ const CertificatesForm = () => {
       </div>
       {/* <div className=" p-4 border border-gray-300 mb-4 h-[170px] overflow-scroll"> */}
       <div className=" p-4  mb-4 w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  overflow-scroll">
-
-      {/* w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  */}
+        {/* w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]  */}
         {AddedCertificates.map((data, index) => {
           return (
             <div

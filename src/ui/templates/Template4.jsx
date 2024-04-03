@@ -1,8 +1,12 @@
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
+<<<<<<< HEAD:src/ui/templates/TemplateS2.jsx
 import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
 function TemplateS2() {
+=======
+function Template4() {
+>>>>>>> cc67239fe71c3156f6c1d24be351450efeaf3fca:src/ui/templates/Template4.jsx
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
   const userEducationData = useSelector(selectEducationData);
@@ -343,4 +347,4 @@ function TemplateS2() {
     </>
   )
 }
-export default TemplateS2
+export default Template4

@@ -115,7 +115,7 @@ const SkillsForm = () => {
             ></span>
             <span
               className="point cursor-pointer skill-rating-3 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel('65%')}
+              onClick={() => setSkillLevel('75%')}
             ></span>
             <span
               className="point  cursor-pointer skill-rating-4 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"

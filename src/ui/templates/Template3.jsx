@@ -2,7 +2,7 @@ import React from 'react'
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
-function TemplateS1() {
+function Template3() {
   const skillarray = ['Frontend', 'Bakcend', 'Python', 'C++']
   const EduDetails = [
     'Completed 10th and 12th from ICSE School',
@@ -311,4 +311,4 @@ function TemplateS1() {
   )
 }
 
-export default TemplateS1
+export default Template3
