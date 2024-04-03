@@ -3,13 +3,12 @@ import { useReactToPrint } from 'react-to-print'
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
 import MultiStepForm from '../components/Form/MultiForms/MultiStepForm.jsx'
-import TemplateS1 from './templates/TemplateS1.jsx'
-import TemplateS2 from './templates/TemplateS2.jsx'
-import TemplateD1 from './templates/TemplateD1Sidh.jsx'
-import TemplateD2 from './templates/TemplateD2.jsx'
-import TemplateD3 from './templates/TemplateD3.jsx'
-import MainTemplate from './templates/MainTemplate.jsx'
-import MainTemplate1 from './templates/MainTemplate copy.jsx'
+import Template3 from './templates/Template3.jsx'
+import Template4 from './templates/Template4.jsx'
+import Template1 from './templates/Template1.jsx'
+import Template2 from './templates/Template2.jsx'
+import Template5 from './templates/Template5.jsx'
+
 import template1 from '../assets/template1.png'
 import template2 from '../assets/template2.png'
 import template3 from '../assets/template3.png'
@@ -21,7 +20,7 @@ import { FaFileDownload } from 'react-icons/fa'
 
 function DesktopView() {
   const [popupVisible, setPopupVisible] = useState(false)
-  const [selectedTemplate, setSelectedTemplate] = useState('TemplateD1')
+  const [selectedTemplate, setSelectedTemplate] = useState('MainTemplate')
 
   // Pdf Download Part
   const pdfRef2 = useRef()
@@ -31,7 +30,6 @@ function DesktopView() {
     })
 
     return (
-     
       <button onClick={handlePrint} className="hidden lg:block mt-[20px]">
         {' '}
         <svg
@@ -45,7 +43,6 @@ function DesktopView() {
       </button>
     )
   }
- 
 
   const handleTemplateClick = (templateId) => {
     setSelectedTemplate(templateId)
@@ -56,50 +53,41 @@ function DesktopView() {
     setPopupVisible(false)
   }
 
-  
-
   const templates = [
     {
       id: 'TemplateD1',
       name: 'Template 1',
       image: template1,
-      component: TemplateD1,
+      component: Template1,
     },
     {
       id: 'TemplateD2',
       name: 'Template 2',
-      image: template2,
-      component: TemplateD2,
-    },
-    {
-      id: 'TemplateD3',
-      name: 'Template 3',
       image: template3,
-      component: TemplateD3,
+      component: Template2,
     },
     {
       id: 'TemplateS1',
-      name: 'Template 4',
+      name: 'Template 3',
       image: template5,
-      component: TemplateS1,
+      component: Template3,
     },
     {
       id: 'TemplateS2',
-      name: 'Template 5',
+      name: 'Template 4',
       image: template4,
-      component: TemplateS2,
+      component: Template4,
     },
     {
       id: 'MainTemplate',
-      name: 'Template 6',
+      name: 'Template 5',
       image: maintemplate,
-      component: MainTemplate,
+      component: Template5,
     },
   ]
 
   return (
     <div>
-      
       <div className="desktop-view flex flex-col max-w-8xl m-auto pt-[20px] mx-[30px]">
         <Header />
         <div className="flex flex-row">
@@ -116,20 +104,16 @@ function DesktopView() {
               <MultiStepForm />
             </div>
           </div>
-         
-          <div className=" w-[45%]  translate-y-36  overflow-scroll">
-          
 
+          <div className=" w-[45%]  translate-y-36  overflow-scroll">
             <div className="transform origin-top-left scale-[0.60]  ">
-            
               <div className="" ref={pdfRef2}>
-                {selectedTemplate === 'TemplateD1' && <TemplateD1 />}
-                {selectedTemplate === 'TemplateD2' && <TemplateD2 />}
-                {selectedTemplate === 'TemplateD3' && <TemplateD3 />}
-                {selectedTemplate === 'TemplateS1' && <TemplateS1 />}
-                {selectedTemplate === 'TemplateS2' && <TemplateS2 />}
-                {selectedTemplate === 'MainTemplate' && <MainTemplate />}
-                
+                {selectedTemplate === 'TemplateD1' && <Template1 />}
+
+                {selectedTemplate === 'TemplateD2' && <Template2 />}
+                {selectedTemplate === 'TemplateS1' && <Template3 />}
+                {selectedTemplate === 'TemplateS2' && <Template4 />}
+                {selectedTemplate === 'MainTemplate' && <Template5 />}
               </div>
               <PrintButton componentRef={pdfRef2} />
             </div>
@@ -139,7 +123,6 @@ function DesktopView() {
 
       <Footer />
 
-     
       {popupVisible && (
         <div className="z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className=" bg-white p-8 rounded-lg shadow-lg grid grid-cols-3 gap-4 h-[600px] w-[600px] relative">

@@ -72,8 +72,8 @@ const LanguageOption = ({ currList, updateList }) => {
 
         <button
           onClick={() => {
-            addItemList();
-            updateUserData(userInputData, inputLang);
+            addItemList()
+            updateUserData(userInputData, inputLang)
           }}
           className="bg-indigo-700 hidden  md:block text-white my-2 px-4 py-1 rounded-md  w-[80%]  md:w-auto"
         >
@@ -81,10 +81,10 @@ const LanguageOption = ({ currList, updateList }) => {
         </button>
       </div>
       <button
-        onClick={() => 
-          {addItemList()
-          updateUserData(userInputData, inputLang);}
-        }
+        onClick={() => {
+          addItemList()
+          updateUserData(userInputData, inputLang)
+        }}
         className="bg-indigo-700 md:hidden text-white py-2 px-4 rounded-md w-[90%] md:w-auto"
       >
         Add
@@ -126,7 +126,7 @@ const LanguageForm = () => {
   return (
     // <div >
     // <div className="p-4 my-8 border border-gray-300 h-auto w-[360px] md:w-[460px] lg:w-[550px] max-w-[590px]">
-     <div className="p-3 md:p-6  w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]    m-0 "> 
+    <div className="p-3 md:p-6  w-[350px]  md:w-auto  md:max-w-[500px] h-[100%] xl:h-[65%]    m-0 ">
       <h2 className="text-2xl font-semibold mb-3"> Add Languages.</h2>
       <div>
         <LanguageOption currList={languageList} updateList={setLangList} />

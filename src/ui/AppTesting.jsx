@@ -4,7 +4,7 @@ import jsPDF from 'jspdf'
 import Modal from './modal'
 import { useReactToPrint } from 'react-to-print'
 // import Trash from "./icons/Trash"
-import TemplateD1Sidh from './templates/TemplateD1Sidh.jsx'
+import Template1 from './templates/Template1.jsx'
 
 const PrintButton = ({ componentRef }) => {
   const handlePrint = useReactToPrint({
@@ -52,7 +52,7 @@ export default function App() {
       </button>
       <div className="scale-[0.70]">
         <div className="" ref={pdfRef2}>
-          <TemplateD1Sidh />
+          <Template1 />
         </div>
       </div>
       <button className="text-3xl" onClick={downloadPDF}>
@@ -66,7 +66,7 @@ export default function App() {
         <div className="text-center w-[400px] ">
           {/* <Trash size={56} className="mx-auto text-red-500" /> */}
           <div className="scale-[0.30]">
-            <TemplateD1Sidh />
+            <Template1 />
           </div>
         </div>
       </Modal>

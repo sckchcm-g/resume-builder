@@ -80,10 +80,7 @@ const CustomForm = () => {
       {/* Input Section */}
       <div>
         <h2 className="text-2xl font-semibold mb-3">Custom Section</h2>
-        <form
-                
-        onSubmit={handleSubmit(SubmitHandler)}>
-
+        <form onSubmit={handleSubmit(SubmitHandler)}>
           <label className="">Custom Heading</label>
           <input
             placeholder="Add Heading."

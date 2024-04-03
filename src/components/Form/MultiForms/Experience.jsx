@@ -85,40 +85,40 @@ const Experience = () => {
         {/* <form 
           className="flex flex-col md:flex-col "
           onSubmit={handleSubmit(sumbitData)}> */}
-      <form
-        className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6"
-        onSubmit={handleSubmit(sumbitData)}
-      >
-          <div className="sm:col-span-3">  
-              <div className="flex flex-col"> 
-                <label>Job Title</label>
-                <input
-                  className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  "
-                  placeholder="Job Title"
-                  autoComplete="off"
-                  type="text"
-                  {...register("Job_Title", {
-                    required: "Required!",
-                  })}
-                ></input>
-              </div>
-          </div>
-          <div className="sm:col-span-3"> 
-              <label>Company Name</label>
+        <form
+          className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6"
+          onSubmit={handleSubmit(sumbitData)}
+        >
+          <div className="sm:col-span-3">
+            <div className="flex flex-col">
+              <label>Job Title</label>
               <input
-                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%]"
-                placeholder="Company Name"
+                className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm  "
+                placeholder="Job Title"
                 autoComplete="off"
                 type="text"
-                {...register('Company_Name', {
+                {...register('Job_Title', {
                   required: 'Required!',
                 })}
               ></input>
+            </div>
+          </div>
+          <div className="sm:col-span-3">
+            <label>Company Name</label>
+            <input
+              className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-[100%]"
+              placeholder="Company Name"
+              autoComplete="off"
+              type="text"
+              {...register('Company_Name', {
+                required: 'Required!',
+              })}
+            ></input>
           </div>
 
           {/* 2 */}
           <div className="sm:col-span-3">
-          <div className="flex flex-col"> 
+            <div className="flex flex-col">
               <label>Start Date</label>
               <input
                 type="month"
@@ -128,12 +128,12 @@ const Experience = () => {
                 autoComplete="off"
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
               />
-              </div>
+            </div>
           </div>
 
           <div className="sm:col-span-3">
-          <div className="flex flex-col"> 
-            <label>End Date</label>
+            <div className="flex flex-col">
+              <label>End Date</label>
               <input
                 type="month"
                 name="WorkendDate"
@@ -142,7 +142,7 @@ const Experience = () => {
                 autoComplete="off"
                 className="border my-2 bg-slate-100 p-1 border-purple-400 rounded-sm w-auto"
               />
-              </div>
+            </div>
           </div>
 
           <div className="sm:col-span-6">
@@ -191,7 +191,7 @@ const Experience = () => {
               expDescription={e.description}
               deleteExpData={deleteExpData}
             />
-          );
+          )
         })}
       </div>
     </div>

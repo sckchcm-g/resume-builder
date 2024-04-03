@@ -38,7 +38,7 @@ export default function PersonaIInfo() {
       <p className="my-1.5 text-base leading-6 text-gray-500">
         Get started with the basics: your name and contact information
       </p>
-            <form
+      <form
         className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6"
         onSubmit={handleSubmit(sumbitData)}
       >
