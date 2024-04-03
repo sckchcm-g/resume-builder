@@ -188,12 +188,18 @@ function TemplateS2() {
               );
             })} */}
             <div>
-              <p className="my-2 mx-1 text-s">School Name: </p>
-              <p className="my-2 mx-1 text-s">School Location: </p>
-              <p className="my-2 mx-1 text-s">Start Date: </p>
-              <p className="my-2 mx-1 text-s">End Date: </p>
-              <p className="my-2 mx-1 text-s">Degree: </p>
-              <p className="my-2 mx-1 text-s">Field of Study: </p>
+              <div className='flex flex-row items-center justify-evenly mt-3 mb-3'>
+                <div>
+                  <p className="my-3 mx-2 text-s">School Name</p>
+                  <p className="my-3 mx-2 text-s">School Location</p>
+                  <p className="my-3 mx-2 text-s">Start Date</p>
+                </div>
+                <div>
+                  <p className="my-3 mx-2 text-s">End Date</p>
+                  <p className="my-3 mx-2 text-s">Degree</p>
+                  <p className="my-3 mx-2 text-s">Field of Study</p>
+                </div>
+              </div>
               <div>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
