@@ -85,35 +85,49 @@ function Template2() {
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-y-auto m-[38px] rounded-[25px]">
-          <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
-            Skills
-          </h2>
-          {userInputData &&
-          userInputData.skills &&
-          userInputData.skills.length > 0 ? (
-            userInputData.skills.map((skill, index) => (
-              <ul
-                className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
-                key={index}
-              >
-                <div
-                  className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
+        <div className='flex flex-row'>
+          <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] max-h-[200px] overflow-y-auto m-[38px] rounded-[25px]">
+            <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]">
+              Skills
+            </h2>
+            {userInputData &&
+            userInputData.skills &&
+            userInputData.skills.length > 0 ? (
+              userInputData.skills.map((skill, index) => (
+                <ul
+                  className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
+                  key={index}
                 >
-                  {skill[1]}
-                </div>
-                <li className="updated-skill  ">{skill[0]}</li>
+                  <div
+                    className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
+                  >
+                    {skill[1]}
+                  </div>
+                  <li className="updated-skill  ">{skill[0]}</li>
+                </ul>
+              ))
+            ) : (
+              <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px] mt-[-10px]">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node</li>
               </ul>
-            ))
-          ) : (
-            <ul className="text-[17px] text-[rgb(77,77,77)] m-[15px] mt-[-10px]">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Node</li>
-            </ul>
-          )}
+            )}
+          </div>
+          <div className='mt-[25px]'>
+            <p className='text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]'>Experience</p>
+            <div className='flex flex-row'>
+              <p className='ml-4'>Job Title</p>
+              <p className='ml-4'>Company name</p>
+              <p className='ml-4'>Start Date</p>
+              <p className='ml-4'>End Date</p>
+            </div>
+            <p className='text-[17px] text-[rgb(77,77,77)] m-[15px]'>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus enim autem deleniti. Cumque provident aliquid doloremque blanditiis repudiandae reprehenderit odio sapiente ea quaerat repellendus, unde vitae, reiciendis distinctio ratione dolorum!
+            </p>
+          </div>
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
