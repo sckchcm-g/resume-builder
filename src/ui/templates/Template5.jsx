@@ -1,27 +1,15 @@
 import React from 'react'
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
-//import { ProjectsTab } from "../../components/Form/MultiForms/ProjectsForm.jsx";
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
 
-function MainTemplate() {
+function Template5() {
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
   const userEducationData = useSelector(selectEducationData)
-  console.log(userInputData)
-  console.log(userExperienceData)
-  console.log(userEducationData)
-  const isLargeViewport = window.innerWidth >= 1024
   return (
-    <div
-      className="template main-template bg-white   lg:mt-[20px] w-[210mm] h-[297mm] lg:w-[210mm] lg:h-[297mm]  md:w-[1300px]  lg:max-h-[297mm] lg:overflow-auto lg:mb-[150px]   shadow-lg mx-[20px] px-[30px]  lg:px-[50px] lg:pb-[100px] shadow-[#9333ea] relative z-0 tracking-wider"
-      style={
-        isLargeViewport
-          ? { transform: 'scale(0.6)', marginTop: '100px', marginLeft: '200px' }
-          : {}
-      }
-    >
+    <div className="bg-white w-[210mm] h-[1120px]  lg:max-h-[1120px] lg:overflow-y-auto p-10 border border-gray-200 ">
       {/*Template Header */}
       <div className="header-wrapper pt-5  ">
         <header className="flex justify-between  ">
@@ -56,11 +44,13 @@ function MainTemplate() {
                   : 'Candidate'}
               </div>
               <div className="job-title w-[250px] text-[15px] lg:text-md font-serif ">
-                Human Resource Manager
+                {userExperienceData
+                  ? userExperienceData[userExperienceData.length - 1].Job_Title
+                  : 'Human Resource Manager'}
               </div>
             </div>
             {/* right */}
-            <div className="right  text-custom-orange absolute right-[60px]">
+            <div className="right  text-custom-orange ml-[180px]">
               <div className="adress text-[15px]">
                 {userInputData && userInputData.address
                   ? userInputData.address
@@ -95,190 +85,149 @@ function MainTemplate() {
                   ? userInputData['email-address']
                   : 'email@youremail.com'}
               </div>
-              {/* <div className="phone text-xs">{userInputData && userInputData.address ? userInputData.address : "(469) 385-2948"}</div> */}
             </div>
           </div>
         </header>
-        <p className="description text-[13px] leading-[20px] lg:text-[15px] lg:leading-[24px] text-gray-500 pt-4 leading-3">
-          Human resources generalist with 8 years of experience in HR, including
-          hiring and terminating, disciplining employees and helping department
-          managers improve employee performance. Worked with labor unions to
-          negotiate compensation packages for workers. Organized new hire
-          training initiatives as well as ongoing training to adhere to
-          workplace safety standards. Worked with OSHA to ensure that all safety
-          regulations are followed.
-        </p>
+        {userInputData && userInputData.description ? (
+          userInputData.description
+        ) : (
+          <p className="description text-[13px] leading-[20px] lg:text-[15px] lg:leading-[24px] text-gray-500 pt-4 leading-3">
+            Human resources generalist with 8 years of experience in HR,
+            including hiring and terminating, disciplining employees and helping
+            department managers improve employee performance. Worked with labor
+            unions to negotiate compensation packages for workers. Organized new
+            hire training initiatives as well as ongoing training to adhere to
+            workplace safety standards. Worked with OSHA to ensure that all
+            safety regulations are followed.
+          </p>
+        )}
       </div>
-      <h1>Testing
-        This code is written to check another device setup
-      </h1>
       {/* Template body */}
       <div className=" ">
         <h1 className=" text-serif  text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Professional Experience
         </h1>
-        <div className="exp-1 flex items-center w-[70%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          <h2>
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].Job_Title
-              ? userExperienceData[0].Job_Title
-              : 'Manager'}
-          </h2>
-          <div className="duration  text-gray-500 ">
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].Company_Name
-              ? userExperienceData[0].Company_Name
-              : 'XYZ Company'}
-            {' | '}
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].WrkStartDate
-              ? userExperienceData[0].WrkStartDate
-              : 'Start Date'}
-            &nbsp; to &nbsp;
-            {userExperienceData &&
-            userExperienceData.length > 0 &&
-            userExperienceData[0].WrkEndDate
-              ? userExperienceData[0].WrkEndDate
-              : 'End Date'}
-          </div>
-        </div>
-        {userExperienceData &&
-        userExperienceData.length > 0 &&
-        userExperienceData[0].description ? (
-          <div
-            className=""
-            dangerouslySetInnerHTML={{
-              __html: userExperienceData[0].description,
-            }}
-          ></div>
+        {userExperienceData && userExperienceData.length > 0 ? (
+          <>
+            {userExperienceData.map((exp, index) => (
+              <div
+                key={index}
+                className="flex-col justify-start  exp-1 flex items-start w-[70%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2 ">
+                  <h2>{exp.Job_Title}</h2>
+                  <span className="text-gray-500">
+                    {exp.Company_Name} | {exp.WrkStartDate} to {exp.WrkEndDate}
+                  </span>
+                </div>
+                <div
+                  className="text-gray-500"
+                  dangerouslySetInnerHTML={{
+                    __html: exp.description,
+                  }}
+                ></div>
+              </div>
+            ))}
+          </>
         ) : (
-          <ul className="text-[15px] text-gray-500 lg:leading-[25px] ">
-            <li className="list-item">
-              Implement effective company policies to ensure that all practices
-              comply with labor and employment regulations{' '}
-            </li>
-            <li className="list-item">
-              Increased employee retention rates by managing workplace
-              satisfaction to an over 90% success rate by creating and
-              maintaining a positive work environment{' '}
-            </li>
-            <li className="list-item">
-              Develop targeted outreach practices to increase minority
-              recruitment and ensure compliance with affirmative action policies{' '}
-            </li>
-            <li className="list-item">
-              Monitor scheduled in and out times as well as employee breaks to
-              ensure that proper employment laws are met{' '}
-            </li>
-          </ul>
-        )}
+          <>
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{'Manager'}</h2>
+              <div className="duration text-gray-500 ">
+                {'XYZ company'} | {'Start Date - End Date'}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
 
-        <div className="exp-2 flex items-center w-[70%] pt-[15px] gap-3 font-serif lg:w-[90%]">
-          {/* <h2>Human Resources Associate</h2> */}
-          <h2>
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].Job_Title
-              ? userExperienceData[1].Job_Title
-              : 'Human Resources Associate'}
-          </h2>
-          {/* <div className="duration text-[15px] text-gray-500">
-            XYZ Company, City, State | June 2020 - Present
-          </div> */}
-          <div className="duration  text-gray-500 ">
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].Company_Name
-              ? userExperienceData[1].Company_Name
-              : 'XYZ Company'}
-            {' | '}
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].WrkStartDate
-              ? userExperienceData[1].WrkStartDate
-              : 'Start Date'}
-            &nbsp; to &nbsp;
-            {userExperienceData &&
-            userExperienceData.length > 1 &&
-            userExperienceData[1].WrkEndDate
-              ? userExperienceData[1].WrkEndDate
-              : 'End Date'}
-          </div>
-        </div>
-        {userExperienceData &&
-        userExperienceData.length > 1 &&
-        userExperienceData[1].description ? (
-          <div
-            className=""
-            dangerouslySetInnerHTML={{
-              __html: userExperienceData[1].description,
-            }}
-          ></div>
-        ) : (
-          <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
-            <li className="list-item">
-              Implement effective company policies to ensure that all practices
-              comply with labor and employment regulations{' '}
-            </li>
-            <li className="list-item">
-              Increased employee retention rates by managing workplace
-              satisfaction to an over 90% success rate by creating and
-              maintaining a positive work environment{' '}
-            </li>
-            <li className="list-item">
-              Develop targeted outreach practices to increase minority
-              recruitment and ensure compliance with affirmative action policies{' '}
-            </li>
-          </ul>
+            <div className="exp-1 flex items-center w-[70%] gap-3 font-serif pt-2 lg:w-[100%]">
+              <h2>{'Manager'}</h2>
+              <div className="duration text-gray-500 ">
+                {'XYZ company'} | {'Start Date - End Date'}
+              </div>
+            </div>
+            <ul className="text-[15px] text-gray-500 lg:leading-[25px]">
+              <li className="list-item">
+                Implement effective company policies to ensure that all
+                practices comply with labor and employment regulations
+              </li>
+              <li className="list-item">
+                Increased employee retention rates by managing workplace
+                satisfaction to an over 90% success rate by creating and
+                maintaining a positive work environment
+              </li>
+              <li className="list-item">
+                Develop targeted outreach practices to increase minority
+                recruitment and ensure compliance with affirmative action
+                policies
+              </li>
+              <li className="list-item">
+                Monitor scheduled in and out times as well as employee breaks to
+                ensure that proper employment laws are met
+              </li>
+            </ul>
+          </>
         )}
         <h1 className="education text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2">
           Education
         </h1>
-        <div className="edu-1 flex items-center w-[80%]  gap-3  font-serif pt-2 lg:w-[100%]">
-          {/* <h2>Masters in Human Resources</h2> */}
-          <h2>
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].degree
-              ? userEducationData[0].degree
-              : 'Masters in Human Resources '}
-          </h2>
-          {/* <div className="duration text-[15px] text-gray-500">
-            The University of Texas, Dallas | September 2007 - May 2011
-          </div> */}
-          <div className="duration text-[15px] text-gray-500">
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].schoolName
-              ? userEducationData[0].schoolName
-              : 'The University of Texas, Dallas '}
-            {' | '}
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].startDate
-              ? userEducationData[0].startDate
-              : 'Start Date'}
-            {' - '}
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].endDate
-              ? userEducationData[0].endDate
-              : 'End Date'}
+        {userEducationData && userEducationData.length > 0 ? (
+          <>
+            {userEducationData.map((edu, index) => (
+              <div
+                key={index}
+                className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+              >
+                <div className="duration flex gap-x-2">
+                  <h2>{edu.degree}</h2>
+                  <span className="text-[15px] text-gray-500">
+                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                  </span>
+                </div>
+
+                <div className="duration text-[15px] text-gray-500">
+                  {edu.description}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div>
+            <div>
+              <h2>{'Masters in Human Resources'}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                {'End Date'}
+              </div>
+            </div>
+            <div>
+              <h2>{'Masters in Human Resources'}</h2>
+              <div className="duration text-[15px] text-gray-500">
+                {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                {'End Date'}
+              </div>
+            </div>
           </div>
-        </div>
-        <ul className="text-[15px] text-gray-500 leading-5">
-          {/* <li className="list-item">Academic Awardee of AY 2007-2008</li> */}
-          <li className="list-item">
-            {userEducationData &&
-            userEducationData.length > 0 &&
-            userEducationData[0].description
-              ? userEducationData[0].description
-              : 'Academic Awardee of AY 2007-2008'}
-          </li>
-        </ul>
+        )}
+
         <div className="skills-div w-[100%]">
           <h1 className="skills text-lg lg:text-2xl text-[#de8535] border-b-2 border-[#de8535] pt-2 ">
             Key Skills
@@ -421,4 +370,4 @@ function MainTemplate() {
   )
 }
 
-export default MainTemplate
+export default Template5

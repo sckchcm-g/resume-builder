@@ -5,14 +5,13 @@ import Navbar from './Navbar.jsx'
 import FormSection from '../components/Form/MultiForms/MultiStepForm.jsx'
 
 // Templates Import
-import TemplateS1 from './templates/TemplateS1.jsx'
+import Template3 from './templates/Template3.jsx'
 
-import TemplateD1Sidh from './templates/TemplateD1Sidh.jsx'
-import TemplateS2 from './templates/TemplateS2.jsx'
-import TemplateD1 from './templates/TemplateD1.jsx'
-import TemplateD2 from './templates/TemplateD2.jsx'
-import TemplateD3 from './templates/TemplateD3.jsx'
-import MainTemplate from './templates/MainTemplate.jsx'
+import Template1 from './templates/Template1.jsx'
+import Template4 from './templates/Template4.jsx'
+
+import Template2 from './templates/Template2.jsx'
+import Template5 from './templates/Template5.jsx'
 import template1 from '../assets/template1.png'
 import template2 from '../assets/template2.png'
 import template3 from '../assets/template3.png'
@@ -22,7 +21,7 @@ import maintemplate from '../assets/maintemplate.png'
 
 function AppLayout() {
   const [popupVisible, setPopupVisible] = useState(false)
-  const [selectedTemplate, setSelectedTemplate] = useState('TemplateD2')
+  const [selectedTemplate, setSelectedTemplate] = useState('MainTemplate')
   const [previewToggle, setPreviewToggle] = useState(false)
   const pdfRef2 = useRef()
   const handleTemplateClick = (templateId) => {
@@ -60,37 +59,32 @@ function AppLayout() {
       id: 'TemplateD1',
       name: 'Template 1',
       image: template1,
-      component: TemplateD1Sidh,
+      component: Template1,
     },
+
     {
       id: 'TemplateD2',
       name: 'Template 2',
-      image: template2,
-      component: TemplateD2,
-    },
-    {
-      id: 'TemplateD3',
-      name: 'Template 3',
       image: template3,
-      component: TemplateD3,
+      component: Template2,
     },
     {
       id: 'TemplateS1',
-      name: 'Template 4',
+      name: 'Template 3',
       image: template5,
-      component: TemplateS1,
+      component: Template3,
     },
     {
       id: 'TemplateS2',
-      name: 'Template 5',
+      name: 'Template 4',
       image: template4,
-      component: TemplateS2,
+      component: Template4,
     },
     {
       id: 'MainTemplate',
-      name: 'Template 6',
+      name: 'Template 5',
       image: maintemplate,
-      component: MainTemplate,
+      component: Template5,
     },
   ]
 
@@ -117,10 +111,8 @@ function AppLayout() {
                   id="temp"
                 >
                   <div ref={pdfRef2}>
-                    {/* <MainTemplate/> */}
                     <template.component />
                   </div>
-                  {/* <PrintButton componentRef={pdfRef2}/> */}
                 </div>
               </div>
 

@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
-import { selectEducationData } from "../../reduxToolkit/FormDataSlice.jsx";
-import { selectExperienceData } from "../../reduxToolkit/FormDataSlice.jsx";
+import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
+import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
 
-function TemplateD3() {
+function Template2() {
   const [count, setCount] = useState(0)
   const userInputData = useSelector(selectUserData)
-  const userEducationData = useSelector(selectEducationData);
-  const userExperienceData = useSelector(selectExperienceData);
-
+  const userEducationData = useSelector(selectEducationData)
+  const userExperienceData = useSelector(selectExperienceData)
 
   return (
     <div
@@ -121,54 +120,53 @@ function TemplateD3() {
         <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px] ">
           <div className="flex flex-col px-4 ">
             {/* <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]"> */}
-          <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] mt-2">
+            <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] mt-2">
               Education
             </h2>
             {/* <br/> */}
-          {/* <p className="m-[22px] ml-[-2px]">School name</p>
+            {/* <p className="m-[22px] ml-[-2px]">School name</p>
             <p className="m-[22px] ml-[-2px]">School location</p>
             <p className="m-[22px] ml-[-2px]">स्टार्ट एंड एन्ड date</p>
             <p className="m-[22px] ml-[-2px]">Degree and field of study</p> */}
 
-{userEducationData && userEducationData.length > 0 ? (
-          <>
-            {userEducationData.map((edu, index) => (
-              <div
-                key={index}
-                className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
-              >
-                <div className="duration flex gap-x-2">
-                  <h2>{edu.degree}</h2>
-                  <span className="text-[15px] text-gray-500">
-                    {edu.schoolName} | {edu.startDate} - {edu.endDate}
-                  </span>
-                </div>
+            {userEducationData && userEducationData.length > 0 ? (
+              <>
+                {userEducationData.map((edu, index) => (
+                  <div
+                    key={index}
+                    className="edu-1 flex-col justify-start  flex items-start w-[80%] gap-3 font-serif pt-2 lg:w-[100%]"
+                  >
+                    <div className="duration flex gap-x-2">
+                      <h2>{edu.degree}</h2>
+                      <span className="text-[15px] text-gray-500">
+                        {edu.schoolName} | {edu.startDate} - {edu.endDate}
+                      </span>
+                    </div>
 
-                <div className="duration text-[15px] text-gray-500">
-                  {edu.description}
+                    <div className="duration text-[15px] text-gray-500">
+                      {edu.description}
+                    </div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              <div>
+                <div>
+                  <h2>{'Masters in Human Resources'}</h2>
+                  <div className="duration text-[15px] text-gray-500">
+                    {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                    {'End Date'}
+                  </div>
+                </div>
+                <div>
+                  <h2>{'Masters in Human Resources'}</h2>
+                  <div className="duration text-[15px] text-gray-500">
+                    {'The University of Texas, Dallas '} | {'Start Date'} -{' '}
+                    {'End Date'}
+                  </div>
                 </div>
               </div>
-            ))}
-          </>
-        ) : (
-          <div>
-            <div>
-              <h2>{"Masters in Human Resources"}</h2>
-              <div className="duration text-[15px] text-gray-500">
-                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
-                {"End Date"}
-              </div>
-            </div>
-            <div>
-              <h2>{"Masters in Human Resources"}</h2>
-              <div className="duration text-[15px] text-gray-500">
-                {"The University of Texas, Dallas "} | {"Start Date"} -{" "}
-                {"End Date"}
-              </div>
-            </div>
-          </div>
-        )}
-
+            )}
           </div>
           {/* <p className="text-[17px] text-[rgb(77,77,77)] m-[15px]">devraj is a good person he is very good person Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore debitis sint saepe omnis porro alias fugiat animi expedita dolorem sapiente blanditiis voluptate aliquam, id repudiandae! Accusantium quos doloremque ab nostrum!</p> */}
         </div>
@@ -302,4 +300,4 @@ function TemplateD3() {
   )
 }
 
-export default TemplateD3
+export default Template2

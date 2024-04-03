@@ -1,7 +1,7 @@
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
-function TemplateS2() {
+function Template4() {
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
   const workData = ['Has worked in CISCO for 5 years', 'work2', 'work3']
@@ -296,4 +296,4 @@ function TemplateS2() {
     </>
   )
 }
-export default TemplateS2
+export default Template4
