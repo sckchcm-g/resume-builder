@@ -95,14 +95,14 @@ function Template2() {
             userInputData.skills.length > 0 ? (
               userInputData.skills.map((skill, index) => (
                 <ul
-                  className="pt-5 text-lg m-[15px] text-[rgb(252,255,250)] text-gray-500 leading-[25px]  flex items-center  w-[60%]   "
+                  className=" text-md m-[15px] text-[rgb(252,255,250)] text-gray-500   flex items-center  w-[60%]   "
                   key={index}
                 >
-                  <div
-                    className={`skillLevel w-[${skill[1]}] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
+                  <li
+                    className={`skillLevel w-[${skill[1]}%] p-[2px]  rounded-sm  bg-[#79a1c8] mr-[15px] text-white text-center text-[10px]`}
                   >
-                    {skill[1]}
-                  </div>
+                    {skill[1]}%
+                  </li>
                   <li className="updated-skill  ">{skill[0]}</li>
                 </ul>
               ))
@@ -131,7 +131,7 @@ function Template2() {
         </div>
 
         <hr className="w-[650px] border ml-[65px] mt-5 border-solid border-[rgb(1,63,107)]" />
-        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px] ">
+        <div className="bg-[rgba(255,255,255,0.448)] w-[720px] h-[200px] m-[38px] rounded-[25px] max-h-[200px] overflow-auto">
           <div className="flex flex-col px-4 ">
             {/* <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] m-[15px]"> */}
             <h2 className="text-[25px] font-[bold] text-[rgb(99,133,255)] mt-2">

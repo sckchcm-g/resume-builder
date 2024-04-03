@@ -1,12 +1,9 @@
 import { selectUserData } from '../../reduxToolkit/FormDataSlice.jsx'
 import { useSelector } from 'react-redux'
 import { selectExperienceData } from '../../reduxToolkit/FormDataSlice.jsx'
-<<<<<<< HEAD:src/ui/templates/TemplateS2.jsx
 import { selectEducationData } from '../../reduxToolkit/FormDataSlice.jsx'
-function TemplateS2() {
-=======
+
 function Template4() {
->>>>>>> cc67239fe71c3156f6c1d24be351450efeaf3fca:src/ui/templates/Template4.jsx
   const userInputData = useSelector(selectUserData)
   const userExperienceData = useSelector(selectExperienceData)
   const userEducationData = useSelector(selectEducationData);
@@ -58,11 +55,11 @@ function Template4() {
                       className="pt-[15px]   flex items-center  ml-[35px]  w-[60%]  "
                       key={index}
                     >
-                      <div
-                        className={`skillLevel w-[${skill[1]}] p-[3px]  rounded-lg  bg-white mr-[15px] text-[#ffd700] text-center text-[10px]`}
+                      <li
+                        className={`skillLevel w-[${skill[1]}%] p-[3px]  rounded-lg  bg-white mr-[15px] text-[#ffd700] text-center text-[10px]`}
                       >
                         {skill[1]}
-                      </div>
+                      </li>
                       <li className="updated-skill  ">{skill[0]}</li>
                     </ul>
                   ))

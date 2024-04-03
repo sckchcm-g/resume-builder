@@ -45,7 +45,7 @@ const SkillTag = ({ value, Id_num, array, setSkillArray }) => {
   return (
     <div className="flex justify-center align-middle mr-2  ">
       <h2 className="bg-purple-500 text-white inline-block rounded-md  my-1 p-2 w-auto">
-        {value}
+        {value}%
         <span
           className="cursor-pointer inline-block"
           onClick={(e) => {
@@ -75,7 +75,7 @@ const SkillsForm = () => {
   ]);*/
   }
   const [skillArray, setSkillArray] = useState([])
-  const [skillLevel, setSkillLevel] = useState('')
+  const [skillLevel, setSkillLevel] = useState(0)
   const [skillText, addSkill] = useState('')
   const dispatch = useDispatch()
   const userInputData = useSelector(selectUserData)
@@ -106,20 +106,20 @@ const SkillsForm = () => {
           <label className="Expertise text-lg">Expertise</label>
           <div className="skill-bar flex gap-[20px] items-center justify-center w-[130px]  h-[2px] bg-gray-300 relative z-0">
             <span
-              className="point cursor-pointer skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel('35%')}
+              className="point cursor-pointer skill-rating-1 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
+              onClick={() => setSkillLevel('40')}
             ></span>
             <span
               className="point  cursor-pointer skill-rating-2 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel('50%')}
+              onClick={() => setSkillLevel('50')}
             ></span>
             <span
               className="point cursor-pointer skill-rating-3 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel('75%')}
+              onClick={() => setSkillLevel('70')}
             ></span>
             <span
               className="point  cursor-pointer skill-rating-4 bg-[rgb(82,88,100)] p-[5px] rounded-lg inline-block  hover:bg-purple-500 hover:p-[7px]"
-              onClick={() => setSkillLevel('100%')}
+              onClick={() => setSkillLevel('100')}
             ></span>
           </div>
         </div>

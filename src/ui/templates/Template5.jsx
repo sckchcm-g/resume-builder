@@ -240,11 +240,11 @@ function Template5() {
                 className="text-[15px] text-gray-500 lg:leading-[25px] pt-2 flex items-center  w-[40%]   "
                 key={index}
               >
-                <div
-                  className={`skillLevel w-[${skill[1]}] p-[2px] text-white text-center text-[10px] rounded-sm  bg-[#de8535] mr-[15px]`}
+                <li
+                  className={`skillLevel w-[${skill[1]}%] p-[2px] text-white text-center text-[10px] rounded-sm  bg-[#de8535] mr-[15px]`}
                 >
                   {skill[1]}
-                </div>
+                </li>
                 <li className="updated-skill">{skill[0]}</li>
               </ul>
             ))
